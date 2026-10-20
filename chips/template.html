@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>籌碼選股</title>
+<meta name="description" content="每日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔,並追蹤推薦後績效。">
+<style>
+:root {
+  --bg: #f6f7f9; --card: #ffffff; --text: #1b1f24; --muted: #646d78; --line: #e3e6ea;
+  --accent: #2c5cc5; --accent-soft: #e8eefb; --up: #d0312d; --down: #128a45;
+  --warn-bg: #fff5e0; --warn-text: #7a4b00; --warn-line: #f0cf8a; --tag: #eef0f3;
+  --bar: #2c5cc5; --bar2: #6b8fe0; --bar3: #9db4ec; --bar4: #c5d3f4; --bar5: #e0a52e;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1216; --card: #171b21; --text: #e6e9ed; --muted: #97a0ab; --line: #2a3038;
+    --accent: #7ea2f0; --accent-soft: #1d2840; --up: #ff6b63; --down: #3ccf7d;
+    --warn-bg: #2e2412; --warn-text: #f2cf8a; --warn-line: #5c4518; --tag: #232933;
+    --bar: #7ea2f0; --bar2: #5b80d0; --bar3: #435f9e; --bar4: #34497a; --bar5: #e0a52e;
+  }
+}
+:root[data-theme="dark"] {
+    --bg: #0f1216; --card: #171b21; --text: #e6e9ed; --muted: #97a0ab; --line: #2a3038;
+    --accent: #7ea2f0; --accent-soft: #1d2840; --up: #ff6b63; --down: #3ccf7d;
+    --warn-bg: #2e2412; --warn-text: #f2cf8a; --warn-line: #5c4518; --tag: #232933;
+    --bar: #7ea2f0; --bar2: #5b80d0; --bar3: #435f9e; --bar4: #34497a; --bar5: #e0a52e;
+  }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.6 -apple-system, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+a { color: var(--accent); }
+.wrap { max-width: 980px; margin: 0 auto; padding: 0 16px 48px; }
+.notice { background: var(--warn-bg); color: var(--warn-text); border-bottom: 1px solid var(--warn-line);
+  font-size: 13px; padding: 8px 16px; text-align: center; }
+header { padding: 24px 0 8px; }
+h1 { font-size: 24px; margin: 0 0 4px; }
+h2 { font-size: 19px; margin: 36px 0 12px; }
+.sub { color: var(--muted); margin: 0; }
+nav { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 0; }
+nav a { text-decoration: none; font-size: 14px; padding: 4px 10px; border-radius: 99px; background: var(--card);
+  border: 1px solid var(--line); color: var(--text); }
+.indices { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 18px; }
+.idx { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+.idx .n { color: var(--muted); font-size: 13px; }
+.idx .v { font-size: 20px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.up { color: var(--up); } .down { color: var(--down); }
+.weak { margin-top: 12px; background: var(--warn-bg); color: var(--warn-text); border: 1px solid var(--warn-line);
+  border-radius: 10px; padding: 10px 14px; font-size: 14px; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+.seg { display: inline-flex; background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.seg button { border: 0; background: none; color: var(--text); padding: 6px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+.seg button.on { background: var(--accent); color: #fff; }
+select { font: inherit; font-size: 14px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--line);
+  background: var(--card); color: var(--text); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 14px; }
+.stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; }
+.stat .n { color: var(--muted); font-size: 12px; } .stat .v { font-size: 18px; font-weight: 600; }
+.meta { color: var(--muted); font-size: 13px; margin: -4px 0 12px; }
+.cards { display: grid; gap: 10px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+.row1 { display: flex; align-items: baseline; gap: 10px; }
+.rank { font-weight: 700; color: var(--muted); min-width: 22px; }
+.name { font-weight: 600; font-size: 16px; }
+.code { color: var(--muted); font-size: 13px; }
+.score { margin-left: auto; font-size: 20px; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+.row2 { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 14px; margin: 4px 0 6px; font-variant-numeric: tabular-nums; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0; }
+.tag { background: var(--accent-soft); color: var(--accent); font-size: 12px; padding: 1px 8px; border-radius: 99px; }
+.bar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; background: var(--tag); margin: 8px 0 6px; }
+.bar span { display: block; height: 100%; }
+.reason { color: var(--muted); font-size: 13px; margin: 0; }
+.perfline { font-size: 13px; margin-top: 6px; display: flex; flex-wrap: wrap; gap: 4px 14px; font-variant-numeric: tabular-nums; }
+.perfline b { font-weight: 500; color: var(--muted); }
+table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+  overflow: hidden; font-variant-numeric: tabular-nums; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--line); text-align: right; font-size: 14px; }
+th:first-child, td:first-child { text-align: left; }
+th { color: var(--muted); font-weight: 500; font-size: 13px; }
+tr:last-child td { border-bottom: 0; }
+.tablewrap { overflow-x: auto; }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+.prose { color: var(--text); font-size: 14px; }
+.prose li { margin: 4px 0; }
+.empty { color: var(--muted); padding: 24px; text-align: center; background: var(--card); border: 1px dashed var(--line); border-radius: 12px; }
+footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
+footer ol { padding-left: 20px; }
+</style>
+</head>
+<body>
+<div class="notice">本站非證券投資顧問事業,內容僅為公開資料整理與規則篩選,不構成投資建議。<a href="#disclaimer">完整免責聲明</a></div>
+<div class="wrap">
+  <header>
+    <h1>籌碼選股</h1>
+    <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
+    <nav>
+      <a href="#picks">今日推薦</a><a href="#exits">出場訊號</a><a href="#daytrade">當沖</a><a href="#perf">績效</a><a href="#method">評分方式</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+    </nav>
+    <div class="indices" id="indices"></div>
+    <div id="weak"></div>
+  </header>
+
+  <section id="picks">
+    <h2>推薦名單</h2>
+    <div class="toolbar">
+      <div class="seg" id="mk"></div>
+      <select id="date" aria-label="選擇日期"></select>
+      <div class="seg" id="sort"></div>
+    </div>
+    <div class="stats" id="daystats"></div>
+    <p class="meta" id="daymeta"></p>
+    <div class="legend">
+      <span><i style="background:var(--bar)"></i>法人當日</span><span><i style="background:var(--bar2)"></i>法人 5 日</span>
+      <span><i style="background:var(--bar3)"></i>連買</span><span><i style="background:var(--bar4)"></i>融資</span>
+      <span><i style="background:var(--bar5)"></i>千張大戶</span>
+    </div>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <section id="exits">
+    <h2>出場訊號</h2>
+    <p class="meta">每一筆推薦都當成一筆交易:推薦日的隔日開盤進場,每天收盤後檢查,<b>第一次亮燈</b>就在下一個交易日開盤出場;持有滿 20 日沒亮燈則當天收盤出場。亮燈條件:跌 7% 停損、法人連 2 日賣超、連 2 日收在 10 日均線之下、千張大戶週減 0.5 個百分點以上(只看進場後公布的新週別)。持有中再次被推薦不另開新倉,只記次數。依規則提醒,不是買賣建議。</p>
+    <div class="toolbar"><div class="seg" id="exitf"></div></div>
+    <div class="stats" id="exitstats"></div>
+    <div class="tablewrap"><table id="exittable"></table></div>
+  </section>
+
+  <section id="daytrade">
+    <h2>當沖熱門標的</h2>
+    <p class="meta" id="dtdesc"></p>
+    <div class="toolbar"><div class="seg" id="dtside"></div></div>
+    <div class="stats" id="dtstats"></div>
+    <div class="tablewrap"><table id="dttable"></table></div>
+    <p class="meta" style="margin-top:8px">上市、上櫃合併排名。候選須為當沖標的、當日成交 2,000 張以上、股價 10 元以上。「隔日沖賣壓」為公開資料推估(漲 5% 以上、量增 2 倍以上、收在高點附近、法人沒買),不是券商分點資料。當沖風險很高,名單只是規則篩選的參考。</p>
+  </section>
+
+  <section id="perf">
+    <h2>推薦績效</h2>
+    <p class="meta">推薦日的下一個交易日開盤買進,持有 1 / 5 / 20 個交易日後以收盤價計算(未計手續費與稅)。超額報酬 = 個股報酬 − 同期間 0050(上市)或 006201(上櫃)報酬。</p>
+    <div class="toolbar"><div class="seg" id="perfmk"></div></div>
+    <div class="tablewrap"><table id="perftable"></table></div>
+    <p class="meta" id="perfmeta" style="margin-top:8px"></p>
+    <h3 style="font-size:16px;margin:24px 0 8px">出場規則比較</h3>
+    <p class="meta" id="cmpmeta"></p>
+    <div class="tablewrap"><table id="cmptable"></table></div>
+  </section>
+
+  <section id="method">
+    <h2>評分方式</h2>
+    <div class="tablewrap"><table>
+      <tr><th>項目</th><th>計算</th><th>權重</th></tr>
+      <tr><td>法人當日</td><td>當日三大法人買超 ÷ 5 日均量</td><td>25</td></tr>
+      <tr><td>法人 5 日</td><td>5 日累計買超 ÷(5 日均量 × 5)</td><td>25</td></tr>
+      <tr><td>連買</td><td>外資連買天數 + 投信連買天數 × 1.5</td><td>10</td></tr>
+      <tr><td>融資</td><td>融資減少張數 ÷ 5 日均量</td><td>15</td></tr>
+      <tr><td>千張大戶</td><td>持股比例週增減:+1 個百分點以上滿分、−1 以下 0 分</td><td>25</td></tr>
+    </table></div>
+    <ul class="prose">
+      <li>前四項在同一市場內換算成百分位(贏過多少比例的股票)再乘上權重;千張大戶用週增減的絕對值計分。</li>
+      <li>只計普通股,5 日均量 1,000 張以上、股價 10 元以上;當日三大法人須為買超。</li>
+      <li>先以法人、連買、融資取每個市場前 50 名,再加入千張大戶分數排出前 20 名。上市、上櫃分開排名。</li>
+      <li>融資資料約晚上 9 點半公布;尚未公布時融資項不計分,其餘權重等比例放大。</li>
+      <li>千張大戶 = 集保股權分散表持股 1,000,001 股以上,每週更新一次。</li>
+      <li>大盤偏弱提醒:指數跌 1% 以上、外資加投信合計賣超、法人買超家數佔比低於 40%,三項符合兩項以上時顯示。</li>
+      <li>分數是相對排名,大盤再弱也會選出 20 檔,請搭配偏弱提醒與績效一起看。</li>
+    </ul>
+  </section>
+
+  <section id="sources">
+    <h2>資料來源</h2>
+    <ul class="prose">
+      <li>臺灣證券交易所:三大法人買賣超、每日收盤行情、融資融券餘額</li>
+      <li>證券櫃檯買賣中心:上櫃三大法人、收盤行情、融資融券、櫃買指數</li>
+      <li>臺灣集中保管結算所:集保戶股權分散表(每週)</li>
+    </ul>
+    <p class="meta" id="updated"></p>
+  </section>
+
+  <footer id="disclaimer">
+    <h2>免責聲明</h2>
+    <ol>
+      <li>本站及其製作者並非證券投資顧問事業,亦未收取任何費用或報酬。本站內容不屬於證券投資分析建議。</li>
+      <li>本站所稱「推薦」名單,均為依公開資料與固定規則自動篩選、排序之結果,僅供研究與學習參考,不構成買賣任何有價證券之要約、招攬、建議或保證。</li>
+      <li>資料取自臺灣證券交易所、證券櫃檯買賣中心、臺灣集中保管結算所之公開資訊,不保證正確、完整與即時,一切以各機構官方公告為準。</li>
+      <li>投資有風險,過去表現不代表未來績效。績效數字為依規則推算,未計交易成本與滑價。投資人應自行判斷並承擔一切投資決策之結果。</li>
+    </ol>
+  </footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+const $ = (id) => document.getElementById(id);
+const fmt = (n, d = 0) => n == null ? "—" : Number(n).toLocaleString("zh-TW", { minimumFractionDigits: d, maximumFractionDigits: d });
+const pct = (n) => n == null ? "—" : `${n > 0 ? "+" : ""}${n.toFixed(2)}%`;
+const cls = (n) => n > 0 ? "up" : n < 0 ? "down" : "";
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const WD = "日一二三四五六";
+const state = { market: "上市", date: null, sort: "score", perfMk: "全部", dtSide: "long", exitF: "exiting" };
+try { const m = localStorage.getItem("mk"); if (m) state.market = m; } catch (e) {}
+
+function seg(el, opts, key, onChange) {
+  el.innerHTML = opts.map(([v, label]) => `<button data-v="${v}" class="${state[key] === v ? "on" : ""}">${label}</button>`).join("");
+  el.onclick = (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    state[key] = b.dataset.v; seg(el, opts, key, onChange); onChange();
+  };
+}
+
+function dayDoc() { return DATA.days.find((d) => d.date === state.date) || DATA.days[0]; }
+
+function renderHeader(doc) {
+  const d = new Date(doc.date + "T00:00:00");
+  $("subtitle").textContent = `${doc.date.replace(/-/g, "/")} 週${WD[d.getDay()]} 盤後・上市 ${doc.universe["上市"] || 0} 檔、上櫃 ${doc.universe["上櫃"] || 0} 檔符合條件`;
+  $("indices").innerHTML = ["上市", "上櫃"].filter((m) => doc.indices[m]).map((m) => {
+    const x = doc.indices[m];
+    return `<div class="idx"><div class="n">${x.name}</div><div class="v">${fmt(x.close, 2)}</div>
+      <div class="${cls(x.chg)}">${x.chg > 0 ? "▲" : x.chg < 0 ? "▼" : ""}${fmt(Math.abs(x.chg), 2)}(${pct(x.chgPct)})</div></div>`;
+  }).join("");
+  const weak = ["上市", "上櫃"].filter((m) => doc.weak && doc.weak[m] && doc.weak[m].weak);
+  $("weak").innerHTML = weak.length ? `<div class="weak">⚠ ${weak.join("、")}今日籌碼偏弱:推薦名單是相對排名,請留意整體風險。
+    ${weak.map((m) => { const w = doc.weak[m]; return `<br>${m}:指數 ${pct(w.indexChgPct)},外資+投信 ${fmt(w.fiAmount, 1)} 億,法人買超家數佔 ${(w.buyRatio * 100).toFixed(0)}%`; }).join("")}</div>` : "";
+}
+
+function renderPicks() {
+  const doc = dayDoc();
+  renderHeader(doc);
+  const perfDay = (DATA.perf && DATA.perf.days[doc.date]) || {};
+  let list = doc.picks.filter((p) => state.market === "全部" || p.market === state.market);
+  const key = { score: (p) => -p.score, chg: (p) => -p.chgPct, vol: (p) => -p.volume }[state.sort];
+  list = [...list].sort((a, b) => key(a) - key(b));
+  const ups = list.filter((p) => p.chgPct > 0).length, downs = list.filter((p) => p.chgPct < 0).length;
+  const avg = list.length ? list.reduce((s, p) => s + p.score, 0) / list.length : 0;
+  $("daystats").innerHTML = [["推薦檔數", list.length], ["平均分數", avg.toFixed(1)], ["上漲 / 下跌", `${ups} / ${downs}`]]
+    .map(([n, v]) => `<div class="stat"><div class="n">${n}</div><div class="v">${v}</div></div>`).join("");
+  const notes = [`集保週別 ${doc.tdccWeek || "—"}${doc.tdccPrevWeek ? `(對比 ${doc.tdccPrevWeek})` : ""}`];
+  if (doc.marginPending.length) notes.push(`${doc.marginPending.join("、")}融資資料尚未公布,融資項暫不計分`);
+  $("daymeta").textContent = notes.join(";");
+  if (!list.length) { $("cards").innerHTML = `<div class="empty">這一天沒有符合條件的股票</div>`; return; }
+  const W = doc.weights;
+  const colors = { inst1: "var(--bar)", inst5: "var(--bar2)", streak: "var(--bar3)", margin: "var(--bar4)", big: "var(--bar5)" };
+  $("cards").innerHTML = list.map((p, i) => {
+    const pf = perfDay[p.code];
+    const bar = Object.keys(colors).map((k) => `<span style="width:${p.parts[k]}%;background:${colors[k]}" title="${k} ${p.parts[k]}"></span>`).join("");
+    const perf = pf ? `<div class="perfline"><span><b>隔日開盤</b> ${fmt(pf.entry, 2)}</span>${DATA.perf.horizons.map((n) =>
+      `<span><b>${n} 日</b> <span class="${cls(pf["r" + n])}">${pct(pf["r" + n])}</span>${pf["x" + n] != null ? `<span class="meta">(超額 ${pct(pf["x" + n])})</span>` : ""}</span>`).join("")}</div>` : "";
+    return `<article class="card">
+      <div class="row1"><span class="rank">${state.sort === "score" && state.market !== "全部" ? p.rank : i + 1}</span>
+        <span class="name">${esc(p.name)}</span><span class="code">${p.code}・${p.market}</span><span class="score">${p.score.toFixed(0)}</span></div>
+      <div class="row2"><span>收盤 <b>${fmt(p.close, 2)}</b></span><span class="${cls(p.chgPct)}">${pct(p.chgPct)}</span>
+        <span>成交 ${fmt(p.volume)} 張</span><span>法人 <span class="${cls(p.instNet)}">${p.instNet > 0 ? "+" : ""}${fmt(p.instNet)}</span> 張</span></div>
+      ${p.tags.length ? `<div class="tags">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
+      <div class="bar">${bar}</div>
+      <p class="reason">${esc(p.reason)}</p>${perf}</article>`;
+  }).join("");
+}
+
+function renderExits() {
+  const all = DATA.days[0].exits || [];
+  const count = (st) => all.filter((x) => x.status === st).length;
+  $("exitstats").innerHTML = [["今晚亮燈", count("exiting")], ["持有中", count("open")], ["近 5 日已出場", count("closed")]]
+    .map(([n, v]) => `<div class="stat"><div class="n">${n}</div><div class="v">${v}</div></div>`).join("");
+  const list = all.filter((x) => x.status === state.exitF);
+  const empty = { exiting: "今晚沒有亮燈的股票", open: "目前沒有持有中的股票", closed: "近 5 日沒有出場的股票" }[state.exitF];
+  if (!list.length) { $("exittable").innerHTML = `<tr><td>${all.length ? empty : "尚無追蹤資料"}</td></tr>`; return; }
+  const d = (s) => s ? s.slice(5).replace("-", "/") : "—";
+  const warn = (t) => `<span class="tag" style="background:var(--warn-bg);color:var(--warn-text)">${esc(t)}</span>`;
+  const head = state.exitF === "closed"
+    ? `<th>股票</th><th>推薦日</th><th>進場價</th><th>亮燈日</th><th>出場日</th><th>出場價</th><th>報酬</th><th>持有</th><th style="text-align:left">原因</th>`
+    : `<th>股票</th><th>推薦日</th><th>進場價</th><th>收盤</th><th>報酬</th><th>持有</th><th style="text-align:left">${state.exitF === "exiting" ? "亮燈原因(明日開盤出場)" : "狀態"}</th>`;
+  $("exittable").innerHTML = `<tr>${head}</tr>` + list.map((x) => {
+    const stock = `<td>${esc(x.name)} <span class="code">${x.code}</span></td><td>${d(x.pickedOn)}${x.times > 1 ? ` <span class="code">×${x.times}</span>` : ""}</td><td>${fmt(x.entry, 2)}</td>`;
+    if (state.exitF === "closed") return `<tr>${stock}<td>${d(x.signalDate)}</td><td>${d(x.exitDate)}</td><td>${fmt(x.exit, 2)}</td>
+      <td class="${cls(x.ret)}">${pct(x.ret)}</td><td>${x.held} 日</td><td style="text-align:left">${x.reasons.map(warn).join(" ")}</td></tr>`;
+    return `<tr>${stock}<td>${fmt(x.close, 2)}</td><td class="${cls(x.ret)}">${pct(x.ret)}</td><td>${x.held} 日</td>
+      <td style="text-align:left">${x.reasons.length ? x.reasons.map(warn).join(" ") : `<span class="meta">續抱</span>`}</td></tr>`;
+  }).join("");
+}
+
+function renderCompare() {
+  const c = DATA.perf && DATA.perf.exitCompare;
+  if (!c || !c.results.length || !c.results[0].n) { $("cmptable").innerHTML = `<tr><td>樣本不足</td></tr>`; return; }
+  $("cmpmeta").textContent = `用 ${c.picksFrom} ~ ${c.picksTo} 的推薦(已滿 ${c.evalDays} 個交易日)比較各組出場規則;為了樣本一致,所有規則最多持有 ${c.evalDays} 日。未計手續費與稅。`;
+  $("cmptable").innerHTML = `<tr><th>出場規則</th><th>樣本</th><th>平均報酬</th><th>勝率</th><th>超額報酬</th><th>平均持有</th><th>最差一筆</th><th style="text-align:left">出場原因</th></tr>` +
+    c.results.map((r) => `<tr><td>${esc(r.name)}</td><td>${fmt(r.n)}</td><td class="${cls(r.avg)}">${pct(r.avg)}</td><td>${r.winRate}%</td>
+      <td class="${cls(r.excess)}">${pct(r.excess)}</td><td>${r.avgHeld} 日</td><td class="${cls(r.worst)}">${pct(r.worst)}</td>
+      <td style="text-align:left;font-size:12px" class="meta">${Object.entries(r.reasons).map(([k, v]) => `${k} ${v}`).join("、")}</td></tr>`).join("");
+}
+
+function renderDayTrade() {
+  const doc = dayDoc();
+  const dt = doc.dayTrade;
+  $("dtdesc").textContent = state.dtSide === "long"
+    ? "做多「強勢續攻」:今天上漲、收在高點、三大法人買超,而且量增、週轉率與當沖比率高。分數 = 漲幅 20 + 收盤位置 15 + 法人買超佔量 20 + 量增 15 + 週轉率 20 + 當沖比率 10。"
+    : "做空「隔日沖賣壓」:今天上漲、法人沒有買超、可先賣後買。分數 = 漲幅 20 + 收盤位置 10 + 法人越少買越高 20 + 量增 20 + 週轉率 20 + 當沖比率 10。不足 20 檔時以「弱勢續跌」補足。";
+  const s = DATA.perf && DATA.perf.dayTrade && DATA.perf.dayTrade.summary[state.dtSide];
+  $("dtstats").innerHTML = s && s.n ? [["回測樣本", fmt(s.n)], ["隔日勝率", `${s.winRate}%`], ["隔日平均", `<span class="${cls(s.avg)}">${pct(s.avg)}</span>`]]
+    .map(([n, v]) => `<div class="stat"><div class="n">${n}</div><div class="v">${v}</div></div>`).join("") : "";
+  const list = dt ? dt[state.dtSide] : [];
+  if (!list.length) { $("dttable").innerHTML = `<tr><td>這一天沒有當沖資料</td></tr>`; return; }
+  const res = (DATA.perf && DATA.perf.dayTrade && DATA.perf.dayTrade.days[doc.date]) || {};
+  $("dttable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票與理由</th><th>收盤</th><th>漲跌</th><th>週轉率</th><th>當沖比</th><th>量增</th><th>法人</th><th>分數</th><th>隔日</th></tr>` +
+    list.map((x) => { const r = res[`${state.dtSide}:${x.code}`]; return `<tr><td>${x.rank}</td>
+      <td style="text-align:left;min-width:220px"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span>
+        <div class="tags">${x.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div></td>
+      <td>${fmt(x.close, 2)}</td><td class="${cls(x.chgPct)}">${pct(x.chgPct)}</td><td>${x.turnover.toFixed(2)}%</td><td>${x.dtRatio.toFixed(1)}%</td>
+      <td>${x.surge.toFixed(1)} 倍</td><td class="${cls(x.instNet)}">${x.instNet > 0 ? "+" : ""}${fmt(x.instNet)}</td><td>${x.score.toFixed(1)}</td>
+      <td class="${cls(r)}">${r == null ? "—" : pct(r)}</td></tr>`; }).join("");
+}
+
+function renderPerf() {
+  const p = DATA.perf;
+  if (!p || !p.firstDate) { $("perftable").innerHTML = `<tr><td>尚無績效資料</td></tr>`; return; }
+  const s = p.summary[state.perfMk];
+  const rows = [["樣本數", (x) => fmt(x.n)], ["勝率", (x) => x.n ? `${x.winRate}%` : "—"],
+    ["平均報酬", (x) => x.n ? `<span class="${cls(x.avg)}">${pct(x.avg)}</span>` : "—"],
+    ["平均超額報酬", (x) => x.n ? `<span class="${cls(x.excess)}">${pct(x.excess)}</span>` : "—"],
+    ["贏過大盤比例", (x) => x.n ? `${x.beatRate}%` : "—"]];
+  $("perftable").innerHTML = `<tr><th></th>${p.horizons.map((n) => `<th>持有 ${n} 日</th>`).join("")}</tr>` +
+    rows.map(([label, f]) => `<tr><td>${label}</td>${p.horizons.map((n) => `<td>${f(s[String(n)])}</td>`).join("")}</tr>`).join("");
+  $("perfmeta").textContent = `統計期間自 ${p.firstDate} 起(含回測),持有期間未滿的推薦不列入。更新於 ${p.updated.replace("T", " ")}`;
+}
+
+function init() {
+  if (!DATA || !DATA.days.length) { $("cards").innerHTML = `<div class="empty">尚無資料</div>`; return; }
+  state.date = DATA.days[0].date;
+  $("date").innerHTML = DATA.days.map((d) => {
+    const w = WD[new Date(d.date + "T00:00:00").getDay()];
+    return `<option value="${d.date}">${d.date.slice(5).replace("-", "/")} 週${w}</option>`;
+  }).join("");
+  $("date").onchange = (e) => { state.date = e.target.value; renderPicks(); renderDayTrade(); };
+  seg($("mk"), [["上市", "上市 20"], ["上櫃", "上櫃 20"], ["全部", "全部"]], "market", () => {
+    try { localStorage.setItem("mk", state.market); } catch (e) {}
+    renderPicks();
+  });
+  seg($("sort"), [["score", "分數"], ["chg", "漲跌幅"], ["vol", "成交量"]], "sort", renderPicks);
+  seg($("perfmk"), [["全部", "全部"], ["上市", "上市"], ["上櫃", "上櫃"]], "perfMk", renderPerf);
+  seg($("dtside"), [["long", "做多 20 檔"], ["short", "做空 20 檔"]], "dtSide", renderDayTrade);
+  seg($("exitf"), [["exiting", "今晚亮燈"], ["open", "持有中"], ["closed", "近期出場"]], "exitF", renderExits);
+  renderPicks();
+  renderExits();
+  renderDayTrade();
+  renderPerf();
+  renderCompare();
+  $("updated").textContent = `資料更新於 ${DATA.days[0].generatedAt.replace("T", " ")}`;
+}
+init();
+</script>
+</body>
+</html>
