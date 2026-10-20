@@ -42,6 +42,9 @@ def main(argv):
         d += dt.timedelta(days=1)
 
     p = perf.compute()
+    lv = daily.refresh_levels()
+    print("參考進場價規則:", lv["entry"]["chosen"] or "回測未通過",
+          "| 當沖停利停損:", {s: lv["dayTrade"][s]["chosen"] or "回測未通過" for s in ("long", "short")})
     for mk, s in p["summary"].items():
         print(mk, s)
     print("網頁:", build_site.build())

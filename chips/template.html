@@ -152,6 +152,13 @@ footer ol { padding-left: 20px; }
     <div class="toolbar"><div class="seg" id="perfmk"></div></div>
     <div class="tablewrap"><table id="perftable"></table></div>
     <p class="meta" id="perfmeta" style="margin-top:8px"></p>
+    <h3 style="font-size:16px;margin:24px 0 8px">參考進場價回測</h3>
+    <p class="meta" id="entrymeta"></p>
+    <div class="tablewrap"><table id="entrytable"></table></div>
+    <h3 style="font-size:16px;margin:24px 0 8px">當沖停利停損回測</h3>
+    <p class="meta" id="dtlvmeta"></p>
+    <div class="toolbar"><div class="seg" id="dtlvside"></div></div>
+    <div class="tablewrap"><table id="dtlvtable"></table></div>
     <h3 style="font-size:16px;margin:24px 0 8px">出場規則比較</h3>
     <p class="meta" id="cmpmeta"></p>
     <div class="tablewrap"><table id="cmptable"></table></div>
@@ -217,7 +224,7 @@ const pct = (n) => n == null ? "—" : `${n > 0 ? "+" : ""}${n.toFixed(2)}%`;
 const cls = (n) => n > 0 ? "up" : n < 0 ? "down" : "";
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const WD = "日一二三四五六";
-const state = { market: "上市", date: null, sort: "score", perfMk: "全部", dtSide: "long" };
+const state = { market: "上市", date: null, sort: "score", perfMk: "全部", dtSide: "long", dtLvSide: "long" };
 const HOLD_KEY = "holdings";
 let holdings = [];
 let storageBlocked = false;   // 無痕模式或內嵌頁面可能禁止儲存:持股只在這次瀏覽有效
@@ -281,7 +288,7 @@ function renderPicks() {
         <span>成交 ${fmt(p.volume)} 張</span><span>法人 <span class="${cls(p.instNet)}">${p.instNet > 0 ? "+" : ""}${fmt(p.instNet)}</span> 張</span></div>
       ${p.tags.length ? `<div class="tags">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
       <div class="bar">${bar}</div>
-      <p class="reason">${esc(p.reason)}</p>${perf}
+      <p class="reason">${esc(p.reason)}</p>${entryLine(p)}${perf}
       <div class="row3">${heldCodes.has(p.code) ? `<button class="btn held" data-edit="${p.code}">已在持股・修改</button>`
         : `<button class="btn ghost" data-buy="${p.code}" data-picked="${doc.date}">我有買</button>`}</div></article>`;
   }).join("");
@@ -385,6 +392,53 @@ document.addEventListener("click", (e) => {
   }
 });
 
+function entryLine(p) {
+  const L = DATA.levels && DATA.levels.entry;
+  if (!p.entryRef || !L) return "";
+  const r = L.results.find((x) => x.key === p.entryRef.rule);
+  const fill = r ? `,回測買到率 ${r.all.fill}%` : "";
+  const text = p.entryRef.rule === "gap" ? `明天開盤高於 <b>${fmt(p.entryRef.maxOpen, 2)}</b> 不追`
+    : `參考掛價 <b>${fmt(p.entryRef.limit, 2)}</b>(${esc(p.entryRef.rule)}${fill})`;
+  return `<div class="perfline"><span>${text}</span></div>`;
+}
+
+function lvCells(lv) {
+  if (!lv) return "<td>—</td><td>—</td><td>—</td>";
+  return `<td>${fmt(lv.entry, 2)}</td><td class="up">${fmt(lv.tp, 2)}<br><span class="code">${lv.tpPct}%</span></td>
+    <td class="down">${fmt(lv.sl, 2)}<br><span class="code">${lv.slPct}%</span></td>`;
+}
+
+const passTag = (ok) => ok ? `<span class="tag">通過</span>` : `<span class="meta">未通過</span>`;
+const half = (h) => h && h.avg != null ? pct(h.avg) : "—";
+
+function renderLevels() {
+  const L = DATA.levels;
+  if (!L) { $("entrytable").innerHTML = $("dtlvtable").innerHTML = `<tr><td>尚無回測</td></tr>`; return; }
+  const E = L.entry;
+  const chosen = E.results.find((x) => x.key === E.chosen);
+  $("entrymeta").innerHTML = `推薦日 ${E.from} ~ ${E.to};隔天依各規則掛單(開盤就低於掛價以開盤成交),第 ${E.hold} 個交易日收盤出場。資料以 ${E.split} 切成前後兩半,`
+    + `<b>兩半都要贏過「隔天開盤買」、且買到率至少 50% 才算通過</b>。`
+    + (chosen ? `目前採用:<b>${esc(chosen.name)}</b>。` : `<b>目前沒有規則通過,所以推薦名單不顯示參考進場價。</b>`);
+  $("entrytable").innerHTML = `<tr><th>進場方式</th><th>買到率</th><th>平均報酬</th><th>勝率</th><th>每檔貢獻</th><th>前半(基準)</th><th>後半(基準)</th><th>結果</th></tr>` +
+    E.results.map((r) => `<tr><td>${esc(r.name)}</td><td>${r.all.fill}%</td><td class="${cls(r.all.avg)}">${half(r.all)}</td><td>${r.all.win ?? "—"}%</td>
+      <td class="${cls(r.all.perPick)}">${pct(r.all.perPick)}</td><td>${half(r.first)}(${pct(r.first.base)})</td><td>${half(r.second)}(${pct(r.second.base)})</td>
+      <td>${r.key === "隔天開盤買(基準)" ? `<span class="meta">基準</span>` : passTag(r.passed)}</td></tr>`).join("");
+  renderDtLevels();
+}
+
+function renderDtLevels() {
+  const D = DATA.levels.dayTrade, S = D[state.dtLvSide];
+  if (!S || !S.results.length) { $("dtlvtable").innerHTML = `<tr><td>尚無回測</td></tr>`; return; }
+  const c = S.chosen;
+  $("dtlvmeta").innerHTML = `${S.from} ~ ${S.to} 的當沖名單,隔天開盤進場,停利 / 停損 = 幾倍的 5 日平均波動(ATR),都沒碰到就收盤出場;已扣來回成本約 ${D.cost}%。`
+    + `只有日線資料,同一天停利停損都碰到時保守當作先停損。以 ${S.split} 切兩半,<b>兩半都要正報酬且贏過「開盤進、收盤出」才算通過</b>。`
+    + (c ? `目前採用:停利 ${c[0]} 倍、停損 ${c[1]} 倍。` : `<b>目前沒有組合通過,所以當沖名單不顯示停利停損價。</b>`);
+  $("dtlvtable").innerHTML = `<tr><th>停利</th><th>停損</th><th>樣本</th><th>平均報酬</th><th>勝率</th><th>前半</th><th>後半</th><th>結果</th></tr>` +
+    S.results.map((r) => `<tr><td>${r.tp == null ? "不設(收盤出)" : r.tp + " 倍"}</td><td>${r.sl == null ? "—" : r.sl + " 倍"}</td><td>${fmt(r.all.n)}</td>
+      <td class="${cls(r.all.avg)}">${half(r.all)}</td><td>${r.all.win}%</td><td class="${cls(r.first.avg)}">${half(r.first)}</td>
+      <td class="${cls(r.second.avg)}">${half(r.second)}</td><td>${r.tp == null ? `<span class="meta">基準</span>` : passTag(r.passed)}</td></tr>`).join("");
+}
+
 function renderCompare() {
   const c = DATA.perf && DATA.perf.exitCompare;
   if (!c || !c.results.length || !c.results[0].n) { $("cmptable").innerHTML = `<tr><td>樣本不足</td></tr>`; return; }
@@ -411,12 +465,13 @@ function renderDayTrade() {
     $("dttable").innerHTML = `<tr><td>${why}</td></tr>`; return;
   }
   const res = (DATA.perf && DATA.perf.dayTrade && DATA.perf.dayTrade.days[doc.date]) || {};
-  $("dttable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票與理由</th><th>收盤</th><th>漲跌</th><th>週轉率</th><th>當沖比</th><th>量增</th><th>法人</th><th>分數</th><th>隔日</th></tr>` +
+  const hasLv = list.some((x) => x.levels);
+  $("dttable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票與理由</th><th>收盤</th><th>漲跌</th><th>週轉率</th><th>當沖比</th><th>量增</th><th>法人</th><th>分數</th>${hasLv ? "<th>進場≈</th><th>停利</th><th>停損</th>" : ""}<th>隔日</th></tr>` +
     list.map((x) => { const r = res[`${state.dtSide}:${x.code}`]; return `<tr><td>${x.rank}</td>
       <td style="text-align:left;min-width:220px"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span>
         <div class="tags">${x.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div></td>
       <td>${fmt(x.close, 2)}</td><td class="${cls(x.chgPct)}">${pct(x.chgPct)}</td><td>${x.turnover.toFixed(2)}%</td><td>${x.dtRatio.toFixed(1)}%</td>
-      <td>${x.surge.toFixed(1)} 倍</td><td class="${cls(x.instNet)}">${x.instNet > 0 ? "+" : ""}${fmt(x.instNet)}</td><td>${x.score.toFixed(1)}</td>
+      <td>${x.surge.toFixed(1)} 倍</td><td class="${cls(x.instNet)}">${x.instNet > 0 ? "+" : ""}${fmt(x.instNet)}</td><td>${x.score.toFixed(1)}</td>${hasLv ? lvCells(x.levels) : ""}
       <td class="${cls(r)}">${r == null ? "—" : pct(r)}</td></tr>`; }).join("");
 }
 
@@ -453,6 +508,8 @@ function init() {
   renderDayTrade();
   renderPerf();
   renderCompare();
+  if (DATA.levels) seg($("dtlvside"), [["long", "做多"], ["short", "做空"]], "dtLvSide", renderDtLevels);
+  renderLevels();
   $("updated").textContent = `資料更新於 ${DATA.days[0].generatedAt.replace("T", " ")}`;
 }
 init();

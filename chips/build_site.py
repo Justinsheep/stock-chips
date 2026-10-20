@@ -27,8 +27,10 @@ def build():
         perf["days"] = {k: v for k, v in perf["days"].items() if k in keep}
         if perf.get("dayTrade"):
             perf["dayTrade"]["days"] = {k: v for k, v in perf["dayTrade"]["days"].items() if k in keep}
+    lv_path = os.path.join(os.path.dirname(PERF_PATH), "levels.json")
+    lv = json.load(open(lv_path, encoding="utf-8")) if os.path.exists(lv_path) else None
     series = holding_series(days[0]["date"], lookback=HISTORY_DAYS) if days else {}   # 歷史清單能選到的股票都要有資料
-    payload = json.dumps({"days": days, "perf": perf, "series": series, "exitRules": DEFAULT_RULES}, ensure_ascii=False, separators=(",", ":"))
+    payload = json.dumps({"days": days, "perf": perf, "series": series, "exitRules": DEFAULT_RULES, "levels": lv}, ensure_ascii=False, separators=(",", ":"))
     payload = payload.replace("</", "<\\/")   # 避免資料中的字串提前結束 <script>
     with open(TEMPLATE, encoding="utf-8") as f:
         html = f.read().replace("/*__DATA__*/null", payload)

@@ -55,6 +55,9 @@ def main(argv):
             print(f"  {x['market']} {x['rank']:>2} {x['code']} {x['name']:<6} {x['score']:>5} {' '.join(x['tags'])}")
 
     p = perf.compute()
+    lv = daily.refresh_levels()
+    print("參考進場價規則:", lv["entry"]["chosen"] or "回測未通過",
+          "| 當沖停利停損:", {s: lv["dayTrade"][s]["chosen"] or "回測未通過" for s in ("long", "short")})
     s = p["summary"]["全部"]
     print("績效(全部):", {n: s[n] for n in s})
     print("網頁:", build_site.build())

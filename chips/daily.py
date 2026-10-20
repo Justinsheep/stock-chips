@@ -19,9 +19,10 @@ def _write_json(path, obj, compact=False):
 
 
 def save_prices(d, day_data):
-    """績效與出場訊號用:{代號: [開盤, 收盤, 三大法人買賣超張數]}。"""
+    """績效、出場、進場價回測用:{代號: [開盤, 收盤, 三大法人買賣超張數, 最高, 最低]}。"""
     _write_json(os.path.join(PRICES_DIR, f"{d:%Y-%m-%d}.json"),
-                {c: [v["open"], v["close"], round(v["inst"] / 1000)] for c, v in day_data.items()}, compact=True)
+                {c: [v["open"], v["close"], round(v["inst"] / 1000), v["high"], v["low"]] for c, v in day_data.items()},
+                compact=True)
 
 
 def pick_weeks(all_weeks, d0, strict):
@@ -92,3 +93,17 @@ def compute_day(d0, days, holders, strict_weeks=False):
 
 def save_day(doc):
     _write_json(os.path.join(DAYS_DIR, f"{doc['date']}.json"), doc)
+
+
+def refresh_levels():
+    """重跑進場價、當沖停利停損的回測,並把通過的規則套到最新一天的名單上。"""
+    from . import levels   # levels 依賴 data/ 內容,避免循環引用
+    lv = levels.compute_and_save()
+    names = sorted(n for n in os.listdir(DAYS_DIR) if n.endswith(".json")) if os.path.isdir(DAYS_DIR) else []
+    if names:
+        path = os.path.join(DAYS_DIR, names[-1])
+        with open(path, encoding="utf-8") as f:
+            doc = json.load(f)
+        levels.annotate(doc, lv)
+        save_day(doc)
+    return lv
