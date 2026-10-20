@@ -1,0 +1,298 @@
+{
+ "segments": {
+  "train": [
+   "2025-09-23",
+   "2026-05-14"
+  ],
+  "valid": [
+   "2026-05-15",
+   "2026-07-27"
+  ],
+  "test": [
+   "2026-07-28",
+   "2026-10-08"
+  ]
+ },
+ "results": {
+  "F1 RSI(2) 回檔 × E1": {
+   "train": {
+    "ret": -0.51,
+    "excess": -1.97,
+    "monthly": -2.1,
+    "avgN": 10.0
+   },
+   "valid": {
+    "ret": -1.43,
+    "excess": -1.72,
+    "monthly": -5.9,
+    "avgN": 10.0
+   },
+   "test": {
+    "ret": 0.52,
+    "excess": -0.57,
+    "monthly": 2.2,
+    "avgN": 9.9
+   },
+   "trades": 2512,
+   "win": 39.0,
+   "hitTarget": 0.0
+  },
+  "F1 RSI(2) 回檔 × E2": {
+   "train": {
+    "ret": -0.39,
+    "excess": -1.85,
+    "monthly": -1.6,
+    "avgN": 10.0
+   },
+   "valid": {
+    "ret": -1.43,
+    "excess": -1.72,
+    "monthly": -5.9,
+    "avgN": 10.0
+   },
+   "test": {
+    "ret": 0.42,
+    "excess": -0.67,
+    "monthly": 1.8,
+    "avgN": 9.9
+   },
+   "trades": 2513,
+   "win": 43.1,
+   "hitTarget": 26.5
+  },
+  "F1 RSI(2) 回檔 × E3": {
+   "train": {
+    "ret": -0.19,
+    "excess": -1.64,
+    "monthly": -0.8,
+    "avgN": 3.1
+   },
+   "valid": {
+    "ret": -0.69,
+    "excess": -0.97,
+    "monthly": -2.8,
+    "avgN": 3.6
+   },
+   "test": {
+    "ret": 0.83,
+    "excess": -0.26,
+    "monthly": 3.5,
+    "avgN": 3.2
+   },
+   "trades": 810,
+   "win": 46.0,
+   "hitTarget": 24.6
+  },
+  "F2 好股回檔 × E1": {
+   "train": {
+    "ret": 0.65,
+    "excess": -0.81,
+    "monthly": 2.8,
+    "avgN": 6.2
+   },
+   "valid": {
+    "ret": 0.89,
+    "excess": 0.6,
+    "monthly": 3.8,
+    "avgN": 8.5
+   },
+   "test": {
+    "ret": 1.85,
+    "excess": 0.76,
+    "monthly": 8.0,
+    "avgN": 7.9
+   },
+   "trades": 1761,
+   "win": 49.2,
+   "hitTarget": 0.0
+  },
+  "F2 好股回檔 × E2": {
+   "train": {
+    "ret": 0.69,
+    "excess": -0.76,
+    "monthly": 2.9,
+    "avgN": 6.2
+   },
+   "valid": {
+    "ret": 0.43,
+    "excess": 0.15,
+    "monthly": 1.8,
+    "avgN": 8.5
+   },
+   "test": {
+    "ret": 1.45,
+    "excess": 0.36,
+    "monthly": 6.2,
+    "avgN": 7.9
+   },
+   "trades": 1761,
+   "win": 52.1,
+   "hitTarget": 32.9
+  },
+  "F2 好股回檔 × E3": {
+   "train": {
+    "ret": 0.13,
+    "excess": -1.32,
+    "monthly": 0.6,
+    "avgN": 2.0
+   },
+   "valid": {
+    "ret": 0.96,
+    "excess": 0.67,
+    "monthly": 4.1,
+    "avgN": 3.3
+   },
+   "test": {
+    "ret": 1.29,
+    "excess": 0.2,
+    "monthly": 5.6,
+    "avgN": 2.7
+   },
+   "trades": 606,
+   "win": 52.1,
+   "hitTarget": 31.8
+  },
+  "F3 均線回測 × E1": {
+   "train": {
+    "ret": 0.15,
+    "excess": -1.31,
+    "monthly": 0.6,
+    "avgN": 7.5
+   },
+   "valid": {
+    "ret": -0.44,
+    "excess": -0.73,
+    "monthly": -1.8,
+    "avgN": 8.7
+   },
+   "test": {
+    "ret": -0.25,
+    "excess": -1.34,
+    "monthly": -1.0,
+    "avgN": 8.5
+   },
+   "trades": 2007,
+   "win": 42.9,
+   "hitTarget": 0.0
+  },
+  "F3 均線回測 × E2": {
+   "train": {
+    "ret": -0.13,
+    "excess": -1.58,
+    "monthly": -0.5,
+    "avgN": 7.5
+   },
+   "valid": {
+    "ret": -0.53,
+    "excess": -0.82,
+    "monthly": -2.2,
+    "avgN": 8.7
+   },
+   "test": {
+    "ret": -0.41,
+    "excess": -1.5,
+    "monthly": -1.7,
+    "avgN": 8.5
+   },
+   "trades": 2007,
+   "win": 47.0,
+   "hitTarget": 32.2
+  },
+  "F3 均線回測 × E3": {
+   "train": {
+    "ret": -0.26,
+    "excess": -1.72,
+    "monthly": -1.1,
+    "avgN": 3.1
+   },
+   "valid": {
+    "ret": -0.19,
+    "excess": -0.48,
+    "monthly": -0.8,
+    "avgN": 3.2
+   },
+   "test": {
+    "ret": -0.17,
+    "excess": -1.26,
+    "monthly": -0.7,
+    "avgN": 3.9
+   },
+   "trades": 831,
+   "win": 46.0,
+   "hitTarget": 29.6
+  },
+  "F4 帶量突破 × E1": {
+   "train": {
+    "ret": -0.17,
+    "excess": -1.63,
+    "monthly": -0.7,
+    "avgN": 9.7
+   },
+   "valid": {
+    "ret": -1.37,
+    "excess": -1.66,
+    "monthly": -5.6,
+    "avgN": 9.5
+   },
+   "test": {
+    "ret": 0.51,
+    "excess": -0.58,
+    "monthly": 2.2,
+    "avgN": 9.2
+   },
+   "trades": 2412,
+   "win": 40.8,
+   "hitTarget": 0.0
+  },
+  "F4 帶量突破 × E2": {
+   "train": {
+    "ret": -0.39,
+    "excess": -1.84,
+    "monthly": -1.6,
+    "avgN": 9.7
+   },
+   "valid": {
+    "ret": -1.44,
+    "excess": -1.73,
+    "monthly": -5.9,
+    "avgN": 9.5
+   },
+   "test": {
+    "ret": 0.29,
+    "excess": -0.8,
+    "monthly": 1.2,
+    "avgN": 9.2
+   },
+   "trades": 2412,
+   "win": 51.9,
+   "hitTarget": 45.2
+  },
+  "F4 帶量突破 × E3": {
+   "train": {
+    "ret": -0.4,
+    "excess": -1.86,
+    "monthly": -1.7,
+    "avgN": 5.0
+   },
+   "valid": {
+    "ret": -0.57,
+    "excess": -0.85,
+    "monthly": -2.4,
+    "avgN": 5.0
+   },
+   "test": {
+    "ret": -0.03,
+    "excess": -1.13,
+    "monthly": -0.1,
+    "avgN": 4.9
+   },
+   "trades": 1255,
+   "win": 48.3,
+   "hitTarget": 37.5
+  }
+ },
+ "stage1": [],
+ "stage2": [],
+ "chosen": null,
+ "passed": false
+}
