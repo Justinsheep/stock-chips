@@ -69,6 +69,8 @@ def compute_day(d0, days, holders, strict_weeks=False):
 
     for x in picks:
         x.pop("instHist", None)
+    trust_rev = strategy_picks(d0, days_data)
+    attach_chips(trust_rev, rows, big_lookup)
     empty_dt = {"long": [], "short": [], "universe": 0}
     try:   # 當沖名單出錯不影響主推薦
         dt_list, dt_missing = sources.daytrade_list(d0)
@@ -91,8 +93,21 @@ def compute_day(d0, days, holders, strict_weeks=False):
         "filters": {"minAvgLots": score.MIN_AVG_LOTS, "minPrice": score.MIN_PRICE, "lookback": score.LOOKBACK},
         "picks": picks,
         "dayTrade": day_trade,
-        "trustRev": strategy_picks(d0, days_data),
+        "trustRev": trust_rev,
     }
+
+
+def attach_chips(trust_rev, rows, big_lookup):
+    """主名單每檔附上籌碼分數(只供參考,排序仍依投信買超)。不在籌碼計分股票池(5 日均量 1,000 張)的標為 None。"""
+    by_code = {x["code"]: x for x in rows}
+    for p in trust_rev or []:
+        x = by_code.get(p["code"])
+        if not x or "parts" not in x:
+            p["chip"] = None
+            continue
+        score.full_score(x, big_lookup)
+        p["chip"] = {"score": x["score"], "parts": x["parts"], "tags": score.tags(x), "instNet": x["instNet"],
+                     "bigPct": x.get("bigPct"), "bigChg": x.get("bigChg"), "marginChg": x["marginChg"]}
 
 
 def strategy_picks(d0, days_data):

@@ -96,6 +96,10 @@ dialog::backdrop { background: rgba(0, 0, 0, .4); }
 .dlgbtns { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
 .ops { white-space: nowrap; }
 .ops .btn { padding: 2px 8px; font-size: 12px; }
+.totop { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--accent); font-size: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .15); cursor: pointer; opacity: 0; pointer-events: none; transition: opacity .2s; }
+.totop.show { opacity: 1; pointer-events: auto; }
 footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
 footer ol { padding-left: 20px; }
 </style>
@@ -107,7 +111,7 @@ footer ol { padding-left: 20px; }
     <h1>籌碼選股</h1>
     <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
     <nav>
-      <a href="#trustrev">投信＋營收</a><a href="#picks">籌碼分數</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#perf">績效</a><a href="#method">評分方式</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+      <a href="#trustrev">今日名單</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
     </nav>
     <div class="indices" id="indices"></div>
     <div id="weak"></div>
@@ -115,34 +119,21 @@ footer ol { padding-left: 20px; }
 
   <section id="trustrev">
     <h2>投信買超＋營收動能 <span class="tag" style="vertical-align:middle">通過回測</span></h2>
-    <p class="meta">條件:投信近 10 日累計買超 &gt; 15 張、月營收近 3 個月平均創 12 個月新高、最新月營收年增 &gt; 20%、20 日均量 &gt; 300 張、股價 ≥ 10 元;依投信買超張數取前 10 檔。<b>回測依據是隔天開盤買、持有 20 個交易日後賣出</b>,不是短線訊號。日期跟下方名單的日期選單連動。</p>
+    <p class="meta">條件:投信近 10 日累計買超 &gt; 15 張、月營收近 3 個月平均創 12 個月新高、最新月營收年增 &gt; 20%、20 日均量 &gt; 300 張、股價 ≥ 10 元;依投信買超張數取前 10 檔。<b>回測依據是隔天開盤買、持有 20 個交易日後賣出</b>,不是短線訊號。「籌碼分數」是原網站的法人、千張大戶、融資計分,只當參考:改成依籌碼分數排序回測沒有通過。</p>
+    <div class="toolbar">
+      <select id="date" aria-label="選擇日期"></select>
+      <div class="seg" id="trsort"></div>
+    </div>
+    <p class="meta" id="trmeta"></p>
     <div class="tablewrap"><table id="trtable"></table></div>
     <h3 style="font-size:16px;margin:20px 0 8px">回測與實際追蹤</h3>
     <div class="tablewrap"><table id="trbt"></table></div>
     <p class="meta" id="trbtmeta" style="margin-top:8px"></p>
   </section>
 
-  <section id="picks">
-    <h2>籌碼分數名單</h2>
-    <p class="meta">原網站的規則(法人、千張大戶、融資計分)。一年回測(不含千張大戶)持有 20 日扣成本後落後 0050 約 2～5 個百分點,<b>沒有通過回測</b>,保留作為參考與比較。</p>
-    <div class="toolbar">
-      <div class="seg" id="mk"></div>
-      <select id="date" aria-label="選擇日期"></select>
-      <div class="seg" id="sort"></div>
-    </div>
-    <div class="stats" id="daystats"></div>
-    <p class="meta" id="daymeta"></p>
-    <div class="legend">
-      <span><i style="background:var(--bar)"></i>法人當日</span><span><i style="background:var(--bar2)"></i>法人 5 日</span>
-      <span><i style="background:var(--bar3)"></i>連買</span><span><i style="background:var(--bar4)"></i>融資</span>
-      <span><i style="background:var(--bar5)"></i>千張大戶</span>
-    </div>
-    <div class="cards" id="cards"></div>
-  </section>
-
   <section id="exits">
     <h2>我的持股・出場訊號</h2>
-    <p class="meta">在推薦名單按「我有買」把股票加進來,這裡只追蹤你選的股票。每天收盤後依你的買進價檢查,符合任一條件就亮燈:跌 7% 停損、法人連 2 日賣超、連 2 日收在 10 日均線之下、千張大戶週減 0.5 個百分點以上(只看買進後公布的新週別)、持有滿 20 日。持股只存在這台裝置的瀏覽器,換裝置或清除瀏覽器資料會不見。依規則提醒,不是買賣建議。</p>
+    <p class="meta">在今日名單按「我有買」把股票加進來,這裡只追蹤你選的股票。從「投信買超＋營收動能」買的,依回測在持有滿 20 個交易日時提醒出場。之前從籌碼分數名單加入的持股照舊追蹤,每天收盤後依你的買進價檢查,符合任一條件就亮燈:跌 7% 停損、法人連 2 日賣超、連 2 日收在 10 日均線之下、千張大戶週減 0.5 個百分點以上(只看買進後公布的新週別)、持有滿 20 日。持股只存在這台裝置的瀏覽器,換裝置或清除瀏覽器資料會不見。依規則提醒,不是買賣建議。</p>
     <div class="stats" id="exitstats"></div>
     <div class="tablewrap"><table id="exittable"></table></div>
   </section>
@@ -154,28 +145,15 @@ footer ol { padding-left: 20px; }
     <div class="stats" id="dtstats"></div>
     <div class="tablewrap"><table id="dttable"></table></div>
     <p class="meta" style="margin-top:8px">上市、上櫃合併排名。候選須為當沖標的、當日成交 2,000 張以上、股價 10 元以上。「隔日沖賣壓」為公開資料推估(漲 5% 以上、量增 2 倍以上、收在高點附近、法人沒買),不是券商分點資料。當沖風險很高,名單只是規則篩選的參考。</p>
-  </section>
-
-  <section id="perf">
-    <h2>推薦績效</h2>
-    <p class="meta">推薦日的下一個交易日開盤買進,持有 1 / 5 / 20 個交易日後以收盤價計算(未計手續費與稅)。超額報酬 = 個股報酬 − 同期間 0050(上市)或 006201(上櫃)報酬。</p>
-    <div class="toolbar"><div class="seg" id="perfmk"></div></div>
-    <div class="tablewrap"><table id="perftable"></table></div>
-    <p class="meta" id="perfmeta" style="margin-top:8px"></p>
-    <h3 style="font-size:16px;margin:24px 0 8px">參考進場價回測</h3>
-    <p class="meta" id="entrymeta"></p>
-    <div class="tablewrap"><table id="entrytable"></table></div>
     <h3 style="font-size:16px;margin:24px 0 8px">當沖停利停損回測</h3>
     <p class="meta" id="dtlvmeta"></p>
     <div class="toolbar"><div class="seg" id="dtlvside"></div></div>
     <div class="tablewrap"><table id="dtlvtable"></table></div>
-    <h3 style="font-size:16px;margin:24px 0 8px">出場規則比較</h3>
-    <p class="meta" id="cmpmeta"></p>
-    <div class="tablewrap"><table id="cmptable"></table></div>
   </section>
 
   <section id="method">
-    <h2>評分方式</h2>
+    <h2>說明</h2>
+    <h3 style="font-size:16px;margin:8px 0">籌碼分數(僅供參考)</h3>
     <div class="tablewrap"><table>
       <tr><th>項目</th><th>計算</th><th>權重</th></tr>
       <tr><td>法人當日</td><td>當日三大法人買超 ÷ 5 日均量</td><td>25</td></tr>
@@ -185,13 +163,10 @@ footer ol { padding-left: 20px; }
       <tr><td>千張大戶</td><td>持股比例週增減:+1 個百分點以上滿分、−1 以下 0 分</td><td>25</td></tr>
     </table></div>
     <ul class="prose">
-      <li>前四項在同一市場內換算成百分位(贏過多少比例的股票)再乘上權重;千張大戶用週增減的絕對值計分。</li>
-      <li>只計普通股,5 日均量 1,000 張以上、股價 10 元以上;當日三大法人須為買超。</li>
-      <li>先以法人、連買、融資取每個市場前 50 名,再加入千張大戶分數排出前 20 名。上市、上櫃分開排名。</li>
-      <li>融資資料約晚上 9 點半公布;尚未公布時融資項不計分,其餘權重等比例放大。</li>
-      <li>千張大戶 = 集保股權分散表持股 1,000,001 股以上,每週更新一次。</li>
+      <li>前四項在同一市場(上市或上櫃)內換算成百分位再乘上權重;千張大戶用週增減的絕對值計分。只計 5 日均量 1,000 張以上的股票,未達門檻的顯示「—」。</li>
+      <li>單獨拿分數最高的股票來買,一年回測持有 20 日落後 0050 約 2～5 個百分點;拿來替今日名單排序也沒有通過回測。所以只當作觀察法人、大戶、融資動向的參考。</li>
+      <li>融資資料約晚上 9 點半公布;尚未公布時融資項不計分,其餘權重等比例放大。千張大戶 = 集保股權分散表持股 1,000,001 股以上,每週更新一次。</li>
       <li>大盤偏弱提醒:指數跌 1% 以上、外資加投信合計賣超、法人買超家數佔比低於 40%,三項符合兩項以上時顯示。</li>
-      <li>分數是相對排名,大盤再弱也會選出 20 檔,請搭配偏弱提醒與績效一起看。</li>
     </ul>
   </section>
 
@@ -201,6 +176,7 @@ footer ol { padding-left: 20px; }
       <li>臺灣證券交易所:三大法人買賣超、每日收盤行情、融資融券餘額</li>
       <li>證券櫃檯買賣中心:上櫃三大法人、收盤行情、融資融券、櫃買指數</li>
       <li>臺灣集中保管結算所:集保戶股權分散表(每週)</li>
+      <li>公開資訊觀測站:上市櫃公司每月營業收入彙總表</li>
     </ul>
     <p class="meta" id="updated"></p>
   </section>
@@ -215,6 +191,8 @@ footer ol { padding-left: 20px; }
     </ol>
   </footer>
 </div>
+
+<button class="totop" id="totop" aria-label="回到頂端" title="回到頂端">↑</button>
 
 <dialog id="buydlg">
   <form method="dialog" id="buyform">
@@ -234,7 +212,7 @@ const pct = (n) => n == null ? "—" : `${n > 0 ? "+" : ""}${n.toFixed(2)}%`;
 const cls = (n) => n > 0 ? "up" : n < 0 ? "down" : "";
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const WD = "日一二三四五六";
-const state = { market: "上市", date: null, sort: "score", perfMk: "全部", dtSide: "long", dtLvSide: "long" };
+const state = { date: null, trSort: "trust", dtSide: "long", dtLvSide: "long" };
 const HOLD_KEY = "holdings";
 let holdings = [];
 let storageBlocked = false;   // 無痕模式或內嵌頁面可能禁止儲存:持股只在這次瀏覽有效
@@ -243,7 +221,6 @@ function saveHoldings() {
   try { localStorage.setItem(HOLD_KEY, JSON.stringify(holdings)); }
   catch (e) { storageBlocked = true; }
 }
-try { const m = localStorage.getItem("mk"); if (m) state.market = m; } catch (e) {}
 
 function seg(el, opts, key, onChange) {
   el.innerHTML = opts.map(([v, label]) => `<button data-v="${v}" class="${state[key] === v ? "on" : ""}">${label}</button>`).join("");
@@ -268,43 +245,6 @@ function renderHeader(doc) {
     ${weak.map((m) => { const w = doc.weak[m]; return `<br>${m}:指數 ${pct(w.indexChgPct)},外資+投信 ${fmt(w.fiAmount, 1)} 億,法人買超家數佔 ${(w.buyRatio * 100).toFixed(0)}%`; }).join("")}</div>` : "";
 }
 
-function renderPicks() {
-  const doc = dayDoc();
-  renderHeader(doc);
-  const perfDay = (DATA.perf && DATA.perf.days[doc.date]) || {};
-  let list = doc.picks.filter((p) => state.market === "全部" || p.market === state.market);
-  const key = { score: (p) => -p.score, chg: (p) => -p.chgPct, vol: (p) => -p.volume }[state.sort];
-  list = [...list].sort((a, b) => key(a) - key(b));
-  const ups = list.filter((p) => p.chgPct > 0).length, downs = list.filter((p) => p.chgPct < 0).length;
-  const avg = list.length ? list.reduce((s, p) => s + p.score, 0) / list.length : 0;
-  $("daystats").innerHTML = [["推薦檔數", list.length], ["平均分數", avg.toFixed(1)], ["上漲 / 下跌", `${ups} / ${downs}`]]
-    .map(([n, v]) => `<div class="stat"><div class="n">${n}</div><div class="v">${v}</div></div>`).join("");
-  const notes = [`集保週別 ${doc.tdccWeek || "—"}${doc.tdccPrevWeek ? `(對比 ${doc.tdccPrevWeek})` : ""}`];
-  if (doc.marginPending.length) notes.push(`${doc.marginPending.join("、")}融資資料尚未公布,融資項暫不計分`);
-  $("daymeta").textContent = notes.join(";");
-  if (!list.length) { $("cards").innerHTML = `<div class="empty">這一天沒有符合條件的股票</div>`; return; }
-  const W = doc.weights;
-  const colors = { inst1: "var(--bar)", inst5: "var(--bar2)", streak: "var(--bar3)", margin: "var(--bar4)", big: "var(--bar5)" };
-  const heldCodes = new Set(holdings.map((h) => h.code));
-  $("cards").innerHTML = list.map((p, i) => {
-    const pf = perfDay[p.code];
-    const bar = Object.keys(colors).map((k) => `<span style="width:${p.parts[k]}%;background:${colors[k]}" title="${k} ${p.parts[k]}"></span>`).join("");
-    const perf = pf ? `<div class="perfline"><span><b>隔日開盤</b> ${fmt(pf.entry, 2)}</span>${DATA.perf.horizons.map((n) =>
-      `<span><b>${n} 日</b> <span class="${cls(pf["r" + n])}">${pct(pf["r" + n])}</span>${pf["x" + n] != null ? `<span class="meta">(超額 ${pct(pf["x" + n])})</span>` : ""}</span>`).join("")}</div>` : "";
-    return `<article class="card">
-      <div class="row1"><span class="rank">${state.sort === "score" && state.market !== "全部" ? p.rank : i + 1}</span>
-        <span class="name">${esc(p.name)}</span><span class="code">${p.code}・${p.market}</span><span class="score">${p.score.toFixed(0)}</span></div>
-      <div class="row2"><span>收盤 <b>${fmt(p.close, 2)}</b></span><span class="${cls(p.chgPct)}">${pct(p.chgPct)}</span>
-        <span>成交 ${fmt(p.volume)} 張</span><span>法人 <span class="${cls(p.instNet)}">${p.instNet > 0 ? "+" : ""}${fmt(p.instNet)}</span> 張</span></div>
-      ${p.tags.length ? `<div class="tags">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
-      <div class="bar">${bar}</div>
-      <p class="reason">${esc(p.reason)}</p>${entryLine(p)}${perf}
-      <div class="row3">${heldCodes.has(p.code) ? `<button class="btn held" data-edit="${p.code}">已在持股・修改</button>`
-        : `<button class="btn ghost" data-buy="${p.code}" data-picked="${doc.date}">我有買</button>`}</div></article>`;
-  }).join("");
-}
-
-// 依使用者的買進日與買進價模擬出場規則;series.rows = [日期, 開盤, 收盤, 法人張數, 10日均線, 集保週別, 大戶週增減]
 function simHolding(h) {
   const ser = DATA.series[h.code];
   if (!ser) return { status: "nodata" };
@@ -379,7 +319,7 @@ function openBuy(code, pickedOn, source) {
       source: old ? old.source : (source || "chips"),
       buyDate: $("buydate").value || null, buyPrice: price > 0 ? price : null };
     holdings = holdings.filter((h) => h.code !== code).concat(rec);
-    saveHoldings(); renderExits(); renderPicks(); renderTrustRev();
+    saveHoldings(); renderExits(); renderTrustRev();
   };
   dlg.returnValue = "";
   dlg.showModal();
@@ -394,7 +334,7 @@ document.addEventListener("click", (e) => {
     // 不用 confirm():有些環境(內嵌頁面、App 內建瀏覽器)會擋掉跳出視窗,改成按兩下確認
     if (b.dataset.armed) {
       holdings = holdings.filter((x) => x.code !== b.dataset.sold);
-      saveHoldings(); renderExits(); renderPicks(); renderTrustRev();
+      saveHoldings(); renderExits(); renderTrustRev();
     } else {
       b.dataset.armed = "1";
       b.textContent = "確定賣出?";
@@ -403,16 +343,6 @@ document.addEventListener("click", (e) => {
     }
   }
 });
-
-function entryLine(p) {
-  const L = DATA.levels && DATA.levels.entry;
-  if (!p.entryRef || !L) return "";
-  const r = L.results.find((x) => x.key === p.entryRef.rule);
-  const fill = r ? `,回測買到率 ${r.all.fill}%` : "";
-  const text = p.entryRef.rule === "gap" ? `明天開盤高於 <b>${fmt(p.entryRef.maxOpen, 2)}</b> 不追`
-    : `參考掛價 <b>${fmt(p.entryRef.limit, 2)}</b>(${esc(p.entryRef.rule)}${fill})`;
-  return `<div class="perfline"><span>${text}</span></div>`;
-}
 
 function lvCells(lv) {
   if (!lv) return "<td>—</td><td>—</td><td>—</td>";
@@ -424,20 +354,9 @@ const passTag = (ok) => ok ? `<span class="tag">通過</span>` : `<span class="m
 const half = (h) => h && h.avg != null ? pct(h.avg) : "—";
 
 function renderLevels() {
-  const L = DATA.levels;
-  if (!L) { $("entrytable").innerHTML = $("dtlvtable").innerHTML = `<tr><td>尚無回測</td></tr>`; return; }
-  const E = L.entry;
-  const chosen = E.results.find((x) => x.key === E.chosen);
-  $("entrymeta").innerHTML = `推薦日 ${E.from} ~ ${E.to};隔天依各規則掛單(開盤就低於掛價以開盤成交),第 ${E.hold} 個交易日收盤出場。資料以 ${E.split} 切成前後兩半,`
-    + `<b>兩半都要贏過「隔天開盤買」、且買到率至少 50% 才算通過</b>。`
-    + (chosen ? `目前採用:<b>${esc(chosen.name)}</b>。` : `<b>目前沒有規則通過,所以推薦名單不顯示參考進場價。</b>`);
-  $("entrytable").innerHTML = `<tr><th>進場方式</th><th>買到率</th><th>平均報酬</th><th>勝率</th><th>每檔貢獻</th><th>前半(基準)</th><th>後半(基準)</th><th>結果</th></tr>` +
-    E.results.map((r) => `<tr><td>${esc(r.name)}</td><td>${r.all.fill}%</td><td class="${cls(r.all.avg)}">${half(r.all)}</td><td>${r.all.win ?? "—"}%</td>
-      <td class="${cls(r.all.perPick)}">${pct(r.all.perPick)}</td><td>${half(r.first)}(${pct(r.first.base)})</td><td>${half(r.second)}(${pct(r.second.base)})</td>
-      <td>${r.key === "隔天開盤買(基準)" ? `<span class="meta">基準</span>` : passTag(r.passed)}</td></tr>`).join("");
+  if (!DATA.levels) { $("dtlvtable").innerHTML = `<tr><td>尚無回測</td></tr>`; return; }
   renderDtLevels();
 }
-
 function renderDtLevels() {
   const D = DATA.levels.dayTrade, S = D[state.dtLvSide];
   if (!S || !S.results.length) { $("dtlvtable").innerHTML = `<tr><td>尚無回測</td></tr>`; return; }
@@ -451,19 +370,28 @@ function renderDtLevels() {
       <td class="${cls(r.second.avg)}">${half(r.second)}</td><td>${r.tp == null ? `<span class="meta">基準</span>` : passTag(r.passed)}</td></tr>`).join("");
 }
 
+function chipCell(c) {
+  if (!c) return `<td class="meta">—</td>`;
+  const tags = c.tags.length ? `<div class="tags" style="justify-content:flex-end">${c.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : "";
+  return `<td><b>${c.score.toFixed(0)}</b>${tags}</td>`;
+}
+
 function renderTrustRev() {
   const doc = dayDoc();
-  const list = doc.trustRev;
+  renderHeader(doc);
+  let list = doc.trustRev;
+  if (list && state.trSort === "chip") list = [...list].sort((a, b) => (b.chip ? b.chip.score : -1) - (a.chip ? a.chip.score : -1));
+  $("trmeta").textContent = state.trSort === "chip" ? "目前依籌碼分數排序(此排序回測未通過,僅供比較)" : "依投信 10 日買超排序(回測採用的排序)";
   const pf = (DATA.perf && DATA.perf.trustRev && DATA.perf.trustRev.days[doc.date]) || {};
   if (list == null) { $("trtable").innerHTML = `<tr><td>這一天沒有計算這份名單(資料不足)</td></tr>`; }
   else if (!list.length) { $("trtable").innerHTML = `<tr><td>這一天沒有股票符合條件</td></tr>`; }
   else {
     const held = new Set(holdings.map((h) => h.code));
-    $("trtable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票</th><th>收盤</th><th>漲跌</th><th>投信 10 日</th><th>外資 10 日</th><th>營收年增</th><th>20 日後</th><th></th></tr>` +
+    $("trtable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票</th><th>收盤</th><th>漲跌</th><th>投信 10 日</th><th>外資 10 日</th><th>營收年增</th><th>籌碼分數</th><th>20 日後</th><th></th></tr>` +
       list.map((x) => { const r = pf[x.code] || {}; return `<tr><td>${x.rank}</td>
         <td style="text-align:left"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span><div class="reason">${esc(x.reason)}</div></td>
         <td>${fmt(x.close, 2)}</td><td class="${cls(x.chgPct)}">${pct(x.chgPct)}</td><td class="up">+${fmt(x.trust10)}</td>
-        <td class="${cls(x.foreign10)}">${x.foreign10 > 0 ? "+" : ""}${fmt(x.foreign10)}</td><td>${x.yoy.toFixed(1)}%</td>
+        <td class="${cls(x.foreign10)}">${x.foreign10 > 0 ? "+" : ""}${fmt(x.foreign10)}</td><td>${x.yoy.toFixed(1)}%</td>${chipCell(x.chip)}
         <td class="${cls(r.r20)}">${r.r20 == null ? "—" : pct(r.r20)}</td>
         <td class="ops">${held.has(x.code) ? `<button class="btn held" data-edit="${x.code}">已在持股</button>`
           : `<button class="btn ghost" data-buy="${x.code}" data-picked="${doc.date}" data-source="trustRev">我有買</button>`}</td></tr>`; }).join("");
@@ -487,16 +415,6 @@ function renderTrustRevBt() {
   $("trbt").innerHTML = rows.length ? `<tr><th>項目</th><th>期間</th><th>平均報酬(20 日)</th><th>比 0050</th><th>贏大盤比例</th></tr>` + rows.join("")
     : `<tr><td>尚無回測資料</td></tr>`;
   $("trbtmeta").textContent = "回測:2025/10～2026/10 每天選一次、持有 20 個交易日、扣手續費與證交稅 0.585%;依選股日切成訓練 60% / 驗證 20% / 最終測試 20%,三段都贏 0050 才算通過。共比較 7 條事先登記的規則,這條是依規則選出且通過最終測試的一條。價格未還原除權息。另測過收盤 / 盤中停損 7%、10%、15%,都讓報酬變差、沒有通過,所以不設停損;回測中約 2.3% 的交易虧損超過 20%(最差一筆 −47%),建議 10 檔分散持有,不要集中在少數幾檔。";
-}
-
-function renderCompare() {
-  const c = DATA.perf && DATA.perf.exitCompare;
-  if (!c || !c.results.length || !c.results[0].n) { $("cmptable").innerHTML = `<tr><td>樣本不足</td></tr>`; return; }
-  $("cmpmeta").textContent = `用 ${c.picksFrom} ~ ${c.picksTo} 的推薦(已滿 ${c.evalDays} 個交易日)比較各組出場規則;為了樣本一致,所有規則最多持有 ${c.evalDays} 日。未計手續費與稅。`;
-  $("cmptable").innerHTML = `<tr><th>出場規則</th><th>樣本</th><th>平均報酬</th><th>勝率</th><th>超額報酬</th><th>平均持有</th><th>最差一筆</th><th style="text-align:left">出場原因</th></tr>` +
-    c.results.map((r) => `<tr><td>${esc(r.name)}</td><td>${fmt(r.n)}</td><td class="${cls(r.avg)}">${pct(r.avg)}</td><td>${r.winRate}%</td>
-      <td class="${cls(r.excess)}">${pct(r.excess)}</td><td>${r.avgHeld} 日</td><td class="${cls(r.worst)}">${pct(r.worst)}</td>
-      <td style="text-align:left;font-size:12px" class="meta">${Object.entries(r.reasons).map(([k, v]) => `${k} ${v}`).join("、")}</td></tr>`).join("");
 }
 
 function renderDayTrade() {
@@ -525,44 +443,26 @@ function renderDayTrade() {
       <td class="${cls(r)}">${r == null ? "—" : pct(r)}</td></tr>`; }).join("");
 }
 
-function renderPerf() {
-  const p = DATA.perf;
-  if (!p || !p.firstDate) { $("perftable").innerHTML = `<tr><td>尚無績效資料</td></tr>`; return; }
-  const s = p.summary[state.perfMk];
-  const rows = [["樣本數", (x) => fmt(x.n)], ["勝率", (x) => x.n ? `${x.winRate}%` : "—"],
-    ["平均報酬", (x) => x.n ? `<span class="${cls(x.avg)}">${pct(x.avg)}</span>` : "—"],
-    ["平均超額報酬", (x) => x.n ? `<span class="${cls(x.excess)}">${pct(x.excess)}</span>` : "—"],
-    ["贏過大盤比例", (x) => x.n ? `${x.beatRate}%` : "—"]];
-  $("perftable").innerHTML = `<tr><th></th>${p.horizons.map((n) => `<th>持有 ${n} 日</th>`).join("")}</tr>` +
-    rows.map(([label, f]) => `<tr><td>${label}</td>${p.horizons.map((n) => `<td>${f(s[String(n)])}</td>`).join("")}</tr>`).join("");
-  $("perfmeta").textContent = `統計期間自 ${p.firstDate} 起(含回測),持有期間未滿的推薦不列入。更新於 ${p.updated.replace("T", " ")}`;
-}
-
 function init() {
-  if (!DATA || !DATA.days.length) { $("cards").innerHTML = `<div class="empty">尚無資料</div>`; return; }
+  if (!DATA || !DATA.days.length) { $("trtable").innerHTML = `<tr><td>尚無資料</td></tr>`; return; }
   state.date = DATA.days[0].date;
   $("date").innerHTML = DATA.days.map((d) => {
     const w = WD[new Date(d.date + "T00:00:00").getDay()];
     return `<option value="${d.date}">${d.date.slice(5).replace("-", "/")} 週${w}</option>`;
   }).join("");
-  $("date").onchange = (e) => { state.date = e.target.value; renderPicks(); renderDayTrade(); renderTrustRev(); };
-  seg($("mk"), [["上市", "上市 20"], ["上櫃", "上櫃 20"], ["全部", "全部"]], "market", () => {
-    try { localStorage.setItem("mk", state.market); } catch (e) {}
-    renderPicks();
-  });
-  seg($("sort"), [["score", "分數"], ["chg", "漲跌幅"], ["vol", "成交量"]], "sort", renderPicks);
-  seg($("perfmk"), [["全部", "全部"], ["上市", "上市"], ["上櫃", "上櫃"]], "perfMk", renderPerf);
+  $("date").onchange = (e) => { state.date = e.target.value; renderTrustRev(); renderDayTrade(); };
+  seg($("trsort"), [["trust", "依投信買超"], ["chip", "依籌碼分數"]], "trSort", renderTrustRev);
   seg($("dtside"), [["long", "做多 20 檔"], ["short", "做空 20 檔"]], "dtSide", renderDayTrade);
-  renderPicks();
+  if (DATA.levels) seg($("dtlvside"), [["long", "做多"], ["short", "做空"]], "dtLvSide", renderDtLevels);
   renderTrustRev();
   renderExits();
   renderDayTrade();
-  renderPerf();
-  renderCompare();
-  if (DATA.levels) seg($("dtlvside"), [["long", "做多"], ["short", "做空"]], "dtLvSide", renderDtLevels);
   renderLevels();
   $("updated").textContent = `資料更新於 ${DATA.days[0].generatedAt.replace("T", " ")}`;
 }
+// 往下捲超過一個畫面高時顯示「回到頂端」按鈕
+window.addEventListener("scroll", () => $("totop").classList.toggle("show", window.scrollY > window.innerHeight), { passive: true });
+$("totop").onclick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 init();
 </script>
 </body>

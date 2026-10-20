@@ -94,6 +94,7 @@ def score_market(rows, margin_chg, margin_missing, big_lookup, lookback=LOOKBACK
     rs = pct_rank([x["foreignStreak"] + x["trustStreak"] * 1.5 for x in rows])
     rm = pct_rank([-(x["marginChg"] or 0) / x["avgVol"] for x in rows])
     for x, a, b, c, e in zip(rows, r1, r5, rs, rm):
+        x["wBig"] = w["big"]
         x["parts"] = {"inst1": round(a * w["inst1"], 1), "inst5": round(b * w["inst5"], 1),
                       "streak": round(c * w["streak"], 1), "margin": round(e * w["margin"], 1), "big": 0.0}
     cands = sorted((x for x in rows if x["instNet"] > 0), key=lambda x: -sum(x["parts"].values()))[:CANDIDATES]
@@ -107,6 +108,15 @@ def score_market(rows, margin_chg, margin_missing, big_lookup, lookback=LOOKBACK
         x["tags"] = tags(x)
         x["reason"] = reason(x)
     return picks
+
+
+def full_score(x, big_lookup):
+    """替不在前 50 名候選內的股票補算千張大戶分數,回傳完整籌碼分數。"""
+    if "score" not in x:
+        x["bigPct"], x["bigChg"] = big_lookup(x["code"])
+        x["parts"]["big"] = round(big_score(x["bigChg"]) * x["wBig"], 1)
+        x["score"] = round(sum(x["parts"].values()), 1)
+    return x["score"]
 
 
 def tags(x):
