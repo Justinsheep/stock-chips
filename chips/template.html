@@ -220,10 +220,11 @@ const WD = "日一二三四五六";
 const state = { market: "上市", date: null, sort: "score", perfMk: "全部", dtSide: "long" };
 const HOLD_KEY = "holdings";
 let holdings = [];
-try { holdings = JSON.parse(localStorage.getItem(HOLD_KEY)) || []; } catch (e) {}
+let storageBlocked = false;   // 無痕模式或內嵌頁面可能禁止儲存:持股只在這次瀏覽有效
+try { holdings = JSON.parse(localStorage.getItem(HOLD_KEY)) || []; } catch (e) { storageBlocked = true; }
 function saveHoldings() {
   try { localStorage.setItem(HOLD_KEY, JSON.stringify(holdings)); }
-  catch (e) { alert("這個瀏覽器不允許儲存資料(可能是無痕模式),持股重新整理後會消失。"); }
+  catch (e) { storageBlocked = true; }
 }
 try { const m = localStorage.getItem("mk"); if (m) state.market = m; } catch (e) {}
 
@@ -321,7 +322,8 @@ function renderExits() {
   const sims = holdings.map((h) => ({ h, s: simHolding(h) }));
   const n = (st) => sims.filter((x) => x.s.status === st).length;
   $("exitstats").innerHTML = [["持股", holdings.length], ["今晚亮燈", n("tonight")], ["先前已亮燈", n("lit")]]
-    .map(([k, v]) => `<div class="stat"><div class="n">${k}</div><div class="v">${v}</div></div>`).join("");
+    .map(([k, v]) => `<div class="stat"><div class="n">${k}</div><div class="v">${v}</div></div>`).join("") +
+    (storageBlocked ? `<div class="weak" style="grid-column:1/-1;margin:0">這個瀏覽器不允許儲存資料(可能是無痕模式或內嵌頁面),持股重新整理後會消失。請用一般瀏覽器開啟網站。</div>` : "");
   if (!holdings.length) { $("exittable").innerHTML = `<tr><td>還沒有持股。在上方推薦名單按「我有買」加入。</td></tr>`; return; }
   const order = { tonight: 0, lit: 1, hold: 2, pending: 3, nodata: 4 };
   sims.sort((a, b) => order[a.s.status] - order[b.s.status]);
@@ -370,10 +372,15 @@ document.addEventListener("click", (e) => {
   if (b.dataset.buy) openBuy(b.dataset.buy, b.dataset.picked);
   else if (b.dataset.edit) openBuy(b.dataset.edit);
   else if (b.dataset.sold) {
-    const h = holdings.find((x) => x.code === b.dataset.sold);
-    if (h && confirm(`確定 ${h.name} 已賣出?會從持股移除。`)) {
-      holdings = holdings.filter((x) => x.code !== h.code);
+    // 不用 confirm():有些環境(內嵌頁面、App 內建瀏覽器)會擋掉跳出視窗,改成按兩下確認
+    if (b.dataset.armed) {
+      holdings = holdings.filter((x) => x.code !== b.dataset.sold);
       saveHoldings(); renderExits(); renderPicks();
+    } else {
+      b.dataset.armed = "1";
+      b.textContent = "確定賣出?";
+      b.classList.remove("ghost");
+      setTimeout(() => { if (b.isConnected) { delete b.dataset.armed; b.textContent = "已賣出"; b.classList.add("ghost"); } }, 4000);
     }
   }
 });
