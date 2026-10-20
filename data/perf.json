@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T23:01+08:00",
+ "updated": "2026-10-20T23:17+08:00",
  "horizons": [
   1,
   5,
@@ -19265,15 +19265,6 @@
    }
   },
   "2026-10-20": {
-   "9904": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
    "2377": {
     "entry": null,
     "r1": null,
@@ -19283,16 +19274,7 @@
     "r20": null,
     "x20": null
    },
-   "6277": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "1476": {
+   "9904": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19310,15 +19292,6 @@
     "r20": null,
     "x20": null
    },
-   "8213": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
    "2353": {
     "entry": null,
     "r1": null,
@@ -19328,7 +19301,7 @@
     "r20": null,
     "x20": null
    },
-   "2105": {
+   "8213": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19337,25 +19310,7 @@
     "r20": null,
     "x20": null
    },
-   "4938": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "2542": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "1808": {
+   "3376": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19373,52 +19328,7 @@
     "r20": null,
     "x20": null
    },
-   "1216": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "1102": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "3029": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "3045": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "3596": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "2027": {
+   "3026": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19436,7 +19346,7 @@
     "r20": null,
     "x20": null
    },
-   "2912": {
+   "2105": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19445,7 +19355,7 @@
     "r20": null,
     "x20": null
    },
-   "5904": {
+   "3029": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19454,7 +19364,79 @@
     "r20": null,
     "x20": null
    },
-   "3293": {
+   "2542": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3596": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "4961": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "6277": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2480": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "1216": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3045": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3706": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "1102": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19481,7 +19463,7 @@
     "r20": null,
     "x20": null
    },
-   "6179": {
+   "3293": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19491,6 +19473,15 @@
     "x20": null
    },
    "5009": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "5904": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19517,15 +19508,6 @@
     "r20": null,
     "x20": null
    },
-   "3354": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
    "3490": {
     "entry": null,
     "r1": null,
@@ -19544,6 +19526,24 @@
     "r20": null,
     "x20": null
    },
+   "5228": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3693": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
    "6538": {
     "entry": null,
     "r1": null,
@@ -19553,7 +19553,25 @@
     "r20": null,
     "x20": null
    },
-   "8069": {
+   "6179": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "5013": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3354": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19571,7 +19589,7 @@
     "r20": null,
     "x20": null
    },
-   "5228": {
+   "6603": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19580,7 +19598,7 @@
     "r20": null,
     "x20": null
    },
-   "3265": {
+   "8069": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19589,7 +19607,7 @@
     "r20": null,
     "x20": null
    },
-   "3483": {
+   "4167": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -19598,25 +19616,7 @@
     "r20": null,
     "x20": null
    },
-   "4743": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "8932": {
-    "entry": null,
-    "r1": null,
-    "x1": null,
-    "r5": null,
-    "x5": null,
-    "r20": null,
-    "x20": null
-   },
-   "3693": {
+   "6727": {
     "entry": null,
     "r1": null,
     "x1": null,
@@ -21992,17 +21992,16 @@
      "max_hold": 10
     },
     "n": 1742,
-    "avg": 0.32,
-    "winRate": 38.6,
-    "excess": -0.66,
-    "avgHeld": 4.9,
+    "avg": 0.51,
+    "winRate": 38.5,
+    "excess": -0.44,
+    "avgHeld": 5.1,
     "worst": -18.5,
     "reasons": {
-     "法人賣超": 922,
-     "跌破均線": 343,
-     "持有到期": 207,
-     "停損": 196,
-     "大戶週減": 74
+     "法人賣超": 968,
+     "跌破均線": 350,
+     "持有到期": 225,
+     "停損": 199
     }
    }
   ]
