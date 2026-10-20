@@ -84,6 +84,18 @@ tr:last-child td { border-bottom: 0; }
 .prose { color: var(--text); font-size: 14px; }
 .prose li { margin: 4px 0; }
 .empty { color: var(--muted); padding: 24px; text-align: center; background: var(--card); border: 1px dashed var(--line); border-radius: 12px; }
+.btn { font: inherit; font-size: 13px; border: 1px solid var(--accent); background: var(--accent); color: #fff; border-radius: 8px;
+  padding: 4px 12px; cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn.held { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-soft); }
+.row3 { display: flex; justify-content: flex-end; margin-top: 8px; }
+dialog { border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--text); padding: 18px; width: min(360px, calc(100vw - 32px)); }
+dialog::backdrop { background: rgba(0, 0, 0, .4); }
+.field { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); margin-bottom: 10px; }
+.field select, .field input { font: inherit; font-size: 15px; padding: 7px 9px; border-radius: 8px; border: 1px solid var(--line); background: var(--bg); color: var(--text); }
+.dlgbtns { display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px; }
+.ops { white-space: nowrap; }
+.ops .btn { padding: 2px 8px; font-size: 12px; }
 footer { margin-top: 40px; color: var(--muted); font-size: 13px; }
 footer ol { padding-left: 20px; }
 </style>
@@ -95,7 +107,7 @@ footer ol { padding-left: 20px; }
     <h1>籌碼選股</h1>
     <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
     <nav>
-      <a href="#picks">今日推薦</a><a href="#exits">出場訊號</a><a href="#daytrade">當沖</a><a href="#perf">績效</a><a href="#method">評分方式</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+      <a href="#picks">今日推薦</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#perf">績效</a><a href="#method">評分方式</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
     </nav>
     <div class="indices" id="indices"></div>
     <div id="weak"></div>
@@ -119,9 +131,8 @@ footer ol { padding-left: 20px; }
   </section>
 
   <section id="exits">
-    <h2>出場訊號</h2>
-    <p class="meta">每一筆推薦都當成一筆交易:推薦日的隔日開盤進場,每天收盤後檢查,<b>第一次亮燈</b>就在下一個交易日開盤出場;持有滿 20 日沒亮燈則當天收盤出場。亮燈條件:跌 7% 停損、法人連 2 日賣超、連 2 日收在 10 日均線之下、千張大戶週減 0.5 個百分點以上(只看進場後公布的新週別)。持有中再次被推薦不另開新倉,只記次數。依規則提醒,不是買賣建議。</p>
-    <div class="toolbar"><div class="seg" id="exitf"></div></div>
+    <h2>我的持股・出場訊號</h2>
+    <p class="meta">在推薦名單按「我有買」把股票加進來,這裡只追蹤你選的股票。每天收盤後依你的買進價檢查,符合任一條件就亮燈:跌 7% 停損、法人連 2 日賣超、連 2 日收在 10 日均線之下、千張大戶週減 0.5 個百分點以上(只看買進後公布的新週別)、持有滿 20 日。持股只存在這台裝置的瀏覽器,換裝置或清除瀏覽器資料會不見。依規則提醒,不是買賣建議。</p>
     <div class="stats" id="exitstats"></div>
     <div class="tablewrap"><table id="exittable"></table></div>
   </section>
@@ -188,6 +199,16 @@ footer ol { padding-left: 20px; }
   </footer>
 </div>
 
+<dialog id="buydlg">
+  <form method="dialog" id="buyform">
+    <h3 id="buyname" style="margin:0 0 12px"></h3>
+    <label class="field">買進日期<select id="buydate"></select></label>
+    <label class="field">買進價格<input id="buyprice" type="number" step="0.01" min="0" inputmode="decimal" placeholder="留空 = 用當天開盤價"></label>
+    <p class="meta" id="buyhint" style="margin:4px 0 0"></p>
+    <div class="dlgbtns"><button class="btn ghost" value="cancel" formnovalidate>取消</button><button class="btn" value="ok">儲存</button></div>
+  </form>
+</dialog>
+
 <script>
 const DATA = /*__DATA__*/null;
 const $ = (id) => document.getElementById(id);
@@ -196,7 +217,14 @@ const pct = (n) => n == null ? "—" : `${n > 0 ? "+" : ""}${n.toFixed(2)}%`;
 const cls = (n) => n > 0 ? "up" : n < 0 ? "down" : "";
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const WD = "日一二三四五六";
-const state = { market: "上市", date: null, sort: "score", perfMk: "全部", dtSide: "long", exitF: "exiting" };
+const state = { market: "上市", date: null, sort: "score", perfMk: "全部", dtSide: "long" };
+const HOLD_KEY = "holdings";
+let holdings = [];
+try { holdings = JSON.parse(localStorage.getItem(HOLD_KEY)) || []; } catch (e) {}
+function saveHoldings() {
+  try { localStorage.setItem(HOLD_KEY, JSON.stringify(holdings)); }
+  catch (e) { alert("這個瀏覽器不允許儲存資料(可能是無痕模式),持股重新整理後會消失。"); }
+}
 try { const m = localStorage.getItem("mk"); if (m) state.market = m; } catch (e) {}
 
 function seg(el, opts, key, onChange) {
@@ -239,6 +267,7 @@ function renderPicks() {
   if (!list.length) { $("cards").innerHTML = `<div class="empty">這一天沒有符合條件的股票</div>`; return; }
   const W = doc.weights;
   const colors = { inst1: "var(--bar)", inst5: "var(--bar2)", streak: "var(--bar3)", margin: "var(--bar4)", big: "var(--bar5)" };
+  const heldCodes = new Set(holdings.map((h) => h.code));
   $("cards").innerHTML = list.map((p, i) => {
     const pf = perfDay[p.code];
     const bar = Object.keys(colors).map((k) => `<span style="width:${p.parts[k]}%;background:${colors[k]}" title="${k} ${p.parts[k]}"></span>`).join("");
@@ -251,31 +280,103 @@ function renderPicks() {
         <span>成交 ${fmt(p.volume)} 張</span><span>法人 <span class="${cls(p.instNet)}">${p.instNet > 0 ? "+" : ""}${fmt(p.instNet)}</span> 張</span></div>
       ${p.tags.length ? `<div class="tags">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>` : ""}
       <div class="bar">${bar}</div>
-      <p class="reason">${esc(p.reason)}</p>${perf}</article>`;
+      <p class="reason">${esc(p.reason)}</p>${perf}
+      <div class="row3">${heldCodes.has(p.code) ? `<button class="btn held" data-edit="${p.code}">已在持股・修改</button>`
+        : `<button class="btn ghost" data-buy="${p.code}" data-picked="${doc.date}">我有買</button>`}</div></article>`;
   }).join("");
 }
 
+// 依使用者的買進日與買進價模擬出場規則;series.rows = [日期, 開盤, 收盤, 法人張數, 10日均線, 集保週別, 大戶週增減]
+function simHolding(h) {
+  const ser = DATA.series[h.code];
+  if (!ser) return { status: "nodata" };
+  const R = DATA.exitRules;
+  const buyDate = h.buyDate || (ser.rows.find((r) => r[0] > h.pickedOn) || [])[0];
+  const rows = buyDate ? ser.rows.filter((r) => r[0] >= buyDate) : [];
+  if (!rows.length) return { status: "pending" };
+  const entry = h.buyPrice || rows[0][1];
+  const entryWeek = rows[0][5];
+  let sells = 0, below = 0, trigger = null, held = 0;
+  for (const [d, , close, inst, ma, week, chg] of rows) {
+    held += 1;
+    const ret = (close / entry - 1) * 100;
+    const why = [];
+    if (ret <= R.stop) why.push(`停損(跌 ${Math.abs(ret).toFixed(1)}%)`);
+    sells = inst < 0 ? sells + 1 : 0;
+    if (sells >= R.inst_days) why.push(`法人連 ${R.inst_days} 日賣超`);
+    below = ma && close < ma ? below + 1 : 0;
+    if (below >= R.ma_days) why.push(`連 ${R.ma_days} 日跌破 10 日均線`);
+    if (week !== entryWeek && chg != null && chg <= R.big_drop) why.push(`大戶週減 ${Math.abs(chg).toFixed(2)} 個百分點`);
+    if (!why.length && held === R.max_hold) why.push(`持有滿 ${R.max_hold} 日`);
+    if (why.length && !trigger) trigger = { date: d, reasons: why };
+  }
+  const last = rows[rows.length - 1];
+  return { status: trigger ? (trigger.date === last[0] ? "tonight" : "lit") : "hold", buyDate, entry,
+    estimated: !h.buyPrice, close: last[2], ret: (last[2] / entry - 1) * 100, held, trigger };
+}
+
 function renderExits() {
-  const all = DATA.days[0].exits || [];
-  const count = (st) => all.filter((x) => x.status === st).length;
-  $("exitstats").innerHTML = [["今晚亮燈", count("exiting")], ["持有中", count("open")], ["近 5 日已出場", count("closed")]]
-    .map(([n, v]) => `<div class="stat"><div class="n">${n}</div><div class="v">${v}</div></div>`).join("");
-  const list = all.filter((x) => x.status === state.exitF);
-  const empty = { exiting: "今晚沒有亮燈的股票", open: "目前沒有持有中的股票", closed: "近 5 日沒有出場的股票" }[state.exitF];
-  if (!list.length) { $("exittable").innerHTML = `<tr><td>${all.length ? empty : "尚無追蹤資料"}</td></tr>`; return; }
   const d = (s) => s ? s.slice(5).replace("-", "/") : "—";
   const warn = (t) => `<span class="tag" style="background:var(--warn-bg);color:var(--warn-text)">${esc(t)}</span>`;
-  const head = state.exitF === "closed"
-    ? `<th>股票</th><th>推薦日</th><th>進場價</th><th>亮燈日</th><th>出場日</th><th>出場價</th><th>報酬</th><th>持有</th><th style="text-align:left">原因</th>`
-    : `<th>股票</th><th>推薦日</th><th>進場價</th><th>收盤</th><th>報酬</th><th>持有</th><th style="text-align:left">${state.exitF === "exiting" ? "亮燈原因(明日開盤出場)" : "狀態"}</th>`;
-  $("exittable").innerHTML = `<tr>${head}</tr>` + list.map((x) => {
-    const stock = `<td>${esc(x.name)} <span class="code">${x.code}</span></td><td>${d(x.pickedOn)}${x.times > 1 ? ` <span class="code">×${x.times}</span>` : ""}</td><td>${fmt(x.entry, 2)}</td>`;
-    if (state.exitF === "closed") return `<tr>${stock}<td>${d(x.signalDate)}</td><td>${d(x.exitDate)}</td><td>${fmt(x.exit, 2)}</td>
-      <td class="${cls(x.ret)}">${pct(x.ret)}</td><td>${x.held} 日</td><td style="text-align:left">${x.reasons.map(warn).join(" ")}</td></tr>`;
-    return `<tr>${stock}<td>${fmt(x.close, 2)}</td><td class="${cls(x.ret)}">${pct(x.ret)}</td><td>${x.held} 日</td>
-      <td style="text-align:left">${x.reasons.length ? x.reasons.map(warn).join(" ") : `<span class="meta">續抱</span>`}</td></tr>`;
-  }).join("");
+  const sims = holdings.map((h) => ({ h, s: simHolding(h) }));
+  const n = (st) => sims.filter((x) => x.s.status === st).length;
+  $("exitstats").innerHTML = [["持股", holdings.length], ["今晚亮燈", n("tonight")], ["先前已亮燈", n("lit")]]
+    .map(([k, v]) => `<div class="stat"><div class="n">${k}</div><div class="v">${v}</div></div>`).join("");
+  if (!holdings.length) { $("exittable").innerHTML = `<tr><td>還沒有持股。在上方推薦名單按「我有買」加入。</td></tr>`; return; }
+  const order = { tonight: 0, lit: 1, hold: 2, pending: 3, nodata: 4 };
+  sims.sort((a, b) => order[a.s.status] - order[b.s.status]);
+  $("exittable").innerHTML = `<tr><th>股票</th><th>買進日</th><th>買進價</th><th>收盤</th><th>報酬</th><th>持有</th><th style="text-align:left">狀態</th><th></th></tr>` +
+    sims.map(({ h, s }) => {
+      const ops = `<td class="ops"><button class="btn ghost" data-edit="${h.code}">修改</button> <button class="btn ghost" data-sold="${h.code}">已賣出</button></td>`;
+      const stock = `<td>${esc(h.name)} <span class="code">${h.code}</span></td>`;
+      if (s.status === "pending") return `<tr>${stock}<td colspan="6" style="text-align:left">等下一個交易日開盤後計算</td>${ops}</tr>`;
+      if (s.status === "nodata") return `<tr>${stock}<td colspan="6" style="text-align:left">超出追蹤範圍(推薦超過 60 個交易日)</td>${ops}</tr>`;
+      const status = s.status === "hold" ? `<span class="meta">續抱</span>`
+        : `${s.status === "tonight" ? "<b>今晚亮燈</b>,明天開盤出場" : `${d(s.trigger.date)} 已亮燈`}<br>${s.trigger.reasons.map(warn).join(" ")}`;
+      return `<tr>${stock}<td>${d(s.buyDate)}</td><td>${fmt(s.entry, 2)}${s.estimated ? `<br><span class="code">開盤估算</span>` : ""}</td>
+        <td>${fmt(s.close, 2)}</td><td class="${cls(s.ret)}">${pct(s.ret)}</td><td>${s.held} 日</td><td style="text-align:left">${status}</td>${ops}</tr>`;
+    }).join("");
 }
+
+function openBuy(code, pickedOn) {
+  const ser = DATA.series[code];
+  const old = holdings.find((h) => h.code === code);
+  pickedOn = old ? old.pickedOn : pickedOn;
+  const rows = ser ? ser.rows.filter((r) => r[0] >= pickedOn) : [];
+  const after = rows.filter((r) => r[0] > pickedOn);
+  const opts = [["", "下一個交易日(還沒開盤)"],
+    ...rows.map((r) => [r[0], `${r[0].slice(5).replace("-", "/")}${r[0] === pickedOn ? "(推薦當天)" : ""}・開盤 ${fmt(r[1], 2)}`])];
+  $("buydate").innerHTML = opts.map(([v, t]) => `<option value="${v}">${t}</option>`).join("");
+  $("buydate").value = old ? (old.buyDate || "") : (after.length ? after[0][0] : "");
+  $("buyprice").value = old && old.buyPrice ? old.buyPrice : "";
+  $("buyname").textContent = `${ser ? ser.name : ""} ${code}`;
+  $("buyhint").textContent = `推薦日 ${pickedOn.slice(5).replace("-", "/")}。價格留空時,用買進日的開盤價估算。`;
+  const dlg = $("buydlg");
+  dlg.onclose = () => {
+    if (dlg.returnValue !== "ok") return;
+    const price = parseFloat($("buyprice").value);
+    const rec = { code, name: ser ? ser.name : code, market: ser ? ser.market : "", pickedOn,
+      buyDate: $("buydate").value || null, buyPrice: price > 0 ? price : null };
+    holdings = holdings.filter((h) => h.code !== code).concat(rec);
+    saveHoldings(); renderExits(); renderPicks();
+  };
+  dlg.returnValue = "";
+  dlg.showModal();
+}
+
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-buy], button[data-edit], button[data-sold]");
+  if (!b) return;
+  if (b.dataset.buy) openBuy(b.dataset.buy, b.dataset.picked);
+  else if (b.dataset.edit) openBuy(b.dataset.edit);
+  else if (b.dataset.sold) {
+    const h = holdings.find((x) => x.code === b.dataset.sold);
+    if (h && confirm(`確定 ${h.name} 已賣出?會從持股移除。`)) {
+      holdings = holdings.filter((x) => x.code !== h.code);
+      saveHoldings(); renderExits(); renderPicks();
+    }
+  }
+});
 
 function renderCompare() {
   const c = DATA.perf && DATA.perf.exitCompare;
@@ -336,7 +437,6 @@ function init() {
   seg($("sort"), [["score", "分數"], ["chg", "漲跌幅"], ["vol", "成交量"]], "sort", renderPicks);
   seg($("perfmk"), [["全部", "全部"], ["上市", "上市"], ["上櫃", "上櫃"]], "perfMk", renderPerf);
   seg($("dtside"), [["long", "做多 20 檔"], ["short", "做空 20 檔"]], "dtSide", renderDayTrade);
-  seg($("exitf"), [["exiting", "今晚亮燈"], ["open", "持有中"], ["closed", "近期出場"]], "exitF", renderExits);
   renderPicks();
   renderExits();
   renderDayTrade();

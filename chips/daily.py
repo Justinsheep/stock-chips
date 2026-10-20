@@ -3,7 +3,7 @@ import datetime as dt
 import json
 import os
 
-from . import daytrade, exits, score, sources
+from . import daytrade, score, sources
 
 DAYS_DIR = os.path.join(sources.DATA, "days")
 PRICES_DIR = os.path.join(sources.DATA, "prices")
@@ -36,9 +36,8 @@ def pick_weeks(all_weeks, d0, strict):
     return cur, prev
 
 
-def compute_day(d0, days, holders, strict_weeks=False, with_exits=True):
-    """days:新到舊的交易日(days[0] == d0)。回傳當日結果 dict。
-    with_exits:是否計算出場訊號(回測時略過,只有最新一天需要)。"""
+def compute_day(d0, days, holders, strict_weeks=False):
+    """days:新到舊的交易日(days[0] == d0)。回傳當日結果 dict。"""
     days_data = []
     for d in days:
         data = sources.load_day(d)
@@ -67,7 +66,6 @@ def compute_day(d0, days, holders, strict_weeks=False, with_exits=True):
     for x in picks:
         x.pop("instHist", None)
     day_trade = daytrade.candidates(days_data, sources.daytrade_list(d0))
-    exit_rows = exits.tracker(f"{d0:%Y-%m-%d}") if with_exits else None
     fmt = lambda w: f"{w[:4]}-{w[4:6]}-{w[6:]}" if w else None
     return {
         "date": f"{d0:%Y-%m-%d}",
@@ -82,7 +80,6 @@ def compute_day(d0, days, holders, strict_weeks=False, with_exits=True):
         "filters": {"minAvgLots": score.MIN_AVG_LOTS, "minPrice": score.MIN_PRICE, "lookback": score.LOOKBACK},
         "picks": picks,
         "dayTrade": day_trade,
-        "exits": exit_rows,
     }
 
 

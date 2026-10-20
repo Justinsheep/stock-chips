@@ -18,7 +18,6 @@ PRICES_DIR = os.path.join(DATA, "prices")
 # 網頁「出場訊號」區使用的預設規則
 DEFAULT_RULES = {"stop": -7.0, "inst_days": 2, "ma_days": 2, "big_drop": -0.5, "max_hold": 20}
 MA_LEN = 10          # 均線天數
-RECENT_EXITS = 5     # 網頁列出最近幾個交易日內出場的交易
 EVAL_DAYS = 10       # 規則比較時,所有規則都最多持有 10 日,讓樣本一致
 
 # 規則比較:(名稱, 規則)。沒列的規則代表不使用。
@@ -188,40 +187,30 @@ def compare_rules():
             "picksTo": max(cal[i] for i, _ in picks) if picks else None, "results": out}
 
 
-def tracker(d0_str, rules=DEFAULT_RULES, lookback=30):
-    """網頁用:近 lookback 個交易日推薦的交易中,仍持有的與最近 RECENT_EXITS 日內出場的。
-    同一檔在持有期間再次被推薦不另開新倉,只記次數。"""
+def holding_series(d0_str, lookback=40):
+    """網頁「我的持股」用:近 lookback 個交易日推薦過的股票,從第一次被推薦起每天的
+    [日期, 開盤, 收盤, 法人張數, 10 日均線, 集保週別, 大戶週增減]。出場訊號在瀏覽器依使用者的買進價計算。"""
     prices = _load_dir(PRICES_DIR)
     cal = [d for d in sorted(prices) if d <= d0_str]
-    if d0_str not in cal:
-        return []
-    prices = {d: prices[d] for d in cal}
-    pos = {d: i for i, d in enumerate(cal)}
     big = BigOffline()
-    recent_cut = cal[max(0, len(cal) - RECENT_EXITS)]
-    active = {}   # 代號 -> 該檔最近一筆交易
-    trades = []
-    for day in cal[max(0, len(cal) - lookback - 1):-1]:   # 今天的推薦明天才進場
+    first = {}   # 代號 -> (第一次推薦日, 名稱, 市場)
+    for day in cal[-lookback:]:
         path = os.path.join(DAYS_DIR, f"{day}.json")
         if not os.path.exists(path):
             continue
         with open(path, encoding="utf-8") as f:
-            doc = json.load(f)
-        for p in doc["picks"]:
-            prev = active.get(p["code"])
-            if prev and (prev["status"] in ("open", "exiting") or (prev["exitDate"] or "") > day):
-                prev["times"] += 1
+            for p in json.load(f)["picks"]:
+                first.setdefault(p["code"], (day, p["name"], p["market"]))
+    out = {}
+    for code, (day, name, market) in first.items():
+        rows = []
+        for k in range(cal.index(day), len(cal)):
+            row = prices[cal[k]].get(code)
+            if not row or row[1] <= 0:
                 continue
-            t = simulate(p["code"], pos[day], cal, prices, rules, big)
-            if not t:
-                continue
-            t.update(name=p["name"], market=p["market"], times=1)
-            active[p["code"]] = t
-            trades.append(t)
-    shown = [t for t in trades if t["status"] in ("open", "exiting") or (t["exitDate"] or "") >= recent_cut]
-    # 排序:今晚亮燈 → 持有中(推薦日舊到新)→ 近期出場(出場日新到舊)
-    shown.sort(key=lambda t: (t["pickedOn"], t["code"]))
-    shown.sort(key=lambda t: t["exitDate"] or "", reverse=True)
-    order = {"exiting": 0, "open": 1, "closed": 2}
-    shown.sort(key=lambda t: order[t["status"]])
-    return shown
+            closes = [(prices[d].get(code) or [0, 0])[1] for d in cal[max(0, k - MA_LEN + 1):k + 1]]
+            ma = round(sum(closes) / MA_LEN, 2) if len(closes) == MA_LEN and all(closes) else None
+            week, chg = big.as_of(code, cal[k])
+            rows.append([cal[k], row[0], row[1], row[2] if len(row) > 2 else 0, ma, week, chg])
+        out[code] = {"name": name, "market": market, "pickedOn": day, "rows": rows}
+    return out

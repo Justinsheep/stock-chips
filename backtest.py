@@ -26,7 +26,7 @@ def main(argv):
         if d.weekday() < 5 and not (os.path.exists(os.path.join(daily.DAYS_DIR, f"{d:%Y-%m-%d}.json")) and not force):
             days = sources.trading_days(d, score.LOOKBACK)
             if days and days[0] == d:
-                doc = daily.compute_day(d, days, holders, strict_weeks=True, with_exits=False)
+                doc = daily.compute_day(d, days, holders, strict_weeks=True)
                 daily.save_day(doc)
                 print(f"{d} 完成:{len(doc['picks'])} 檔,集保 {doc['tdccWeek']} vs {doc['tdccPrevWeek']}", flush=True)
         d += dt.timedelta(days=1)
