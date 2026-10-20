@@ -44,6 +44,14 @@ class SimulateTest(unittest.TestCase):
         self.assertEqual(t["status"], "open")
         self.assertEqual(t["ret"], 10.0)
 
+    def test_price_reset_skips_trade(self):
+        cal, px = series([60, 62, 16.2, 17.8, 19.5])   # 減資後重新定價:第 2 天開盤 16.2,前一天收 62
+        px["d02"]["A"][0] = 16.2
+        self.assertTrue(exits.price_reset("A", cal, px, 1, 4))
+        self.assertIsNone(exits.simulate("A", 0, cal, px, {"max_hold": 3}))
+        cal, px = series([60, 62, 66, 60])              # 一般漲跌
+        self.assertFalse(exits.price_reset("A", cal, px, 1, 3))
+
     def test_no_entry_day_yet(self):
         cal, px = series([10])
         self.assertIsNone(exits.simulate("A", 0, cal, px, {}))

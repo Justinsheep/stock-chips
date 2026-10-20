@@ -32,6 +32,8 @@ def trade_return(prices, cal, i, code, n):
     exit_ = prices[cal[i + n]].get(code)
     if not entry or not exit_ or entry[0] <= 0 or exit_[1] <= 0:
         return None
+    if exits.price_reset(code, cal, prices, i + 1, i + n):
+        return None
     return exit_[1] / entry[0] - 1
 
 
@@ -72,7 +74,7 @@ def compute():
         for side in ("long", "short"):
             for p in doc["dayTrade"].get(side, []):
                 ohlc = nxt.get(p["code"])
-                if not ohlc or ohlc[0] <= 0 or ohlc[1] <= 0:
+                if not ohlc or ohlc[0] <= 0 or ohlc[1] <= 0 or exits.price_reset(p["code"], cal, prices, pos[date] + 1, pos[date] + 1):
                     continue
                 r = ohlc[1] / ohlc[0] - 1
                 r = r if side == "long" else -r

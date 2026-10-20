@@ -42,6 +42,16 @@ def _load_dir(path):
     return out
 
 
+def price_reset(code, cal, prices, a, b):
+    """cal[a..b] 之間是否有減資、除權等重新定價:開盤與前一天收盤差超過漲跌停幅度(10%)。
+    價格沒有還原權值,跨過這種事件的報酬沒有意義,統計時要排除。"""
+    for k in range(max(1, a), min(b, len(cal) - 1) + 1):
+        prev, cur = prices[cal[k - 1]].get(code), prices[cal[k]].get(code)
+        if prev and cur and prev[1] > 0 and cur[0] > 0 and abs(cur[0] / prev[1] - 1) > 0.11:
+            return True
+    return False
+
+
 class BigOffline:
     """千張大戶週增減,只用已存的資料。as_of(code, day) -> (週別, 週增減) 或 (None, None)。"""
 
@@ -88,6 +98,8 @@ def simulate(code, i_pick, cal, prices, rules, big=None):
     if not row or row[0] <= 0:
         return None
     entry = row[0]
+    if price_reset(code, cal, prices, i_entry, min(last, i_entry + rules.get("max_hold", 20) - 1)):
+        return None
     entry_week = big.as_of(code, cal[i_entry])[0] if big else None
     max_hold = rules.get("max_hold", 20)
     sells = below = 0

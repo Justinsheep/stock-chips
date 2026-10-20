@@ -9,6 +9,7 @@ import json
 import math
 import os
 
+from .exits import price_reset
 from .sources import DATA
 
 DAYS_DIR = os.path.join(DATA, "days")
@@ -90,6 +91,8 @@ def _swing_trade(code, i, cal, prices, rule, k):
     nxt = prices[cal[i + 1]].get(code)
     out = prices[cal[i + HOLD]].get(code)
     if not nxt or len(nxt) < 5 or nxt[0] <= 0 or not out or out[1] <= 0:
+        return None
+    if price_reset(code, cal, prices, i + 1, i + HOLD):
         return None
     o, low = nxt[0], nxt[4]
     if rule == "gap":
@@ -204,7 +207,8 @@ def compare_daytrade():
             for p in doc["dayTrade"].get(side, []):
                 k = indicators(p["code"], i, cal, prices)
                 nxt = prices[cal[i + 1]].get(p["code"])
-                if not k or not k["atr"] or not nxt or len(nxt) < 5 or nxt[0] <= 0:
+                if (not k or not k["atr"] or not nxt or len(nxt) < 5 or nxt[0] <= 0
+                        or price_reset(p["code"], cal, prices, i + 1, i + 1)):
                     continue
                 atr_pct = k["atr"] / k["close"] * 100
                 for c in combos:

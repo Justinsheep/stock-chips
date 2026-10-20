@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-20T19:07+08:00",
+ "updated": "2026-10-20T19:09+08:00",
  "horizons": [
   1,
   5,
@@ -16,18 +16,18 @@
     "beatRate": 44.8
    },
    "5": {
-    "n": 1957,
-    "winRate": 45.7,
-    "avg": 0.26,
-    "excess": -0.15,
-    "beatRate": 43.6
+    "n": 1951,
+    "winRate": 45.9,
+    "avg": 0.39,
+    "excess": -0.01,
+    "beatRate": 43.7
    },
    "20": {
-    "n": 1355,
-    "winRate": 48.7,
-    "avg": 2.74,
-    "excess": -1.25,
-    "beatRate": 34.8
+    "n": 1337,
+    "winRate": 49.4,
+    "avg": 3.09,
+    "excess": -0.92,
+    "beatRate": 35.2
    }
   },
   "上市": {
@@ -46,11 +46,11 @@
     "beatRate": 41.8
    },
    "20": {
-    "n": 678,
-    "winRate": 50.9,
-    "avg": 2.43,
-    "excess": -1.76,
-    "beatRate": 34.4
+    "n": 674,
+    "winRate": 51.2,
+    "avg": 2.56,
+    "excess": -1.62,
+    "beatRate": 34.6
    }
   },
   "上櫃": {
@@ -62,18 +62,18 @@
     "beatRate": 47.5
    },
    "5": {
-    "n": 980,
-    "winRate": 46.8,
-    "avg": 0.46,
-    "excess": 0.21,
-    "beatRate": 45.4
+    "n": 974,
+    "winRate": 47.1,
+    "avg": 0.73,
+    "excess": 0.48,
+    "beatRate": 45.7
    },
    "20": {
-    "n": 677,
-    "winRate": 46.5,
-    "avg": 3.06,
-    "excess": -0.74,
-    "beatRate": 35.2
+    "n": 663,
+    "winRate": 47.5,
+    "avg": 3.62,
+    "excess": -0.21,
+    "beatRate": 35.9
    }
   }
  },
@@ -1360,8 +1360,8 @@
     "x1": 2.47,
     "r5": 1.83,
     "x5": -2.37,
-    "r20": -48.5,
-    "x20": -47.39
+    "r20": null,
+    "x20": null
    },
    "3324": {
     "entry": 1060.0,
@@ -1738,10 +1738,10 @@
     "entry": 61.0,
     "r1": 2.13,
     "x1": 1.0,
-    "r5": -73.44,
-    "x5": -77.11,
-    "r20": -47.54,
-    "x20": -49.43
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
    },
    "4541": {
     "entry": 65.0,
@@ -2136,10 +2136,10 @@
     "entry": 61.9,
     "r1": -1.29,
     "x1": -1.41,
-    "r5": -71.24,
-    "x5": -72.96,
-    "r20": -43.13,
-    "x20": -46.93
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
    },
    "6245": {
     "entry": 91.0,
@@ -2518,8 +2518,8 @@
     "x1": 0.1,
     "r5": 3.81,
     "x5": 6.23,
-    "r20": -12.0,
-    "x20": -14.33
+    "r20": null,
+    "x20": null
    },
    "5443": {
     "entry": 108.0,
@@ -2862,8 +2862,8 @@
     "x1": -1.46,
     "r5": 0.46,
     "x5": 9.73,
-    "r20": -13.92,
-    "x20": -11.14
+    "r20": null,
+    "x20": null
    },
    "6179": {
     "entry": 27.55,
@@ -2896,10 +2896,10 @@
     "entry": 62.5,
     "r1": -1.92,
     "x1": -0.16,
-    "r5": -65.6,
-    "x5": -56.33,
-    "r20": -31.92,
-    "x20": -29.15
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
    },
    "6913": {
     "entry": 150.0,
@@ -3541,8 +3541,8 @@
     "x1": 2.85,
     "r5": -1.85,
     "x5": 3.38,
-    "r20": -16.11,
-    "x20": -13.4
+    "r20": null,
+    "x20": null
    },
    "6121": {
     "entry": 419.0,
@@ -3939,8 +3939,8 @@
     "x1": 2.4,
     "r5": -3.65,
     "x5": 0.47,
-    "r20": -17.26,
-    "x20": -15.91
+    "r20": null,
+    "x20": null
    },
    "3234": {
     "entry": 149.0,
@@ -4418,8 +4418,8 @@
     "x1": 1.68,
     "r5": 4.67,
     "x5": 3.27,
-    "r20": -19.81,
-    "x20": -22.24
+    "r20": null,
+    "x20": null
    }
   },
   "2026-08-19": {
@@ -4663,8 +4663,8 @@
     "x1": 3.19,
     "r5": 5.5,
     "x5": 5.09,
-    "r20": -18.07,
-    "x20": -20.29
+    "r20": null,
+    "x20": null
    },
    "5009": {
     "entry": 33.2,
@@ -4998,8 +4998,8 @@
     "x1": -4.47,
     "r5": -5.83,
     "x5": -8.96,
-    "r20": -20.09,
-    "x20": -23.69
+    "r20": null,
+    "x20": null
    },
    "4167": {
     "entry": 20.7,
@@ -5864,10 +5864,10 @@
     "entry": 105.0,
     "r1": 6.67,
     "x1": 5.22,
-    "r5": -8.57,
-    "x5": -13.89,
-    "r20": -9.62,
-    "x20": -19.22
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
    }
   },
   "2026-08-25": {
@@ -6073,10 +6073,10 @@
     "entry": 112.0,
     "r1": 2.68,
     "x1": 1.04,
-    "r5": -16.34,
-    "x5": -22.74,
-    "r20": -16.34,
-    "x20": -25.2
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
    },
    "3455": {
     "entry": 240.0,
@@ -6275,8 +6275,8 @@
     "x1": -0.1,
     "r5": -0.1,
     "x5": -0.39,
-    "r20": -17.6,
-    "x20": -23.19
+    "r20": null,
+    "x20": null
    },
    "5534": {
     "entry": 77.0,
@@ -6426,10 +6426,10 @@
     "entry": 114.0,
     "r1": -7.89,
     "x1": -8.24,
-    "r5": -20.35,
-    "x5": -22.85,
-    "r20": -18.25,
-    "x20": -23.45
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
    },
    "3498": {
     "entry": 208.0,
@@ -7786,8 +7786,8 @@
     "x1": 1.49,
     "r5": 0.32,
     "x5": -1.68,
-    "r20": -19.24,
-    "x20": -24.27
+    "r20": null,
+    "x20": null
    },
    "3045": {
     "entry": 115.5,
@@ -8582,8 +8582,8 @@
     "x1": -0.39,
     "r5": -4.42,
     "x5": -5.77,
-    "r20": -21.79,
-    "x20": -29.45
+    "r20": null,
+    "x20": null
    },
    "3362": {
     "entry": 202.5,
@@ -9985,8 +9985,8 @@
     "x1": -3.02,
     "r5": -3.77,
     "x5": -2.21,
-    "r20": -15.93,
-    "x20": -21.64
+    "r20": null,
+    "x20": null
    },
    "3045": {
     "entry": 119.0,
@@ -19263,6 +19263,368 @@
     "r20": null,
     "x20": null
    }
+  },
+  "2026-10-20": {
+   "9904": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2377": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "6277": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "1476": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2002": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "8213": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2353": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2105": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "4938": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2542": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "1808": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2439": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "1216": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "1102": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3029": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3045": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3596": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2027": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3380": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "2912": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "5904": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3293": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3260": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3718": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "6179": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "5009": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3230": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3147": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3354": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3490": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "1595": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "6538": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "8069": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3689": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "5228": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3265": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3483": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "4743": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "8932": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   },
+   "3693": {
+    "entry": null,
+    "r1": null,
+    "x1": null,
+    "r5": null,
+    "x5": null,
+    "r20": null,
+    "x20": null
+   }
   }
  },
  "dayTrade": {
@@ -21517,14 +21879,14 @@
     "rules": {
      "max_hold": 5
     },
-    "n": 1757,
-    "avg": 0.56,
-    "winRate": 47.5,
-    "excess": -0.55,
+    "n": 1751,
+    "avg": 0.7,
+    "winRate": 47.6,
+    "excess": -0.4,
     "avgHeld": 5.0,
-    "worst": -73.44,
+    "worst": -22.24,
     "reasons": {
-     "持有到期": 1757
+     "持有到期": 1751
     }
    },
    {
@@ -21532,14 +21894,14 @@
     "rules": {
      "max_hold": 10
     },
-    "n": 1754,
-    "avg": 1.31,
-    "winRate": 48.5,
-    "excess": -0.01,
+    "n": 1741,
+    "avg": 1.52,
+    "winRate": 48.8,
+    "excess": 0.21,
     "avgHeld": 10.0,
-    "worst": -60.71,
+    "worst": -28.17,
     "reasons": {
-     "持有到期": 1754
+     "持有到期": 1741
     }
    },
    {
@@ -21548,15 +21910,15 @@
      "stop": -7.0,
      "max_hold": 10
     },
-    "n": 1753,
-    "avg": 1.16,
-    "winRate": 46.1,
-    "excess": -0.12,
+    "n": 1740,
+    "avg": 1.41,
+    "winRate": 46.4,
+    "excess": 0.14,
     "avgHeld": 8.7,
-    "worst": -71.52,
+    "worst": -24.55,
     "reasons": {
      "持有到期": 1291,
-     "停損": 462
+     "停損": 449
     }
    },
    {
@@ -21566,16 +21928,16 @@
      "inst_days": 2,
      "max_hold": 10
     },
-    "n": 1758,
-    "avg": 0.48,
-    "winRate": 41.4,
-    "excess": -0.59,
+    "n": 1745,
+    "avg": 0.71,
+    "winRate": 41.7,
+    "excess": -0.35,
     "avgHeld": 5.8,
-    "worst": -71.52,
+    "worst": -18.5,
     "reasons": {
-     "法人賣超": 1125,
+     "法人賣超": 1124,
      "持有到期": 385,
-     "停損": 248
+     "停損": 236
     }
    },
    {
@@ -21586,16 +21948,16 @@
      "ma_days": 1,
      "max_hold": 10
     },
-    "n": 1759,
-    "avg": 0.2,
-    "winRate": 37.2,
-    "excess": -0.55,
+    "n": 1746,
+    "avg": 0.41,
+    "winRate": 37.5,
+    "excess": -0.34,
     "avgHeld": 4.4,
-    "worst": -71.52,
+    "worst": -18.19,
     "reasons": {
-     "跌破均線": 763,
+     "跌破均線": 755,
      "法人賣超": 697,
-     "停損": 157,
+     "停損": 152,
      "持有到期": 142
     }
    },
@@ -21607,17 +21969,17 @@
      "ma_days": 2,
      "max_hold": 10
     },
-    "n": 1755,
-    "avg": 0.31,
-    "winRate": 38.2,
-    "excess": -0.63,
+    "n": 1742,
+    "avg": 0.51,
+    "winRate": 38.5,
+    "excess": -0.44,
     "avgHeld": 5.1,
-    "worst": -71.52,
+    "worst": -18.5,
     "reasons": {
      "法人賣超": 968,
-     "跌破均線": 356,
+     "跌破均線": 350,
      "持有到期": 225,
-     "停損": 206
+     "停損": 199
     }
    },
    {
@@ -21629,17 +21991,17 @@
      "big_drop": -0.5,
      "max_hold": 10
     },
-    "n": 1755,
-    "avg": 0.12,
-    "winRate": 38.3,
-    "excess": -0.85,
+    "n": 1742,
+    "avg": 0.32,
+    "winRate": 38.6,
+    "excess": -0.66,
     "avgHeld": 4.9,
-    "worst": -71.52,
+    "worst": -18.5,
     "reasons": {
      "法人賣超": 922,
-     "跌破均線": 349,
+     "跌破均線": 343,
      "持有到期": 207,
-     "停損": 203,
+     "停損": 196,
      "大戶週減": 74
     }
    }
