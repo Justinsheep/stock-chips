@@ -1,6 +1,6 @@
 {
  "date": "2026-09-21",
- "generatedAt": "2026-10-20T10:21+08:00",
+ "generatedAt": "2026-10-20T23:40+08:00",
  "tradingDays": [
   "2026-09-21",
   "2026-09-18",
@@ -82,6 +82,7 @@
    "foreignStreak": 3,
    "trustStreak": 0,
    "marginChg": -111,
+   "wBig": 25,
    "parts": {
     "inst1": 23.4,
     "inst5": 23.9,
@@ -117,6 +118,7 @@
    "foreignStreak": 4,
    "trustStreak": 2,
    "marginChg": -612,
+   "wBig": 25,
    "parts": {
     "inst1": 20.2,
     "inst5": 24.4,
@@ -151,6 +153,7 @@
    "foreignStreak": 5,
    "trustStreak": 0,
    "marginChg": -189,
+   "wBig": 25,
    "parts": {
     "inst1": 22.8,
     "inst5": 21.8,
@@ -185,6 +188,7 @@
    "foreignStreak": 1,
    "trustStreak": 0,
    "marginChg": -670,
+   "wBig": 25,
    "parts": {
     "inst1": 23.7,
     "inst5": 22.0,
@@ -217,6 +221,7 @@
    "foreignStreak": 3,
    "trustStreak": 0,
    "marginChg": -5,
+   "wBig": 25,
    "parts": {
     "inst1": 24.7,
     "inst5": 22.5,
@@ -250,6 +255,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": -23,
+   "wBig": 25,
    "parts": {
     "inst1": 22.6,
     "inst5": 24.7,
@@ -283,6 +289,7 @@
    "foreignStreak": 1,
    "trustStreak": 1,
    "marginChg": -1017,
+   "wBig": 25,
    "parts": {
     "inst1": 17.5,
     "inst5": 23.3,
@@ -316,6 +323,7 @@
    "foreignStreak": 5,
    "trustStreak": 1,
    "marginChg": -5,
+   "wBig": 25,
    "parts": {
     "inst1": 19.4,
     "inst5": 22.3,
@@ -349,6 +357,7 @@
    "foreignStreak": 1,
    "trustStreak": 4,
    "marginChg": -34,
+   "wBig": 25,
    "parts": {
     "inst1": 21.9,
     "inst5": 17.0,
@@ -382,6 +391,7 @@
    "foreignStreak": 1,
    "trustStreak": 0,
    "marginChg": -163,
+   "wBig": 25,
    "parts": {
     "inst1": 21.6,
     "inst5": 22.9,
@@ -415,6 +425,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": -827,
+   "wBig": 25,
    "parts": {
     "inst1": 16.5,
     "inst5": 20.2,
@@ -449,6 +460,7 @@
    "foreignStreak": 5,
    "trustStreak": 0,
    "marginChg": -4,
+   "wBig": 25,
    "parts": {
     "inst1": 24.2,
     "inst5": 25.0,
@@ -482,6 +494,7 @@
    "foreignStreak": 1,
    "trustStreak": 5,
    "marginChg": -227,
+   "wBig": 25,
    "parts": {
     "inst1": 20.5,
     "inst5": 24.0,
@@ -515,6 +528,7 @@
    "foreignStreak": 1,
    "trustStreak": 5,
    "marginChg": -18,
+   "wBig": 25,
    "parts": {
     "inst1": 24.4,
     "inst5": 24.6,
@@ -548,6 +562,7 @@
    "foreignStreak": 1,
    "trustStreak": 4,
    "marginChg": -662,
+   "wBig": 25,
    "parts": {
     "inst1": 20.9,
     "inst5": 22.3,
@@ -581,6 +596,7 @@
    "foreignStreak": 1,
    "trustStreak": 0,
    "marginChg": -189,
+   "wBig": 25,
    "parts": {
     "inst1": 23.2,
     "inst5": 21.4,
@@ -611,6 +627,7 @@
    "foreignStreak": 3,
    "trustStreak": 1,
    "marginChg": -36,
+   "wBig": 25,
    "parts": {
     "inst1": 17.3,
     "inst5": 24.1,
@@ -645,6 +662,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": 0,
+   "wBig": 25,
    "parts": {
     "inst1": 20.1,
     "inst5": 22.7,
@@ -679,6 +697,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": -77,
+   "wBig": 25,
    "parts": {
     "inst1": 20.6,
     "inst5": 23.7,
@@ -713,6 +732,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": -18,
+   "wBig": 25,
    "parts": {
     "inst1": 24.7,
     "inst5": 24.8,
@@ -746,6 +766,7 @@
    "foreignStreak": 3,
    "trustStreak": 0,
    "marginChg": -54,
+   "wBig": 25,
    "parts": {
     "inst1": 24.6,
     "inst5": 22.8,
@@ -779,6 +800,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": -168,
+   "wBig": 25,
    "parts": {
     "inst1": 24.3,
     "inst5": 22.6,
@@ -813,6 +835,7 @@
    "foreignStreak": 1,
    "trustStreak": 5,
    "marginChg": -5,
+   "wBig": 25,
    "parts": {
     "inst1": 25.0,
     "inst5": 25.0,
@@ -846,6 +869,7 @@
    "foreignStreak": 5,
    "trustStreak": 0,
    "marginChg": -33,
+   "wBig": 25,
    "parts": {
     "inst1": 24.8,
     "inst5": 24.6,
@@ -879,6 +903,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": 12,
+   "wBig": 25,
    "parts": {
     "inst1": 21.2,
     "inst5": 21.0,
@@ -912,6 +937,7 @@
    "foreignStreak": 3,
    "trustStreak": 0,
    "marginChg": -60,
+   "wBig": 25,
    "parts": {
     "inst1": 21.0,
     "inst5": 24.8,
@@ -945,6 +971,7 @@
    "foreignStreak": 5,
    "trustStreak": 0,
    "marginChg": -55,
+   "wBig": 25,
    "parts": {
     "inst1": 22.3,
     "inst5": 24.5,
@@ -978,6 +1005,7 @@
    "foreignStreak": 2,
    "trustStreak": 0,
    "marginChg": -231,
+   "wBig": 25,
    "parts": {
     "inst1": 23.9,
     "inst5": 21.5,
@@ -1010,6 +1038,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": -128,
+   "wBig": 25,
    "parts": {
     "inst1": 21.7,
     "inst5": 21.7,
@@ -1042,6 +1071,7 @@
    "foreignStreak": 1,
    "trustStreak": 0,
    "marginChg": -107,
+   "wBig": 25,
    "parts": {
     "inst1": 20.8,
     "inst5": 16.1,
@@ -1075,6 +1105,7 @@
    "foreignStreak": 3,
    "trustStreak": 0,
    "marginChg": 128,
+   "wBig": 25,
    "parts": {
     "inst1": 19.9,
     "inst5": 19.7,
@@ -1108,6 +1139,7 @@
    "foreignStreak": 4,
    "trustStreak": 0,
    "marginChg": -12,
+   "wBig": 25,
    "parts": {
     "inst1": 22.8,
     "inst5": 23.2,
@@ -1140,6 +1172,7 @@
    "foreignStreak": 1,
    "trustStreak": 0,
    "marginChg": -115,
+   "wBig": 25,
    "parts": {
     "inst1": 21.4,
     "inst5": 17.5,
@@ -1172,6 +1205,7 @@
    "foreignStreak": 3,
    "trustStreak": 0,
    "marginChg": 51,
+   "wBig": 25,
    "parts": {
     "inst1": 18.1,
     "inst5": 13.0,
@@ -1205,6 +1239,7 @@
    "foreignStreak": 3,
    "trustStreak": 0,
    "marginChg": -50,
+   "wBig": 25,
    "parts": {
     "inst1": 15.5,
     "inst5": 13.5,
@@ -1238,6 +1273,7 @@
    "foreignStreak": 2,
    "trustStreak": 0,
    "marginChg": -10,
+   "wBig": 25,
    "parts": {
     "inst1": 18.2,
     "inst5": 17.2,
@@ -1268,6 +1304,7 @@
    "foreignStreak": 1,
    "trustStreak": 0,
    "marginChg": 176,
+   "wBig": 25,
    "parts": {
     "inst1": 23.0,
     "inst5": 18.4,
@@ -1300,6 +1337,7 @@
    "foreignStreak": 2,
    "trustStreak": 4,
    "marginChg": -13,
+   "wBig": 25,
    "parts": {
     "inst1": 20.4,
     "inst5": 23.4,
@@ -1332,6 +1370,7 @@
    "foreignStreak": 1,
    "trustStreak": 0,
    "marginChg": -117,
+   "wBig": 25,
    "parts": {
     "inst1": 23.7,
     "inst5": 12.2,
@@ -1364,6 +1403,7 @@
    "foreignStreak": 0,
    "trustStreak": 2,
    "marginChg": 471,
+   "wBig": 25,
    "parts": {
     "inst1": 19.7,
     "inst5": 16.8,
@@ -2297,7 +2337,6 @@
    }
   ]
  },
- "exits": null,
  "trustRev": [
   {
    "code": "2303",
@@ -2310,7 +2349,25 @@
    "yoy": 30.7,
    "vol20": 190305,
    "rank": 1,
-   "reason": "投信近 10 日買超 91,198 張(外資 -34,655 張);月營收 3 個月平均創 12 個月新高,最新月年增 30.7%。"
+   "reason": "投信近 10 日買超 91,198 張(外資 -34,655 張);月營收 3 個月平均創 12 個月新高,最新月年增 30.7%。",
+   "chip": {
+    "score": 68.7,
+    "parts": {
+     "inst1": 14.0,
+     "inst5": 17.6,
+     "streak": 9.4,
+     "margin": 8.8,
+     "big": 18.9
+    },
+    "tags": [
+     "投信連買5日",
+     "大戶增持"
+    ],
+    "instNet": 5782,
+    "bigPct": 72.08,
+    "bigChg": 0.51,
+    "marginChg": -154
+   }
   },
   {
    "code": "2801",
@@ -2323,7 +2380,22 @@
    "yoy": 21.1,
    "vol20": 32051,
    "rank": 2,
-   "reason": "投信近 10 日買超 53,887 張(外資 -63,070 張);月營收 3 個月平均創 12 個月新高,最新月年增 21.1%。"
+   "reason": "投信近 10 日買超 53,887 張(外資 -63,070 張);月營收 3 個月平均創 12 個月新高,最新月年增 21.1%。",
+   "chip": {
+    "score": 34.0,
+    "parts": {
+     "inst1": 7.9,
+     "inst5": 4.3,
+     "streak": 1.9,
+     "margin": 7.4,
+     "big": 12.5
+    },
+    "tags": [],
+    "instNet": -4050,
+    "bigPct": null,
+    "bigChg": null,
+    "marginChg": 147
+   }
   },
   {
    "code": "1815",
@@ -2336,7 +2408,24 @@
    "yoy": 79.2,
    "vol20": 74045,
    "rank": 3,
-   "reason": "投信近 10 日買超 40,235 張(外資 -68,028 張);月營收 3 個月平均創 12 個月新高,最新月年增 79.2%。"
+   "reason": "投信近 10 日買超 40,235 張(外資 -68,028 張);月營收 3 個月平均創 12 個月新高,最新月年增 79.2%。",
+   "chip": {
+    "score": 41.3,
+    "parts": {
+     "inst1": 14.4,
+     "inst5": 7.3,
+     "streak": 6.4,
+     "margin": 13.2,
+     "big": 0.0
+    },
+    "tags": [
+     "融資大減"
+    ],
+    "instNet": 620,
+    "bigPct": 47.66,
+    "bigChg": -5.27,
+    "marginChg": -3046
+   }
   },
   {
    "code": "2890",
@@ -2349,7 +2438,22 @@
    "yoy": 49.5,
    "vol20": 28902,
    "rank": 4,
-   "reason": "投信近 10 日買超 39,825 張(外資 -18,985 張);月營收 3 個月平均創 12 個月新高,最新月年增 49.5%。"
+   "reason": "投信近 10 日買超 39,825 張(外資 -18,985 張);月營收 3 個月平均創 12 個月新高,最新月年增 49.5%。",
+   "chip": {
+    "score": 61.6,
+    "parts": {
+     "inst1": 16.8,
+     "inst5": 14.8,
+     "streak": 6.5,
+     "margin": 9.5,
+     "big": 14.0
+    },
+    "tags": [],
+    "instNet": 3925,
+    "bigPct": 78.13,
+    "bigChg": 0.12,
+    "marginChg": -107
+   }
   },
   {
    "code": "1303",
@@ -2362,7 +2466,24 @@
    "yoy": 46.7,
    "vol20": 90536,
    "rank": 5,
-   "reason": "投信近 10 日買超 39,254 張(外資 -51,573 張);月營收 3 個月平均創 12 個月新高,最新月年增 46.7%。"
+   "reason": "投信近 10 日買超 39,254 張(外資 -51,573 張);月營收 3 個月平均創 12 個月新高,最新月年增 46.7%。",
+   "chip": {
+    "score": 56.0,
+    "parts": {
+     "inst1": 15.9,
+     "inst5": 8.4,
+     "streak": 9.7,
+     "margin": 11.4,
+     "big": 10.6
+    },
+    "tags": [
+     "投信連買5日"
+    ],
+    "instNet": 5709,
+    "bigPct": 83.84,
+    "bigChg": -0.15,
+    "marginChg": -1042
+   }
   },
   {
    "code": "6505",
@@ -2375,7 +2496,22 @@
    "yoy": 50.3,
    "vol20": 25326,
    "rank": 6,
-   "reason": "投信近 10 日買超 19,997 張(外資 -14,022 張);月營收 3 個月平均創 12 個月新高,最新月年增 50.3%。"
+   "reason": "投信近 10 日買超 19,997 張(外資 -14,022 張);月營收 3 個月平均創 12 個月新高,最新月年增 50.3%。",
+   "chip": {
+    "score": 66.3,
+    "parts": {
+     "inst1": 19.8,
+     "inst5": 14.6,
+     "streak": 6.5,
+     "margin": 12.4,
+     "big": 13.0
+    },
+    "tags": [],
+    "instNet": 4273,
+    "bigPct": 95.45,
+    "bigChg": 0.04,
+    "marginChg": -599
+   }
   },
   {
    "code": "2618",
@@ -2388,7 +2524,24 @@
    "yoy": 24.9,
    "vol20": 17421,
    "rank": 7,
-   "reason": "投信近 10 日買超 17,087 張(外資 -1,238 張);月營收 3 個月平均創 12 個月新高,最新月年增 24.9%。"
+   "reason": "投信近 10 日買超 17,087 張(外資 -1,238 張);月營收 3 個月平均創 12 個月新高,最新月年增 24.9%。",
+   "chip": {
+    "score": 68.6,
+    "parts": {
+     "inst1": 19.0,
+     "inst5": 13.9,
+     "streak": 9.7,
+     "margin": 11.2,
+     "big": 14.8
+    },
+    "tags": [
+     "投信連買5日"
+    ],
+    "instNet": 2826,
+    "bigPct": 79.4,
+    "bigChg": 0.18,
+    "marginChg": -270
+   }
   },
   {
    "code": "6147",
@@ -2401,7 +2554,25 @@
    "yoy": 43.6,
    "vol20": 46946,
    "rank": 8,
-   "reason": "投信近 10 日買超 15,057 張(外資 +1,051 張);月營收 3 個月平均創 12 個月新高,最新月年增 43.6%。"
+   "reason": "投信近 10 日買超 15,057 張(外資 +1,051 張);月營收 3 個月平均創 12 個月新高,最新月年增 43.6%。",
+   "chip": {
+    "score": 61.8,
+    "parts": {
+     "inst1": 4.6,
+     "inst5": 17.9,
+     "streak": 9.7,
+     "margin": 4.6,
+     "big": 25.0
+    },
+    "tags": [
+     "投信連買5日",
+     "大戶增持"
+    ],
+    "instNet": -9060,
+    "bigPct": 60.64,
+    "bigChg": 1.98,
+    "marginChg": 1327
+   }
   },
   {
    "code": "2382",
@@ -2414,7 +2585,24 @@
    "yoy": 177.5,
    "vol20": 15191,
    "rank": 9,
-   "reason": "投信近 10 日買超 14,538 張(外資 -3,255 張);月營收 3 個月平均創 12 個月新高,最新月年增 177.5%。"
+   "reason": "投信近 10 日買超 14,538 張(外資 -3,255 張);月營收 3 個月平均創 12 個月新高,最新月年增 177.5%。",
+   "chip": {
+    "score": 65.6,
+    "parts": {
+     "inst1": 14.1,
+     "inst5": 22.1,
+     "streak": 9.4,
+     "margin": 5.7,
+     "big": 14.3
+    },
+    "tags": [
+     "投信連買5日"
+    ],
+    "instNet": 516,
+    "bigPct": 81.7,
+    "bigChg": 0.14,
+    "marginChg": 172
+   }
   },
   {
    "code": "2603",
@@ -2427,7 +2615,24 @@
    "yoy": 48.6,
    "vol20": 11823,
    "rank": 10,
-   "reason": "投信近 10 日買超 12,505 張(外資 -956 張);月營收 3 個月平均創 12 個月新高,最新月年增 48.6%。"
+   "reason": "投信近 10 日買超 12,505 張(外資 -956 張);月營收 3 個月平均創 12 個月新高,最新月年增 48.6%。",
+   "chip": {
+    "score": 70.1,
+    "parts": {
+     "inst1": 18.7,
+     "inst5": 21.1,
+     "streak": 8.7,
+     "margin": 4.8,
+     "big": 16.8
+    },
+    "tags": [
+     "外資連買4日"
+    ],
+    "instNet": 1380,
+    "bigPct": 70.35,
+    "bigChg": 0.34,
+    "marginChg": 169
+   }
   }
  ]
 }
