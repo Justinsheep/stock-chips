@@ -211,7 +211,8 @@ def holding_series(d0_str, lookback=40):
         if not os.path.exists(path):
             continue
         with open(path, encoding="utf-8") as f:
-            for p in json.load(f)["picks"]:
+            doc = json.load(f)
+            for p in doc["picks"] + (doc.get("trustRev") or []):
                 first.setdefault(p["code"], (day, p["name"], p["market"]))
     out = {}
     for code, (day, name, market) in first.items():

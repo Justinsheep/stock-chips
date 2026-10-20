@@ -85,6 +85,29 @@ def compute():
                          "winRate": round(sum(1 for r in v if r > 0) / len(v) * 100, 1) if v else None,
                          "avg": round(sum(v) / len(v) * 100, 2) if v else None} for side, v in dt_vals.items()}
 
+    # 投信+營收名單:回測依據是持有 20 日,基準一律 0050
+    tr_hz = (1, 5, 10, 20)
+    tr_days, tr_vals = {}, {n: [] for n in tr_hz}
+    for date, doc in sorted(days.items()):
+        if date not in pos or not doc.get("trustRev"):
+            continue
+        i = pos[date]
+        res = {}
+        for p in doc["trustRev"]:
+            e = {}
+            for n in tr_hz:
+                r, b = trade_return(prices, cal, i, p["code"], n), trade_return(prices, cal, i, "0050", n)
+                e[f"r{n}"] = None if r is None else round(r * 100, 2)
+                e[f"x{n}"] = None if r is None or b is None else round((r - b) * 100, 2)
+                if r is not None and b is not None:
+                    tr_vals[n].append((r, r - b))
+            res[p["code"]] = e
+        tr_days[date] = res
+    tr_summary = {str(n): {"n": len(v),
+                           "winRate": round(sum(1 for r, _ in v if r > 0) / len(v) * 100, 1) if v else None,
+                           "avg": round(sum(r for r, _ in v) / len(v) * 100, 2) if v else None,
+                           "excess": round(sum(x for _, x in v) / len(v) * 100, 2) if v else None} for n, v in tr_vals.items()}
+
     summary = {}
     for mk in ("全部", "上市", "上櫃"):
         summary[mk] = {}
@@ -108,6 +131,7 @@ def compute():
         "days": per_day,
         "dayTrade": {"summary": dt_summary, "days": dt_per_day},
         "exitCompare": exits.compare_rules(),
+        "trustRev": {"horizons": list(tr_hz), "summary": tr_summary, "days": tr_days},
     }
     _write_json(PERF_PATH, doc)
     return doc

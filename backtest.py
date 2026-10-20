@@ -24,7 +24,7 @@ def main(argv):
     d = start
     while d <= end:
         if d.weekday() < 5 and not (os.path.exists(os.path.join(daily.DAYS_DIR, f"{d:%Y-%m-%d}.json")) and not force):
-            days = sources.trading_days(d, score.LOOKBACK)
+            days = sources.trading_days(d, daily.LOAD_DAYS)
             if days and days[0] == d:
                 doc = daily.compute_day(d, days, holders, strict_weeks=True)
                 daily.save_day(doc)

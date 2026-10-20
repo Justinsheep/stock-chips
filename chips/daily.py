@@ -3,7 +3,7 @@ import datetime as dt
 import json
 import os
 
-from . import daytrade, score, sources
+from . import daytrade, score, sources, strategy
 
 DAYS_DIR = os.path.join(sources.DATA, "days")
 PRICES_DIR = os.path.join(sources.DATA, "prices")
@@ -37,8 +37,11 @@ def pick_weeks(all_weeks, d0, strict):
     return cur, prev
 
 
+LOAD_DAYS = max(score.LOOKBACK, strategy.LOOKBACK)   # 籌碼分數看 5 天,投信+營收規則看 20 天
+
+
 def compute_day(d0, days, holders, strict_weeks=False):
-    """days:新到舊的交易日(days[0] == d0)。回傳當日結果 dict。"""
+    """days:新到舊的交易日(days[0] == d0,共 LOAD_DAYS 天)。回傳當日結果 dict。"""
     days_data = []
     for d in days:
         data = sources.load_day(d)
@@ -56,7 +59,7 @@ def compute_day(d0, days, holders, strict_weeks=False):
         chg = round(cur - prev, 2) if cur is not None and prev is not None else None
         return cur, chg
 
-    rows = score.build_rows(days_data)
+    rows = score.build_rows(days_data[:score.LOOKBACK])
     picks, universe, weak = [], {}, {}
     for mk in score.MARKETS:
         grp = [x for x in rows if x["market"] == mk]
@@ -70,7 +73,7 @@ def compute_day(d0, days, holders, strict_weeks=False):
     try:   # 當沖名單出錯不影響主推薦
         dt_list, dt_missing = sources.daytrade_list(d0)
         # 上市櫃合併排名,任一市場還沒公布就整份先不排,等隔天早上重跑
-        day_trade = dict(empty_dt, pending=sorted(dt_missing)) if dt_missing else daytrade.candidates(days_data, dt_list)
+        day_trade = dict(empty_dt, pending=sorted(dt_missing)) if dt_missing else daytrade.candidates(days_data[:score.LOOKBACK], dt_list)
     except Exception as e:
         print("當沖名單計算失敗:", repr(e))
         day_trade = dict(empty_dt, error=str(e))
@@ -78,7 +81,7 @@ def compute_day(d0, days, holders, strict_weeks=False):
     return {
         "date": f"{d0:%Y-%m-%d}",
         "generatedAt": dt.datetime.now().astimezone().isoformat(timespec="minutes"),
-        "tradingDays": [f"{d:%Y-%m-%d}" for d in days],
+        "tradingDays": [f"{d:%Y-%m-%d}" for d in days[:score.LOOKBACK]],
         "tdccWeek": fmt(week), "tdccPrevWeek": fmt(prev_week),
         "marginPending": sorted(margin_missing),
         "universe": universe,
@@ -88,7 +91,16 @@ def compute_day(d0, days, holders, strict_weeks=False):
         "filters": {"minAvgLots": score.MIN_AVG_LOTS, "minPrice": score.MIN_PRICE, "lookback": score.LOOKBACK},
         "picks": picks,
         "dayTrade": day_trade,
+        "trustRev": strategy_picks(d0, days_data),
     }
+
+
+def strategy_picks(d0, days_data):
+    try:   # 營收資料抓不到等問題不影響其他名單
+        return strategy.picks(d0, days_data)
+    except Exception as e:
+        print("投信+營收名單計算失敗:", repr(e))
+        return None
 
 
 def save_day(doc):

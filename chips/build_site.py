@@ -9,7 +9,8 @@ from .sources import ROOT
 
 TEMPLATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "template.html")
 SITE = os.path.join(ROOT, "docs", "index.html")   # GitHub Pages 從 docs/ 發布
-HISTORY_DAYS = 60   # 網頁歷史清單保留的天數
+HISTORY_DAYS = 25   # 網頁歷史清單保留的天數
+HOLDING_LOOKBACK = 40   # 「我有買」可追蹤的推薦範圍(交易日)
 
 
 def build():
@@ -25,12 +26,17 @@ def build():
             perf = json.load(f)
         keep = {d["date"] for d in days}
         perf["days"] = {k: v for k, v in perf["days"].items() if k in keep}
+        if perf.get("trustRev"):
+            perf["trustRev"]["days"] = {k: v for k, v in perf["trustRev"]["days"].items() if k in keep}
         if perf.get("dayTrade"):
             perf["dayTrade"]["days"] = {k: v for k, v in perf["dayTrade"]["days"].items() if k in keep}
     lv_path = os.path.join(os.path.dirname(PERF_PATH), "levels.json")
     lv = json.load(open(lv_path, encoding="utf-8")) if os.path.exists(lv_path) else None
-    series = holding_series(days[0]["date"], lookback=HISTORY_DAYS) if days else {}   # 歷史清單能選到的股票都要有資料
-    payload = json.dumps({"days": days, "perf": perf, "series": series, "exitRules": DEFAULT_RULES, "levels": lv}, ensure_ascii=False, separators=(",", ":"))
+    series = holding_series(days[0]["date"], lookback=HOLDING_LOOKBACK) if days else {}   # 要涵蓋歷史清單能選到的股票
+    research = os.path.join(ROOT, "research", "results.json")
+    research = json.load(open(research, encoding="utf-8")) if os.path.exists(research) else None
+    payload = json.dumps({"research": research and {"decision": research["decision"], "main": research["results"]["20"]},
+                          "days": days, "perf": perf, "series": series, "exitRules": DEFAULT_RULES, "levels": lv}, ensure_ascii=False, separators=(",", ":"))
     payload = payload.replace("</", "<\\/")   # 避免資料中的字串提前結束 <script>
     with open(TEMPLATE, encoding="utf-8") as f:
         html = f.read().replace("/*__DATA__*/null", payload)

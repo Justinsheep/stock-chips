@@ -1,6 +1,6 @@
 # stock-chips:籌碼選股
 
-每個交易日盤後,用證交所、櫃買中心、集保結算所的公開資料計算籌碼分數,上市、上櫃各選 20 檔,並追蹤推薦後的績效。完整規格見 [SPEC.md](SPEC.md)。
+每個交易日盤後,用證交所、櫃買中心、集保結算所與公開資訊觀測站的公開資料選股並追蹤績效。主名單是通過一年三段回測的「投信買超＋營收動能」(持有 20 個交易日);另保留原網站的籌碼分數名單與當沖名單作參考。完整規格見 [SPEC.md](SPEC.md)。
 
 > 本專案非證券投資顧問事業,內容僅為公開資料整理與規則篩選,不構成投資建議。
 
@@ -26,7 +26,10 @@ GitHub Pages 設定:Settings → Pages → Deploy from a branch → `main` / `do
 | 路徑 | 內容 |
 |---|---|
 | `chips/sources.py` | 抓取官方資料(快取在 `cache/`,不進版控) |
-| `chips/score.py` | 計分、標籤、大盤偏弱判斷 |
+| `chips/strategy.py` | 主名單:投信買超＋營收動能 |
+| `chips/revenue.py` | 月營收(存在 `data/revenue/`) |
+| `chips/score.py` | 籌碼分數、標籤、大盤偏弱判斷 |
+| `research/` | 規則研究:預先登記的規則、回測引擎與結果 |
 | `chips/daily.py` | 單日流程 |
 | `chips/perf.py` | 績效計算 |
 | `chips/build_site.py`、`chips/template.html` | 產生網頁 |

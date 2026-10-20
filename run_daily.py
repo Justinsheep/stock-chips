@@ -37,7 +37,7 @@ def main(argv):
     except Exception as e:   # 集保暫時連不上不影響其他項目,大戶分數會改用逐檔查詢
         print("集保開放資料下載失敗:", e)
 
-    days = sources.trading_days(end, score.LOOKBACK)
+    days = sources.trading_days(end, daily.LOAD_DAYS)
     if not days:
         print("找不到最近的交易日資料,結束。")
         return 0

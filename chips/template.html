@@ -107,14 +107,24 @@ footer ol { padding-left: 20px; }
     <h1>籌碼選股</h1>
     <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
     <nav>
-      <a href="#picks">今日推薦</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#perf">績效</a><a href="#method">評分方式</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+      <a href="#trustrev">投信＋營收</a><a href="#picks">籌碼分數</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#perf">績效</a><a href="#method">評分方式</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
     </nav>
     <div class="indices" id="indices"></div>
     <div id="weak"></div>
   </header>
 
+  <section id="trustrev">
+    <h2>投信買超＋營收動能 <span class="tag" style="vertical-align:middle">通過回測</span></h2>
+    <p class="meta">條件:投信近 10 日累計買超 &gt; 15 張、月營收近 3 個月平均創 12 個月新高、最新月營收年增 &gt; 20%、20 日均量 &gt; 300 張、股價 ≥ 10 元;依投信買超張數取前 10 檔。<b>回測依據是隔天開盤買、持有 20 個交易日後賣出</b>,不是短線訊號。日期跟下方名單的日期選單連動。</p>
+    <div class="tablewrap"><table id="trtable"></table></div>
+    <h3 style="font-size:16px;margin:20px 0 8px">回測與實際追蹤</h3>
+    <div class="tablewrap"><table id="trbt"></table></div>
+    <p class="meta" id="trbtmeta" style="margin-top:8px"></p>
+  </section>
+
   <section id="picks">
-    <h2>推薦名單</h2>
+    <h2>籌碼分數名單</h2>
+    <p class="meta">原網站的規則(法人、千張大戶、融資計分)。一年回測(不含千張大戶)持有 20 日扣成本後落後 0050 約 2～5 個百分點,<b>沒有通過回測</b>,保留作為參考與比較。</p>
     <div class="toolbar">
       <div class="seg" id="mk"></div>
       <select id="date" aria-label="選擇日期"></select>
@@ -298,7 +308,7 @@ function renderPicks() {
 function simHolding(h) {
   const ser = DATA.series[h.code];
   if (!ser) return { status: "nodata" };
-  const R = DATA.exitRules;
+  const R = h.source === "trustRev" ? { max_hold: 20 } : DATA.exitRules;   // 投信+營收名單回測依據:持有 20 日
   const buyDate = h.buyDate || (ser.rows.find((r) => r[0] > h.pickedOn) || [])[0];
   const rows = buyDate ? ser.rows.filter((r) => r[0] >= buyDate) : [];
   if (!rows.length) return { status: "pending" };
@@ -309,12 +319,12 @@ function simHolding(h) {
     held += 1;
     const ret = (close / entry - 1) * 100;
     const why = [];
-    if (ret <= R.stop) why.push(`停損(跌 ${Math.abs(ret).toFixed(1)}%)`);
+    if (R.stop != null && ret <= R.stop) why.push(`停損(跌 ${Math.abs(ret).toFixed(1)}%)`);
     sells = inst < 0 ? sells + 1 : 0;
-    if (sells >= R.inst_days) why.push(`法人連 ${R.inst_days} 日賣超`);
+    if (R.inst_days && sells >= R.inst_days) why.push(`法人連 ${R.inst_days} 日賣超`);
     below = ma && close < ma ? below + 1 : 0;
-    if (below >= R.ma_days) why.push(`連 ${R.ma_days} 日跌破 10 日均線`);
-    if (week !== entryWeek && chg != null && chg <= R.big_drop) why.push(`大戶週減 ${Math.abs(chg).toFixed(2)} 個百分點`);
+    if (R.ma_days && below >= R.ma_days) why.push(`連 ${R.ma_days} 日跌破 10 日均線`);
+    if (R.big_drop != null && week !== entryWeek && chg != null && chg <= R.big_drop) why.push(`大戶週減 ${Math.abs(chg).toFixed(2)} 個百分點`);
     if (!why.length && held === R.max_hold) why.push(`持有滿 ${R.max_hold} 日`);
     if (why.length && !trigger) trigger = { date: d, reasons: why };
   }
@@ -337,9 +347,9 @@ function renderExits() {
   $("exittable").innerHTML = `<tr><th>股票</th><th>買進日</th><th>買進價</th><th>收盤</th><th>報酬</th><th>持有</th><th style="text-align:left">狀態</th><th></th></tr>` +
     sims.map(({ h, s }) => {
       const ops = `<td class="ops"><button class="btn ghost" data-edit="${h.code}">修改</button> <button class="btn ghost" data-sold="${h.code}">已賣出</button></td>`;
-      const stock = `<td>${esc(h.name)} <span class="code">${h.code}</span></td>`;
+      const stock = `<td>${esc(h.name)} <span class="code">${h.code}</span>${h.source === "trustRev" ? `<br><span class="tag">投信＋營收・持有 20 日</span>` : ""}</td>`;
       if (s.status === "pending") return `<tr>${stock}<td colspan="6" style="text-align:left">等下一個交易日開盤後計算</td>${ops}</tr>`;
-      if (s.status === "nodata") return `<tr>${stock}<td colspan="6" style="text-align:left">超出追蹤範圍(推薦超過 60 個交易日)</td>${ops}</tr>`;
+      if (s.status === "nodata") return `<tr>${stock}<td colspan="6" style="text-align:left">超出追蹤範圍(推薦超過 40 個交易日)</td>${ops}</tr>`;
       const status = s.status === "hold" ? `<span class="meta">續抱</span>`
         : `${s.status === "tonight" ? "<b>今晚亮燈</b>,明天開盤出場" : `${d(s.trigger.date)} 已亮燈`}<br>${s.trigger.reasons.map(warn).join(" ")}`;
       return `<tr>${stock}<td>${d(s.buyDate)}</td><td>${fmt(s.entry, 2)}${s.estimated ? `<br><span class="code">開盤估算</span>` : ""}</td>
@@ -347,7 +357,7 @@ function renderExits() {
     }).join("");
 }
 
-function openBuy(code, pickedOn) {
+function openBuy(code, pickedOn, source) {
   const ser = DATA.series[code];
   const old = holdings.find((h) => h.code === code);
   pickedOn = old ? old.pickedOn : pickedOn;
@@ -361,13 +371,15 @@ function openBuy(code, pickedOn) {
   $("buyname").textContent = `${ser ? ser.name : ""} ${code}`;
   $("buyhint").textContent = `推薦日 ${pickedOn.slice(5).replace("-", "/")}。價格留空時,用買進日的開盤價估算。`;
   const dlg = $("buydlg");
-  dlg.onclose = () => {
-    if (dlg.returnValue !== "ok") return;
+  // 在送出當下存檔(submit 事件同步觸發);不用 close 事件,背景分頁裡它可能延遲
+  $("buyform").onsubmit = (e) => {
+    if (!e.submitter || e.submitter.value !== "ok") return;
     const price = parseFloat($("buyprice").value);
     const rec = { code, name: ser ? ser.name : code, market: ser ? ser.market : "", pickedOn,
+      source: old ? old.source : (source || "chips"),
       buyDate: $("buydate").value || null, buyPrice: price > 0 ? price : null };
     holdings = holdings.filter((h) => h.code !== code).concat(rec);
-    saveHoldings(); renderExits(); renderPicks();
+    saveHoldings(); renderExits(); renderPicks(); renderTrustRev();
   };
   dlg.returnValue = "";
   dlg.showModal();
@@ -376,13 +388,13 @@ function openBuy(code, pickedOn) {
 document.addEventListener("click", (e) => {
   const b = e.target.closest("button[data-buy], button[data-edit], button[data-sold]");
   if (!b) return;
-  if (b.dataset.buy) openBuy(b.dataset.buy, b.dataset.picked);
+  if (b.dataset.buy) openBuy(b.dataset.buy, b.dataset.picked, b.dataset.source);
   else if (b.dataset.edit) openBuy(b.dataset.edit);
   else if (b.dataset.sold) {
     // 不用 confirm():有些環境(內嵌頁面、App 內建瀏覽器)會擋掉跳出視窗,改成按兩下確認
     if (b.dataset.armed) {
       holdings = holdings.filter((x) => x.code !== b.dataset.sold);
-      saveHoldings(); renderExits(); renderPicks();
+      saveHoldings(); renderExits(); renderPicks(); renderTrustRev();
     } else {
       b.dataset.armed = "1";
       b.textContent = "確定賣出?";
@@ -437,6 +449,44 @@ function renderDtLevels() {
     S.results.map((r) => `<tr><td>${r.tp == null ? "不設(收盤出)" : r.tp + " 倍"}</td><td>${r.sl == null ? "—" : r.sl + " 倍"}</td><td>${fmt(r.all.n)}</td>
       <td class="${cls(r.all.avg)}">${half(r.all)}</td><td>${r.all.win}%</td><td class="${cls(r.first.avg)}">${half(r.first)}</td>
       <td class="${cls(r.second.avg)}">${half(r.second)}</td><td>${r.tp == null ? `<span class="meta">基準</span>` : passTag(r.passed)}</td></tr>`).join("");
+}
+
+function renderTrustRev() {
+  const doc = dayDoc();
+  const list = doc.trustRev;
+  const pf = (DATA.perf && DATA.perf.trustRev && DATA.perf.trustRev.days[doc.date]) || {};
+  if (list == null) { $("trtable").innerHTML = `<tr><td>這一天沒有計算這份名單(資料不足)</td></tr>`; }
+  else if (!list.length) { $("trtable").innerHTML = `<tr><td>這一天沒有股票符合條件</td></tr>`; }
+  else {
+    const held = new Set(holdings.map((h) => h.code));
+    $("trtable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票</th><th>收盤</th><th>漲跌</th><th>投信 10 日</th><th>外資 10 日</th><th>營收年增</th><th>20 日後</th><th></th></tr>` +
+      list.map((x) => { const r = pf[x.code] || {}; return `<tr><td>${x.rank}</td>
+        <td style="text-align:left"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span><div class="reason">${esc(x.reason)}</div></td>
+        <td>${fmt(x.close, 2)}</td><td class="${cls(x.chgPct)}">${pct(x.chgPct)}</td><td class="up">+${fmt(x.trust10)}</td>
+        <td class="${cls(x.foreign10)}">${x.foreign10 > 0 ? "+" : ""}${fmt(x.foreign10)}</td><td>${x.yoy.toFixed(1)}%</td>
+        <td class="${cls(r.r20)}">${r.r20 == null ? "—" : pct(r.r20)}</td>
+        <td class="ops">${held.has(x.code) ? `<button class="btn held" data-edit="${x.code}">已在持股</button>`
+          : `<button class="btn ghost" data-buy="${x.code}" data-picked="${doc.date}" data-source="trustRev">我有買</button>`}</td></tr>`; }).join("");
+  }
+  renderTrustRevBt();
+}
+
+function renderTrustRevBt() {
+  const R = DATA.research, S = DATA.perf && DATA.perf.trustRev;
+  const rows = [];
+  if (R) {
+    const m = R.main.rules["R2 投信買超+營收動能"], seg = R.main.segments;
+    const label = { train: "回測・訓練", valid: "回測・驗證", test: "回測・最終測試" };
+    for (const k of ["train", "valid", "test"]) rows.push(`<tr><td>${label[k]}</td><td>${seg[k][0]} ~ ${seg[k][1]}</td>
+      <td class="${cls(m[k].ret)}">${pct(m[k].ret)}</td><td class="${cls(m[k].excess)}">${pct(m[k].excess)}</td><td>${m[k].beat}%</td></tr>`);
+  }
+  if (S && S.summary["20"] && S.summary["20"].n) {
+    const x = S.summary["20"];
+    rows.push(`<tr><td>網站名單追蹤(未扣成本)</td><td>樣本 ${fmt(x.n)} 筆</td><td class="${cls(x.avg)}">${pct(x.avg)}</td><td class="${cls(x.excess)}">${pct(x.excess)}</td><td>勝率 ${x.winRate}%</td></tr>`);
+  }
+  $("trbt").innerHTML = rows.length ? `<tr><th>項目</th><th>期間</th><th>平均報酬(20 日)</th><th>比 0050</th><th>贏大盤比例</th></tr>` + rows.join("")
+    : `<tr><td>尚無回測資料</td></tr>`;
+  $("trbtmeta").textContent = "回測:2025/10～2026/10 每天選一次、持有 20 個交易日、扣手續費與證交稅 0.585%;依選股日切成訓練 60% / 驗證 20% / 最終測試 20%,三段都贏 0050 才算通過。共比較 7 條事先登記的規則,這條是依規則選出且通過最終測試的一條。價格未還原除權息。";
 }
 
 function renderCompare() {
@@ -495,7 +545,7 @@ function init() {
     const w = WD[new Date(d.date + "T00:00:00").getDay()];
     return `<option value="${d.date}">${d.date.slice(5).replace("-", "/")} 週${w}</option>`;
   }).join("");
-  $("date").onchange = (e) => { state.date = e.target.value; renderPicks(); renderDayTrade(); };
+  $("date").onchange = (e) => { state.date = e.target.value; renderPicks(); renderDayTrade(); renderTrustRev(); };
   seg($("mk"), [["上市", "上市 20"], ["上櫃", "上櫃 20"], ["全部", "全部"]], "market", () => {
     try { localStorage.setItem("mk", state.market); } catch (e) {}
     renderPicks();
@@ -504,6 +554,7 @@ function init() {
   seg($("perfmk"), [["全部", "全部"], ["上市", "上市"], ["上櫃", "上櫃"]], "perfMk", renderPerf);
   seg($("dtside"), [["long", "做多 20 檔"], ["short", "做空 20 檔"]], "dtSide", renderDayTrade);
   renderPicks();
+  renderTrustRev();
   renderExits();
   renderDayTrade();
   renderPerf();
