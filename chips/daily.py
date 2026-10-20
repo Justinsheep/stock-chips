@@ -65,7 +65,14 @@ def compute_day(d0, days, holders, strict_weeks=False):
 
     for x in picks:
         x.pop("instHist", None)
-    day_trade = daytrade.candidates(days_data, sources.daytrade_list(d0))
+    empty_dt = {"long": [], "short": [], "universe": 0}
+    try:   # 當沖名單出錯不影響主推薦
+        dt_list, dt_missing = sources.daytrade_list(d0)
+        # 上市櫃合併排名,任一市場還沒公布就整份先不排,等隔天早上重跑
+        day_trade = dict(empty_dt, pending=sorted(dt_missing)) if dt_missing else daytrade.candidates(days_data, dt_list)
+    except Exception as e:
+        print("當沖名單計算失敗:", repr(e))
+        day_trade = dict(empty_dt, error=str(e))
     fmt = lambda w: f"{w[:4]}-{w[4:6]}-{w[6:]}" if w else None
     return {
         "date": f"{d0:%Y-%m-%d}",

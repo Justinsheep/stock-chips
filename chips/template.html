@@ -405,7 +405,11 @@ function renderDayTrade() {
   $("dtstats").innerHTML = s && s.n ? [["回測樣本", fmt(s.n)], ["隔日勝率", `${s.winRate}%`], ["隔日平均", `<span class="${cls(s.avg)}">${pct(s.avg)}</span>`]]
     .map(([n, v]) => `<div class="stat"><div class="n">${n}</div><div class="v">${v}</div></div>`).join("") : "";
   const list = dt ? dt[state.dtSide] : [];
-  if (!list.length) { $("dttable").innerHTML = `<tr><td>這一天沒有當沖資料</td></tr>`; return; }
+  if (!list.length) {
+    const why = dt && dt.pending && dt.pending.length ? `${dt.pending.join("、")}當沖統計尚未公布,隔天早上 08:30 會自動補上`
+      : dt && dt.error ? "當沖資料處理失敗,隔天早上會重試" : "這一天沒有當沖資料";
+    $("dttable").innerHTML = `<tr><td>${why}</td></tr>`; return;
+  }
   const res = (DATA.perf && DATA.perf.dayTrade && DATA.perf.dayTrade.days[doc.date]) || {};
   $("dttable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票與理由</th><th>收盤</th><th>漲跌</th><th>週轉率</th><th>當沖比</th><th>量增</th><th>法人</th><th>分數</th><th>隔日</th></tr>` +
     list.map((x) => { const r = res[`${state.dtSide}:${x.code}`]; return `<tr><td>${x.rank}</td>

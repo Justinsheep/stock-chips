@@ -174,18 +174,27 @@ def twse_shares():
 # ---------- 當沖 ----------
 
 def daytrade_list(d):
-    """當日沖銷交易標的:{代號: {"dtVol": 當沖成交股數, "noShortFirst": 暫停先賣後買}}。"""
-    out = {}
-    for url, name in ((f"https://www.twse.com.tw/rwd/zh/dayTrading/TWTB4U?date={d:%Y%m%d}&selectType=All&response=json",
-                       f"twse_daytrade_{d:%Y%m%d}.json"),
-                      (f"https://www.tpex.org.tw/www/zh-tw/intraday/stat?type=Daily&date={d:%Y/%m/%d}&response=json",
-                       f"tpex_daytrade_{d:%Y%m%d}.json")):
+    """當日沖銷交易標的:回傳 ({代號: {"dtVol": 當沖成交股數, "noShortFirst": 暫停先賣後買}}, 尚未公布的市場集合)。
+
+    當沖成交統計晚上才公布;在那之前證交所只回「可當沖標的」三個欄位、櫃買回空表,都視為尚未公布。"""
+    out, missing = {}, set()
+    for market, url, name in (
+            ("上市", f"https://www.twse.com.tw/rwd/zh/dayTrading/TWTB4U?date={d:%Y%m%d}&selectType=All&response=json",
+             f"twse_daytrade_{d:%Y%m%d}.json"),
+            ("上櫃", f"https://www.tpex.org.tw/www/zh-tw/intraday/stat?type=Daily&date={d:%Y/%m/%d}&response=json",
+             f"tpex_daytrade_{d:%Y%m%d}.json")):
         j = _json(url, name, d)
-        for t in (j or {}).get("tables", []):
-            if t.get("fields") and t["fields"][0] == "證券代號":
-                for r in t["data"]:
-                    out[r[0].strip()] = {"dtVol": num(r[3]), "noShortFirst": r[2].strip() == "Y"}
-    return out
+        table = next((t for t in (j or {}).get("tables", []) if t.get("fields") and t["fields"][0] == "證券代號"), None)
+        rows = [r for r in (table or {}).get("data", []) if len(r) >= 4]
+        if not rows:
+            missing.add(market)
+            path = _cache_path(name)
+            if os.path.exists(path):   # 不完整的版本不要留在快取裡
+                os.remove(path)
+            continue
+        for r in rows:
+            out[r[0].strip()] = {"dtVol": num(r[3]), "noShortFirst": r[2].strip() == "Y"}
+    return out, missing
 
 
 # ---------- 指數 ----------
