@@ -212,7 +212,7 @@ def holding_series(d0_str, lookback=40):
             continue
         with open(path, encoding="utf-8") as f:
             doc = json.load(f)
-            for p in doc["picks"] + (doc.get("trustRev") or []):
+            for p in doc["picks"] + (doc.get("trustRev") or []) + (doc.get("pullback") or []):
                 first.setdefault(p["code"], (day, p["name"], p["market"]))
     out = {}
     for code, (day, name, market) in first.items():

@@ -19,9 +19,10 @@ def _write_json(path, obj, compact=False):
 
 
 def save_prices(d, day_data):
-    """績效、出場、進場價回測用:{代號: [開盤, 收盤, 三大法人買賣超張數, 最高, 最低]}。"""
+    """績效、出場、觀察名單用:{代號: [開盤, 收盤, 三大法人買賣超張數, 最高, 最低, 成交張數, 投信買賣超張數]}。"""
     _write_json(os.path.join(PRICES_DIR, f"{d:%Y-%m-%d}.json"),
-                {c: [v["open"], v["close"], round(v["inst"] / 1000), v["high"], v["low"]] for c, v in day_data.items()},
+                {c: [v["open"], v["close"], round(v["inst"] / 1000), v["high"], v["low"],
+                     round(v["vol"] / 1000), round(v["trust"] / 1000)] for c, v in day_data.items()},
                 compact=True)
 
 
@@ -94,6 +95,7 @@ def compute_day(d0, days, holders, strict_weeks=False):
         "picks": picks,
         "dayTrade": day_trade,
         "trustRev": trust_rev,
+        "pullback": pullback(d0, days_data[0]),
     }
 
 
@@ -108,6 +110,21 @@ def attach_chips(trust_rev, rows, big_lookup):
         score.full_score(x, big_lookup)
         p["chip"] = {"score": x["score"], "parts": x["parts"], "tags": score.tags(x), "instNet": x["instNet"],
                      "bigPct": x.get("bigPct"), "bigChg": x.get("bigChg"), "marginChg": x["marginChg"]}
+
+
+def pullback(d0, today):
+    """觀察名單「好股回檔」:從 data/prices 讀 61 個交易日的歷史。出錯不影響其他名單。"""
+    try:
+        files = sorted(n for n in os.listdir(PRICES_DIR) if n.endswith(".json") and n[:10] <= f"{d0:%Y-%m-%d}")
+        hist = []
+        for n in files[-strategy.PB_HISTORY:]:
+            with open(os.path.join(PRICES_DIR, n), encoding="utf-8") as f:
+                hist.append(json.load(f))
+        names = {c: (v["name"], v["market"]) for c, v in today.items()}
+        return strategy.pullback_picks(d0, hist, names)
+    except Exception as e:
+        print("好股回檔名單計算失敗:", repr(e))
+        return None
 
 
 def strategy_picks(d0, days_data):
