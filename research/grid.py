@@ -137,7 +137,8 @@ def explore():
             ex = [sum(x for _, x, _, _ in part) / len(part) for part in thirds]
             rows.append((k, ex, tstat(s, h), sum(x for _, x, _, _ in s) / n))
         summary[h] = {k: {"thirds": [round(e, 2) for e in ex], "t": round(t, 2), "excess": round(m, 2)} for k, ex, t, m in rows}
-        cands = sorted((r for r in rows if all(e > 0 for e in r[1])), key=lambda r: -r[2])
+        # 選法修正(見 RESEARCH.md):全期平均超額 > 0 即可入選候選,依 t 值排序
+        cands = sorted((r for r in rows if r[3] > 0), key=lambda r: -r[2])
         chosen = []
         for k, ex, t, m in cands:
             dup = False
