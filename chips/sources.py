@@ -118,9 +118,16 @@ def tpex_inst(d):
               f"tpex_inst_{d:%Y%m%d}.json", d)
     if not j:
         return None
-    # 欄位:外資(不含自營)3 欄、外資自營 3 欄、外資合計 3 欄、投信 3 欄、自營(自行)3、自營(避險)3、自營合計 3、三大法人合計
-    return {r[0].strip(): {"name": r[1].strip(), "foreign": num(r[10]), "trust": num(r[13]),
-                           "dealer": num(r[22]), "total": num(r[23])} for r in j["tables"][0]["data"]}
+    table = next((t for t in j["tables"] if t.get("data")), None)
+    if not table:
+        return None
+    if len(table["fields"]) >= 24:
+        # 新格式(約 2018 年中以後):外資(不含自營)3、外資自營 3、外資合計 3、投信 3、自營(自行)3、自營(避險)3、自營合計 3、三大法人合計
+        idx = {"foreign": 10, "trust": 13, "dealer": 22, "total": 23}
+    else:
+        # 舊格式(16 欄):外資買/賣/淨、投信買/賣/淨、自營淨、自營(自行)3、自營(避險)3、三大法人合計
+        idx = {"foreign": 4, "trust": 7, "dealer": 8, "total": 15}
+    return {r[0].strip(): {"name": r[1].strip(), **{k: num(r[i]) for k, i in idx.items()}} for r in table["data"]}
 
 
 # ---------- 收盤行情(成交量單位:股) ----------
