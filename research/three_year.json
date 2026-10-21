@@ -1,0 +1,362 @@
+{
+ "main": {
+  "results": {
+   "M0 R2 原版": {
+    "train": {
+     "ret": 0.71,
+     "excess": 1.34,
+     "beat": 38.7,
+     "bullDays": 68.5
+    },
+    "valid": {
+     "ret": 8.34,
+     "excess": 2.38,
+     "beat": 63.8,
+     "bullDays": 60.5
+    },
+    "test": {
+     "ret": 10.68,
+     "excess": 5.45,
+     "beat": 68.8,
+     "bullDays": 91.1
+    }
+   },
+   "M1 R2＋大盤弱時空手": {
+    "train": {
+     "ret": 0.69,
+     "excess": 1.32,
+     "beat": 40.0,
+     "bullDays": 68.5
+    },
+    "valid": {
+     "ret": 5.55,
+     "excess": -0.41,
+     "beat": 45.4,
+     "bullDays": 60.5
+    },
+    "test": {
+     "ret": 10.05,
+     "excess": 4.82,
+     "beat": 64.3,
+     "bullDays": 91.1
+    }
+   },
+   "M2 R2＋大盤弱時買 0050": {
+    "train": {
+     "ret": 0.96,
+     "excess": 1.59,
+     "beat": 27.6,
+     "bullDays": 68.5
+    },
+    "valid": {
+     "ret": 7.65,
+     "excess": 1.69,
+     "beat": 44.7,
+     "bullDays": 60.5
+    },
+    "test": {
+     "ret": 10.62,
+     "excess": 5.39,
+     "beat": 64.3,
+     "bullDays": 91.1
+    }
+   },
+   "M3 R2 大型股(均量>1000張)": {
+    "train": {
+     "ret": 0.54,
+     "excess": 1.17,
+     "beat": 38.0,
+     "bullDays": 68.5
+    },
+    "valid": {
+     "ret": 8.3,
+     "excess": 2.34,
+     "beat": 63.8,
+     "bullDays": 60.5
+    },
+    "test": {
+     "ret": 10.67,
+     "excess": 5.44,
+     "beat": 68.8,
+     "bullDays": 91.1
+    }
+   },
+   "M4 R2 依買超力道排序": {
+    "train": {
+     "ret": 0.9,
+     "excess": 1.53,
+     "beat": 45.8,
+     "bullDays": 68.5
+    },
+    "valid": {
+     "ret": 5.7,
+     "excess": -0.26,
+     "beat": 49.3,
+     "bullDays": 60.5
+    },
+    "test": {
+     "ret": 9.44,
+     "excess": 4.21,
+     "beat": 59.9,
+     "bullDays": 91.1
+    }
+   },
+   "M5 M2＋M3": {
+    "train": {
+     "ret": 0.87,
+     "excess": 1.5,
+     "beat": 27.4,
+     "bullDays": 68.5
+    },
+    "valid": {
+     "ret": 7.61,
+     "excess": 1.65,
+     "beat": 44.7,
+     "bullDays": 60.5
+    },
+    "test": {
+     "ret": 10.61,
+     "excess": 5.38,
+     "beat": 64.3,
+     "bullDays": 91.1
+    }
+   }
+  },
+  "stage1": [
+   "M0 R2 原版",
+   "M1 R2＋大盤弱時空手",
+   "M2 R2＋大盤弱時買 0050",
+   "M3 R2 大型股(均量>1000張)",
+   "M4 R2 依買超力道排序",
+   "M5 M2＋M3"
+  ],
+  "stage2": [
+   "M0 R2 原版",
+   "M2 R2＋大盤弱時買 0050",
+   "M3 R2 大型股(均量>1000張)",
+   "M5 M2＋M3"
+  ],
+  "chosen": "M2 R2＋大盤弱時買 0050",
+  "passed": true,
+  "segments": {
+   "train": [
+    "2023-07-04",
+    "2025-06-10"
+   ],
+   "valid": [
+    "2025-06-11",
+    "2026-01-22"
+   ],
+   "test": [
+    "2026-01-23",
+    "2026-09-17"
+   ]
+  }
+ },
+ "nextDay": {
+  "results": {
+   "N1 強勢收高:收盤買→隔天開盤賣": {
+    "train": {
+     "trades": 2511,
+     "ret": -0.28,
+     "win": 39.9,
+     "gross": 0.31,
+     "bench0050": 0.073
+    },
+    "valid": {
+     "trades": 888,
+     "ret": -0.07,
+     "win": 41.2,
+     "gross": 0.51,
+     "bench0050": 0.162
+    },
+    "test": {
+     "trades": 867,
+     "ret": -0.34,
+     "win": 37.4,
+     "gross": 0.24,
+     "bench0050": 0.236
+    }
+   },
+   "N2 ＋法人買超:收盤買→隔天開盤賣": {
+    "train": {
+     "trades": 2013,
+     "ret": -0.11,
+     "win": 44.1,
+     "gross": 0.48,
+     "bench0050": 0.073
+    },
+    "valid": {
+     "trades": 694,
+     "ret": 0.08,
+     "win": 45.1,
+     "gross": 0.67,
+     "bench0050": 0.162
+    },
+    "test": {
+     "trades": 685,
+     "ret": -0.08,
+     "win": 42.0,
+     "gross": 0.51,
+     "bench0050": 0.236
+    }
+   },
+   "N3 ＋投信買超:收盤買→隔天開盤賣": {
+    "train": {
+     "trades": 1027,
+     "ret": -0.14,
+     "win": 42.8,
+     "gross": 0.44,
+     "bench0050": 0.073
+    },
+    "valid": {
+     "trades": 266,
+     "ret": -0.03,
+     "win": 44.7,
+     "gross": 0.55,
+     "bench0050": 0.162
+    },
+    "test": {
+     "trades": 241,
+     "ret": -0.36,
+     "win": 39.0,
+     "gross": 0.22,
+     "bench0050": 0.236
+    }
+   },
+   "N4 強勢收高:收盤買→隔天收盤賣": {
+    "train": {
+     "trades": 2511,
+     "ret": -0.81,
+     "win": 34.0,
+     "gross": -0.23,
+     "bench0050": 0.092
+    },
+    "valid": {
+     "trades": 888,
+     "ret": -0.52,
+     "win": 37.5,
+     "gross": 0.06,
+     "bench0050": 0.319
+    },
+    "test": {
+     "trades": 867,
+     "ret": -0.79,
+     "win": 38.1,
+     "gross": -0.21,
+     "bench0050": 0.214
+    }
+   },
+   "N5 ＋法人買超:收盤買→隔天收盤賣": {
+    "train": {
+     "trades": 2013,
+     "ret": -0.74,
+     "win": 34.5,
+     "gross": -0.16,
+     "bench0050": 0.092
+    },
+    "valid": {
+     "trades": 694,
+     "ret": -0.41,
+     "win": 39.9,
+     "gross": 0.18,
+     "bench0050": 0.319
+    },
+    "test": {
+     "trades": 685,
+     "ret": -0.42,
+     "win": 42.0,
+     "gross": 0.16,
+     "bench0050": 0.214
+    }
+   },
+   "P1 提前一天選:隔天開盤買→後天開盤賣": {
+    "train": {
+     "trades": 2510,
+     "ret": -0.72,
+     "win": 36.7,
+     "gross": -0.14,
+     "bench0050": 0.086
+    },
+    "valid": {
+     "trades": 888,
+     "ret": -0.57,
+     "win": 39.0,
+     "gross": 0.02,
+     "bench0050": 0.325
+    },
+    "test": {
+     "trades": 867,
+     "ret": -0.47,
+     "win": 40.4,
+     "gross": 0.12,
+     "bench0050": 0.202
+    }
+   },
+   "P2 ＋法人買超,提前一天選:隔天開盤買→後天開盤賣": {
+    "train": {
+     "trades": 2012,
+     "ret": -0.82,
+     "win": 35.4,
+     "gross": -0.24,
+     "bench0050": 0.086
+    },
+    "valid": {
+     "trades": 694,
+     "ret": -0.63,
+     "win": 38.9,
+     "gross": -0.04,
+     "bench0050": 0.325
+    },
+    "test": {
+     "trades": 685,
+     "ret": -0.31,
+     "win": 43.5,
+     "gross": 0.27,
+     "bench0050": 0.202
+    }
+   },
+   "(參考)漲停收盤買→隔天開盤賣,常買不到": {
+    "train": {
+     "trades": 3553,
+     "ret": 1.8,
+     "win": 72.2,
+     "gross": 2.38,
+     "bench0050": 0.073
+    },
+    "valid": {
+     "trades": 1360,
+     "ret": 1.65,
+     "win": 70.2,
+     "gross": 2.23,
+     "bench0050": 0.162
+    },
+    "test": {
+     "trades": 1470,
+     "ret": 1.48,
+     "win": 61.2,
+     "gross": 2.07,
+     "bench0050": 0.236
+    }
+   }
+  },
+  "stage1": [],
+  "stage2": [],
+  "chosen": null,
+  "passed": false,
+  "segments": {
+   "train": [
+    "2023-07-04",
+    "2025-06-25"
+   ],
+   "valid": [
+    "2025-06-26",
+    "2026-02-23"
+   ],
+   "test": [
+    "2026-02-24",
+    "2026-10-16"
+   ]
+  }
+ }
+}
