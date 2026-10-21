@@ -1,0 +1,403 @@
+{
+ "segments": {
+  "train": [
+   "2023-09-27",
+   "2025-07-24"
+  ],
+  "valid": [
+   "2025-07-25",
+   "2026-03-06"
+  ],
+  "test": [
+   "2026-03-09",
+   "2026-10-12"
+  ]
+ },
+ "results": {
+  "A1 法人吸籌＋突破 | std": {
+   "train": {
+    "trades": 2172,
+    "ret": -0.59,
+    "excess": -1.05,
+    "win": 38.5
+   },
+   "valid": {
+    "trades": 663,
+    "ret": -0.62,
+    "excess": -1.5,
+    "win": 35.7
+   },
+   "test": {
+    "trades": 559,
+    "ret": -0.15,
+    "excess": -0.84,
+    "win": 36.9
+   },
+   "tstat": -1.74,
+   "samples": 143,
+   "signalDays": 659,
+   "pass": false
+  },
+  "A1 法人吸籌＋突破 | disc": {
+   "train": {
+    "trades": 2172,
+    "ret": -0.39,
+    "excess": -0.84,
+    "win": 40.9
+   },
+   "valid": {
+    "trades": 663,
+    "ret": -0.41,
+    "excess": -1.3,
+    "win": 36.8
+   },
+   "test": {
+    "trades": 559,
+    "ret": 0.05,
+    "excess": -0.63,
+    "win": 40.1
+   },
+   "tstat": -1.32,
+   "samples": 143,
+   "signalDays": 659,
+   "pass": false
+  },
+  "A2 投信吸籌＋突破 | std": {
+   "train": {
+    "trades": 732,
+    "ret": -1.03,
+    "excess": -1.7,
+    "win": 35.0
+   },
+   "valid": {
+    "trades": 103,
+    "ret": -1.34,
+    "excess": -3.84,
+    "win": 39.8
+   },
+   "test": {
+    "trades": 97,
+    "ret": -0.1,
+    "excess": 0.23,
+    "win": 44.3
+   },
+   "tstat": -3.64,
+   "samples": 117,
+   "signalDays": 404,
+   "pass": false
+  },
+  "A2 投信吸籌＋突破 | disc": {
+   "train": {
+    "trades": 732,
+    "ret": -0.83,
+    "excess": -1.5,
+    "win": 38.3
+   },
+   "valid": {
+    "trades": 103,
+    "ret": -1.14,
+    "excess": -3.63,
+    "win": 40.8
+   },
+   "test": {
+    "trades": 97,
+    "ret": 0.11,
+    "excess": 0.44,
+    "win": 45.4
+   },
+   "tstat": -3.21,
+   "samples": 117,
+   "signalDays": 404,
+   "pass": false
+  },
+  "A3 外資吸籌＋突破 | std": {
+   "train": {
+    "trades": 2032,
+    "ret": -0.46,
+    "excess": -0.87,
+    "win": 39.8
+   },
+   "valid": {
+    "trades": 730,
+    "ret": -0.55,
+    "excess": -1.43,
+    "win": 37.4
+   },
+   "test": {
+    "trades": 553,
+    "ret": -0.13,
+    "excess": -0.91,
+    "win": 36.3
+   },
+   "tstat": -2.22,
+   "samples": 142,
+   "signalDays": 659,
+   "pass": false
+  },
+  "A3 外資吸籌＋突破 | disc": {
+   "train": {
+    "trades": 2032,
+    "ret": -0.25,
+    "excess": -0.67,
+    "win": 42.2
+   },
+   "valid": {
+    "trades": 730,
+    "ret": -0.34,
+    "excess": -1.23,
+    "win": 38.6
+   },
+   "test": {
+    "trades": 553,
+    "ret": 0.07,
+    "excess": -0.71,
+    "win": 40.0
+   },
+   "tstat": -1.72,
+   "samples": 142,
+   "signalDays": 659,
+   "pass": false
+  },
+  "A4 法人吸籌＋量縮整理(未突破) | std": {
+   "train": {
+    "trades": 2261,
+    "ret": -0.76,
+    "excess": -1.16,
+    "win": 36.0
+   },
+   "valid": {
+    "trades": 655,
+    "ret": -0.83,
+    "excess": -2.12,
+    "win": 37.4
+   },
+   "test": {
+    "trades": 665,
+    "ret": -0.58,
+    "excess": -1.05,
+    "win": 36.7
+   },
+   "tstat": -6.5,
+   "samples": 139,
+   "signalDays": 649,
+   "pass": false
+  },
+  "A4 法人吸籌＋量縮整理(未突破) | disc": {
+   "train": {
+    "trades": 2261,
+    "ret": -0.55,
+    "excess": -0.96,
+    "win": 39.8
+   },
+   "valid": {
+    "trades": 655,
+    "ret": -0.63,
+    "excess": -1.92,
+    "win": 41.7
+   },
+   "test": {
+    "trades": 665,
+    "ret": -0.37,
+    "excess": -0.85,
+    "win": 40.0
+   },
+   "tstat": -5.72,
+   "samples": 139,
+   "signalDays": 649,
+   "pass": false
+  },
+  "A5 A4＋融資減少 | std": {
+   "train": {
+    "trades": 1671,
+    "ret": -0.89,
+    "excess": -1.25,
+    "win": 35.1
+   },
+   "valid": {
+    "trades": 473,
+    "ret": -0.62,
+    "excess": -1.81,
+    "win": 40.2
+   },
+   "test": {
+    "trades": 497,
+    "ret": -0.53,
+    "excess": -1.03,
+    "win": 36.6
+   },
+   "tstat": -5.52,
+   "samples": 136,
+   "signalDays": 615,
+   "pass": false
+  },
+  "A5 A4＋融資減少 | disc": {
+   "train": {
+    "trades": 1671,
+    "ret": -0.69,
+    "excess": -1.05,
+    "win": 39.2
+   },
+   "valid": {
+    "trades": 473,
+    "ret": -0.42,
+    "excess": -1.6,
+    "win": 43.6
+   },
+   "test": {
+    "trades": 497,
+    "ret": -0.33,
+    "excess": -0.83,
+    "win": 40.8
+   },
+   "tstat": -4.81,
+   "samples": 136,
+   "signalDays": 615,
+   "pass": false
+  },
+  "A6 投信連續買＋股價沒動 | std": {
+   "train": {
+    "trades": 4069,
+    "ret": -0.5,
+    "excess": -0.98,
+    "win": 42.3
+   },
+   "valid": {
+    "trades": 1166,
+    "ret": -0.72,
+    "excess": -1.95,
+    "win": 39.1
+   },
+   "test": {
+    "trades": 1337,
+    "ret": -0.02,
+    "excess": -0.98,
+    "win": 44.8
+   },
+   "tstat": -4.53,
+   "samples": 146,
+   "signalDays": 721,
+   "pass": false
+  },
+  "A6 投信連續買＋股價沒動 | disc": {
+   "train": {
+    "trades": 4069,
+    "ret": -0.3,
+    "excess": -0.77,
+    "win": 45.9
+   },
+   "valid": {
+    "trades": 1166,
+    "ret": -0.52,
+    "excess": -1.75,
+    "win": 42.4
+   },
+   "test": {
+    "trades": 1337,
+    "ret": 0.19,
+    "excess": -0.77,
+    "win": 48.2
+   },
+   "tstat": -3.74,
+   "samples": 146,
+   "signalDays": 721,
+   "pass": false
+  },
+  "A7 法人吸籌突破＋營收動能 | std": {
+   "train": {
+    "trades": 344,
+    "ret": -0.99,
+    "excess": -1.61,
+    "win": 38.4
+   },
+   "valid": {
+    "trades": 98,
+    "ret": -0.03,
+    "excess": -0.24,
+    "win": 39.8
+   },
+   "test": {
+    "trades": 125,
+    "ret": 1.06,
+    "excess": 1.06,
+    "win": 40.0
+   },
+   "tstat": -0.76,
+   "samples": 105,
+   "signalDays": 323,
+   "pass": false
+  },
+  "A7 法人吸籌突破＋營收動能 | disc": {
+   "train": {
+    "trades": 344,
+    "ret": -0.79,
+    "excess": -1.4,
+    "win": 41.0
+   },
+   "valid": {
+    "trades": 98,
+    "ret": 0.17,
+    "excess": -0.03,
+    "win": 39.8
+   },
+   "test": {
+    "trades": 125,
+    "ret": 1.27,
+    "excess": 1.27,
+    "win": 42.4
+   },
+   "tstat": -0.53,
+   "samples": 105,
+   "signalDays": 323,
+   "pass": false
+  },
+  "A8 法人長期吸籌＋突破60日高 | std": {
+   "train": {
+    "trades": 1065,
+    "ret": -0.52,
+    "excess": -1.22,
+    "win": 37.7
+   },
+   "valid": {
+    "trades": 280,
+    "ret": -1.1,
+    "excess": -2.04,
+    "win": 35.0
+   },
+   "test": {
+    "trades": 190,
+    "ret": -0.39,
+    "excess": -1.01,
+    "win": 36.8
+   },
+   "tstat": -1.97,
+   "samples": 133,
+   "signalDays": 545,
+   "pass": false
+  },
+  "A8 法人長期吸籌＋突破60日高 | disc": {
+   "train": {
+    "trades": 1065,
+    "ret": -0.31,
+    "excess": -1.01,
+    "win": 40.3
+   },
+   "valid": {
+    "trades": 280,
+    "ret": -0.89,
+    "excess": -1.83,
+    "win": 35.4
+   },
+   "test": {
+    "trades": 190,
+    "ret": -0.19,
+    "excess": -0.81,
+    "win": 38.9
+   },
+   "tstat": -1.59,
+   "samples": 133,
+   "signalDays": 545,
+   "pass": false
+  }
+ },
+ "passed": []
+}
