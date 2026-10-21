@@ -2588,5 +2588,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "3094",
+   "name": "聯傑",
+   "market": "上市",
+   "close": 44.0,
+   "chgPct": 7.58,
+   "foreignLots": 1224,
+   "foreignPct": 15.7,
+   "surge": 1.43,
+   "rank": 1
+  },
+  {
+   "code": "5285",
+   "name": "界霖",
+   "market": "上市",
+   "close": 87.5,
+   "chgPct": 6.06,
+   "foreignLots": 593,
+   "foreignPct": 34.2,
+   "surge": 1.37,
+   "rank": 2
+  },
+  {
+   "code": "6147",
+   "name": "頎邦",
+   "market": "上櫃",
+   "close": 189.0,
+   "chgPct": 4.42,
+   "foreignLots": 7285,
+   "foreignPct": 17.5,
+   "surge": 1.18,
+   "rank": 3
+  },
+  {
+   "code": "6548",
+   "name": "長科*",
+   "market": "上櫃",
+   "close": 72.3,
+   "chgPct": 3.29,
+   "foreignLots": 1005,
+   "foreignPct": 35.8,
+   "surge": 1.09,
+   "rank": 4
+  },
+  {
+   "code": "2342",
+   "name": "茂矽",
+   "market": "上市",
+   "close": 39.7,
+   "chgPct": 5.31,
+   "foreignLots": 836,
+   "foreignPct": 32.8,
+   "surge": 1.04,
+   "rank": 5
+  },
+  {
+   "code": "2881",
+   "name": "富邦金",
+   "market": "上市",
+   "close": 154.0,
+   "chgPct": 3.7,
+   "foreignLots": 4520,
+   "foreignPct": 23.8,
+   "surge": 0.89,
+   "rank": 6
+  },
+  {
+   "code": "3162",
+   "name": "精確",
+   "market": "上櫃",
+   "close": 73.2,
+   "chgPct": 3.68,
+   "foreignLots": 297,
+   "foreignPct": 26.5,
+   "surge": 0.78,
+   "rank": 7
+  },
+  {
+   "code": "3022",
+   "name": "威強電",
+   "market": "上市",
+   "close": 86.2,
+   "chgPct": 3.61,
+   "foreignLots": 392,
+   "foreignPct": 31.6,
+   "surge": 0.63,
+   "rank": 8
+  },
+  {
+   "code": "2455",
+   "name": "全新",
+   "market": "上市",
+   "close": 535.0,
+   "chgPct": 3.88,
+   "foreignLots": 685,
+   "foreignPct": 39.8,
+   "surge": 0.13,
+   "rank": 9
+  },
+  {
+   "code": "8021",
+   "name": "尖點",
+   "market": "上市",
+   "close": 442.5,
+   "chgPct": 5.73,
+   "foreignLots": 332,
+   "foreignPct": 39.6,
+   "surge": 0.12,
+   "rank": 10
+  }
+ ]
 }

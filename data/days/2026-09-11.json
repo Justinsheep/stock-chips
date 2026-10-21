@@ -2604,5 +2604,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "8227",
+   "name": "巨有科技",
+   "market": "上櫃",
+   "close": 239.0,
+   "chgPct": 9.89,
+   "foreignLots": 1095,
+   "foreignPct": 19.5,
+   "surge": 4.09,
+   "rank": 1
+  },
+  {
+   "code": "6706",
+   "name": "惠特",
+   "market": "上市",
+   "close": 137.5,
+   "chgPct": 10.0,
+   "foreignLots": 951,
+   "foreignPct": 15.3,
+   "surge": 4.08,
+   "rank": 2
+  },
+  {
+   "code": "1560",
+   "name": "中砂",
+   "market": "上市",
+   "close": 790.0,
+   "chgPct": 7.78,
+   "foreignLots": 1377,
+   "foreignPct": 33.6,
+   "surge": 3.58,
+   "rank": 3
+  },
+  {
+   "code": "3229",
+   "name": "晟鈦",
+   "market": "上市",
+   "close": 67.5,
+   "chgPct": 9.93,
+   "foreignLots": 952,
+   "foreignPct": 13.2,
+   "surge": 2.93,
+   "rank": 4
+  },
+  {
+   "code": "9933",
+   "name": "中鼎",
+   "market": "上市",
+   "close": 41.7,
+   "chgPct": 3.35,
+   "foreignLots": 2384,
+   "foreignPct": 55.4,
+   "surge": 2.05,
+   "rank": 5
+  },
+  {
+   "code": "2801",
+   "name": "彰銀",
+   "market": "上市",
+   "close": 27.9,
+   "chgPct": 3.91,
+   "foreignLots": 10396,
+   "foreignPct": 27.3,
+   "surge": 1.81,
+   "rank": 6
+  },
+  {
+   "code": "3491",
+   "name": "昇達科",
+   "market": "上櫃",
+   "close": 1415.0,
+   "chgPct": 4.43,
+   "foreignLots": 371,
+   "foreignPct": 19.3,
+   "surge": 1.21,
+   "rank": 7
+  },
+  {
+   "code": "2851",
+   "name": "中再保",
+   "market": "上市",
+   "close": 47.15,
+   "chgPct": 3.29,
+   "foreignLots": 3485,
+   "foreignPct": 60.8,
+   "surge": 1.2,
+   "rank": 8
+  },
+  {
+   "code": "2886",
+   "name": "兆豐金",
+   "market": "上市",
+   "close": 51.7,
+   "chgPct": 3.61,
+   "foreignLots": 3945,
+   "foreignPct": 11.0,
+   "surge": 1.14,
+   "rank": 9
+  },
+  {
+   "code": "2884",
+   "name": "玉山金",
+   "market": "上市",
+   "close": 46.3,
+   "chgPct": 3.0,
+   "foreignLots": 9208,
+   "foreignPct": 18.1,
+   "surge": 0.99,
+   "rank": 10
+  }
+ ]
 }

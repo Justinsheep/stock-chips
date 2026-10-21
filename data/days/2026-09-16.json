@@ -2608,5 +2608,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "6168",
+   "name": "宏齊",
+   "market": "上市",
+   "close": 32.15,
+   "chgPct": 9.91,
+   "foreignLots": 2519,
+   "foreignPct": 14.4,
+   "surge": 3.08,
+   "rank": 1
+  },
+  {
+   "code": "4956",
+   "name": "光鋐",
+   "market": "上市",
+   "close": 35.25,
+   "chgPct": 9.98,
+   "foreignLots": 1204,
+   "foreignPct": 15.8,
+   "surge": 2.39,
+   "rank": 2
+  },
+  {
+   "code": "3707",
+   "name": "漢磊",
+   "market": "上櫃",
+   "close": 63.0,
+   "chgPct": 6.96,
+   "foreignLots": 1641,
+   "foreignPct": 23.3,
+   "surge": 2.13,
+   "rank": 3
+  },
+  {
+   "code": "2413",
+   "name": "環科",
+   "market": "上市",
+   "close": 53.0,
+   "chgPct": 9.96,
+   "foreignLots": 966,
+   "foreignPct": 14.1,
+   "surge": 2.08,
+   "rank": 4
+  },
+  {
+   "code": "3354",
+   "name": "律勝",
+   "market": "上櫃",
+   "close": 30.5,
+   "chgPct": 9.91,
+   "foreignLots": 641,
+   "foreignPct": 29.2,
+   "surge": 1.68,
+   "rank": 5
+  },
+  {
+   "code": "2302",
+   "name": "麗正",
+   "market": "上市",
+   "close": 44.2,
+   "chgPct": 9.95,
+   "foreignLots": 1742,
+   "foreignPct": 29.8,
+   "surge": 1.66,
+   "rank": 6
+  },
+  {
+   "code": "2481",
+   "name": "強茂",
+   "market": "上市",
+   "close": 168.5,
+   "chgPct": 9.77,
+   "foreignLots": 9277,
+   "foreignPct": 14.9,
+   "surge": 1.66,
+   "rank": 7
+  },
+  {
+   "code": "2305",
+   "name": "全友",
+   "market": "上市",
+   "close": 49.4,
+   "chgPct": 9.9,
+   "foreignLots": 4870,
+   "foreignPct": 18.8,
+   "surge": 1.61,
+   "rank": 8
+  },
+  {
+   "code": "2342",
+   "name": "茂矽",
+   "market": "上市",
+   "close": 40.55,
+   "chgPct": 5.6,
+   "foreignLots": 1675,
+   "foreignPct": 44.3,
+   "surge": 1.61,
+   "rank": 9
+  },
+  {
+   "code": "3490",
+   "name": "單井",
+   "market": "上櫃",
+   "close": 44.8,
+   "chgPct": 6.67,
+   "foreignLots": 765,
+   "foreignPct": 11.1,
+   "surge": 1.55,
+   "rank": 10
+  }
+ ]
 }

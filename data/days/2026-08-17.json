@@ -2619,5 +2619,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2609",
+   "name": "陽明",
+   "market": "上市",
+   "close": 54.7,
+   "chgPct": 6.01,
+   "foreignLots": 23735,
+   "foreignPct": 24.4,
+   "surge": 5.79,
+   "rank": 1
+  },
+  {
+   "code": "1909",
+   "name": "榮成",
+   "market": "上市",
+   "close": 11.45,
+   "chgPct": 8.02,
+   "foreignLots": 6050,
+   "foreignPct": 33.4,
+   "surge": 5.56,
+   "rank": 2
+  },
+  {
+   "code": "3490",
+   "name": "單井",
+   "market": "上櫃",
+   "close": 42.45,
+   "chgPct": 7.06,
+   "foreignLots": 1971,
+   "foreignPct": 17.3,
+   "surge": 4.61,
+   "rank": 3
+  },
+  {
+   "code": "1316",
+   "name": "上曜",
+   "market": "上市",
+   "close": 10.8,
+   "chgPct": 8.0,
+   "foreignLots": 1216,
+   "foreignPct": 18.6,
+   "surge": 4.5,
+   "rank": 4
+  },
+  {
+   "code": "2603",
+   "name": "長榮",
+   "market": "上市",
+   "close": 231.5,
+   "chgPct": 5.71,
+   "foreignLots": 24586,
+   "foreignPct": 64.1,
+   "surge": 4.26,
+   "rank": 5
+  },
+  {
+   "code": "2615",
+   "name": "萬海",
+   "market": "上市",
+   "close": 99.6,
+   "chgPct": 9.93,
+   "foreignLots": 17941,
+   "foreignPct": 36.1,
+   "surge": 4.11,
+   "rank": 6
+  },
+  {
+   "code": "6163",
+   "name": "華電網",
+   "market": "上櫃",
+   "close": 46.8,
+   "chgPct": 9.99,
+   "foreignLots": 1118,
+   "foreignPct": 20.4,
+   "surge": 3.87,
+   "rank": 7
+  },
+  {
+   "code": "6108",
+   "name": "競國",
+   "market": "上市",
+   "close": 22.9,
+   "chgPct": 3.62,
+   "foreignLots": 461,
+   "foreignPct": 14.9,
+   "surge": 2.57,
+   "rank": 8
+  },
+  {
+   "code": "1727",
+   "name": "中華化",
+   "market": "上市",
+   "close": 82.6,
+   "chgPct": 9.99,
+   "foreignLots": 1226,
+   "foreignPct": 24.4,
+   "surge": 2.52,
+   "rank": 9
+  },
+  {
+   "code": "2845",
+   "name": "遠東銀",
+   "market": "上市",
+   "close": 13.6,
+   "chgPct": 3.03,
+   "foreignLots": 16295,
+   "foreignPct": 74.6,
+   "surge": 2.41,
+   "rank": 10
+  }
+ ]
 }

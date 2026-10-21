@@ -2632,5 +2632,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "1504",
+   "name": "東元",
+   "market": "上市",
+   "close": 70.4,
+   "chgPct": 4.61,
+   "foreignLots": 10657,
+   "foreignPct": 46.5,
+   "surge": 2.87,
+   "rank": 1
+  },
+  {
+   "code": "6265",
+   "name": "方土昶",
+   "market": "上櫃",
+   "close": 58.9,
+   "chgPct": 3.7,
+   "foreignLots": 3124,
+   "foreignPct": 34.4,
+   "surge": 2.57,
+   "rank": 2
+  },
+  {
+   "code": "6603",
+   "name": "富強鑫",
+   "market": "上櫃",
+   "close": 28.85,
+   "chgPct": 4.15,
+   "foreignLots": 1265,
+   "foreignPct": 26.1,
+   "surge": 2.53,
+   "rank": 3
+  },
+  {
+   "code": "2376",
+   "name": "技嘉",
+   "market": "上市",
+   "close": 393.5,
+   "chgPct": 4.79,
+   "foreignLots": 6832,
+   "foreignPct": 36.9,
+   "surge": 2.33,
+   "rank": 4
+  },
+  {
+   "code": "3017",
+   "name": "奇鋐",
+   "market": "上市",
+   "close": 3200.0,
+   "chgPct": 9.97,
+   "foreignLots": 1860,
+   "foreignPct": 17.6,
+   "surge": 2.27,
+   "rank": 5
+  },
+  {
+   "code": "2542",
+   "name": "興富發",
+   "market": "上市",
+   "close": 46.4,
+   "chgPct": 3.57,
+   "foreignLots": 6157,
+   "foreignPct": 36.4,
+   "surge": 2.06,
+   "rank": 6
+  },
+  {
+   "code": "5521",
+   "name": "工信",
+   "market": "上市",
+   "close": 10.75,
+   "chgPct": 4.37,
+   "foreignLots": 2143,
+   "foreignPct": 40.0,
+   "surge": 2.05,
+   "rank": 7
+  },
+  {
+   "code": "6187",
+   "name": "萬潤",
+   "market": "上櫃",
+   "close": 1270.0,
+   "chgPct": 9.96,
+   "foreignLots": 873,
+   "foreignPct": 15.0,
+   "surge": 2.01,
+   "rank": 8
+  },
+  {
+   "code": "2359",
+   "name": "所羅門",
+   "market": "上市",
+   "close": 157.0,
+   "chgPct": 9.79,
+   "foreignLots": 2820,
+   "foreignPct": 20.8,
+   "surge": 1.84,
+   "rank": 9
+  },
+  {
+   "code": "7788",
+   "name": "松川精密",
+   "market": "上市",
+   "close": 275.5,
+   "chgPct": 7.62,
+   "foreignLots": 912,
+   "foreignPct": 32.1,
+   "surge": 1.81,
+   "rank": 10
+  }
+ ]
 }

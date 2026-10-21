@@ -164,6 +164,31 @@ def compute():
             "ret": round(sum(x[1] for x in v) / len(v), 2), "excess": round(sum(x[2] for x in v) / len(v), 2),
             "win": round(sum(1 for x in v if x[1] > 0) / len(v) * 100, 1)}
 
+    # 隔日沖觀察名單「外資大買收高」:盤後選出 → 隔天開盤買;a = 隔天收盤賣(當沖)、b = 後天開盤賣
+    from .strategy import FO_GO_LIVE
+    fo_cost = {"a": 0.435, "b": 0.585}
+    fo_days, fo_vals = {}, {(v, k): [] for v in "ab" for k in ("live", "history")}
+    for date, doc in sorted(days.items()):
+        if date not in pos or not doc.get("foreignON"):
+            continue
+        i = pos[date]
+        res = {}
+        for p in doc["foreignON"]:
+            b1 = prices[cal[i + 1]].get(p["code"]) if i + 1 < len(cal) else None
+            b2 = prices[cal[i + 2]].get(p["code"]) if i + 2 < len(cal) else None
+            ra = (b1[1] / b1[0] - 1) * 100 if b1 and b1[0] > 0 and b1[1] > 0 else None
+            rb = (b2[0] / b1[0] - 1) * 100 if b1 and b2 and b1[0] > 0 and b2[0] > 0 else None
+            res[p["code"]] = {"a": None if ra is None else round(ra, 2), "b": None if rb is None else round(rb, 2)}
+            for v, r in (("a", ra), ("b", rb)):
+                if r is not None:
+                    fo_vals[(v, "live" if date >= FO_GO_LIVE else "history")].append((date, r - fo_cost[v]))
+        fo_days[date] = res
+    fo_summary = {}
+    for (v, k), vals in fo_vals.items():
+        fo_summary.setdefault(v, {})[k] = {"n": len(vals)} if not vals else {
+            "n": len(vals), "from": vals[0][0], "to": vals[-1][0], "net": round(sum(x for _, x in vals) / len(vals), 2),
+            "win": round(sum(1 for _, x in vals if x > 0) / len(vals) * 100, 1)}
+
     summary = {}
     for mk in ("全部", "上市", "上櫃"):
         summary[mk] = {}
@@ -189,6 +214,7 @@ def compute():
         "exitCompare": exits.compare_rules(),
         "trustRev": {"horizons": list(tr_hz), "summary": tr_summary, "days": tr_days},
         "pullback": {"goLive": PB_GO_LIVE, "cost": PB_COST, "summary": pb_summary, "days": pb_days},
+        "foreignON": {"goLive": FO_GO_LIVE, "cost": fo_cost, "summary": fo_summary, "days": fo_days},
         "overlap": {"goLive": PB_GO_LIVE, "cost": PB_COST, "summary": ov_summary, "days": ov_days},
     }
     _write_json(PERF_PATH, doc)

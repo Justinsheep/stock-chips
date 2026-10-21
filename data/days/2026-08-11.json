@@ -2650,5 +2650,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2103",
+   "name": "台橡",
+   "market": "上市",
+   "close": 28.65,
+   "chgPct": 4.18,
+   "foreignLots": 11592,
+   "foreignPct": 30.2,
+   "surge": 5.02,
+   "rank": 1
+  },
+  {
+   "code": "8112",
+   "name": "至上",
+   "market": "上市",
+   "close": 100.0,
+   "chgPct": 8.23,
+   "foreignLots": 33079,
+   "foreignPct": 45.4,
+   "surge": 4.6,
+   "rank": 2
+  },
+  {
+   "code": "1563",
+   "name": "巧新",
+   "market": "上市",
+   "close": 62.1,
+   "chgPct": 9.91,
+   "foreignLots": 1144,
+   "foreignPct": 28.4,
+   "surge": 3.16,
+   "rank": 3
+  },
+  {
+   "code": "9921",
+   "name": "巨大",
+   "market": "上市",
+   "close": 111.5,
+   "chgPct": 9.85,
+   "foreignLots": 4529,
+   "foreignPct": 46.4,
+   "surge": 2.68,
+   "rank": 4
+  },
+  {
+   "code": "2392",
+   "name": "正崴",
+   "market": "上市",
+   "close": 39.6,
+   "chgPct": 4.35,
+   "foreignLots": 1755,
+   "foreignPct": 43.2,
+   "surge": 2.32,
+   "rank": 5
+  },
+  {
+   "code": "8358",
+   "name": "金居",
+   "market": "上櫃",
+   "close": 380.5,
+   "chgPct": 9.97,
+   "foreignLots": 6575,
+   "foreignPct": 24.3,
+   "surge": 2.01,
+   "rank": 6
+  },
+  {
+   "code": "1612",
+   "name": "宏泰",
+   "market": "上市",
+   "close": 34.0,
+   "chgPct": 3.19,
+   "foreignLots": 1208,
+   "foreignPct": 53.0,
+   "surge": 1.95,
+   "rank": 7
+  },
+  {
+   "code": "6901",
+   "name": "鑽石投資",
+   "market": "上市",
+   "close": 16.85,
+   "chgPct": 3.37,
+   "foreignLots": 860,
+   "foreignPct": 16.0,
+   "surge": 1.93,
+   "rank": 8
+  },
+  {
+   "code": "2302",
+   "name": "麗正",
+   "market": "上市",
+   "close": 46.05,
+   "chgPct": 8.35,
+   "foreignLots": 1538,
+   "foreignPct": 18.3,
+   "surge": 1.9,
+   "rank": 9
+  },
+  {
+   "code": "4147",
+   "name": "中裕",
+   "market": "上櫃",
+   "close": 63.5,
+   "chgPct": 4.1,
+   "foreignLots": 860,
+   "foreignPct": 46.9,
+   "surge": 1.76,
+   "rank": 10
+  }
+ ]
 }

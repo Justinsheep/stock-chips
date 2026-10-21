@@ -2597,5 +2597,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2609",
+   "name": "陽明",
+   "market": "上市",
+   "close": 59.0,
+   "chgPct": 4.98,
+   "foreignLots": 31191,
+   "foreignPct": 27.2,
+   "surge": 4.84,
+   "rank": 1
+  },
+  {
+   "code": "2637",
+   "name": "慧洋-KY",
+   "market": "上市",
+   "close": 91.8,
+   "chgPct": 3.49,
+   "foreignLots": 1736,
+   "foreignPct": 15.5,
+   "surge": 4.54,
+   "rank": 2
+  },
+  {
+   "code": "2537",
+   "name": "聯上發",
+   "market": "上市",
+   "close": 11.55,
+   "chgPct": 3.59,
+   "foreignLots": 557,
+   "foreignPct": 20.7,
+   "surge": 2.59,
+   "rank": 3
+  },
+  {
+   "code": "3090",
+   "name": "日電貿",
+   "market": "上市",
+   "close": 177.5,
+   "chgPct": 9.91,
+   "foreignLots": 4269,
+   "foreignPct": 19.9,
+   "surge": 2.24,
+   "rank": 4
+  },
+  {
+   "code": "2417",
+   "name": "圓剛",
+   "market": "上市",
+   "close": 45.65,
+   "chgPct": 5.55,
+   "foreignLots": 313,
+   "foreignPct": 11.5,
+   "surge": 1.96,
+   "rank": 5
+  },
+  {
+   "code": "2478",
+   "name": "大毅",
+   "market": "上市",
+   "close": 134.5,
+   "chgPct": 9.8,
+   "foreignLots": 2157,
+   "foreignPct": 18.7,
+   "surge": 1.62,
+   "rank": 6
+  },
+  {
+   "code": "9914",
+   "name": "美利達",
+   "market": "上市",
+   "close": 88.6,
+   "chgPct": 9.93,
+   "foreignLots": 2431,
+   "foreignPct": 36.8,
+   "surge": 1.55,
+   "rank": 7
+  },
+  {
+   "code": "2030",
+   "name": "彰源",
+   "market": "上市",
+   "close": 21.5,
+   "chgPct": 3.12,
+   "foreignLots": 1192,
+   "foreignPct": 38.0,
+   "surge": 1.34,
+   "rank": 8
+  },
+  {
+   "code": "9921",
+   "name": "巨大",
+   "market": "上市",
+   "close": 104.0,
+   "chgPct": 6.78,
+   "foreignLots": 619,
+   "foreignPct": 11.2,
+   "surge": 1.32,
+   "rank": 9
+  },
+  {
+   "code": "3034",
+   "name": "聯詠",
+   "market": "上市",
+   "close": 534.0,
+   "chgPct": 5.74,
+   "foreignLots": 1251,
+   "foreignPct": 26.4,
+   "surge": 1.13,
+   "rank": 10
+  }
+ ]
 }

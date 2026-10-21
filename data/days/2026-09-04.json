@@ -2619,5 +2619,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "3094",
+   "name": "聯傑",
+   "market": "上市",
+   "close": 46.5,
+   "chgPct": 9.93,
+   "foreignLots": 2836,
+   "foreignPct": 15.8,
+   "surge": 5.77,
+   "rank": 1
+  },
+  {
+   "code": "2388",
+   "name": "威盛",
+   "market": "上市",
+   "close": 81.4,
+   "chgPct": 8.53,
+   "foreignLots": 4347,
+   "foreignPct": 30.5,
+   "surge": 3.88,
+   "rank": 2
+  },
+  {
+   "code": "6538",
+   "name": "倉和",
+   "market": "上櫃",
+   "close": 300.0,
+   "chgPct": 9.89,
+   "foreignLots": 1441,
+   "foreignPct": 15.2,
+   "surge": 3.78,
+   "rank": 3
+  },
+  {
+   "code": "6271",
+   "name": "同欣電",
+   "market": "上市",
+   "close": 237.0,
+   "chgPct": 9.98,
+   "foreignLots": 4343,
+   "foreignPct": 28.2,
+   "surge": 3.22,
+   "rank": 4
+  },
+  {
+   "code": "3714",
+   "name": "富采",
+   "market": "上市",
+   "close": 66.8,
+   "chgPct": 8.62,
+   "foreignLots": 9578,
+   "foreignPct": 27.2,
+   "surge": 3.18,
+   "rank": 5
+  },
+  {
+   "code": "2353",
+   "name": "宏碁",
+   "market": "上市",
+   "close": 32.7,
+   "chgPct": 4.64,
+   "foreignLots": 14303,
+   "foreignPct": 35.7,
+   "surge": 2.23,
+   "rank": 6
+  },
+  {
+   "code": "4956",
+   "name": "光鋐",
+   "market": "上市",
+   "close": 37.65,
+   "chgPct": 8.19,
+   "foreignLots": 1201,
+   "foreignPct": 22.8,
+   "surge": 1.89,
+   "rank": 7
+  },
+  {
+   "code": "8042",
+   "name": "金山電",
+   "market": "上櫃",
+   "close": 110.5,
+   "chgPct": 9.95,
+   "foreignLots": 3136,
+   "foreignPct": 35.3,
+   "surge": 1.7,
+   "rank": 8
+  },
+  {
+   "code": "3231",
+   "name": "緯創",
+   "market": "上市",
+   "close": 198.0,
+   "chgPct": 5.04,
+   "foreignLots": 23925,
+   "foreignPct": 28.9,
+   "surge": 1.68,
+   "rank": 9
+  },
+  {
+   "code": "3022",
+   "name": "威強電",
+   "market": "上市",
+   "close": 95.9,
+   "chgPct": 9.98,
+   "foreignLots": 2030,
+   "foreignPct": 42.7,
+   "surge": 1.6,
+   "rank": 10
+  }
+ ]
 }

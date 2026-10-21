@@ -2623,5 +2623,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2641",
+   "name": "正德",
+   "market": "上櫃",
+   "close": 18.95,
+   "chgPct": 3.27,
+   "foreignLots": 2526,
+   "foreignPct": 18.2,
+   "surge": 8.46,
+   "rank": 1
+  },
+  {
+   "code": "2609",
+   "name": "陽明",
+   "market": "上市",
+   "close": 64.0,
+   "chgPct": 6.14,
+   "foreignLots": 37159,
+   "foreignPct": 18.7,
+   "surge": 5.58,
+   "rank": 2
+  },
+  {
+   "code": "2637",
+   "name": "慧洋-KY",
+   "market": "上市",
+   "close": 102.0,
+   "chgPct": 7.71,
+   "foreignLots": 3996,
+   "foreignPct": 22.4,
+   "surge": 5.57,
+   "rank": 3
+  },
+  {
+   "code": "1815",
+   "name": "富喬",
+   "market": "上櫃",
+   "close": 112.0,
+   "chgPct": 4.67,
+   "foreignLots": 13888,
+   "foreignPct": 11.6,
+   "surge": 4.38,
+   "rank": 4
+  },
+  {
+   "code": "2615",
+   "name": "萬海",
+   "market": "上市",
+   "close": 124.5,
+   "chgPct": 9.69,
+   "foreignLots": 16239,
+   "foreignPct": 18.6,
+   "surge": 4.11,
+   "rank": 5
+  },
+  {
+   "code": "2606",
+   "name": "裕民",
+   "market": "上市",
+   "close": 72.6,
+   "chgPct": 3.42,
+   "foreignLots": 4500,
+   "foreignPct": 28.3,
+   "surge": 3.77,
+   "rank": 6
+  },
+  {
+   "code": "4956",
+   "name": "光鋐",
+   "market": "上市",
+   "close": 33.45,
+   "chgPct": 9.85,
+   "foreignLots": 620,
+   "foreignPct": 14.2,
+   "surge": 3.2,
+   "rank": 7
+  },
+  {
+   "code": "2108",
+   "name": "南帝",
+   "market": "上市",
+   "close": 31.4,
+   "chgPct": 6.44,
+   "foreignLots": 1058,
+   "foreignPct": 40.9,
+   "surge": 2.4,
+   "rank": 8
+  },
+  {
+   "code": "7777",
+   "name": "能率亞洲",
+   "market": "上櫃",
+   "close": 40.9,
+   "chgPct": 7.63,
+   "foreignLots": 835,
+   "foreignPct": 21.5,
+   "surge": 2.28,
+   "rank": 9
+  },
+  {
+   "code": "1709",
+   "name": "和益",
+   "market": "上市",
+   "close": 33.3,
+   "chgPct": 9.9,
+   "foreignLots": 3385,
+   "foreignPct": 22.2,
+   "surge": 2.27,
+   "rank": 10
+  }
+ ]
 }

@@ -2616,5 +2616,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2104",
+   "name": "國際中橡",
+   "market": "上市",
+   "close": 11.65,
+   "chgPct": 9.91,
+   "foreignLots": 6862,
+   "foreignPct": 32.6,
+   "surge": 6.28,
+   "rank": 1
+  },
+  {
+   "code": "2404",
+   "name": "漢唐",
+   "market": "上市",
+   "close": 1250.0,
+   "chgPct": 9.65,
+   "foreignLots": 1498,
+   "foreignPct": 29.0,
+   "surge": 3.76,
+   "rank": 2
+  },
+  {
+   "code": "3016",
+   "name": "嘉晶",
+   "market": "上市",
+   "close": 145.5,
+   "chgPct": 9.81,
+   "foreignLots": 6240,
+   "foreignPct": 20.1,
+   "surge": 2.64,
+   "rank": 3
+  },
+  {
+   "code": "1101",
+   "name": "台泥",
+   "market": "上市",
+   "close": 25.65,
+   "chgPct": 4.48,
+   "foreignLots": 30065,
+   "foreignPct": 23.0,
+   "surge": 2.38,
+   "rank": 4
+  },
+  {
+   "code": "6693",
+   "name": "廣閎科",
+   "market": "上櫃",
+   "close": 197.0,
+   "chgPct": 9.75,
+   "foreignLots": 610,
+   "foreignPct": 21.0,
+   "surge": 2.33,
+   "rank": 5
+  },
+  {
+   "code": "6199",
+   "name": "天品",
+   "market": "上櫃",
+   "close": 122.0,
+   "chgPct": 4.72,
+   "foreignLots": 635,
+   "foreignPct": 12.6,
+   "surge": 1.96,
+   "rank": 6
+  },
+  {
+   "code": "2347",
+   "name": "聯強",
+   "market": "上市",
+   "close": 94.5,
+   "chgPct": 5.12,
+   "foreignLots": 3188,
+   "foreignPct": 62.8,
+   "surge": 1.76,
+   "rank": 7
+  },
+  {
+   "code": "3221",
+   "name": "台嘉碩",
+   "market": "上櫃",
+   "close": 50.1,
+   "chgPct": 4.37,
+   "foreignLots": 612,
+   "foreignPct": 20.0,
+   "surge": 1.59,
+   "rank": 8
+  },
+  {
+   "code": "8046",
+   "name": "南電",
+   "market": "上市",
+   "close": 1210.0,
+   "chgPct": 3.86,
+   "foreignLots": 3401,
+   "foreignPct": 19.4,
+   "surge": 1.48,
+   "rank": 9
+  },
+  {
+   "code": "3693",
+   "name": "營邦",
+   "market": "上櫃",
+   "close": 732.0,
+   "chgPct": 4.57,
+   "foreignLots": 417,
+   "foreignPct": 17.9,
+   "surge": 1.22,
+   "rank": 10
+  }
+ ]
 }

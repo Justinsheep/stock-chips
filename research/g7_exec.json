@@ -1,0 +1,68 @@
+{
+ "segments": {
+  "train": [
+   "2023-07-04",
+   "2025-06-25"
+  ],
+  "valid": [
+   "2025-06-26",
+   "2026-02-23"
+  ],
+  "test": [
+   "2026-02-24",
+   "2026-10-16"
+  ]
+ },
+ "results": {
+  "G7a 隔天開盤買→隔天收盤賣(當沖)": {
+   "train": {
+    "trades": 3994,
+    "gross": -0.453,
+    "netStd": -0.888,
+    "netDisc": -0.683,
+    "win": 33.4
+   },
+   "valid": {
+    "trades": 1387,
+    "gross": -0.195,
+    "netStd": -0.63,
+    "netDisc": -0.425,
+    "win": 38.2
+   },
+   "test": {
+    "trades": 1487,
+    "gross": -0.358,
+    "netStd": -0.793,
+    "netDisc": -0.588,
+    "win": 40.1
+   },
+   "pass": false,
+   "passDisc": false
+  },
+  "G7b 隔天開盤買→後天開盤賣": {
+   "train": {
+    "trades": 3992,
+    "gross": -0.061,
+    "netStd": -0.646,
+    "netDisc": -0.441,
+    "win": 36.7
+   },
+   "valid": {
+    "trades": 1387,
+    "gross": 0.45,
+    "netStd": -0.135,
+    "netDisc": 0.07,
+    "win": 41.1
+   },
+   "test": {
+    "trades": 1486,
+    "gross": 0.241,
+    "netStd": -0.344,
+    "netDisc": -0.139,
+    "win": 43.5
+   },
+   "pass": false,
+   "passDisc": false
+  }
+ }
+}

@@ -38,7 +38,7 @@ def pick_weeks(all_weeks, d0, strict):
     return cur, prev
 
 
-LOAD_DAYS = max(score.LOOKBACK, strategy.LOOKBACK)   # 籌碼分數看 5 天,投信+營收規則看 20 天
+LOAD_DAYS = max(score.LOOKBACK, strategy.LOOKBACK, strategy.FO_HISTORY)   # 籌碼分數 5 天、投信+營收 20 天、外資隔日沖 21 天
 
 
 def compute_day(d0, days, holders, strict_weeks=False):
@@ -96,6 +96,7 @@ def compute_day(d0, days, holders, strict_weeks=False):
         "dayTrade": day_trade,
         "trustRev": trust_rev,
         "pullback": pullback(d0, days_data[0]),
+        "foreignON": safe(strategy.foreign_overnight, days_data),
     }
 
 
@@ -110,6 +111,14 @@ def attach_chips(trust_rev, rows, big_lookup):
         score.full_score(x, big_lookup)
         p["chip"] = {"score": x["score"], "parts": x["parts"], "tags": score.tags(x), "instNet": x["instNet"],
                      "bigPct": x.get("bigPct"), "bigChg": x.get("bigChg"), "marginChg": x["marginChg"]}
+
+
+def safe(fn, *args):
+    try:
+        return fn(*args)
+    except Exception as e:
+        print(f"{fn.__name__} 計算失敗:", repr(e))
+        return None
 
 
 def pullback(d0, today):

@@ -2597,5 +2597,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2362",
+   "name": "藍天",
+   "market": "上市",
+   "close": 51.1,
+   "chgPct": 8.38,
+   "foreignLots": 4358,
+   "foreignPct": 34.3,
+   "surge": 12.18,
+   "rank": 1
+  },
+  {
+   "code": "2421",
+   "name": "建準",
+   "market": "上市",
+   "close": 154.5,
+   "chgPct": 9.96,
+   "foreignLots": 5465,
+   "foreignPct": 45.9,
+   "surge": 6.37,
+   "rank": 2
+  },
+  {
+   "code": "3543",
+   "name": "州巧",
+   "market": "上市",
+   "close": 36.6,
+   "chgPct": 9.91,
+   "foreignLots": 658,
+   "foreignPct": 14.5,
+   "surge": 3.41,
+   "rank": 3
+  },
+  {
+   "code": "9939",
+   "name": "宏全",
+   "market": "上市",
+   "close": 142.5,
+   "chgPct": 6.34,
+   "foreignLots": 3241,
+   "foreignPct": 61.6,
+   "surge": 3.12,
+   "rank": 4
+  },
+  {
+   "code": "3324",
+   "name": "雙鴻",
+   "market": "上櫃",
+   "close": 1060.0,
+   "chgPct": 9.84,
+   "foreignLots": 1538,
+   "foreignPct": 21.8,
+   "surge": 3.09,
+   "rank": 5
+  },
+  {
+   "code": "2006",
+   "name": "東和鋼鐵",
+   "market": "上市",
+   "close": 86.2,
+   "chgPct": 9.95,
+   "foreignLots": 5811,
+   "foreignPct": 52.3,
+   "surge": 2.95,
+   "rank": 6
+  },
+  {
+   "code": "3450",
+   "name": "聯鈞",
+   "market": "上市",
+   "close": 491.5,
+   "chgPct": 3.47,
+   "foreignLots": 2657,
+   "foreignPct": 11.7,
+   "surge": 2.94,
+   "rank": 7
+  },
+  {
+   "code": "3006",
+   "name": "晶豪科",
+   "market": "上市",
+   "close": 258.0,
+   "chgPct": 7.95,
+   "foreignLots": 7835,
+   "foreignPct": 25.6,
+   "surge": 2.85,
+   "rank": 8
+  },
+  {
+   "code": "2399",
+   "name": "映泰",
+   "market": "上市",
+   "close": 42.7,
+   "chgPct": 8.51,
+   "foreignLots": 1354,
+   "foreignPct": 11.5,
+   "surge": 2.84,
+   "rank": 9
+  },
+  {
+   "code": "4967",
+   "name": "十銓",
+   "market": "上市",
+   "close": 280.0,
+   "chgPct": 5.46,
+   "foreignLots": 2102,
+   "foreignPct": 20.2,
+   "surge": 2.79,
+   "rank": 10
+  }
+ ]
 }

@@ -2782,5 +2782,95 @@
    "rank": 10,
    "reason": "投信近 10 日買超 1,407 張、營收年增 57.4%;股價在 60 日均線上方 1.9%,RSI(2) 0 短線超賣。"
   }
+ ],
+ "foreignON": [
+  {
+   "code": "6278",
+   "name": "台表科",
+   "market": "上市",
+   "close": 303.0,
+   "chgPct": 4.48,
+   "foreignLots": 6391,
+   "foreignPct": 11.2,
+   "surge": 4.9,
+   "rank": 1
+  },
+  {
+   "code": "4904",
+   "name": "遠傳",
+   "market": "上市",
+   "close": 113.0,
+   "chgPct": 4.63,
+   "foreignLots": 4536,
+   "foreignPct": 28.5,
+   "surge": 3.2,
+   "rank": 2
+  },
+  {
+   "code": "2890",
+   "name": "永豐金",
+   "market": "上市",
+   "close": 45.6,
+   "chgPct": 3.52,
+   "foreignLots": 17568,
+   "foreignPct": 27.7,
+   "surge": 2.63,
+   "rank": 3
+  },
+  {
+   "code": "5876",
+   "name": "上海商銀",
+   "market": "上市",
+   "close": 53.4,
+   "chgPct": 3.29,
+   "foreignLots": 6708,
+   "foreignPct": 50.4,
+   "surge": 2.2,
+   "rank": 4
+  },
+  {
+   "code": "3045",
+   "name": "台灣大",
+   "market": "上市",
+   "close": 131.0,
+   "chgPct": 3.56,
+   "foreignLots": 7480,
+   "foreignPct": 45.6,
+   "surge": 2.19,
+   "rank": 5
+  },
+  {
+   "code": "2884",
+   "name": "玉山金",
+   "market": "上市",
+   "close": 48.8,
+   "chgPct": 3.17,
+   "foreignLots": 10353,
+   "foreignPct": 16.4,
+   "surge": 2.08,
+   "rank": 6
+  },
+  {
+   "code": "1476",
+   "name": "儒鴻",
+   "market": "上市",
+   "close": 324.0,
+   "chgPct": 3.18,
+   "foreignLots": 1802,
+   "foreignPct": 66.9,
+   "surge": 1.67,
+   "rank": 7
+  },
+  {
+   "code": "3354",
+   "name": "律勝",
+   "market": "上櫃",
+   "close": 38.0,
+   "chgPct": 9.99,
+   "foreignLots": 925,
+   "foreignPct": 23.6,
+   "surge": 1.44,
+   "rank": 8
+  }
  ]
 }

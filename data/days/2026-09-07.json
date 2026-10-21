@@ -2589,5 +2589,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "5443",
+   "name": "均豪",
+   "market": "上櫃",
+   "close": 120.0,
+   "chgPct": 6.67,
+   "foreignLots": 2402,
+   "foreignPct": 33.0,
+   "surge": 3.2,
+   "rank": 1
+  },
+  {
+   "code": "2436",
+   "name": "偉詮電",
+   "market": "上市",
+   "close": 71.7,
+   "chgPct": 9.97,
+   "foreignLots": 5950,
+   "foreignPct": 38.3,
+   "surge": 2.99,
+   "rank": 2
+  },
+  {
+   "code": "2303",
+   "name": "聯電",
+   "market": "上市",
+   "close": 143.0,
+   "chgPct": 10.0,
+   "foreignLots": 38568,
+   "foreignPct": 11.4,
+   "surge": 2.35,
+   "rank": 3
+  },
+  {
+   "code": "8021",
+   "name": "尖點",
+   "market": "上市",
+   "close": 462.0,
+   "chgPct": 10.0,
+   "foreignLots": 3584,
+   "foreignPct": 27.5,
+   "surge": 2.19,
+   "rank": 4
+  },
+  {
+   "code": "2454",
+   "name": "聯發科",
+   "market": "上市",
+   "close": 4760.0,
+   "chgPct": 7.81,
+   "foreignLots": 2913,
+   "foreignPct": 17.0,
+   "surge": 2.0,
+   "rank": 5
+  },
+  {
+   "code": "6907",
+   "name": "雅特力-KY",
+   "market": "上櫃",
+   "close": 199.5,
+   "chgPct": 9.92,
+   "foreignLots": 510,
+   "foreignPct": 12.8,
+   "surge": 1.87,
+   "rank": 6
+  },
+  {
+   "code": "3711",
+   "name": "日月光投控",
+   "market": "上市",
+   "close": 621.0,
+   "chgPct": 5.61,
+   "foreignLots": 18356,
+   "foreignPct": 66.5,
+   "surge": 1.51,
+   "rank": 7
+  },
+  {
+   "code": "6426",
+   "name": "統新",
+   "market": "上市",
+   "close": 296.0,
+   "chgPct": 9.83,
+   "foreignLots": 435,
+   "foreignPct": 12.5,
+   "surge": 1.49,
+   "rank": 8
+  },
+  {
+   "code": "5314",
+   "name": "世紀*",
+   "market": "上櫃",
+   "close": 35.2,
+   "chgPct": 10.0,
+   "foreignLots": 3881,
+   "foreignPct": 58.4,
+   "surge": 1.45,
+   "rank": 9
+  },
+  {
+   "code": "2492",
+   "name": "華新科",
+   "market": "上市",
+   "close": 323.0,
+   "chgPct": 8.21,
+   "foreignLots": 8312,
+   "foreignPct": 17.5,
+   "surge": 1.41,
+   "rank": 10
+  }
+ ]
 }

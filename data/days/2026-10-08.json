@@ -2749,5 +2749,117 @@
    "rank": 10,
    "reason": "投信近 10 日買超 710 張、營收年增 67.2%;股價在 60 日均線上方 27.7%,RSI(2) 0 短線超賣。"
   }
+ ],
+ "foreignON": [
+  {
+   "code": "4720",
+   "name": "德淵",
+   "market": "上市",
+   "close": 25.55,
+   "chgPct": 9.89,
+   "foreignLots": 1067,
+   "foreignPct": 10.1,
+   "surge": 5.48,
+   "rank": 1
+  },
+  {
+   "code": "6127",
+   "name": "九豪",
+   "market": "上櫃",
+   "close": 64.1,
+   "chgPct": 9.95,
+   "foreignLots": 3247,
+   "foreignPct": 12.9,
+   "surge": 4.42,
+   "rank": 2
+  },
+  {
+   "code": "5230",
+   "name": "雷笛克光學",
+   "market": "上櫃",
+   "close": 25.0,
+   "chgPct": 9.89,
+   "foreignLots": 656,
+   "foreignPct": 14.9,
+   "surge": 4.23,
+   "rank": 3
+  },
+  {
+   "code": "8042",
+   "name": "金山電",
+   "market": "上櫃",
+   "close": 138.5,
+   "chgPct": 9.92,
+   "foreignLots": 2289,
+   "foreignPct": 11.7,
+   "surge": 3.36,
+   "rank": 4
+  },
+  {
+   "code": "1476",
+   "name": "儒鴻",
+   "market": "上市",
+   "close": 310.0,
+   "chgPct": 4.38,
+   "foreignLots": 1009,
+   "foreignPct": 24.0,
+   "surge": 2.81,
+   "rank": 5
+  },
+  {
+   "code": "1310",
+   "name": "台苯",
+   "market": "上市",
+   "close": 10.05,
+   "chgPct": 3.18,
+   "foreignLots": 3057,
+   "foreignPct": 34.5,
+   "surge": 2.73,
+   "rank": 6
+  },
+  {
+   "code": "3533",
+   "name": "嘉澤",
+   "market": "上市",
+   "close": 1915.0,
+   "chgPct": 4.93,
+   "foreignLots": 545,
+   "foreignPct": 23.5,
+   "surge": 1.83,
+   "rank": 7
+  },
+  {
+   "code": "3624",
+   "name": "光頡",
+   "market": "上櫃",
+   "close": 175.0,
+   "chgPct": 9.72,
+   "foreignLots": 6181,
+   "foreignPct": 13.0,
+   "surge": 1.73,
+   "rank": 8
+  },
+  {
+   "code": "2302",
+   "name": "麗正",
+   "market": "上市",
+   "close": 50.1,
+   "chgPct": 3.73,
+   "foreignLots": 1039,
+   "foreignPct": 12.9,
+   "surge": 1.56,
+   "rank": 9
+  },
+  {
+   "code": "2408",
+   "name": "南亞科",
+   "market": "上市",
+   "close": 532.0,
+   "chgPct": 3.5,
+   "foreignLots": 21773,
+   "foreignPct": 33.8,
+   "surge": 1.47,
+   "rank": 10
+  }
  ]
 }

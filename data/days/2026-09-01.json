@@ -2607,5 +2607,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "3141",
+   "name": "晶宏",
+   "market": "上櫃",
+   "close": 90.5,
+   "chgPct": 9.96,
+   "foreignLots": 1348,
+   "foreignPct": 13.1,
+   "surge": 9.95,
+   "rank": 1
+  },
+  {
+   "code": "1326",
+   "name": "台化",
+   "market": "上市",
+   "close": 74.3,
+   "chgPct": 8.78,
+   "foreignLots": 44301,
+   "foreignPct": 37.1,
+   "surge": 4.59,
+   "rank": 2
+  },
+  {
+   "code": "6217",
+   "name": "中探針",
+   "market": "上櫃",
+   "close": 189.5,
+   "chgPct": 9.86,
+   "foreignLots": 1264,
+   "foreignPct": 20.8,
+   "surge": 2.66,
+   "rank": 3
+  },
+  {
+   "code": "1709",
+   "name": "和益",
+   "market": "上市",
+   "close": 36.4,
+   "chgPct": 8.82,
+   "foreignLots": 5601,
+   "foreignPct": 17.8,
+   "surge": 2.65,
+   "rank": 4
+  },
+  {
+   "code": "3706",
+   "name": "神達",
+   "market": "上市",
+   "close": 95.7,
+   "chgPct": 3.46,
+   "foreignLots": 9739,
+   "foreignPct": 34.8,
+   "surge": 2.63,
+   "rank": 5
+  },
+  {
+   "code": "3324",
+   "name": "雙鴻",
+   "market": "上櫃",
+   "close": 1375.0,
+   "chgPct": 10.0,
+   "foreignLots": 1739,
+   "foreignPct": 20.3,
+   "surge": 2.62,
+   "rank": 6
+  },
+  {
+   "code": "5876",
+   "name": "上海商銀",
+   "market": "上市",
+   "close": 44.5,
+   "chgPct": 3.73,
+   "foreignLots": 7229,
+   "foreignPct": 46.4,
+   "surge": 2.39,
+   "rank": 7
+  },
+  {
+   "code": "5291",
+   "name": "邑昇",
+   "market": "上櫃",
+   "close": 72.4,
+   "chgPct": 4.17,
+   "foreignLots": 475,
+   "foreignPct": 17.9,
+   "surge": 2.25,
+   "rank": 8
+  },
+  {
+   "code": "3105",
+   "name": "穩懋",
+   "market": "上櫃",
+   "close": 492.0,
+   "chgPct": 9.94,
+   "foreignLots": 8587,
+   "foreignPct": 15.5,
+   "surge": 2.15,
+   "rank": 9
+  },
+  {
+   "code": "6271",
+   "name": "同欣電",
+   "market": "上市",
+   "close": 231.0,
+   "chgPct": 8.96,
+   "foreignLots": 2750,
+   "foreignPct": 26.6,
+   "surge": 1.96,
+   "rank": 10
+  }
+ ]
 }

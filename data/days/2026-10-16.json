@@ -2756,5 +2756,117 @@
    "rank": 10,
    "reason": "投信近 10 日買超 2,317 張、營收年增 44.8%;股價在 60 日均線上方 18.9%,RSI(2) 17 短線超賣。"
   }
+ ],
+ "foreignON": [
+  {
+   "code": "2913",
+   "name": "農林",
+   "market": "上市",
+   "close": 11.7,
+   "chgPct": 3.08,
+   "foreignLots": 1441,
+   "foreignPct": 25.6,
+   "surge": 4.15,
+   "rank": 1
+  },
+  {
+   "code": "6209",
+   "name": "今國光",
+   "market": "上市",
+   "close": 100.5,
+   "chgPct": 8.06,
+   "foreignLots": 6372,
+   "foreignPct": 11.5,
+   "surge": 4.08,
+   "rank": 2
+  },
+  {
+   "code": "3062",
+   "name": "建漢",
+   "market": "上市",
+   "close": 23.0,
+   "chgPct": 6.48,
+   "foreignLots": 1515,
+   "foreignPct": 19.1,
+   "surge": 3.54,
+   "rank": 3
+  },
+  {
+   "code": "2023",
+   "name": "燁輝",
+   "market": "上市",
+   "close": 15.05,
+   "chgPct": 3.08,
+   "foreignLots": 2044,
+   "foreignPct": 53.6,
+   "surge": 3.08,
+   "rank": 4
+  },
+  {
+   "code": "6112",
+   "name": "邁達特",
+   "market": "上市",
+   "close": 49.2,
+   "chgPct": 8.13,
+   "foreignLots": 1369,
+   "foreignPct": 15.5,
+   "surge": 2.8,
+   "rank": 5
+  },
+  {
+   "code": "1815",
+   "name": "富喬",
+   "market": "上櫃",
+   "close": 140.0,
+   "chgPct": 9.8,
+   "foreignLots": 35941,
+   "foreignPct": 24.5,
+   "surge": 2.47,
+   "rank": 6
+  },
+  {
+   "code": "6148",
+   "name": "驊宏資",
+   "market": "上櫃",
+   "close": 41.95,
+   "chgPct": 9.96,
+   "foreignLots": 1641,
+   "foreignPct": 14.2,
+   "surge": 2.3,
+   "rank": 7
+  },
+  {
+   "code": "8069",
+   "name": "元太",
+   "market": "上櫃",
+   "close": 155.0,
+   "chgPct": 5.8,
+   "foreignLots": 3326,
+   "foreignPct": 24.6,
+   "surge": 2.13,
+   "rank": 8
+  },
+  {
+   "code": "4566",
+   "name": "時碩工業",
+   "market": "上市",
+   "close": 81.8,
+   "chgPct": 9.95,
+   "foreignLots": 611,
+   "foreignPct": 12.6,
+   "surge": 1.98,
+   "rank": 9
+  },
+  {
+   "code": "2468",
+   "name": "華經",
+   "market": "上市",
+   "close": 51.1,
+   "chgPct": 9.89,
+   "foreignLots": 2284,
+   "foreignPct": 14.1,
+   "surge": 1.9,
+   "rank": 10
+  }
  ]
 }

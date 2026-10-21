@@ -2764,5 +2764,117 @@
    "rank": 10,
    "reason": "投信近 10 日買超 452 張、營收年增 31.5%;股價在 60 日均線上方 23.4%,RSI(2) 8 短線超賣。"
   }
+ ],
+ "foreignON": [
+  {
+   "code": "4989",
+   "name": "榮科",
+   "market": "上市",
+   "close": 70.2,
+   "chgPct": 9.86,
+   "foreignLots": 2768,
+   "foreignPct": 14.2,
+   "surge": 7.08,
+   "rank": 1
+  },
+  {
+   "code": "1714",
+   "name": "和桐",
+   "market": "上市",
+   "close": 18.5,
+   "chgPct": 9.79,
+   "foreignLots": 6575,
+   "foreignPct": 13.3,
+   "surge": 5.45,
+   "rank": 2
+  },
+  {
+   "code": "6190",
+   "name": "萬泰科",
+   "market": "上櫃",
+   "close": 77.4,
+   "chgPct": 9.32,
+   "foreignLots": 2418,
+   "foreignPct": 27.5,
+   "surge": 4.93,
+   "rank": 3
+  },
+  {
+   "code": "2483",
+   "name": "百容",
+   "market": "上市",
+   "close": 40.7,
+   "chgPct": 10.0,
+   "foreignLots": 880,
+   "foreignPct": 22.4,
+   "surge": 3.89,
+   "rank": 4
+  },
+  {
+   "code": "8358",
+   "name": "金居",
+   "market": "上櫃",
+   "close": 570.0,
+   "chgPct": 9.83,
+   "foreignLots": 5007,
+   "foreignPct": 12.4,
+   "surge": 3.69,
+   "rank": 5
+  },
+  {
+   "code": "3543",
+   "name": "州巧",
+   "market": "上市",
+   "close": 54.0,
+   "chgPct": 5.88,
+   "foreignLots": 1004,
+   "foreignPct": 19.1,
+   "surge": 2.5,
+   "rank": 6
+  },
+  {
+   "code": "2313",
+   "name": "華通",
+   "market": "上市",
+   "close": 248.5,
+   "chgPct": 9.96,
+   "foreignLots": 7880,
+   "foreignPct": 15.3,
+   "surge": 2.47,
+   "rank": 7
+  },
+  {
+   "code": "2340",
+   "name": "台亞",
+   "market": "上市",
+   "close": 50.3,
+   "chgPct": 9.95,
+   "foreignLots": 3398,
+   "foreignPct": 15.8,
+   "surge": 2.36,
+   "rank": 8
+  },
+  {
+   "code": "6187",
+   "name": "萬潤",
+   "market": "上櫃",
+   "close": 1490.0,
+   "chgPct": 9.96,
+   "foreignLots": 489,
+   "foreignPct": 10.8,
+   "surge": 2.25,
+   "rank": 9
+  },
+  {
+   "code": "6005",
+   "name": "群益證",
+   "market": "上市",
+   "close": 33.0,
+   "chgPct": 3.12,
+   "foreignLots": 4837,
+   "foreignPct": 33.9,
+   "surge": 2.16,
+   "rank": 10
+  }
  ]
 }

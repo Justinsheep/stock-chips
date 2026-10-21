@@ -2661,5 +2661,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "3717",
+   "name": "聯嘉投控",
+   "market": "上市",
+   "close": 25.1,
+   "chgPct": 9.61,
+   "foreignLots": 4855,
+   "foreignPct": 28.6,
+   "surge": 13.28,
+   "rank": 1
+  },
+  {
+   "code": "8110",
+   "name": "華東",
+   "market": "上市",
+   "close": 47.4,
+   "chgPct": 9.98,
+   "foreignLots": 2308,
+   "foreignPct": 14.0,
+   "surge": 5.36,
+   "rank": 2
+  },
+  {
+   "code": "6257",
+   "name": "矽格",
+   "market": "上市",
+   "close": 244.5,
+   "chgPct": 9.89,
+   "foreignLots": 13229,
+   "foreignPct": 36.0,
+   "surge": 4.59,
+   "rank": 3
+  },
+  {
+   "code": "6168",
+   "name": "宏齊",
+   "market": "上市",
+   "close": 38.85,
+   "chgPct": 9.9,
+   "foreignLots": 4172,
+   "foreignPct": 12.8,
+   "surge": 4.15,
+   "rank": 4
+  },
+  {
+   "code": "3035",
+   "name": "智原",
+   "market": "上市",
+   "close": 190.5,
+   "chgPct": 6.42,
+   "foreignLots": 1798,
+   "foreignPct": 19.6,
+   "surge": 3.79,
+   "rank": 5
+  },
+  {
+   "code": "6112",
+   "name": "邁達特",
+   "market": "上市",
+   "close": 52.1,
+   "chgPct": 6.87,
+   "foreignLots": 1689,
+   "foreignPct": 18.9,
+   "surge": 3.65,
+   "rank": 6
+  },
+  {
+   "code": "8064",
+   "name": "東捷",
+   "market": "上櫃",
+   "close": 136.0,
+   "chgPct": 4.62,
+   "foreignLots": 3298,
+   "foreignPct": 12.6,
+   "surge": 3.62,
+   "rank": 7
+  },
+  {
+   "code": "2329",
+   "name": "華泰",
+   "market": "上市",
+   "close": 44.35,
+   "chgPct": 3.38,
+   "foreignLots": 1447,
+   "foreignPct": 23.8,
+   "surge": 3.47,
+   "rank": 8
+  },
+  {
+   "code": "6443",
+   "name": "元晶",
+   "market": "上市",
+   "close": 25.5,
+   "chgPct": 7.37,
+   "foreignLots": 1541,
+   "foreignPct": 14.1,
+   "surge": 3.2,
+   "rank": 9
+  },
+  {
+   "code": "2006",
+   "name": "東和鋼鐵",
+   "market": "上市",
+   "close": 87.6,
+   "chgPct": 6.18,
+   "foreignLots": 2071,
+   "foreignPct": 42.2,
+   "surge": 3.18,
+   "rank": 10
+  }
+ ]
 }

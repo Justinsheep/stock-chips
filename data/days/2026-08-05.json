@@ -2622,5 +2622,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "6547",
+   "name": "高端疫苗",
+   "market": "上櫃",
+   "close": 52.1,
+   "chgPct": 9.92,
+   "foreignLots": 1821,
+   "foreignPct": 23.9,
+   "surge": 4.05,
+   "rank": 1
+  },
+  {
+   "code": "2049",
+   "name": "上銀",
+   "market": "上市",
+   "close": 365.0,
+   "chgPct": 9.94,
+   "foreignLots": 843,
+   "foreignPct": 10.9,
+   "surge": 2.91,
+   "rank": 2
+  },
+  {
+   "code": "5392",
+   "name": "能率",
+   "market": "上櫃",
+   "close": 46.4,
+   "chgPct": 9.56,
+   "foreignLots": 2252,
+   "foreignPct": 32.8,
+   "surge": 2.74,
+   "rank": 3
+  },
+  {
+   "code": "6179",
+   "name": "亞通",
+   "market": "上櫃",
+   "close": 27.65,
+   "chgPct": 7.17,
+   "foreignLots": 1821,
+   "foreignPct": 43.9,
+   "surge": 2.74,
+   "rank": 4
+  },
+  {
+   "code": "3605",
+   "name": "宏致",
+   "market": "上市",
+   "close": 101.5,
+   "chgPct": 9.61,
+   "foreignLots": 4968,
+   "foreignPct": 21.2,
+   "surge": 2.44,
+   "rank": 5
+  },
+  {
+   "code": "6603",
+   "name": "富強鑫",
+   "market": "上櫃",
+   "close": 26.75,
+   "chgPct": 3.08,
+   "foreignLots": 531,
+   "foreignPct": 19.7,
+   "surge": 1.88,
+   "rank": 6
+  },
+  {
+   "code": "2392",
+   "name": "正崴",
+   "market": "上市",
+   "close": 37.0,
+   "chgPct": 6.17,
+   "foreignLots": 1845,
+   "foreignPct": 59.7,
+   "surge": 1.68,
+   "rank": 7
+  },
+  {
+   "code": "8050",
+   "name": "廣積",
+   "market": "上櫃",
+   "close": 64.9,
+   "chgPct": 10.0,
+   "foreignLots": 1571,
+   "foreignPct": 26.5,
+   "surge": 1.65,
+   "rank": 8
+  },
+  {
+   "code": "6269",
+   "name": "台郡",
+   "market": "上市",
+   "close": 61.7,
+   "chgPct": 9.98,
+   "foreignLots": 1640,
+   "foreignPct": 26.1,
+   "surge": 1.62,
+   "rank": 9
+  },
+  {
+   "code": "2376",
+   "name": "技嘉",
+   "market": "上市",
+   "close": 342.0,
+   "chgPct": 3.01,
+   "foreignLots": 4976,
+   "foreignPct": 48.0,
+   "surge": 1.53,
+   "rank": 10
+  }
+ ]
 }

@@ -2731,5 +2731,117 @@
    "rank": 7,
    "reason": "投信近 10 日買超 20 張、營收年增 52.5%;股價在 60 日均線上方 34.9%,RSI(2) 16 短線超賣。"
   }
+ ],
+ "foreignON": [
+  {
+   "code": "9933",
+   "name": "中鼎",
+   "market": "上市",
+   "close": 45.8,
+   "chgPct": 9.96,
+   "foreignLots": 6016,
+   "foreignPct": 28.3,
+   "surge": 8.9,
+   "rank": 1
+  },
+  {
+   "code": "4927",
+   "name": "泰鼎-KY",
+   "market": "上市",
+   "close": 48.15,
+   "chgPct": 9.93,
+   "foreignLots": 2391,
+   "foreignPct": 13.7,
+   "surge": 4.63,
+   "rank": 2
+  },
+  {
+   "code": "1708",
+   "name": "東鹼",
+   "market": "上市",
+   "close": 56.2,
+   "chgPct": 4.85,
+   "foreignLots": 1903,
+   "foreignPct": 17.1,
+   "surge": 3.98,
+   "rank": 3
+  },
+  {
+   "code": "6202",
+   "name": "盛群",
+   "market": "上市",
+   "close": 63.2,
+   "chgPct": 5.16,
+   "foreignLots": 1137,
+   "foreignPct": 24.6,
+   "surge": 3.97,
+   "rank": 4
+  },
+  {
+   "code": "1711",
+   "name": "永光",
+   "market": "上市",
+   "close": 43.0,
+   "chgPct": 6.04,
+   "foreignLots": 1870,
+   "foreignPct": 15.9,
+   "surge": 3.72,
+   "rank": 5
+  },
+  {
+   "code": "2444",
+   "name": "兆勁",
+   "market": "上市",
+   "close": 16.5,
+   "chgPct": 10.0,
+   "foreignLots": 1689,
+   "foreignPct": 29.5,
+   "surge": 3.64,
+   "rank": 6
+  },
+  {
+   "code": "6120",
+   "name": "達運",
+   "market": "上市",
+   "close": 15.25,
+   "chgPct": 3.39,
+   "foreignLots": 4396,
+   "foreignPct": 27.2,
+   "surge": 3.56,
+   "rank": 7
+  },
+  {
+   "code": "6548",
+   "name": "長科*",
+   "market": "上櫃",
+   "close": 76.7,
+   "chgPct": 7.27,
+   "foreignLots": 862,
+   "foreignPct": 10.0,
+   "surge": 3.38,
+   "rank": 8
+  },
+  {
+   "code": "5498",
+   "name": "凱崴",
+   "market": "上櫃",
+   "close": 55.6,
+   "chgPct": 9.88,
+   "foreignLots": 696,
+   "foreignPct": 17.7,
+   "surge": 3.23,
+   "rank": 9
+  },
+  {
+   "code": "1727",
+   "name": "中華化",
+   "market": "上市",
+   "close": 123.0,
+   "chgPct": 9.82,
+   "foreignLots": 4868,
+   "foreignPct": 13.6,
+   "surge": 3.13,
+   "rank": 10
+  }
  ]
 }

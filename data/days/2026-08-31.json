@@ -2627,5 +2627,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "1312",
+   "name": "國喬",
+   "market": "上市",
+   "close": 15.55,
+   "chgPct": 9.89,
+   "foreignLots": 14188,
+   "foreignPct": 13.1,
+   "surge": 7.24,
+   "rank": 1
+  },
+  {
+   "code": "2421",
+   "name": "建準",
+   "market": "上市",
+   "close": 179.5,
+   "chgPct": 9.79,
+   "foreignLots": 9431,
+   "foreignPct": 44.9,
+   "surge": 5.89,
+   "rank": 2
+  },
+  {
+   "code": "3339",
+   "name": "泰谷",
+   "market": "上櫃",
+   "close": 46.75,
+   "chgPct": 8.72,
+   "foreignLots": 1192,
+   "foreignPct": 13.0,
+   "surge": 4.34,
+   "rank": 3
+  },
+  {
+   "code": "2882",
+   "name": "國泰金",
+   "market": "上市",
+   "close": 110.5,
+   "chgPct": 4.74,
+   "foreignLots": 7894,
+   "foreignPct": 13.2,
+   "surge": 3.15,
+   "rank": 4
+  },
+  {
+   "code": "1326",
+   "name": "台化",
+   "market": "上市",
+   "close": 68.3,
+   "chgPct": 9.98,
+   "foreignLots": 18152,
+   "foreignPct": 25.4,
+   "surge": 2.99,
+   "rank": 5
+  },
+  {
+   "code": "5314",
+   "name": "世紀*",
+   "market": "上櫃",
+   "close": 36.0,
+   "chgPct": 5.26,
+   "foreignLots": 2911,
+   "foreignPct": 25.1,
+   "surge": 2.99,
+   "rank": 6
+  },
+  {
+   "code": "3324",
+   "name": "雙鴻",
+   "market": "上櫃",
+   "close": 1250.0,
+   "chgPct": 9.65,
+   "foreignLots": 2452,
+   "foreignPct": 28.1,
+   "surge": 2.94,
+   "rank": 7
+  },
+  {
+   "code": "2890",
+   "name": "永豐金",
+   "market": "上市",
+   "close": 41.1,
+   "chgPct": 3.27,
+   "foreignLots": 23141,
+   "foreignPct": 36.8,
+   "surge": 2.89,
+   "rank": 8
+  },
+  {
+   "code": "2201",
+   "name": "裕隆",
+   "market": "上市",
+   "close": 29.75,
+   "chgPct": 4.75,
+   "foreignLots": 1808,
+   "foreignPct": 24.8,
+   "surge": 2.82,
+   "rank": 9
+  },
+  {
+   "code": "2883",
+   "name": "凱基金",
+   "market": "上市",
+   "close": 33.85,
+   "chgPct": 3.36,
+   "foreignLots": 29874,
+   "foreignPct": 28.7,
+   "surge": 2.53,
+   "rank": 10
+  }
+ ]
 }

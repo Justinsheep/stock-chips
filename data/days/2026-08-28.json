@@ -2627,5 +2627,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "6179",
+   "name": "亞通",
+   "market": "上櫃",
+   "close": 30.4,
+   "chgPct": 9.95,
+   "foreignLots": 2888,
+   "foreignPct": 26.5,
+   "surge": 6.31,
+   "rank": 1
+  },
+  {
+   "code": "3406",
+   "name": "玉晶光",
+   "market": "上市",
+   "close": 917.0,
+   "chgPct": 9.95,
+   "foreignLots": 1669,
+   "foreignPct": 11.5,
+   "surge": 3.75,
+   "rank": 2
+  },
+  {
+   "code": "6108",
+   "name": "競國",
+   "market": "上市",
+   "close": 25.7,
+   "chgPct": 7.98,
+   "foreignLots": 2400,
+   "foreignPct": 21.7,
+   "surge": 3.48,
+   "rank": 3
+  },
+  {
+   "code": "2449",
+   "name": "京元電子",
+   "market": "上市",
+   "close": 270.0,
+   "chgPct": 9.09,
+   "foreignLots": 11541,
+   "foreignPct": 20.5,
+   "surge": 3.12,
+   "rank": 4
+  },
+  {
+   "code": "5498",
+   "name": "凱崴",
+   "market": "上櫃",
+   "close": 58.1,
+   "chgPct": 9.01,
+   "foreignLots": 1351,
+   "foreignPct": 20.7,
+   "surge": 3.0,
+   "rank": 5
+  },
+  {
+   "code": "1815",
+   "name": "富喬",
+   "market": "上櫃",
+   "close": 125.5,
+   "chgPct": 7.73,
+   "foreignLots": 25453,
+   "foreignPct": 20.0,
+   "surge": 2.87,
+   "rank": 6
+  },
+  {
+   "code": "6257",
+   "name": "矽格",
+   "market": "上市",
+   "close": 219.0,
+   "chgPct": 7.35,
+   "foreignLots": 3905,
+   "foreignPct": 28.9,
+   "surge": 2.66,
+   "rank": 7
+  },
+  {
+   "code": "3003",
+   "name": "健和興",
+   "market": "上市",
+   "close": 72.1,
+   "chgPct": 4.64,
+   "foreignLots": 1200,
+   "foreignPct": 39.6,
+   "surge": 2.56,
+   "rank": 8
+  },
+  {
+   "code": "5386",
+   "name": "青雲",
+   "market": "上櫃",
+   "close": 258.5,
+   "chgPct": 10.0,
+   "foreignLots": 491,
+   "foreignPct": 19.3,
+   "surge": 2.5,
+   "rank": 9
+  },
+  {
+   "code": "2303",
+   "name": "聯電",
+   "market": "上市",
+   "close": 130.0,
+   "chgPct": 9.7,
+   "foreignLots": 88989,
+   "foreignPct": 27.3,
+   "surge": 2.26,
+   "rank": 10
+  }
+ ]
 }

@@ -2612,5 +2612,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2301",
+   "name": "光寶科",
+   "market": "上市",
+   "close": 252.0,
+   "chgPct": 9.8,
+   "foreignLots": 28743,
+   "foreignPct": 42.9,
+   "surge": 3.34,
+   "rank": 1
+  },
+  {
+   "code": "6206",
+   "name": "飛捷",
+   "market": "上市",
+   "close": 140.0,
+   "chgPct": 4.87,
+   "foreignLots": 775,
+   "foreignPct": 13.5,
+   "surge": 2.77,
+   "rank": 2
+  },
+  {
+   "code": "3231",
+   "name": "緯創",
+   "market": "上市",
+   "close": 195.0,
+   "chgPct": 4.84,
+   "foreignLots": 18453,
+   "foreignPct": 12.0,
+   "surge": 1.91,
+   "rank": 3
+  },
+  {
+   "code": "3006",
+   "name": "晶豪科",
+   "market": "上市",
+   "close": 217.5,
+   "chgPct": 9.85,
+   "foreignLots": 6182,
+   "foreignPct": 37.2,
+   "surge": 1.55,
+   "rank": 4
+  },
+  {
+   "code": "6538",
+   "name": "倉和",
+   "market": "上櫃",
+   "close": 148.5,
+   "chgPct": 10.0,
+   "foreignLots": 397,
+   "foreignPct": 14.9,
+   "surge": 1.49,
+   "rank": 5
+  },
+  {
+   "code": "6265",
+   "name": "方土昶",
+   "market": "上櫃",
+   "close": 49.3,
+   "chgPct": 9.92,
+   "foreignLots": 784,
+   "foreignPct": 20.3,
+   "surge": 1.48,
+   "rank": 6
+  },
+  {
+   "code": "2408",
+   "name": "南亞科",
+   "market": "上市",
+   "close": 436.0,
+   "chgPct": 9.96,
+   "foreignLots": 24800,
+   "foreignPct": 20.7,
+   "surge": 1.46,
+   "rank": 7
+  },
+  {
+   "code": "8069",
+   "name": "元太",
+   "market": "上櫃",
+   "close": 197.5,
+   "chgPct": 4.5,
+   "foreignLots": 2003,
+   "foreignPct": 21.6,
+   "surge": 1.28,
+   "rank": 8
+  },
+  {
+   "code": "6187",
+   "name": "萬潤",
+   "market": "上櫃",
+   "close": 1090.0,
+   "chgPct": 8.46,
+   "foreignLots": 498,
+   "foreignPct": 17.8,
+   "surge": 1.23,
+   "rank": 9
+  },
+  {
+   "code": "2388",
+   "name": "威盛",
+   "market": "上市",
+   "close": 80.3,
+   "chgPct": 5.8,
+   "foreignLots": 3021,
+   "foreignPct": 34.3,
+   "surge": 1.21,
+   "rank": 10
+  }
+ ]
 }

@@ -2590,5 +2590,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "8050",
+   "name": "廣積",
+   "market": "上櫃",
+   "close": 69.0,
+   "chgPct": 9.35,
+   "foreignLots": 2155,
+   "foreignPct": 13.4,
+   "surge": 3.89,
+   "rank": 1
+  },
+  {
+   "code": "4566",
+   "name": "時碩工業",
+   "market": "上市",
+   "close": 76.3,
+   "chgPct": 9.94,
+   "foreignLots": 1801,
+   "foreignPct": 18.4,
+   "surge": 3.46,
+   "rank": 2
+  },
+  {
+   "code": "2034",
+   "name": "允強",
+   "market": "上市",
+   "close": 20.1,
+   "chgPct": 6.35,
+   "foreignLots": 2946,
+   "foreignPct": 61.9,
+   "surge": 3.4,
+   "rank": 3
+  },
+  {
+   "code": "4167",
+   "name": "松瑞藥",
+   "market": "上櫃",
+   "close": 19.75,
+   "chgPct": 5.61,
+   "foreignLots": 1064,
+   "foreignPct": 37.6,
+   "surge": 2.47,
+   "rank": 4
+  },
+  {
+   "code": "2606",
+   "name": "裕民",
+   "market": "上市",
+   "close": 67.5,
+   "chgPct": 4.81,
+   "foreignLots": 5584,
+   "foreignPct": 65.4,
+   "surge": 2.38,
+   "rank": 5
+  },
+  {
+   "code": "6547",
+   "name": "高端疫苗",
+   "market": "上櫃",
+   "close": 51.6,
+   "chgPct": 5.52,
+   "foreignLots": 1203,
+   "foreignPct": 23.7,
+   "surge": 2.0,
+   "rank": 6
+  },
+  {
+   "code": "2536",
+   "name": "宏普",
+   "market": "上市",
+   "close": 19.4,
+   "chgPct": 8.08,
+   "foreignLots": 471,
+   "foreignPct": 22.0,
+   "surge": 1.89,
+   "rank": 7
+  },
+  {
+   "code": "4142",
+   "name": "國光生",
+   "market": "上市",
+   "close": 17.7,
+   "chgPct": 3.21,
+   "foreignLots": 1706,
+   "foreignPct": 77.5,
+   "surge": 1.78,
+   "rank": 8
+  },
+  {
+   "code": "1216",
+   "name": "統一",
+   "market": "上市",
+   "close": 75.7,
+   "chgPct": 3.7,
+   "foreignLots": 20336,
+   "foreignPct": 73.3,
+   "surge": 1.21,
+   "rank": 9
+  },
+  {
+   "code": "1808",
+   "name": "潤隆",
+   "market": "上市",
+   "close": 33.05,
+   "chgPct": 3.77,
+   "foreignLots": 924,
+   "foreignPct": 57.6,
+   "surge": 1.16,
+   "rank": 10
+  }
+ ]
 }

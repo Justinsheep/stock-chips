@@ -2638,5 +2638,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "6133",
+   "name": "金橋",
+   "market": "上市",
+   "close": 26.05,
+   "chgPct": 9.92,
+   "foreignLots": 3140,
+   "foreignPct": 24.0,
+   "surge": 9.77,
+   "rank": 1
+  },
+  {
+   "code": "6603",
+   "name": "富強鑫",
+   "market": "上櫃",
+   "close": 27.9,
+   "chgPct": 9.84,
+   "foreignLots": 2511,
+   "foreignPct": 39.6,
+   "surge": 6.33,
+   "rank": 2
+  },
+  {
+   "code": "3066",
+   "name": "李洲",
+   "market": "上櫃",
+   "close": 28.3,
+   "chgPct": 9.9,
+   "foreignLots": 1715,
+   "foreignPct": 32.1,
+   "surge": 4.44,
+   "rank": 3
+  },
+  {
+   "code": "4960",
+   "name": "誠美材",
+   "market": "上市",
+   "close": 22.0,
+   "chgPct": 10.0,
+   "foreignLots": 821,
+   "foreignPct": 11.0,
+   "surge": 3.98,
+   "rank": 4
+  },
+  {
+   "code": "2371",
+   "name": "大同",
+   "market": "上市",
+   "close": 29.7,
+   "chgPct": 5.13,
+   "foreignLots": 13811,
+   "foreignPct": 43.2,
+   "surge": 3.74,
+   "rank": 5
+  },
+  {
+   "code": "3717",
+   "name": "聯嘉投控",
+   "market": "上市",
+   "close": 22.9,
+   "chgPct": 4.33,
+   "foreignLots": 791,
+   "foreignPct": 20.0,
+   "surge": 3.48,
+   "rank": 6
+  },
+  {
+   "code": "3264",
+   "name": "欣銓",
+   "market": "上櫃",
+   "close": 244.5,
+   "chgPct": 9.64,
+   "foreignLots": 4472,
+   "foreignPct": 21.3,
+   "surge": 3.42,
+   "rank": 7
+  },
+  {
+   "code": "1727",
+   "name": "中華化",
+   "market": "上市",
+   "close": 105.0,
+   "chgPct": 9.83,
+   "foreignLots": 3435,
+   "foreignPct": 22.4,
+   "surge": 3.19,
+   "rank": 8
+  },
+  {
+   "code": "1560",
+   "name": "中砂",
+   "market": "上市",
+   "close": 815.0,
+   "chgPct": 9.99,
+   "foreignLots": 530,
+   "foreignPct": 16.7,
+   "surge": 2.72,
+   "rank": 9
+  },
+  {
+   "code": "6257",
+   "name": "矽格",
+   "market": "上市",
+   "close": 222.5,
+   "chgPct": 5.95,
+   "foreignLots": 8544,
+   "foreignPct": 44.9,
+   "surge": 2.61,
+   "rank": 10
+  }
+ ]
 }

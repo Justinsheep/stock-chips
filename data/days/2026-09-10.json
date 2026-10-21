@@ -2589,5 +2589,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "5314",
+   "name": "世紀*",
+   "market": "上櫃",
+   "close": 46.8,
+   "chgPct": 9.99,
+   "foreignLots": 5964,
+   "foreignPct": 15.7,
+   "surge": 5.09,
+   "rank": 1
+  },
+  {
+   "code": "3016",
+   "name": "嘉晶",
+   "market": "上市",
+   "close": 110.0,
+   "chgPct": 10.0,
+   "foreignLots": 4507,
+   "foreignPct": 32.2,
+   "surge": 2.7,
+   "rank": 2
+  },
+  {
+   "code": "2221",
+   "name": "大甲",
+   "market": "上櫃",
+   "close": 96.5,
+   "chgPct": 9.91,
+   "foreignLots": 717,
+   "foreignPct": 11.2,
+   "surge": 2.43,
+   "rank": 3
+  },
+  {
+   "code": "5386",
+   "name": "青雲",
+   "market": "上櫃",
+   "close": 311.0,
+   "chgPct": 9.89,
+   "foreignLots": 512,
+   "foreignPct": 17.8,
+   "surge": 2.39,
+   "rank": 4
+  },
+  {
+   "code": "2439",
+   "name": "美律",
+   "market": "上市",
+   "close": 77.2,
+   "chgPct": 3.07,
+   "foreignLots": 958,
+   "foreignPct": 45.1,
+   "surge": 1.44,
+   "rank": 5
+  },
+  {
+   "code": "1904",
+   "name": "正隆",
+   "market": "上市",
+   "close": 25.55,
+   "chgPct": 4.07,
+   "foreignLots": 1442,
+   "foreignPct": 45.0,
+   "surge": 1.27,
+   "rank": 6
+  },
+  {
+   "code": "6224",
+   "name": "聚鼎",
+   "market": "上市",
+   "close": 89.0,
+   "chgPct": 5.33,
+   "foreignLots": 468,
+   "foreignPct": 20.6,
+   "surge": 1.11,
+   "rank": 7
+  },
+  {
+   "code": "3024",
+   "name": "憶聲",
+   "market": "上市",
+   "close": 14.55,
+   "chgPct": 4.3,
+   "foreignLots": 492,
+   "foreignPct": 36.8,
+   "surge": 0.92,
+   "rank": 8
+  },
+  {
+   "code": "1303",
+   "name": "南亞",
+   "market": "上市",
+   "close": 244.0,
+   "chgPct": 3.17,
+   "foreignLots": 7356,
+   "foreignPct": 12.4,
+   "surge": 0.58,
+   "rank": 9
+  },
+  {
+   "code": "3324",
+   "name": "雙鴻",
+   "market": "上櫃",
+   "close": 1440.0,
+   "chgPct": 3.97,
+   "foreignLots": 136,
+   "foreignPct": 18.4,
+   "surge": 0.21,
+   "rank": 10
+  }
+ ]
 }

@@ -2771,5 +2771,117 @@
    "rank": 10,
    "reason": "投信近 10 日買超 34 張、營收年增 33.4%;股價在 60 日均線上方 17.1%,RSI(2) 8 短線超賣。"
   }
+ ],
+ "foreignON": [
+  {
+   "code": "2340",
+   "name": "台亞",
+   "market": "上市",
+   "close": 43.85,
+   "chgPct": 7.48,
+   "foreignLots": 13333,
+   "foreignPct": 32.9,
+   "surge": 7.74,
+   "rank": 1
+  },
+  {
+   "code": "3236",
+   "name": "千如",
+   "market": "上櫃",
+   "close": 48.55,
+   "chgPct": 9.97,
+   "foreignLots": 1481,
+   "foreignPct": 11.0,
+   "surge": 7.08,
+   "rank": 2
+  },
+  {
+   "code": "3311",
+   "name": "閎暉",
+   "market": "上市",
+   "close": 45.15,
+   "chgPct": 9.99,
+   "foreignLots": 1781,
+   "foreignPct": 25.2,
+   "surge": 6.85,
+   "rank": 3
+  },
+  {
+   "code": "6533",
+   "name": "晶心科",
+   "market": "上市",
+   "close": 366.5,
+   "chgPct": 9.9,
+   "foreignLots": 2487,
+   "foreignPct": 14.9,
+   "surge": 5.43,
+   "rank": 4
+  },
+  {
+   "code": "2484",
+   "name": "希華",
+   "market": "上市",
+   "close": 84.6,
+   "chgPct": 8.46,
+   "foreignLots": 4763,
+   "foreignPct": 11.9,
+   "surge": 4.39,
+   "rank": 5
+  },
+  {
+   "code": "6672",
+   "name": "騰輝電子-KY",
+   "market": "上市",
+   "close": 405.5,
+   "chgPct": 9.89,
+   "foreignLots": 3269,
+   "foreignPct": 17.7,
+   "surge": 3.0,
+   "rank": 6
+  },
+  {
+   "code": "3293",
+   "name": "鈊象",
+   "market": "上櫃",
+   "close": 814.0,
+   "chgPct": 3.3,
+   "foreignLots": 3639,
+   "foreignPct": 69.6,
+   "surge": 2.83,
+   "rank": 7
+  },
+  {
+   "code": "2327",
+   "name": "國巨*",
+   "market": "上市",
+   "close": 602.0,
+   "chgPct": 9.85,
+   "foreignLots": 23394,
+   "foreignPct": 31.6,
+   "surge": 2.02,
+   "rank": 8
+  },
+  {
+   "code": "2492",
+   "name": "華新科",
+   "market": "上市",
+   "close": 329.0,
+   "chgPct": 9.85,
+   "foreignLots": 16492,
+   "foreignPct": 31.9,
+   "surge": 1.94,
+   "rank": 9
+  },
+  {
+   "code": "2428",
+   "name": "興勤",
+   "market": "上市",
+   "close": 261.0,
+   "chgPct": 3.78,
+   "foreignLots": 199,
+   "foreignPct": 10.9,
+   "surge": 1.75,
+   "rank": 10
+  }
  ]
 }

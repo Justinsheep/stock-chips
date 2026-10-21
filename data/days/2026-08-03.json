@@ -2594,5 +2594,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2006",
+   "name": "東和鋼鐵",
+   "market": "上市",
+   "close": 80.4,
+   "chgPct": 7.77,
+   "foreignLots": 4442,
+   "foreignPct": 56.1,
+   "surge": 2.55,
+   "rank": 1
+  },
+  {
+   "code": "2049",
+   "name": "上銀",
+   "market": "上市",
+   "close": 332.0,
+   "chgPct": 9.03,
+   "foreignLots": 446,
+   "foreignPct": 10.1,
+   "surge": 1.7,
+   "rank": 2
+  },
+  {
+   "code": "6166",
+   "name": "凌華",
+   "market": "上市",
+   "close": 124.0,
+   "chgPct": 9.73,
+   "foreignLots": 1800,
+   "foreignPct": 28.6,
+   "surge": 1.57,
+   "rank": 3
+  },
+  {
+   "code": "2362",
+   "name": "藍天",
+   "market": "上市",
+   "close": 44.75,
+   "chgPct": 6.67,
+   "foreignLots": 948,
+   "foreignPct": 57.8,
+   "surge": 1.55,
+   "rank": 4
+  },
+  {
+   "code": "3035",
+   "name": "智原",
+   "market": "上市",
+   "close": 160.0,
+   "chgPct": 7.02,
+   "foreignLots": 3172,
+   "foreignPct": 33.6,
+   "surge": 1.37,
+   "rank": 5
+  },
+  {
+   "code": "6176",
+   "name": "瑞儀",
+   "market": "上市",
+   "close": 86.2,
+   "chgPct": 4.74,
+   "foreignLots": 853,
+   "foreignPct": 11.1,
+   "surge": 1.34,
+   "rank": 6
+  },
+  {
+   "code": "2421",
+   "name": "建準",
+   "market": "上市",
+   "close": 136.5,
+   "chgPct": 4.2,
+   "foreignLots": 671,
+   "foreignPct": 29.1,
+   "surge": 1.29,
+   "rank": 7
+  },
+  {
+   "code": "3450",
+   "name": "聯鈞",
+   "market": "上市",
+   "close": 409.0,
+   "chgPct": 9.95,
+   "foreignLots": 950,
+   "foreignPct": 11.8,
+   "surge": 1.28,
+   "rank": 8
+  },
+  {
+   "code": "6226",
+   "name": "光鼎",
+   "market": "上市",
+   "close": 21.55,
+   "chgPct": 9.95,
+   "foreignLots": 3724,
+   "foreignPct": 26.5,
+   "surge": 1.26,
+   "rank": 9
+  },
+  {
+   "code": "1608",
+   "name": "華榮",
+   "market": "上市",
+   "close": 31.15,
+   "chgPct": 6.13,
+   "foreignLots": 1328,
+   "foreignPct": 37.3,
+   "surge": 1.24,
+   "rank": 10
+  }
+ ]
 }

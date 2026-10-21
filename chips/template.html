@@ -111,7 +111,7 @@ footer ol { padding-left: 20px; }
     <h1>籌碼選股</h1>
     <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
     <nav>
-      <a href="#trustrev">今日名單</a><a href="#pullback">觀察名單</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+      <a href="#trustrev">今日名單</a><a href="#pullback">觀察名單</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
     </nav>
     <div class="indices" id="indices"></div>
     <div id="weak"></div>
@@ -161,6 +161,14 @@ footer ol { padding-left: 20px; }
     <p class="meta" id="dtlvmeta"></p>
     <div class="toolbar"><div class="seg" id="dtlvside"></div></div>
     <div class="tablewrap"><table id="dtlvtable"></table></div>
+  </section>
+
+  <section id="foreignon">
+    <h2>隔日沖觀察:外資大買收高 <span class="tag" style="vertical-align:middle;background:var(--warn-bg);color:var(--warn-text)">回測未通過・只供觀察</span></h2>
+    <p class="meta">條件:當天外資買超 ≥ 當日成交量 10%、上漲 ≥ 3%、收盤在最高價 2% 以內、20 日均量 &gt; 1,000 張;依量增倍數取前 10 檔。<b>注意:</b>外資買賣超要盤後才公布,收盤前看不到,所以只能「隔天開盤買」。回測顯示這樣做是虧的——這類股票的漲幅幾乎都集中在當天收盤到隔天開盤的跳空,隔天開盤才買已經吃不到。放在這裡只是用真實資料持續觀察,不建議照做。</p>
+    <div class="tablewrap"><table id="fotable"></table></div>
+    <h3 style="font-size:16px;margin:20px 0 8px">追蹤成績(每筆已扣成本)</h3>
+    <div class="tablewrap"><table id="fotrack"></table></div>
   </section>
 
   <section id="method">
@@ -494,6 +502,37 @@ function renderPullback() {
   $("pbmeta").textContent = `報酬為每天選出的名單等權買進、5 日後賣出的平均,已扣來回成本 ${P ? P.cost : 0.585}%;月化 = (1 + 5 日平均)^(21/5) − 1。表格中個股的「5 日後」未扣成本。價格未還原除權息。`;
 }
 
+function renderForeignON() {
+  const doc = dayDoc(), list = doc.foreignON;
+  const pf = (DATA.perf && DATA.perf.foreignON && DATA.perf.foreignON.days[doc.date]) || {};
+  if (list == null) $("fotable").innerHTML = `<tr><td>這一天沒有計算(歷史資料不足)</td></tr>`;
+  else if (!list.length) $("fotable").innerHTML = `<tr><td>這一天沒有股票符合條件</td></tr>`;
+  else $("fotable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票</th><th>收盤</th><th>漲跌</th><th>外資買超</th><th>佔成交量</th><th>量增</th><th>隔天開→收</th><th>隔天開→後天開</th></tr>` +
+    list.map((x) => { const r = pf[x.code] || {}; return `<tr><td>${x.rank}</td><td style="text-align:left"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span></td>
+      <td>${fmt(x.close, 2)}</td><td class="${cls(x.chgPct)}">${pct(x.chgPct)}</td><td class="up">+${fmt(x.foreignLots)} 張</td><td>${x.foreignPct}%</td><td>${x.surge.toFixed(1)} 倍</td>
+      <td class="${cls(r.a)}">${r.a == null ? "—" : pct(r.a)}</td><td class="${cls(r.b)}">${r.b == null ? "—" : pct(r.b)}</td></tr>`; }).join("");
+  const P = DATA.perf && DATA.perf.foreignON, G = DATA.g7;
+  const rows = [];
+  const label = { a: "隔天開盤買→隔天收盤賣(當沖)", b: "隔天開盤買→後天開盤賣" };
+  for (const v of ["a", "b"]) {
+    if (P) {
+      const L = P.summary[v].live, Hs = P.summary[v].history;
+      rows.push(L && L.n ? `<tr><td><b>上線後</b>・${label[v]}</td><td>${L.from} ~ ${L.to}</td><td>${fmt(L.n)}</td><td class="${cls(L.net)}">${pct(L.net)}</td><td>${L.win}%</td></tr>`
+        : `<tr><td><b>上線後</b>・${label[v]}</td><td colspan="4">${P.goLive} 起記錄</td></tr>`);
+      if (Hs && Hs.n) rows.push(`<tr><td>上線前回填・${label[v]}</td><td>${Hs.from} ~ ${Hs.to}</td><td>${fmt(Hs.n)}</td><td class="${cls(Hs.net)}">${pct(Hs.net)}</td><td>${Hs.win}%</td></tr>`);
+    }
+    if (G) {
+      const key = Object.keys(G.results).find((k) => k.startsWith(v === "a" ? "G7a" : "G7b"));
+      const lb = { train: "訓練", valid: "驗證", test: "測試" };
+      if (key) for (const s of ["train", "valid", "test"]) {
+        const x = G.results[key][s];
+        rows.push(`<tr><td>三年回測・${lb[s]}・${label[v]}</td><td>${G.segments[s][0]} ~ ${G.segments[s][1]}</td><td>${fmt(x.trades)}</td><td class="${cls(x.netStd)}">${pct(x.netStd)}</td><td>${x.win}%</td></tr>`);
+      }
+    }
+  }
+  $("fotrack").innerHTML = `<tr><th>項目</th><th>期間</th><th>筆數</th><th>每筆平均(扣成本)</th><th>勝率</th></tr>` + rows.join("");
+}
+
 function renderDayTrade() {
   const doc = dayDoc();
   const dt = doc.dayTrade;
@@ -527,7 +566,7 @@ function init() {
     const w = WD[new Date(d.date + "T00:00:00").getDay()];
     return `<option value="${d.date}">${d.date.slice(5).replace("-", "/")} 週${w}</option>`;
   }).join("");
-  $("date").onchange = (e) => { state.date = e.target.value; renderTrustRev(); renderPullback(); renderDayTrade(); };
+  $("date").onchange = (e) => { state.date = e.target.value; renderTrustRev(); renderPullback(); renderDayTrade(); renderForeignON(); };
   seg($("trsort"), [["trust", "依投信買超"], ["chip", "依籌碼分數"]], "trSort", renderTrustRev);
   seg($("dtside"), [["long", "做多 20 檔"], ["short", "做空 20 檔"]], "dtSide", renderDayTrade);
   if (DATA.levels) seg($("dtlvside"), [["long", "做多"], ["short", "做空"]], "dtLvSide", renderDtLevels);
@@ -536,6 +575,7 @@ function init() {
   renderOverlap();
   renderExits();
   renderDayTrade();
+  renderForeignON();
   renderLevels();
   $("updated").textContent = `資料更新於 ${DATA.days[0].generatedAt.replace("T", " ")}`;
 }

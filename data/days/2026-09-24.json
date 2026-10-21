@@ -2597,5 +2597,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2030",
+   "name": "彰源",
+   "market": "上市",
+   "close": 30.4,
+   "chgPct": 9.95,
+   "foreignLots": 2497,
+   "foreignPct": 13.9,
+   "surge": 4.23,
+   "rank": 1
+  },
+  {
+   "code": "3016",
+   "name": "嘉晶",
+   "market": "上市",
+   "close": 160.0,
+   "chgPct": 9.97,
+   "foreignLots": 8256,
+   "foreignPct": 16.8,
+   "surge": 3.75,
+   "rank": 2
+  },
+  {
+   "code": "6533",
+   "name": "晶心科",
+   "market": "上市",
+   "close": 276.0,
+   "chgPct": 9.96,
+   "foreignLots": 1266,
+   "foreignPct": 18.9,
+   "surge": 3.61,
+   "rank": 3
+  },
+  {
+   "code": "1708",
+   "name": "東鹼",
+   "market": "上市",
+   "close": 52.3,
+   "chgPct": 4.39,
+   "foreignLots": 1637,
+   "foreignPct": 22.3,
+   "surge": 3.38,
+   "rank": 4
+  },
+  {
+   "code": "6672",
+   "name": "騰輝電子-KY",
+   "market": "上市",
+   "close": 337.5,
+   "chgPct": 9.93,
+   "foreignLots": 2856,
+   "foreignPct": 18.7,
+   "surge": 3.0,
+   "rank": 5
+  },
+  {
+   "code": "8150",
+   "name": "南茂",
+   "market": "上市",
+   "close": 112.0,
+   "chgPct": 4.67,
+   "foreignLots": 14649,
+   "foreignPct": 17.5,
+   "surge": 2.53,
+   "rank": 6
+  },
+  {
+   "code": "6207",
+   "name": "雷科",
+   "market": "上櫃",
+   "close": 125.0,
+   "chgPct": 9.65,
+   "foreignLots": 2424,
+   "foreignPct": 20.4,
+   "surge": 1.97,
+   "rank": 7
+  },
+  {
+   "code": "3293",
+   "name": "鈊象",
+   "market": "上櫃",
+   "close": 761.0,
+   "chgPct": 4.39,
+   "foreignLots": 3149,
+   "foreignPct": 60.3,
+   "surge": 1.89,
+   "rank": 8
+  },
+  {
+   "code": "5309",
+   "name": "系統電",
+   "market": "上櫃",
+   "close": 53.8,
+   "chgPct": 4.47,
+   "foreignLots": 463,
+   "foreignPct": 26.0,
+   "surge": 1.75,
+   "rank": 9
+  },
+  {
+   "code": "2466",
+   "name": "冠西電",
+   "market": "上市",
+   "close": 119.5,
+   "chgPct": 5.29,
+   "foreignLots": 668,
+   "foreignPct": 27.8,
+   "surge": 1.69,
+   "rank": 10
+  }
+ ]
 }

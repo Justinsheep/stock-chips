@@ -2744,5 +2744,62 @@
    "rank": 10,
    "reason": "投信近 10 日買超 1,153 張、營收年增 53.5%;股價在 60 日均線上方 18.6%,RSI(2) 0 短線超賣。"
   }
+ ],
+ "foreignON": [
+  {
+   "code": "1815",
+   "name": "富喬",
+   "market": "上櫃",
+   "close": 154.0,
+   "chgPct": 10.0,
+   "foreignLots": 20235,
+   "foreignPct": 10.3,
+   "surge": 3.04,
+   "rank": 1
+  },
+  {
+   "code": "6141",
+   "name": "柏承",
+   "market": "上市",
+   "close": 58.4,
+   "chgPct": 9.98,
+   "foreignLots": 866,
+   "foreignPct": 15.7,
+   "surge": 2.7,
+   "rank": 2
+  },
+  {
+   "code": "4927",
+   "name": "泰鼎-KY",
+   "market": "上市",
+   "close": 58.9,
+   "chgPct": 5.18,
+   "foreignLots": 3197,
+   "foreignPct": 16.5,
+   "surge": 1.86,
+   "rank": 3
+  },
+  {
+   "code": "2851",
+   "name": "中再保",
+   "market": "上市",
+   "close": 51.1,
+   "chgPct": 4.18,
+   "foreignLots": 1712,
+   "foreignPct": 45.8,
+   "surge": 1.3,
+   "rank": 4
+  },
+  {
+   "code": "3055",
+   "name": "蔚華科",
+   "market": "上市",
+   "close": 146.5,
+   "chgPct": 3.9,
+   "foreignLots": 451,
+   "foreignPct": 27.5,
+   "surge": 0.35,
+   "rank": 5
+  }
  ]
 }

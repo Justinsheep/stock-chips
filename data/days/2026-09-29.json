@@ -2602,5 +2602,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "8050",
+   "name": "廣積",
+   "market": "上櫃",
+   "close": 65.7,
+   "chgPct": 7.35,
+   "foreignLots": 2333,
+   "foreignPct": 39.4,
+   "surge": 5.81,
+   "rank": 1
+  },
+  {
+   "code": "2340",
+   "name": "台亞",
+   "market": "上市",
+   "close": 38.0,
+   "chgPct": 9.99,
+   "foreignLots": 3025,
+   "foreignPct": 19.4,
+   "surge": 5.19,
+   "rank": 2
+  },
+  {
+   "code": "6901",
+   "name": "鑽石投資",
+   "market": "上市",
+   "close": 17.25,
+   "chgPct": 9.87,
+   "foreignLots": 1155,
+   "foreignPct": 24.0,
+   "surge": 4.6,
+   "rank": 3
+  },
+  {
+   "code": "3518",
+   "name": "柏騰",
+   "market": "上市",
+   "close": 37.4,
+   "chgPct": 10.0,
+   "foreignLots": 1019,
+   "foreignPct": 18.2,
+   "surge": 4.0,
+   "rank": 4
+  },
+  {
+   "code": "1721",
+   "name": "國慶科技",
+   "market": "上市",
+   "close": 26.1,
+   "chgPct": 7.85,
+   "foreignLots": 896,
+   "foreignPct": 22.0,
+   "surge": 3.34,
+   "rank": 5
+  },
+  {
+   "code": "3717",
+   "name": "聯嘉投控",
+   "market": "上市",
+   "close": 27.85,
+   "chgPct": 9.86,
+   "foreignLots": 3291,
+   "foreignPct": 19.4,
+   "surge": 3.08,
+   "rank": 6
+  },
+  {
+   "code": "3162",
+   "name": "精確",
+   "market": "上櫃",
+   "close": 80.9,
+   "chgPct": 9.92,
+   "foreignLots": 919,
+   "foreignPct": 22.8,
+   "surge": 2.94,
+   "rank": 7
+  },
+  {
+   "code": "6133",
+   "name": "金橋",
+   "market": "上市",
+   "close": 28.5,
+   "chgPct": 9.83,
+   "foreignLots": 2471,
+   "foreignPct": 24.8,
+   "surge": 2.73,
+   "rank": 8
+  },
+  {
+   "code": "3550",
+   "name": "聯穎",
+   "market": "上市",
+   "close": 26.2,
+   "chgPct": 9.85,
+   "foreignLots": 409,
+   "foreignPct": 11.7,
+   "surge": 2.68,
+   "rank": 9
+  },
+  {
+   "code": "6127",
+   "name": "九豪",
+   "market": "上櫃",
+   "close": 51.0,
+   "chgPct": 6.69,
+   "foreignLots": 1376,
+   "foreignPct": 21.5,
+   "surge": 2.33,
+   "rank": 10
+  }
+ ]
 }

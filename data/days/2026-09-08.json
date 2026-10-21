@@ -2590,5 +2590,62 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "6015",
+   "name": "宏遠證",
+   "market": "上櫃",
+   "close": 17.85,
+   "chgPct": 5.93,
+   "foreignLots": 2420,
+   "foreignPct": 40.8,
+   "surge": 3.61,
+   "rank": 1
+  },
+  {
+   "code": "6620",
+   "name": "漢達",
+   "market": "上櫃",
+   "close": 124.0,
+   "chgPct": 9.73,
+   "foreignLots": 818,
+   "foreignPct": 13.9,
+   "surge": 3.56,
+   "rank": 2
+  },
+  {
+   "code": "5876",
+   "name": "上海商銀",
+   "market": "上市",
+   "close": 48.75,
+   "chgPct": 3.83,
+   "foreignLots": 11796,
+   "foreignPct": 61.8,
+   "surge": 2.4,
+   "rank": 3
+  },
+  {
+   "code": "2030",
+   "name": "彰源",
+   "market": "上市",
+   "close": 23.8,
+   "chgPct": 4.16,
+   "foreignLots": 1779,
+   "foreignPct": 39.0,
+   "surge": 1.28,
+   "rank": 4
+  },
+  {
+   "code": "4147",
+   "name": "中裕",
+   "market": "上櫃",
+   "close": 65.3,
+   "chgPct": 4.15,
+   "foreignLots": 444,
+   "foreignPct": 38.2,
+   "surge": 0.89,
+   "rank": 5
+  }
+ ]
 }

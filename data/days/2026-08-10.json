@@ -2609,5 +2609,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "9934",
+   "name": "成霖",
+   "market": "上市",
+   "close": 12.0,
+   "chgPct": 9.59,
+   "foreignLots": 2739,
+   "foreignPct": 35.3,
+   "surge": 6.51,
+   "rank": 1
+  },
+  {
+   "code": "1904",
+   "name": "正隆",
+   "market": "上市",
+   "close": 24.2,
+   "chgPct": 6.14,
+   "foreignLots": 4718,
+   "foreignPct": 67.7,
+   "surge": 3.81,
+   "rank": 2
+  },
+  {
+   "code": "2103",
+   "name": "台橡",
+   "market": "上市",
+   "close": 27.5,
+   "chgPct": 10.0,
+   "foreignLots": 6635,
+   "foreignPct": 26.9,
+   "surge": 3.78,
+   "rank": 3
+  },
+  {
+   "code": "1440",
+   "name": "南紡",
+   "market": "上市",
+   "close": 13.5,
+   "chgPct": 6.72,
+   "foreignLots": 1999,
+   "foreignPct": 31.0,
+   "surge": 3.43,
+   "rank": 4
+  },
+  {
+   "code": "2465",
+   "name": "麗臺",
+   "market": "上市",
+   "close": 93.6,
+   "chgPct": 9.99,
+   "foreignLots": 2862,
+   "foreignPct": 40.5,
+   "surge": 3.34,
+   "rank": 5
+  },
+  {
+   "code": "2436",
+   "name": "偉詮電",
+   "market": "上市",
+   "close": 67.4,
+   "chgPct": 9.42,
+   "foreignLots": 4351,
+   "foreignPct": 40.3,
+   "surge": 3.33,
+   "rank": 6
+  },
+  {
+   "code": "1605",
+   "name": "華新",
+   "market": "上市",
+   "close": 38.0,
+   "chgPct": 9.99,
+   "foreignLots": 32072,
+   "foreignPct": 43.2,
+   "surge": 3.32,
+   "rank": 7
+  },
+  {
+   "code": "9921",
+   "name": "巨大",
+   "market": "上市",
+   "close": 101.5,
+   "chgPct": 9.85,
+   "foreignLots": 3768,
+   "foreignPct": 38.2,
+   "surge": 2.96,
+   "rank": 8
+  },
+  {
+   "code": "2002",
+   "name": "中鋼",
+   "market": "上市",
+   "close": 19.65,
+   "chgPct": 3.15,
+   "foreignLots": 64052,
+   "foreignPct": 55.2,
+   "surge": 2.89,
+   "rank": 9
+  },
+  {
+   "code": "3022",
+   "name": "威強電",
+   "market": "上市",
+   "close": 113.0,
+   "chgPct": 9.71,
+   "foreignLots": 2826,
+   "foreignPct": 32.9,
+   "surge": 2.62,
+   "rank": 10
+  }
+ ]
 }

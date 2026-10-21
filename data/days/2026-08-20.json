@@ -2600,5 +2600,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "1815",
+   "name": "富喬",
+   "market": "上櫃",
+   "close": 107.0,
+   "chgPct": 9.18,
+   "foreignLots": 21750,
+   "foreignPct": 16.4,
+   "surge": 6.29,
+   "rank": 1
+  },
+  {
+   "code": "2615",
+   "name": "萬海",
+   "market": "上市",
+   "close": 113.5,
+   "chgPct": 6.57,
+   "foreignLots": 17723,
+   "foreignPct": 23.2,
+   "surge": 4.3,
+   "rank": 2
+  },
+  {
+   "code": "4142",
+   "name": "國光生",
+   "market": "上市",
+   "close": 18.1,
+   "chgPct": 4.93,
+   "foreignLots": 1954,
+   "foreignPct": 42.8,
+   "surge": 4.03,
+   "rank": 3
+  },
+  {
+   "code": "4971",
+   "name": "IET-KY",
+   "market": "上櫃",
+   "close": 580.0,
+   "chgPct": 9.85,
+   "foreignLots": 514,
+   "foreignPct": 10.4,
+   "surge": 3.01,
+   "rank": 4
+  },
+  {
+   "code": "4167",
+   "name": "松瑞藥",
+   "market": "上櫃",
+   "close": 20.7,
+   "chgPct": 4.28,
+   "foreignLots": 1816,
+   "foreignPct": 56.8,
+   "surge": 2.85,
+   "rank": 5
+  },
+  {
+   "code": "4114",
+   "name": "健喬",
+   "market": "上櫃",
+   "close": 31.25,
+   "chgPct": 3.31,
+   "foreignLots": 2030,
+   "foreignPct": 67.9,
+   "surge": 2.82,
+   "rank": 6
+  },
+  {
+   "code": "6456",
+   "name": "GIS-KY",
+   "market": "上市",
+   "close": 71.2,
+   "chgPct": 9.37,
+   "foreignLots": 3088,
+   "foreignPct": 33.8,
+   "surge": 2.67,
+   "rank": 7
+  },
+  {
+   "code": "1795",
+   "name": "美時",
+   "market": "上市",
+   "close": 195.0,
+   "chgPct": 4.56,
+   "foreignLots": 449,
+   "foreignPct": 14.8,
+   "surge": 2.21,
+   "rank": 8
+  },
+  {
+   "code": "1402",
+   "name": "遠東新",
+   "market": "上市",
+   "close": 29.2,
+   "chgPct": 4.29,
+   "foreignLots": 17385,
+   "foreignPct": 46.0,
+   "surge": 2.19,
+   "rank": 9
+  },
+  {
+   "code": "1515",
+   "name": "力山",
+   "market": "上市",
+   "close": 34.5,
+   "chgPct": 9.87,
+   "foreignLots": 688,
+   "foreignPct": 13.6,
+   "surge": 2.11,
+   "rank": 10
+  }
+ ]
 }

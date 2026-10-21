@@ -2740,5 +2740,117 @@
    "rank": 10,
    "reason": "投信近 10 日買超 354 張、營收年增 30.4%;股價在 60 日均線上方 35.4%,RSI(2) 0 短線超賣。"
   }
+ ],
+ "foreignON": [
+  {
+   "code": "6152",
+   "name": "百一",
+   "market": "上市",
+   "close": 19.8,
+   "chgPct": 4.49,
+   "foreignLots": 4791,
+   "foreignPct": 21.3,
+   "surge": 10.7,
+   "rank": 1
+  },
+  {
+   "code": "1434",
+   "name": "福懋",
+   "market": "上市",
+   "close": 18.95,
+   "chgPct": 5.28,
+   "foreignLots": 2826,
+   "foreignPct": 29.2,
+   "surge": 6.44,
+   "rank": 2
+  },
+  {
+   "code": "1802",
+   "name": "台玻",
+   "market": "上市",
+   "close": 65.7,
+   "chgPct": 9.87,
+   "foreignLots": 17211,
+   "foreignPct": 15.9,
+   "surge": 6.39,
+   "rank": 3
+  },
+  {
+   "code": "1504",
+   "name": "東元",
+   "market": "上市",
+   "close": 73.3,
+   "chgPct": 3.09,
+   "foreignLots": 4196,
+   "foreignPct": 14.3,
+   "surge": 6.26,
+   "rank": 4
+  },
+  {
+   "code": "1301",
+   "name": "台塑",
+   "market": "上市",
+   "close": 75.4,
+   "chgPct": 9.91,
+   "foreignLots": 35668,
+   "foreignPct": 30.5,
+   "surge": 4.79,
+   "rank": 5
+  },
+  {
+   "code": "2241",
+   "name": "艾姆勒",
+   "market": "上市",
+   "close": 52.0,
+   "chgPct": 9.82,
+   "foreignLots": 2901,
+   "foreignPct": 27.8,
+   "surge": 4.19,
+   "rank": 6
+  },
+  {
+   "code": "8131",
+   "name": "福懋科",
+   "market": "上市",
+   "close": 68.2,
+   "chgPct": 7.91,
+   "foreignLots": 2718,
+   "foreignPct": 32.6,
+   "surge": 3.93,
+   "rank": 7
+  },
+  {
+   "code": "6278",
+   "name": "台表科",
+   "market": "上市",
+   "close": 250.5,
+   "chgPct": 7.05,
+   "foreignLots": 3475,
+   "foreignPct": 15.7,
+   "surge": 3.37,
+   "rank": 8
+  },
+  {
+   "code": "1440",
+   "name": "南紡",
+   "market": "上市",
+   "close": 13.95,
+   "chgPct": 3.33,
+   "foreignLots": 3062,
+   "foreignPct": 36.3,
+   "surge": 3.24,
+   "rank": 9
+  },
+  {
+   "code": "2439",
+   "name": "美律",
+   "market": "上市",
+   "close": 78.7,
+   "chgPct": 4.65,
+   "foreignLots": 726,
+   "foreignPct": 17.5,
+   "surge": 3.23,
+   "rank": 10
+  }
  ]
 }

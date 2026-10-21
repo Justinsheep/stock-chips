@@ -2621,5 +2621,73 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2845",
+   "name": "遠東銀",
+   "market": "上市",
+   "close": 13.65,
+   "chgPct": 5.0,
+   "foreignLots": 29743,
+   "foreignPct": 69.9,
+   "surge": 3.24,
+   "rank": 1
+  },
+  {
+   "code": "2617",
+   "name": "台航",
+   "market": "上市",
+   "close": 32.3,
+   "chgPct": 3.36,
+   "foreignLots": 1899,
+   "foreignPct": 37.1,
+   "surge": 2.64,
+   "rank": 2
+  },
+  {
+   "code": "2801",
+   "name": "彰銀",
+   "market": "上市",
+   "close": 26.6,
+   "chgPct": 3.5,
+   "foreignLots": 4743,
+   "foreignPct": 10.1,
+   "surge": 2.57,
+   "rank": 3
+  },
+  {
+   "code": "6177",
+   "name": "達麗",
+   "market": "上市",
+   "close": 48.75,
+   "chgPct": 3.28,
+   "foreignLots": 1426,
+   "foreignPct": 50.2,
+   "surge": 1.39,
+   "rank": 4
+  },
+  {
+   "code": "5608",
+   "name": "四維航",
+   "market": "上市",
+   "close": 17.45,
+   "chgPct": 5.76,
+   "foreignLots": 4213,
+   "foreignPct": 31.8,
+   "surge": 0.84,
+   "rank": 5
+  },
+  {
+   "code": "2030",
+   "name": "彰源",
+   "market": "上市",
+   "close": 23.4,
+   "chgPct": 3.54,
+   "foreignLots": 973,
+   "foreignPct": 36.4,
+   "surge": 0.71,
+   "rank": 6
+  }
+ ]
 }

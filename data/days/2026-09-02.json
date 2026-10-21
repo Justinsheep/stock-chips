@@ -2611,5 +2611,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "3019",
+   "name": "亞光",
+   "market": "上市",
+   "close": 157.5,
+   "chgPct": 9.76,
+   "foreignLots": 6752,
+   "foreignPct": 27.4,
+   "surge": 7.51,
+   "rank": 1
+  },
+  {
+   "code": "4976",
+   "name": "佳凌",
+   "market": "上市",
+   "close": 41.55,
+   "chgPct": 9.92,
+   "foreignLots": 3992,
+   "foreignPct": 30.9,
+   "surge": 3.68,
+   "rank": 2
+  },
+  {
+   "code": "3504",
+   "name": "揚明光",
+   "market": "上市",
+   "close": 94.3,
+   "chgPct": 8.14,
+   "foreignLots": 1481,
+   "foreignPct": 15.4,
+   "surge": 2.66,
+   "rank": 3
+  },
+  {
+   "code": "6224",
+   "name": "聚鼎",
+   "market": "上市",
+   "close": 85.0,
+   "chgPct": 9.96,
+   "foreignLots": 289,
+   "foreignPct": 10.1,
+   "surge": 2.66,
+   "rank": 4
+  },
+  {
+   "code": "5607",
+   "name": "遠雄港",
+   "market": "上市",
+   "close": 55.6,
+   "chgPct": 7.54,
+   "foreignLots": 1289,
+   "foreignPct": 46.0,
+   "surge": 2.49,
+   "rank": 5
+  },
+  {
+   "code": "2465",
+   "name": "麗臺",
+   "market": "上市",
+   "close": 105.0,
+   "chgPct": 9.6,
+   "foreignLots": 1366,
+   "foreignPct": 16.0,
+   "surge": 1.76,
+   "rank": 6
+  },
+  {
+   "code": "2464",
+   "name": "盟立",
+   "market": "上市",
+   "close": 202.0,
+   "chgPct": 9.49,
+   "foreignLots": 11634,
+   "foreignPct": 42.1,
+   "surge": 1.6,
+   "rank": 7
+  },
+  {
+   "code": "9941",
+   "name": "裕融",
+   "market": "上市",
+   "close": 82.6,
+   "chgPct": 3.25,
+   "foreignLots": 1369,
+   "foreignPct": 72.2,
+   "surge": 1.32,
+   "rank": 8
+  },
+  {
+   "code": "2388",
+   "name": "威盛",
+   "market": "上市",
+   "close": 76.4,
+   "chgPct": 4.23,
+   "foreignLots": 963,
+   "foreignPct": 18.1,
+   "surge": 1.27,
+   "rank": 9
+  },
+  {
+   "code": "1909",
+   "name": "榮成",
+   "market": "上市",
+   "close": 11.35,
+   "chgPct": 3.18,
+   "foreignLots": 1292,
+   "foreignPct": 33.0,
+   "surge": 0.84,
+   "rank": 10
+  }
+ ]
 }

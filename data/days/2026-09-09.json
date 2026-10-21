@@ -2586,5 +2586,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "6179",
+   "name": "亞通",
+   "market": "上櫃",
+   "close": 36.4,
+   "chgPct": 9.97,
+   "foreignLots": 3755,
+   "foreignPct": 14.5,
+   "surge": 7.43,
+   "rank": 1
+  },
+  {
+   "code": "1409",
+   "name": "新纖",
+   "market": "上市",
+   "close": 26.85,
+   "chgPct": 9.82,
+   "foreignLots": 17976,
+   "foreignPct": 20.2,
+   "surge": 5.82,
+   "rank": 2
+  },
+  {
+   "code": "3680",
+   "name": "家登",
+   "market": "上櫃",
+   "close": 566.0,
+   "chgPct": 8.64,
+   "foreignLots": 1854,
+   "foreignPct": 24.7,
+   "surge": 5.75,
+   "rank": 3
+  },
+  {
+   "code": "2104",
+   "name": "國際中橡",
+   "market": "上市",
+   "close": 10.8,
+   "chgPct": 6.93,
+   "foreignLots": 4435,
+   "foreignPct": 43.2,
+   "surge": 3.53,
+   "rank": 4
+  },
+  {
+   "code": "6196",
+   "name": "帆宣",
+   "market": "上市",
+   "close": 534.0,
+   "chgPct": 6.16,
+   "foreignLots": 885,
+   "foreignPct": 24.0,
+   "surge": 2.96,
+   "rank": 5
+  },
+  {
+   "code": "3229",
+   "name": "晟鈦",
+   "market": "上市",
+   "close": 60.7,
+   "chgPct": 9.96,
+   "foreignLots": 1413,
+   "foreignPct": 26.4,
+   "surge": 2.68,
+   "rank": 6
+  },
+  {
+   "code": "6505",
+   "name": "台塑化",
+   "market": "上市",
+   "close": 87.5,
+   "chgPct": 9.92,
+   "foreignLots": 13248,
+   "foreignPct": 28.9,
+   "surge": 2.18,
+   "rank": 7
+  },
+  {
+   "code": "6152",
+   "name": "百一",
+   "market": "上市",
+   "close": 14.75,
+   "chgPct": 9.67,
+   "foreignLots": 479,
+   "foreignPct": 21.7,
+   "surge": 1.88,
+   "rank": 8
+  },
+  {
+   "code": "3693",
+   "name": "營邦",
+   "market": "上櫃",
+   "close": 700.0,
+   "chgPct": 4.63,
+   "foreignLots": 522,
+   "foreignPct": 20.6,
+   "surge": 1.79,
+   "rank": 9
+  },
+  {
+   "code": "3162",
+   "name": "精確",
+   "market": "上櫃",
+   "close": 73.6,
+   "chgPct": 5.75,
+   "foreignLots": 711,
+   "foreignPct": 31.8,
+   "surge": 1.66,
+   "rank": 10
+  }
+ ]
 }

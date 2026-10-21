@@ -2633,5 +2633,117 @@
    }
   }
  ],
- "pullback": null
+ "pullback": null,
+ "foreignON": [
+  {
+   "code": "2465",
+   "name": "麗臺",
+   "market": "上市",
+   "close": 95.5,
+   "chgPct": 9.9,
+   "foreignLots": 2139,
+   "foreignPct": 24.1,
+   "surge": 4.31,
+   "rank": 1
+  },
+  {
+   "code": "1717",
+   "name": "長興",
+   "market": "上市",
+   "close": 78.6,
+   "chgPct": 9.32,
+   "foreignLots": 16329,
+   "foreignPct": 36.6,
+   "surge": 4.11,
+   "rank": 2
+  },
+  {
+   "code": "9933",
+   "name": "中鼎",
+   "market": "上市",
+   "close": 42.0,
+   "chgPct": 8.67,
+   "foreignLots": 4841,
+   "foreignPct": 49.3,
+   "surge": 4.09,
+   "rank": 3
+  },
+  {
+   "code": "3234",
+   "name": "光環",
+   "market": "上櫃",
+   "close": 133.0,
+   "chgPct": 9.47,
+   "foreignLots": 1366,
+   "foreignPct": 24.4,
+   "surge": 3.73,
+   "rank": 4
+  },
+  {
+   "code": "2324",
+   "name": "仁寶",
+   "market": "上市",
+   "close": 39.9,
+   "chgPct": 9.92,
+   "foreignLots": 51024,
+   "foreignPct": 29.7,
+   "surge": 3.58,
+   "rank": 5
+  },
+  {
+   "code": "2009",
+   "name": "第一銅",
+   "market": "上市",
+   "close": 41.35,
+   "chgPct": 3.25,
+   "foreignLots": 2796,
+   "foreignPct": 43.9,
+   "surge": 3.3,
+   "rank": 6
+  },
+  {
+   "code": "4931",
+   "name": "新盛力",
+   "market": "上櫃",
+   "close": 267.0,
+   "chgPct": 4.71,
+   "foreignLots": 2681,
+   "foreignPct": 16.9,
+   "surge": 3.24,
+   "rank": 7
+  },
+  {
+   "code": "2377",
+   "name": "微星",
+   "market": "上市",
+   "close": 169.0,
+   "chgPct": 9.74,
+   "foreignLots": 7854,
+   "foreignPct": 17.0,
+   "surge": 3.03,
+   "rank": 8
+  },
+  {
+   "code": "5443",
+   "name": "均豪",
+   "market": "上櫃",
+   "close": 113.5,
+   "chgPct": 5.58,
+   "foreignLots": 1372,
+   "foreignPct": 27.9,
+   "surge": 2.51,
+   "rank": 9
+  },
+  {
+   "code": "2376",
+   "name": "技嘉",
+   "market": "上市",
+   "close": 375.5,
+   "chgPct": 7.13,
+   "foreignLots": 4224,
+   "foreignPct": 23.5,
+   "surge": 2.47,
+   "rank": 10
+  }
+ ]
 }
