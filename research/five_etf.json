@@ -1,0 +1,387 @@
+{
+ "segments": {
+  "train": [
+   "2023-09-27",
+   "2025-07-24"
+  ],
+  "valid": [
+   "2025-07-25",
+   "2026-03-06"
+  ],
+  "test": [
+   "2026-03-09",
+   "2026-10-12"
+  ]
+ },
+ "results": {
+  "E1 ETF 20日動能第1 | std": {
+   "train": {
+    "ret": -0.112,
+    "excess": -0.634,
+    "monthly": -0.5,
+    "trades": 432
+   },
+   "valid": {
+    "ret": 0.406,
+    "excess": -0.884,
+    "monthly": 1.7,
+    "trades": 147
+   },
+   "test": {
+    "ret": 0.089,
+    "excess": -0.957,
+    "monthly": 0.4,
+    "trades": 148
+   },
+   "tstat": -4.34,
+   "maxDrawdown": -37.1,
+   "pass": false
+  },
+  "E1 ETF 20日動能第1 | disc": {
+   "train": {
+    "ret": 0.093,
+    "excess": -0.429,
+    "monthly": 0.4,
+    "trades": 432
+   },
+   "valid": {
+    "ret": 0.611,
+    "excess": -0.679,
+    "monthly": 2.6,
+    "trades": 147
+   },
+   "test": {
+    "ret": 0.294,
+    "excess": -0.752,
+    "monthly": 1.2,
+    "trades": 148
+   },
+   "tstat": -3.04,
+   "maxDrawdown": -32.1,
+   "pass": false
+  },
+  "E2 ETF 20日動能前3 | std": {
+   "train": {
+    "ret": -0.061,
+    "excess": -0.584,
+    "monthly": -0.3,
+    "trades": 1296
+   },
+   "valid": {
+    "ret": 0.592,
+    "excess": -0.697,
+    "monthly": 2.5,
+    "trades": 438
+   },
+   "test": {
+    "ret": 0.53,
+    "excess": -0.516,
+    "monthly": 2.2,
+    "trades": 444
+   },
+   "tstat": -5.33,
+   "maxDrawdown": -34.6,
+   "pass": false
+  },
+  "E2 ETF 20日動能前3 | disc": {
+   "train": {
+    "ret": 0.144,
+    "excess": -0.379,
+    "monthly": 0.6,
+    "trades": 1296
+   },
+   "valid": {
+    "ret": 0.797,
+    "excess": -0.492,
+    "monthly": 3.4,
+    "trades": 438
+   },
+   "test": {
+    "ret": 0.735,
+    "excess": -0.311,
+    "monthly": 3.1,
+    "trades": 444
+   },
+   "tstat": -3.28,
+   "maxDrawdown": -29.7,
+   "pass": false
+  },
+  "E3 ETF 60日動能第1 | std": {
+   "train": {
+    "ret": -0.079,
+    "excess": -0.602,
+    "monthly": -0.3,
+    "trades": 432
+   },
+   "valid": {
+    "ret": 0.95,
+    "excess": -0.34,
+    "monthly": 4.1,
+    "trades": 142
+   },
+   "test": {
+    "ret": 0.398,
+    "excess": -0.648,
+    "monthly": 1.7,
+    "trades": 148
+   },
+   "tstat": -4.64,
+   "maxDrawdown": -42.8,
+   "pass": false
+  },
+  "E3 ETF 60日動能第1 | disc": {
+   "train": {
+    "ret": 0.126,
+    "excess": -0.397,
+    "monthly": 0.5,
+    "trades": 432
+   },
+   "valid": {
+    "ret": 1.148,
+    "excess": -0.142,
+    "monthly": 4.9,
+    "trades": 142
+   },
+   "test": {
+    "ret": 0.603,
+    "excess": -0.443,
+    "monthly": 2.6,
+    "trades": 148
+   },
+   "tstat": -3.16,
+   "maxDrawdown": -38.4,
+   "pass": false
+  },
+  "E4 0050 站上月線才持有 | std": {
+   "train": {
+    "ret": 0.066,
+    "excess": -0.456,
+    "monthly": 0.3,
+    "trades": 268
+   },
+   "valid": {
+    "ret": 0.697,
+    "excess": -0.592,
+    "monthly": 3.0,
+    "trades": 120
+   },
+   "test": {
+    "ret": 0.445,
+    "excess": -0.601,
+    "monthly": 1.9,
+    "trades": 105
+   },
+   "tstat": -1.73,
+   "maxDrawdown": -12.9,
+   "pass": false
+  },
+  "E4 0050 站上月線才持有 | disc": {
+   "train": {
+    "ret": 0.194,
+    "excess": -0.329,
+    "monthly": 0.8,
+    "trades": 268
+   },
+   "valid": {
+    "ret": 0.865,
+    "excess": -0.425,
+    "monthly": 3.7,
+    "trades": 120
+   },
+   "test": {
+    "ret": 0.59,
+    "excess": -0.455,
+    "monthly": 2.5,
+    "trades": 105
+   },
+   "tstat": -1.04,
+   "maxDrawdown": -10.9,
+   "pass": false
+  },
+  "E5 00631L 0050站上季線才持有 | std": {
+   "train": {
+    "ret": -0.037,
+    "excess": -0.559,
+    "monthly": -0.2,
+    "trades": 294
+   },
+   "valid": {
+    "ret": 1.375,
+    "excess": 0.085,
+    "monthly": 5.9,
+    "trades": 115
+   },
+   "test": {
+    "ret": 1.14,
+    "excess": 0.094,
+    "monthly": 4.9,
+    "trades": 121
+   },
+   "tstat": -1.34,
+   "maxDrawdown": -41.8,
+   "pass": false
+  },
+  "E5 00631L 0050站上季線才持有 | disc": {
+   "train": {
+    "ret": 0.103,
+    "excess": -0.42,
+    "monthly": 0.4,
+    "trades": 294
+   },
+   "valid": {
+    "ret": 1.535,
+    "excess": 0.246,
+    "monthly": 6.6,
+    "trades": 115
+   },
+   "test": {
+    "ret": 1.307,
+    "excess": 0.262,
+    "monthly": 5.6,
+    "trades": 121
+   },
+   "tstat": -0.73,
+   "maxDrawdown": -38.4,
+   "pass": false
+  },
+  "E6 00631L 0050站上月線且季線 | std": {
+   "train": {
+    "ret": 0.058,
+    "excess": -0.464,
+    "monthly": 0.2,
+    "trades": 233
+   },
+   "valid": {
+    "ret": 1.145,
+    "excess": -0.145,
+    "monthly": 4.9,
+    "trades": 94
+   },
+   "test": {
+    "ret": 1.026,
+    "excess": -0.02,
+    "monthly": 4.4,
+    "trades": 95
+   },
+   "tstat": -0.57,
+   "maxDrawdown": -21.6,
+   "pass": false
+  },
+  "E6 00631L 0050站上月線且季線 | disc": {
+   "train": {
+    "ret": 0.169,
+    "excess": -0.354,
+    "monthly": 0.7,
+    "trades": 233
+   },
+   "valid": {
+    "ret": 1.276,
+    "excess": -0.014,
+    "monthly": 5.5,
+    "trades": 94
+   },
+   "test": {
+    "ret": 1.157,
+    "excess": 0.112,
+    "monthly": 5.0,
+    "trades": 95
+   },
+   "tstat": -0.1,
+   "maxDrawdown": -20.6,
+   "pass": false
+  },
+  "K1 外資大買收高 持有5日 | std": {
+   "train": {
+    "ret": -0.894,
+    "excess": -1.417,
+    "monthly": -3.7,
+    "trades": 3604
+   },
+   "valid": {
+    "ret": 0.547,
+    "excess": -0.743,
+    "monthly": 2.3,
+    "trades": 1294
+   },
+   "test": {
+    "ret": 0.454,
+    "excess": -0.592,
+    "monthly": 1.9,
+    "trades": 1377
+   },
+   "tstat": -1.7,
+   "maxDrawdown": -60.5,
+   "pass": false
+  },
+  "K1 外資大買收高 持有5日 | disc": {
+   "train": {
+    "ret": -0.694,
+    "excess": -1.216,
+    "monthly": -2.9,
+    "trades": 3604
+   },
+   "valid": {
+    "ret": 0.749,
+    "excess": -0.54,
+    "monthly": 3.2,
+    "trades": 1294
+   },
+   "test": {
+    "ret": 0.656,
+    "excess": -0.39,
+    "monthly": 2.8,
+    "trades": 1377
+   },
+   "tstat": -1.22,
+   "maxDrawdown": -51.8,
+   "pass": false
+  },
+  "K2 外資大買收高(大型) 持有5日 | std": {
+   "train": {
+    "ret": -0.92,
+    "excess": -1.442,
+    "monthly": -3.8,
+    "trades": 1686
+   },
+   "valid": {
+    "ret": 0.599,
+    "excess": -0.69,
+    "monthly": 2.5,
+    "trades": 700
+   },
+   "test": {
+    "ret": 0.056,
+    "excess": -0.989,
+    "monthly": 0.2,
+    "trades": 737
+   },
+   "tstat": -2.81,
+   "maxDrawdown": -75.4,
+   "pass": false
+  },
+  "K2 外資大買收高(大型) 持有5日 | disc": {
+   "train": {
+    "ret": -0.726,
+    "excess": -1.249,
+    "monthly": -3.0,
+    "trades": 1686
+   },
+   "valid": {
+    "ret": 0.795,
+    "excess": -0.495,
+    "monthly": 3.4,
+    "trades": 700
+   },
+   "test": {
+    "ret": 0.256,
+    "excess": -0.79,
+    "monthly": 1.1,
+    "trades": 737
+   },
+   "tstat": -2.36,
+   "maxDrawdown": -70.3,
+   "pass": false
+  }
+ },
+ "passed": []
+}
