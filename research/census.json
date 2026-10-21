@@ -1,0 +1,1171 @@
+{
+ "segments": {
+  "train": [
+   "2023-09-27",
+   "2025-07-11"
+  ],
+  "valid": [
+   "2025-07-14",
+   "2026-02-06"
+  ],
+  "test": [
+   "2026-02-09",
+   "2026-09-16"
+  ]
+ },
+ "tests": 46,
+ "results": {
+  "C1 投信10日買超>15張 | 20日": {
+   "train": {
+    "excess": -0.26,
+    "trades": 4211,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.34,
+    "trades": 1440,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 2.69,
+    "trades": 1428,
+    "coverage": 100.0
+   },
+   "tstat": -0.07,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C2 投信買超力道 | 20日": {
+   "train": {
+    "excess": -0.12,
+    "trades": 4216,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -5.54,
+    "trades": 1438,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 0.15,
+    "trades": 1421,
+    "coverage": 100.0
+   },
+   "tstat": -0.06,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C3 外資買超力道 | 20日": {
+   "train": {
+    "excess": 0.69,
+    "trades": 4208,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -6.54,
+    "trades": 1418,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -3.21,
+    "trades": 1447,
+    "coverage": 100.0
+   },
+   "tstat": -0.69,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C4 投信連買≥3日 | 20日": {
+   "train": {
+    "excess": -0.39,
+    "trades": 4201,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.24,
+    "trades": 1438,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 2.14,
+    "trades": 1434,
+    "coverage": 100.0
+   },
+   "tstat": 0.36,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C5 法人20日買超力道 | 20日": {
+   "train": {
+    "excess": 0.29,
+    "trades": 4193,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -7.14,
+    "trades": 1407,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -4.23,
+    "trades": 1441,
+    "coverage": 100.0
+   },
+   "tstat": -0.33,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C6 法人買＋融資減 | 20日": {
+   "train": {
+    "excess": 0.82,
+    "trades": 4201,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -4.94,
+    "trades": 1425,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -5.46,
+    "trades": 1447,
+    "coverage": 100.0
+   },
+   "tstat": -0.55,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C7 投信第一天進場 | 20日": {
+   "train": {
+    "excess": -0.58,
+    "trades": 789,
+    "coverage": 72.7
+   },
+   "valid": {
+    "excess": -4.62,
+    "trades": 233,
+    "coverage": 64.6
+   },
+   "test": {
+    "excess": -4.68,
+    "trades": 217,
+    "coverage": 57.2
+   },
+   "tstat": 0.26,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    false
+   ]
+  },
+  "V1 投信＋營收動能(R2) | 20日": {
+   "train": {
+    "excess": 1.41,
+    "trades": 4172,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": 3.44,
+    "trades": 1438,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 5.82,
+    "trades": 1439,
+    "coverage": 100.0
+   },
+   "tstat": 1.43,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    true,
+    false,
+    true
+   ]
+  },
+  "V2 營收創高＋年增>30% | 20日": {
+   "train": {
+    "excess": 1.52,
+    "trades": 4204,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -6.32,
+    "trades": 1420,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -4.49,
+    "trades": 1449,
+    "coverage": 100.0
+   },
+   "tstat": -0.08,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "V3 營收加速 | 20日": {
+   "train": {
+    "excess": 0.54,
+    "trades": 4200,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -8.5,
+    "trades": 1400,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -7.5,
+    "trades": 1440,
+    "coverage": 100.0
+   },
+   "tstat": -0.34,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "V4 單月營收新高＋站上季線 | 20日": {
+   "train": {
+    "excess": 1.38,
+    "trades": 4187,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": 1.21,
+    "trades": 1432,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 2.59,
+    "trades": 1443,
+    "coverage": 100.0
+   },
+   "tstat": 0.72,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    true,
+    false,
+    true
+   ]
+  },
+  "V5 營收動能＋外資買 | 20日": {
+   "train": {
+    "excess": 1.34,
+    "trades": 4207,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.82,
+    "trades": 1424,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.8,
+    "trades": 1439,
+    "coverage": 100.0
+   },
+   "tstat": 0.4,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P1 60日動能(大型) | 20日": {
+   "train": {
+    "excess": 0.68,
+    "trades": 4213,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": 2.24,
+    "trades": 1440,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -2.35,
+    "trades": 1450,
+    "coverage": 100.0
+   },
+   "tstat": 0.49,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P2 120日新高＋量增 | 20日": {
+   "train": {
+    "excess": 0.6,
+    "trades": 3958,
+    "coverage": 99.1
+   },
+   "valid": {
+    "excess": -2.17,
+    "trades": 1427,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -2.39,
+    "trades": 1358,
+    "coverage": 100.0
+   },
+   "tstat": -0.6,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P3 低波動(大型、站上季線) | 20日": {
+   "train": {
+    "excess": 0.7,
+    "trades": 4197,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -6.81,
+    "trades": 1415,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -5.5,
+    "trades": 1433,
+    "coverage": 100.0
+   },
+   "tstat": -0.61,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P4 短期反轉(大型、站上半年線) | 20日": {
+   "train": {
+    "excess": 0.13,
+    "trades": 4209,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -2.46,
+    "trades": 1437,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.37,
+    "trades": 1442,
+    "coverage": 100.0
+   },
+   "tstat": -0.8,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P5 均線多頭排列 | 20日": {
+   "train": {
+    "excess": 1.48,
+    "trades": 4207,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": 0.51,
+    "trades": 1435,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 1.39,
+    "trades": 1446,
+    "coverage": 100.0
+   },
+   "tstat": 0.92,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    true,
+    false,
+    true
+   ]
+  },
+  "X1 R2＋站上季線 | 20日": {
+   "train": {
+    "excess": 1.27,
+    "trades": 3973,
+    "coverage": 99.5
+   },
+   "valid": {
+    "excess": 3.94,
+    "trades": 1438,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 6.22,
+    "trades": 1439,
+    "coverage": 100.0
+   },
+   "tstat": 1.39,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    true,
+    false,
+    true
+   ]
+  },
+  "X2 投信買＋60日動能 | 20日": {
+   "train": {
+    "excess": 0.05,
+    "trades": 4211,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -4.21,
+    "trades": 1439,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 1.0,
+    "trades": 1419,
+    "coverage": 100.0
+   },
+   "tstat": -0.07,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X3 外資投信同買＋營收動能 | 20日": {
+   "train": {
+    "excess": 1.3,
+    "trades": 3942,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": 0.99,
+    "trades": 1429,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -0.27,
+    "trades": 1437,
+    "coverage": 100.0
+   },
+   "tstat": 0.55,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X4 營收動能＋低波動 | 20日": {
+   "train": {
+    "excess": 1.57,
+    "trades": 4204,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -4.29,
+    "trades": 1433,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.57,
+    "trades": 1432,
+    "coverage": 100.0
+   },
+   "tstat": 0.13,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X6 投信買＋融資減＋營收動能 | 20日": {
+   "train": {
+    "excess": 1.55,
+    "trades": 3874,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": 1.16,
+    "trades": 1394,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 3.91,
+    "trades": 1441,
+    "coverage": 100.0
+   },
+   "tstat": 0.87,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    true,
+    false,
+    true
+   ]
+  },
+  "X5 R2＋大盤濾網 | 20日": {
+   "train": {
+    "excess": 1.73,
+    "trades": 3013,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": 2.53,
+    "trades": 1070,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 5.76,
+    "trades": 1313,
+    "coverage": 100.0
+   },
+   "tstat": 1.36,
+   "nonOverlapN": 36,
+   "pass": false,
+   "ok": [
+    true,
+    false,
+    true
+   ]
+  },
+  "C1 投信10日買超>15張 | 5日": {
+   "train": {
+    "excess": -0.98,
+    "trades": 4223,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.33,
+    "trades": 1440,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 0.1,
+    "trades": 1445,
+    "coverage": 100.0
+   },
+   "tstat": -3.33,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C2 投信買超力道 | 5日": {
+   "train": {
+    "excess": -1.16,
+    "trades": 4226,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -2.18,
+    "trades": 1439,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -0.87,
+    "trades": 1444,
+    "coverage": 100.0
+   },
+   "tstat": -5.54,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C3 外資買超力道 | 5日": {
+   "train": {
+    "excess": -1.02,
+    "trades": 4221,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -2.04,
+    "trades": 1434,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.6,
+    "trades": 1449,
+    "coverage": 100.0
+   },
+   "tstat": -4.86,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C4 投信連買≥3日 | 5日": {
+   "train": {
+    "excess": -1.13,
+    "trades": 4216,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.39,
+    "trades": 1437,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -0.25,
+    "trades": 1447,
+    "coverage": 100.0
+   },
+   "tstat": -3.85,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C5 法人20日買超力道 | 5日": {
+   "train": {
+    "excess": -1.02,
+    "trades": 4219,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -2.35,
+    "trades": 1425,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.31,
+    "trades": 1450,
+    "coverage": 100.0
+   },
+   "tstat": -5.34,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C6 法人買＋融資減 | 5日": {
+   "train": {
+    "excess": -1.14,
+    "trades": 4219,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.65,
+    "trades": 1433,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.92,
+    "trades": 1437,
+    "coverage": 100.0
+   },
+   "tstat": -5.07,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "C7 投信第一天進場 | 5日": {
+   "train": {
+    "excess": -1.15,
+    "trades": 799,
+    "coverage": 72.8
+   },
+   "valid": {
+    "excess": -0.91,
+    "trades": 233,
+    "coverage": 65.3
+   },
+   "test": {
+    "excess": -1.43,
+    "trades": 217,
+    "coverage": 57.9
+   },
+   "tstat": -3.52,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    false
+   ]
+  },
+  "V1 投信＋營收動能(R2) | 5日": {
+   "train": {
+    "excess": -0.85,
+    "trades": 4181,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": 0.4,
+    "trades": 1437,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 0.83,
+    "trades": 1450,
+    "coverage": 100.0
+   },
+   "tstat": -0.9,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "V2 營收創高＋年增>30% | 5日": {
+   "train": {
+    "excess": -0.75,
+    "trades": 4225,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -2.05,
+    "trades": 1435,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.88,
+    "trades": 1445,
+    "coverage": 100.0
+   },
+   "tstat": -3.72,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "V3 營收加速 | 5日": {
+   "train": {
+    "excess": -1.04,
+    "trades": 4225,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -2.65,
+    "trades": 1429,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -2.16,
+    "trades": 1445,
+    "coverage": 100.0
+   },
+   "tstat": -5.24,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "V4 單月營收新高＋站上季線 | 5日": {
+   "train": {
+    "excess": -1.0,
+    "trades": 4199,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -0.16,
+    "trades": 1438,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 0.49,
+    "trades": 1450,
+    "coverage": 100.0
+   },
+   "tstat": -0.84,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "V5 營收動能＋外資買 | 5日": {
+   "train": {
+    "excess": -0.72,
+    "trades": 4223,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.29,
+    "trades": 1433,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.59,
+    "trades": 1445,
+    "coverage": 100.0
+   },
+   "tstat": -4.07,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P1 60日動能(大型) | 5日": {
+   "train": {
+    "excess": -0.95,
+    "trades": 4219,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -0.79,
+    "trades": 1440,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -0.59,
+    "trades": 1450,
+    "coverage": 100.0
+   },
+   "tstat": -1.33,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P2 120日新高＋量增 | 5日": {
+   "train": {
+    "excess": -0.9,
+    "trades": 3971,
+    "coverage": 99.1
+   },
+   "valid": {
+    "excess": -2.07,
+    "trades": 1427,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.37,
+    "trades": 1364,
+    "coverage": 100.0
+   },
+   "tstat": -2.33,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P3 低波動(大型、站上季線) | 5日": {
+   "train": {
+    "excess": -0.76,
+    "trades": 4222,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -2.04,
+    "trades": 1435,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.56,
+    "trades": 1449,
+    "coverage": 100.0
+   },
+   "tstat": -4.59,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P4 短期反轉(大型、站上半年線) | 5日": {
+   "train": {
+    "excess": -0.77,
+    "trades": 4219,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.48,
+    "trades": 1439,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -0.53,
+    "trades": 1448,
+    "coverage": 100.0
+   },
+   "tstat": -1.83,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "P5 均線多頭排列 | 5日": {
+   "train": {
+    "excess": -0.87,
+    "trades": 4213,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -0.7,
+    "trades": 1438,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -0.69,
+    "trades": 1450,
+    "coverage": 100.0
+   },
+   "tstat": -1.37,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X1 R2＋站上季線 | 5日": {
+   "train": {
+    "excess": -0.77,
+    "trades": 3983,
+    "coverage": 99.5
+   },
+   "valid": {
+    "excess": 0.48,
+    "trades": 1437,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 0.83,
+    "trades": 1450,
+    "coverage": 100.0
+   },
+   "tstat": -0.51,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X2 投信買＋60日動能 | 5日": {
+   "train": {
+    "excess": -1.14,
+    "trades": 4221,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.99,
+    "trades": 1440,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -0.55,
+    "trades": 1444,
+    "coverage": 100.0
+   },
+   "tstat": -4.18,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X3 外資投信同買＋營收動能 | 5日": {
+   "train": {
+    "excess": -0.65,
+    "trades": 3970,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -0.43,
+    "trades": 1429,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -0.64,
+    "trades": 1448,
+    "coverage": 100.0
+   },
+   "tstat": -2.39,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X4 營收動能＋低波動 | 5日": {
+   "train": {
+    "excess": -0.74,
+    "trades": 4215,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -1.97,
+    "trades": 1436,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": -1.0,
+    "trades": 1449,
+    "coverage": 100.0
+   },
+   "tstat": -3.85,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X6 投信買＋融資減＋營收動能 | 5日": {
+   "train": {
+    "excess": -1.04,
+    "trades": 3884,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -0.49,
+    "trades": 1395,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 0.68,
+    "trades": 1445,
+    "coverage": 100.0
+   },
+   "tstat": -2.17,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  },
+  "X5 R2＋大盤濾網 | 5日": {
+   "train": {
+    "excess": -0.71,
+    "trades": 3023,
+    "coverage": 100.0
+   },
+   "valid": {
+    "excess": -0.13,
+    "trades": 1069,
+    "coverage": 100.0
+   },
+   "test": {
+    "excess": 0.74,
+    "trades": 1324,
+    "coverage": 100.0
+   },
+   "tstat": -1.27,
+   "nonOverlapN": 143,
+   "pass": false,
+   "ok": [
+    false,
+    false,
+    true
+   ]
+  }
+ },
+ "passed": [],
+ "overlap": {}
+}
