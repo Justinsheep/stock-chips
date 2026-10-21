@@ -139,6 +139,31 @@ def compute():
                          "monthly": round(((1 + avg / 100) ** (21 / PB_HOLD) - 1) * 100, 1),
                          "winDays": round(sum(1 for x in v if x[1] > 0) / len(v) * 100, 1)}
 
+    # 兩份名單都有的股票(投信+營收 ∩ 好股回檔):每筆扣成本,持有 5 日與 20 日,上線日以後另外統計
+    ov_vals = {(h, k): [] for h in (5, 20) for k in ("live", "history")}
+    ov_days = {}
+    for date, doc in sorted(days.items()):
+        if date not in pos or not doc.get("trustRev") or not doc.get("pullback"):
+            continue
+        both = {p["code"] for p in doc["trustRev"]} & {p["code"] for p in doc["pullback"]}
+        if not both:
+            continue
+        ov_days[date] = sorted(both)
+        i = pos[date]
+        for h in (5, 20):
+            b = trade_return(prices, cal, i, "0050", h)
+            for c in both:
+                r = trade_return(prices, cal, i, c, h)
+                if r is not None and b is not None:
+                    ov_vals[(h, "live" if date >= PB_GO_LIVE else "history")].append(
+                        (date, r * 100 - PB_COST, (r - b) * 100 - PB_COST))
+    ov_summary = {}
+    for (h, k), v in ov_vals.items():
+        ov_summary.setdefault(str(h), {})[k] = {"n": len(v)} if not v else {
+            "n": len(v), "from": min(x[0] for x in v), "to": max(x[0] for x in v),
+            "ret": round(sum(x[1] for x in v) / len(v), 2), "excess": round(sum(x[2] for x in v) / len(v), 2),
+            "win": round(sum(1 for x in v if x[1] > 0) / len(v) * 100, 1)}
+
     summary = {}
     for mk in ("全部", "上市", "上櫃"):
         summary[mk] = {}
@@ -164,6 +189,7 @@ def compute():
         "exitCompare": exits.compare_rules(),
         "trustRev": {"horizons": list(tr_hz), "summary": tr_summary, "days": tr_days},
         "pullback": {"goLive": PB_GO_LIVE, "cost": PB_COST, "summary": pb_summary, "days": pb_days},
+        "overlap": {"goLive": PB_GO_LIVE, "cost": PB_COST, "summary": ov_summary, "days": ov_days},
     }
     _write_json(PERF_PATH, doc)
     return doc
