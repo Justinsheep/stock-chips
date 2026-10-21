@@ -1,0 +1,177 @@
+{
+ "days": 482,
+ "from": "2023-07-04",
+ "to": "2025-06-27",
+ "results": {
+  "5": {
+   "both": {
+    "A": {
+     "trades": 556,
+     "ret": 0.72,
+     "excess": -0.09,
+     "win": 50.5,
+     "portRet": 0.87,
+     "portExcess": 0.15,
+     "daysWithPicks": 213
+    },
+    "B": {
+     "trades": 363,
+     "ret": -0.87,
+     "excess": -0.66,
+     "win": 39.9,
+     "portRet": -0.85,
+     "portExcess": -0.87,
+     "daysWithPicks": 153
+    }
+   },
+   "mainOnly": {
+    "A": {
+     "trades": 1818,
+     "ret": -0.15,
+     "excess": -0.84,
+     "win": 44.2,
+     "portRet": -0.12,
+     "portExcess": -0.85,
+     "daysWithPicks": 242
+    },
+    "B": {
+     "trades": 1907,
+     "ret": -0.7,
+     "excess": -0.76,
+     "win": 42.2,
+     "portRet": -0.73,
+     "portExcess": -0.75,
+     "daysWithPicks": 227
+    }
+   },
+   "main": {
+    "A": {
+     "trades": 2374,
+     "ret": 0.05,
+     "excess": -0.66,
+     "win": 45.7,
+     "portRet": 0.05,
+     "portExcess": -0.67,
+     "daysWithPicks": 242
+    },
+    "B": {
+     "trades": 2270,
+     "ret": -0.73,
+     "excess": -0.75,
+     "win": 41.8,
+     "portRet": -0.73,
+     "portExcess": -0.75,
+     "daysWithPicks": 227
+    }
+   },
+   "pullback": {
+    "A": {
+     "trades": 1122,
+     "ret": 0.2,
+     "excess": -0.53,
+     "win": 46.2,
+     "portRet": 0.37,
+     "portExcess": -0.35,
+     "daysWithPicks": 232
+    },
+    "B": {
+     "trades": 1051,
+     "ret": -0.77,
+     "excess": -0.68,
+     "win": 42.1,
+     "portRet": -0.78,
+     "portExcess": -0.8,
+     "daysWithPicks": 204
+    }
+   }
+  },
+  "20": {
+   "both": {
+    "A": {
+     "trades": 556,
+     "ret": 1.87,
+     "excess": -1.19,
+     "win": 51.4,
+     "portRet": 2.18,
+     "portExcess": -1.08,
+     "daysWithPicks": 213
+    },
+    "B": {
+     "trades": 336,
+     "ret": -2.15,
+     "excess": 2.65,
+     "win": 43.8,
+     "portRet": -1.79,
+     "portExcess": 1.51,
+     "daysWithPicks": 145
+    }
+   },
+   "mainOnly": {
+    "A": {
+     "trades": 1818,
+     "ret": 2.57,
+     "excess": -0.81,
+     "win": 52.0,
+     "portRet": 2.5,
+     "portExcess": -0.76,
+     "daysWithPicks": 242
+    },
+    "B": {
+     "trades": 1824,
+     "ret": -1.16,
+     "excess": 1.87,
+     "win": 45.2,
+     "portRet": -1.35,
+     "portExcess": 1.95,
+     "daysWithPicks": 216
+    }
+   },
+   "main": {
+    "A": {
+     "trades": 2374,
+     "ret": 2.4,
+     "excess": -0.9,
+     "win": 51.9,
+     "portRet": 2.34,
+     "portExcess": -0.92,
+     "daysWithPicks": 242
+    },
+    "B": {
+     "trades": 2160,
+     "ret": -1.31,
+     "excess": 1.99,
+     "win": 45.0,
+     "portRet": -1.31,
+     "portExcess": 1.99,
+     "daysWithPicks": 216
+    }
+   },
+   "pullback": {
+    "A": {
+     "trades": 1122,
+     "ret": 1.04,
+     "excess": -2.01,
+     "win": 48.0,
+     "portRet": 1.63,
+     "portExcess": -1.63,
+     "daysWithPicks": 232
+    },
+    "B": {
+     "trades": 987,
+     "ret": -1.8,
+     "excess": 3.38,
+     "win": 40.1,
+     "portRet": -2.35,
+     "portExcess": 0.95,
+     "daysWithPicks": 194
+    }
+   }
+  }
+ },
+ "checks": {
+  "H1 兩份都有 20 日": false,
+  "H2 兩份都有 5 日": false,
+  "H3 今日名單 20 日": false,
+  "H4 好股回檔 5 日": false
+ }
+}
