@@ -1,0 +1,315 @@
+{
+ "segments": {
+  "train": [
+   "2023-07-04",
+   "2025-06-25"
+  ],
+  "valid": [
+   "2025-06-26",
+   "2026-02-23"
+  ],
+  "test": [
+   "2026-02-24",
+   "2026-10-19"
+  ]
+ },
+ "results": {
+  "G1 差一點漲停:收盤買→隔天開盤賣": {
+   "train": {
+    "trades": 28,
+    "gross": 0.545,
+    "netStd": -0.04,
+    "netDisc": 0.165,
+    "winStd": 42.9,
+    "perDay": 0.06
+   },
+   "valid": {
+    "trades": 7,
+    "gross": 0.992,
+    "netStd": 0.407,
+    "netDisc": 0.612,
+    "winStd": 42.9,
+    "perDay": 0.04
+   },
+   "test": {
+    "trades": 7,
+    "gross": 0.246,
+    "netStd": -0.339,
+    "netDisc": -0.134,
+    "winStd": 42.9,
+    "perDay": 0.04
+   }
+  },
+  "G2 差一點漲停＋法人:收盤買→隔天開盤賣": {
+   "train": {
+    "trades": 21,
+    "gross": 0.731,
+    "netStd": 0.146,
+    "netDisc": 0.351,
+    "winStd": 42.9,
+    "perDay": 0.04
+   },
+   "valid": {
+    "trades": 6,
+    "gross": 1.793,
+    "netStd": 1.208,
+    "netDisc": 1.413,
+    "winStd": 50.0,
+    "perDay": 0.04
+   },
+   "test": {
+    "trades": 4,
+    "gross": 0.303,
+    "netStd": -0.282,
+    "netDisc": -0.077,
+    "winStd": 50.0,
+    "perDay": 0.02
+   }
+  },
+  "G3 強勢收高＋法人＋0050 上漲:隔天開盤賣": {
+   "train": {
+    "trades": 1239,
+    "gross": 0.467,
+    "netStd": -0.118,
+    "netDisc": 0.087,
+    "winStd": 42.7,
+    "perDay": 2.58
+   },
+   "valid": {
+    "trades": 460,
+    "gross": 0.577,
+    "netStd": -0.008,
+    "netDisc": 0.197,
+    "winStd": 43.3,
+    "perDay": 2.88
+   },
+   "test": {
+    "trades": 437,
+    "gross": 0.442,
+    "netStd": -0.143,
+    "netDisc": 0.062,
+    "winStd": 42.3,
+    "perDay": 2.71
+   }
+  },
+  "G4 強勢收高＋法人＋創 60 日新高:隔天開盤賣": {
+   "train": {
+    "trades": 1066,
+    "gross": 0.584,
+    "netStd": -0.001,
+    "netDisc": 0.204,
+    "winStd": 46.5,
+    "perDay": 2.22
+   },
+   "valid": {
+    "trades": 419,
+    "gross": 0.731,
+    "netStd": 0.146,
+    "netDisc": 0.351,
+    "winStd": 47.3,
+    "perDay": 2.62
+   },
+   "test": {
+    "trades": 353,
+    "gross": 0.636,
+    "netStd": 0.051,
+    "netDisc": 0.256,
+    "winStd": 47.0,
+    "perDay": 2.19
+   }
+  },
+  "G5 強勢收高＋法人:隔天停利 2%": {
+   "train": {
+    "trades": 2013,
+    "gross": 0.291,
+    "netStd": -0.294,
+    "netDisc": -0.089,
+    "winStd": 58.1,
+    "perDay": 4.19
+   },
+   "valid": {
+    "trades": 694,
+    "gross": 0.265,
+    "netStd": -0.32,
+    "netDisc": -0.115,
+    "winStd": 58.6,
+    "perDay": 4.34
+   },
+   "test": {
+    "trades": 685,
+    "gross": 0.338,
+    "netStd": -0.247,
+    "netDisc": -0.042,
+    "winStd": 63.9,
+    "perDay": 4.25
+   }
+  },
+  "G6 差一點漲停:隔天停利 2%": {
+   "train": {
+    "trades": 28,
+    "gross": 0.229,
+    "netStd": -0.356,
+    "netDisc": -0.151,
+    "winStd": 60.7,
+    "perDay": 0.06
+   },
+   "valid": {
+    "trades": 7,
+    "gross": 1.309,
+    "netStd": 0.724,
+    "netDisc": 0.929,
+    "winStd": 71.4,
+    "perDay": 0.04
+   },
+   "test": {
+    "trades": 7,
+    "gross": -0.938,
+    "netStd": -1.523,
+    "netDisc": -1.318,
+    "winStd": 57.1,
+    "perDay": 0.04
+   }
+  },
+  "G7 外資大買收高:隔天開盤賣": {
+   "train": {
+    "trades": 3994,
+    "gross": 0.727,
+    "netStd": 0.142,
+    "netDisc": 0.347,
+    "winStd": 47.1,
+    "perDay": 8.32
+   },
+   "valid": {
+    "trades": 1387,
+    "gross": 1.195,
+    "netStd": 0.61,
+    "netDisc": 0.815,
+    "winStd": 54.7,
+    "perDay": 8.67
+   },
+   "test": {
+    "trades": 1492,
+    "gross": 1.325,
+    "netStd": 0.74,
+    "netDisc": 0.945,
+    "winStd": 52.1,
+    "perDay": 9.27
+   }
+  },
+  "G8 投信第一天進場:隔天開盤賣": {
+   "train": {
+    "trades": 524,
+    "gross": 0.932,
+    "netStd": 0.347,
+    "netDisc": 0.552,
+    "winStd": 52.9,
+    "perDay": 1.09
+   },
+   "valid": {
+    "trades": 180,
+    "gross": 0.518,
+    "netStd": -0.067,
+    "netDisc": 0.138,
+    "winStd": 45.6,
+    "perDay": 1.12
+   },
+   "test": {
+    "trades": 151,
+    "gross": 0.878,
+    "netStd": 0.293,
+    "netDisc": 0.498,
+    "winStd": 47.0,
+    "perDay": 0.94
+   }
+  },
+  "G9 強勢收高＋法人,10～50 元:隔天開盤賣": {
+   "train": {
+    "trades": 726,
+    "gross": 0.493,
+    "netStd": -0.092,
+    "netDisc": 0.113,
+    "winStd": 43.7,
+    "perDay": 1.51
+   },
+   "valid": {
+    "trades": 239,
+    "gross": 0.847,
+    "netStd": 0.262,
+    "netDisc": 0.467,
+    "winStd": 47.7,
+    "perDay": 1.49
+   },
+   "test": {
+    "trades": 247,
+    "gross": 0.713,
+    "netStd": 0.128,
+    "netDisc": 0.333,
+    "winStd": 39.7,
+    "perDay": 1.53
+   }
+  },
+  "G10 強勢收高＋法人,均量>3000 張:隔天開盤賣": {
+   "train": {
+    "trades": 964,
+    "gross": 0.544,
+    "netStd": -0.041,
+    "netDisc": 0.164,
+    "winStd": 45.4,
+    "perDay": 2.01
+   },
+   "valid": {
+    "trades": 376,
+    "gross": 0.758,
+    "netStd": 0.173,
+    "netDisc": 0.378,
+    "winStd": 48.7,
+    "perDay": 2.35
+   },
+   "test": {
+    "trades": 382,
+    "gross": 0.75,
+    "netStd": 0.165,
+    "netDisc": 0.37,
+    "winStd": 46.3,
+    "perDay": 2.37
+   }
+  }
+ },
+ "std": {
+  "stage1": [
+   "G2 差一點漲停＋法人:收盤買→隔天開盤賣",
+   "G7 外資大買收高:隔天開盤賣",
+   "G8 投信第一天進場:隔天開盤賣"
+  ],
+  "stage2": [
+   "G2 差一點漲停＋法人:收盤買→隔天開盤賣",
+   "G7 外資大買收高:隔天開盤賣"
+  ],
+  "chosen": "G2 差一點漲停＋法人:收盤買→隔天開盤賣",
+  "passed": false
+ },
+ "disc": {
+  "stage1": [
+   "G1 差一點漲停:收盤買→隔天開盤賣",
+   "G2 差一點漲停＋法人:收盤買→隔天開盤賣",
+   "G3 強勢收高＋法人＋0050 上漲:隔天開盤賣",
+   "G4 強勢收高＋法人＋創 60 日新高:隔天開盤賣",
+   "G7 外資大買收高:隔天開盤賣",
+   "G8 投信第一天進場:隔天開盤賣",
+   "G9 強勢收高＋法人,10～50 元:隔天開盤賣",
+   "G10 強勢收高＋法人,均量>3000 張:隔天開盤賣"
+  ],
+  "stage2": [
+   "G1 差一點漲停:收盤買→隔天開盤賣",
+   "G2 差一點漲停＋法人:收盤買→隔天開盤賣",
+   "G3 強勢收高＋法人＋0050 上漲:隔天開盤賣",
+   "G4 強勢收高＋法人＋創 60 日新高:隔天開盤賣",
+   "G7 外資大買收高:隔天開盤賣",
+   "G8 投信第一天進場:隔天開盤賣",
+   "G9 強勢收高＋法人,10～50 元:隔天開盤賣",
+   "G10 強勢收高＋法人,均量>3000 張:隔天開盤賣"
+  ],
+  "chosen": "G8 投信第一天進場:隔天開盤賣",
+  "passed": true
+ }
+}
