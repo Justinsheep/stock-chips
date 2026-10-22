@@ -54,63 +54,6 @@ def picks(d0, days_data, revenue=None):
     return out
 
 
-# ---------- 觀察名單:好股回檔(5 日,未通過回測,上線追蹤中) ----------
-# 研究細節見 research/RESEARCH.md 追加研究三 F2 × E1
-
-PB_NAME = "好股回檔"
-PB_HISTORY = 61        # 需要 61 個交易日(60 日均線 + 前一天)
-PB_MIN_LOTS = 500      # 20 日均量(張)
-PB_RSI = 20
-PB_HOLD = 5
-PB_GO_LIVE = "2026-10-21"   # 這天(含)以後的名單才算上線後追蹤
-
-
-def rsi2(closes):
-    """2 日 RSI(簡單平均版),closes 舊到新至少 3 筆。"""
-    d1, d2 = closes[-1] - closes[-2], closes[-2] - closes[-3]
-    up = max(d1, 0) + max(d2, 0)
-    down = max(-d1, 0) + max(-d2, 0)
-    return 100.0 if down == 0 else 100 - 100 / (1 + up / down)
-
-
-def pullback_picks(d0, hist, names, revenue=None):
-    """hist:舊到新、最後一天為 d0 的價格檔內容({代號: [開, 收, 法人, 高, 低, 張數, 投信張數]})。
-    names:{代號: (名稱, 市場)}。資料不足回傳 None。"""
-    if len(hist) < PB_HISTORY:
-        return None
-    hist = hist[-PB_HISTORY:]
-    rev = (revenue or Revenue()).momentum(d0)
-    rows = []
-    for code, today in hist[-1].items():
-        if not is_common_stock(code) or code not in names or today[1] < MIN_PRICE:
-            continue
-        series = [h.get(code) for h in hist]
-        if any(s is None or s[1] <= 0 or len(s) < 7 for s in series):
-            continue
-        closes = [s[1] for s in series]
-        vol20 = sum(s[5] for s in series[-20:]) / 20
-        trust10 = sum(s[6] for s in series[-10:])
-        ma60 = sum(closes[-60:]) / 60
-        r = rev.get(code)
-        rsi = rsi2(closes)
-        if vol20 <= PB_MIN_LOTS or trust10 <= TRUST_MIN or not r or not r["high3"] or r["yoy"] <= YOY_MIN:
-            continue
-        if closes[-1] <= ma60 or rsi >= PB_RSI:
-            continue
-        name, market = names[code]
-        rows.append({"code": code, "name": name, "market": market, "close": closes[-1],
-                     "chgPct": round((closes[-1] / closes[-2] - 1) * 100, 2), "rsi2": round(rsi, 1),
-                     "ma60Gap": round((closes[-1] / ma60 - 1) * 100, 1), "trust10": round(trust10),
-                     "yoy": round(r["yoy"], 1)})
-    rows.sort(key=lambda x: -x["trust10"])
-    out = rows[:TOP]
-    for i, x in enumerate(out, 1):
-        x["rank"] = i
-        x["reason"] = (f"投信近 10 日買超 {x['trust10']:,} 張、營收年增 {x['yoy']:.1f}%;股價在 60 日均線上方 {x['ma60Gap']:.1f}%,"
-                       f"RSI(2) {x['rsi2']:.0f} 短線超賣。")
-    return out
-
-
 # ---------- 隔日沖觀察名單:外資大買收高(盤後才知道,隔天開盤買) ----------
 # 研究細節見 research/RESEARCH.md 研究六 G7 與研究十一
 

@@ -95,7 +95,6 @@ def compute_day(d0, days, holders, strict_weeks=False):
         "picks": picks,
         "dayTrade": day_trade,
         "trustRev": trust_rev,
-        "pullback": pullback(d0, days_data[0]),
         "foreignON": safe(strategy.foreign_overnight, days_data),
     }
 
@@ -118,21 +117,6 @@ def safe(fn, *args):
         return fn(*args)
     except Exception as e:
         print(f"{fn.__name__} 計算失敗:", repr(e))
-        return None
-
-
-def pullback(d0, today):
-    """觀察名單「好股回檔」:從 data/prices 讀 61 個交易日的歷史。出錯不影響其他名單。"""
-    try:
-        files = sorted(n for n in os.listdir(PRICES_DIR) if n.endswith(".json") and n[:10] <= f"{d0:%Y-%m-%d}")
-        hist = []
-        for n in files[-strategy.PB_HISTORY:]:
-            with open(os.path.join(PRICES_DIR, n), encoding="utf-8") as f:
-                hist.append(json.load(f))
-        names = {c: (v["name"], v["market"]) for c, v in today.items()}
-        return strategy.pullback_picks(d0, hist, names)
-    except Exception as e:
-        print("好股回檔名單計算失敗:", repr(e))
         return None
 
 

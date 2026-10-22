@@ -11,7 +11,6 @@ from .daily import DAYS_DIR, PRICES_DIR, _write_json
 from .sources import BENCHMARKS, DATA
 
 HORIZONS = (1, 5, 20)
-PB_COST = 0.585   # 觀察名單的來回成本 %(手續費不打折 + 證交稅)
 PERF_PATH = os.path.join(DATA, "perf.json")
 
 
@@ -109,61 +108,6 @@ def compute():
                            "avg": round(sum(r for r, _ in v) / len(v) * 100, 2) if v else None,
                            "excess": round(sum(x for _, x in v) / len(v) * 100, 2) if v else None} for n, v in tr_vals.items()}
 
-    # 觀察名單「好股回檔」:隔天開盤買、第 5 日收盤賣;上線日以後另外統計
-    from .strategy import PB_GO_LIVE, PB_HOLD
-    pb_days, pb_vals = {}, {"live": [], "history": []}
-    for date, doc in sorted(days.items()):
-        if date not in pos or not doc.get("pullback"):
-            continue
-        i = pos[date]
-        res, day_vals = {}, []
-        for p in doc["pullback"]:
-            r, b = trade_return(prices, cal, i, p["code"], PB_HOLD), trade_return(prices, cal, i, "0050", PB_HOLD)
-            res[p["code"]] = {"r5": None if r is None else round(r * 100, 2),
-                              "x5": None if r is None or b is None else round((r - b) * 100, 2)}
-            if r is not None and b is not None:
-                day_vals.append((r * 100, (r - b) * 100))
-        pb_days[date] = res
-        if day_vals:   # 每天一組等權,扣成本
-            ret = sum(a for a, _ in day_vals) / len(day_vals) - PB_COST
-            exc = sum(x for _, x in day_vals) / len(day_vals) - PB_COST
-            pb_vals["live" if date >= PB_GO_LIVE else "history"].append((date, ret, exc, len(day_vals)))
-    pb_summary = {}
-    for k, v in pb_vals.items():
-        if not v:
-            pb_summary[k] = {"days": 0}
-            continue
-        avg = sum(x[1] for x in v) / len(v)
-        pb_summary[k] = {"days": len(v), "from": v[0][0], "to": v[-1][0], "ret": round(avg, 2),
-                         "excess": round(sum(x[2] for x in v) / len(v), 2),
-                         "monthly": round(((1 + avg / 100) ** (21 / PB_HOLD) - 1) * 100, 1),
-                         "winDays": round(sum(1 for x in v if x[1] > 0) / len(v) * 100, 1)}
-
-    # 兩份名單都有的股票(投信+營收 ∩ 好股回檔):每筆扣成本,持有 5 日與 20 日,上線日以後另外統計
-    ov_vals = {(h, k): [] for h in (5, 20) for k in ("live", "history")}
-    ov_days = {}
-    for date, doc in sorted(days.items()):
-        if date not in pos or not doc.get("trustRev") or not doc.get("pullback"):
-            continue
-        both = {p["code"] for p in doc["trustRev"]} & {p["code"] for p in doc["pullback"]}
-        if not both:
-            continue
-        ov_days[date] = sorted(both)
-        i = pos[date]
-        for h in (5, 20):
-            b = trade_return(prices, cal, i, "0050", h)
-            for c in both:
-                r = trade_return(prices, cal, i, c, h)
-                if r is not None and b is not None:
-                    ov_vals[(h, "live" if date >= PB_GO_LIVE else "history")].append(
-                        (date, r * 100 - PB_COST, (r - b) * 100 - PB_COST))
-    ov_summary = {}
-    for (h, k), v in ov_vals.items():
-        ov_summary.setdefault(str(h), {})[k] = {"n": len(v)} if not v else {
-            "n": len(v), "from": min(x[0] for x in v), "to": max(x[0] for x in v),
-            "ret": round(sum(x[1] for x in v) / len(v), 2), "excess": round(sum(x[2] for x in v) / len(v), 2),
-            "win": round(sum(1 for x in v if x[1] > 0) / len(v) * 100, 1)}
-
     # 隔日沖觀察名單「外資大買收高」:盤後選出 → 隔天開盤買;a = 隔天收盤賣(當沖)、b = 後天開盤賣
     from .strategy import FO_GO_LIVE
     fo_cost = {"a": 0.435, "b": 0.585}
@@ -213,9 +157,7 @@ def compute():
         "dayTrade": {"summary": dt_summary, "days": dt_per_day},
         "exitCompare": exits.compare_rules(),
         "trustRev": {"horizons": list(tr_hz), "summary": tr_summary, "days": tr_days},
-        "pullback": {"goLive": PB_GO_LIVE, "cost": PB_COST, "summary": pb_summary, "days": pb_days},
         "foreignON": {"goLive": FO_GO_LIVE, "cost": fo_cost, "summary": fo_summary, "days": fo_days},
-        "overlap": {"goLive": PB_GO_LIVE, "cost": PB_COST, "summary": ov_summary, "days": ov_days},
     }
     _write_json(PERF_PATH, doc)
     return doc

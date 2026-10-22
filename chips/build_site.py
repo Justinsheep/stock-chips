@@ -28,8 +28,6 @@ def build():
         perf["days"] = {k: v for k, v in perf["days"].items() if k in keep}
         if perf.get("foreignON"):
             perf["foreignON"]["days"] = {k: v for k, v in perf["foreignON"]["days"].items() if k in keep}
-        if perf.get("pullback"):
-            perf["pullback"]["days"] = {k: v for k, v in perf["pullback"]["days"].items() if k in keep}
         if perf.get("trustRev"):
             perf["trustRev"]["days"] = {k: v for k, v in perf["trustRev"]["days"].items() if k in keep}
         if perf.get("dayTrade"):
@@ -41,13 +39,8 @@ def build():
     research = json.load(open(research, encoding="utf-8")) if os.path.exists(research) else None
     g7 = os.path.join(ROOT, "research", "g7_exec.json")
     g7 = json.load(open(g7, encoding="utf-8")) if os.path.exists(g7) else None
-    overlap = os.path.join(ROOT, "research", "overlap.json")
-    overlap = json.load(open(overlap, encoding="utf-8")) if os.path.exists(overlap) else None
-    swing = os.path.join(ROOT, "research", "swing5.json")
-    swing = json.load(open(swing, encoding="utf-8")) if os.path.exists(swing) else None
     payload = json.dumps({"research": research and {"decision": research["decision"], "main": research["results"]["20"]},
-                          "overlap": overlap, "g7": g7,
-                          "swing": swing and {"segments": swing["segments"], "f2": swing["results"].get("F2 好股回檔 × E1")},
+                          "g7": g7,
                           "days": days, "perf": perf, "series": series, "exitRules": DEFAULT_RULES, "levels": lv}, ensure_ascii=False, separators=(",", ":"))
     payload = payload.replace("</", "<\\/")   # 避免資料中的字串提前結束 <script>
     with open(TEMPLATE, encoding="utf-8") as f:

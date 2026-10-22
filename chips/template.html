@@ -111,7 +111,7 @@ footer ol { padding-left: 20px; }
     <h1>籌碼選股</h1>
     <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
     <nav>
-      <a href="#trustrev">今日名單</a><a href="#pullback">觀察名單</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+      <a href="#trustrev">今日名單</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
     </nav>
     <div class="indices" id="indices"></div>
     <div id="weak"></div>
@@ -131,21 +131,9 @@ footer ol { padding-left: 20px; }
     <p class="meta" id="trbtmeta" style="margin-top:8px"></p>
   </section>
 
-  <section id="pullback">
-    <h2>觀察名單:好股回檔 <span class="tag" style="vertical-align:middle;background:var(--warn-bg);color:var(--warn-text)">未通過回測・追蹤中</span></h2>
-    <p class="meta">條件:投信近 10 日買超 &gt; 15 張、月營收動能(同今日名單)、20 日均量 &gt; 500 張、股價在 60 日均線之上、RSI(2) &lt; 20(短線超賣);依投信買超取前 10 檔。做法是<b>隔天開盤買、第 5 個交易日收盤賣</b>。一年回測三段都有正報酬(月化 +2.8% ～ +8.0%),但在大漲的訓練段輸給 0050,所以<b>沒有通過</b>,先放上來用真實資料追蹤,累積一兩個月再決定。日期跟今日名單的日期選單連動。</p>
-    <div class="tablewrap"><table id="pbtable"></table></div>
-    <h3 style="font-size:16px;margin:20px 0 8px">追蹤成績</h3>
-    <div class="tablewrap"><table id="pbtrack"></table></div>
-    <p class="meta" id="pbmeta" style="margin-top:8px"></p>
-    <h3 style="font-size:16px;margin:24px 0 8px">兩份名單都有的股票 <span class="tag" style="vertical-align:middle;background:var(--warn-bg);color:var(--warn-text)">追蹤中</span></h3>
-    <p class="meta">同時出現在「投信買超＋營收動能」和「好股回檔」的股票,兩張表裡都會標上「兩份都有」。一年資料的比較(看過資料後才做,不算正式驗證)顯示這些股票持有 20 日的勝率與超額報酬多半比只在今日名單的好,持有 5 日則互有輸贏。每天同時符合的通常只有 1～3 檔,不宜集中押注。以下每筆報酬已扣來回成本 0.585%。</p>
-    <div class="tablewrap"><table id="ovtrack"></table></div>
-  </section>
-
   <section id="exits">
     <h2>我的持股・出場訊號</h2>
-    <p class="meta">在今日名單或觀察名單按「我有買」把股票加進來,這裡只追蹤你選的股票。從「投信買超＋營收動能」買的在持有滿 20 個交易日時提醒出場,從「好股回檔」買的在滿 5 個交易日時提醒。之前從籌碼分數名單加入的持股照舊追蹤,每天收盤後依你的買進價檢查,符合任一條件就亮燈:跌 7% 停損、法人連 2 日賣超、連 2 日收在 10 日均線之下、千張大戶週減 0.5 個百分點以上(只看買進後公布的新週別)、持有滿 20 日。持股只存在這台裝置的瀏覽器,換裝置或清除瀏覽器資料會不見。依規則提醒,不是買賣建議。</p>
+    <p class="meta">在今日名單按「我有買」把股票加進來,這裡只追蹤你選的股票。從「投信買超＋營收動能」買的在持有滿 20 個交易日時提醒出場(之前從已移除的「好股回檔」加入的持股,照原規則滿 5 個交易日提醒)。之前從籌碼分數名單加入的持股照舊追蹤,每天收盤後依你的買進價檢查,符合任一條件就亮燈:跌 7% 停損、法人連 2 日賣超、連 2 日收在 10 日均線之下、千張大戶週減 0.5 個百分點以上(只看買進後公布的新週別)、持有滿 20 日。持股只存在這台裝置的瀏覽器,換裝置或清除瀏覽器資料會不見。依規則提醒,不是買賣建議。</p>
     <div class="stats" id="exitstats"></div>
     <div class="tablewrap"><table id="exittable"></table></div>
   </section>
@@ -339,7 +327,7 @@ function openBuy(code, pickedOn, source) {
       source: old ? old.source : (source || "chips"),
       buyDate: $("buydate").value || null, buyPrice: price > 0 ? price : null };
     holdings = holdings.filter((h) => h.code !== code).concat(rec);
-    saveHoldings(); renderExits(); renderTrustRev(); renderPullback();
+    saveHoldings(); renderExits(); renderTrustRev();
   };
   dlg.returnValue = "";
   dlg.showModal();
@@ -354,7 +342,7 @@ document.addEventListener("click", (e) => {
     // 不用 confirm():有些環境(內嵌頁面、App 內建瀏覽器)會擋掉跳出視窗,改成按兩下確認
     if (b.dataset.armed) {
       holdings = holdings.filter((x) => x.code !== b.dataset.sold);
-      saveHoldings(); renderExits(); renderTrustRev(); renderPullback();
+      saveHoldings(); renderExits(); renderTrustRev();
     } else {
       b.dataset.armed = "1";
       b.textContent = "確定賣出?";
@@ -370,7 +358,6 @@ function lvCells(lv) {
     <td class="down">${fmt(lv.sl, 2)}<br><span class="code">${lv.slPct}%</span></td>`;
 }
 
-const BOTH_TAG = `<span class="tag" style="background:var(--warn-bg);color:var(--warn-text)">兩份都有</span>`;
 const passTag = (ok) => ok ? `<span class="tag">通過</span>` : `<span class="meta">未通過</span>`;
 const half = (h) => h && h.avg != null ? pct(h.avg) : "—";
 
@@ -407,10 +394,10 @@ function renderTrustRev() {
   if (list == null) { $("trtable").innerHTML = `<tr><td>這一天沒有計算這份名單(資料不足)</td></tr>`; }
   else if (!list.length) { $("trtable").innerHTML = `<tr><td>這一天沒有股票符合條件</td></tr>`; }
   else {
-    const held = new Set(holdings.map((h) => h.code)), both = bothCodes(doc);
+    const held = new Set(holdings.map((h) => h.code));
     $("trtable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票</th><th>收盤</th><th>漲跌</th><th>投信 10 日</th><th>外資 10 日</th><th>營收年增</th><th>籌碼分數</th><th>20 日後</th><th></th></tr>` +
       list.map((x) => { const r = pf[x.code] || {}; return `<tr><td>${x.rank}</td>
-        <td style="text-align:left"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span>${both.has(x.code) ? " " + BOTH_TAG : ""}<div class="reason">${esc(x.reason)}</div></td>
+        <td style="text-align:left"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span><div class="reason">${esc(x.reason)}</div></td>
         <td>${fmt(x.close, 2)}</td><td class="${cls(x.chgPct)}">${pct(x.chgPct)}</td><td class="up">+${fmt(x.trust10)}</td>
         <td class="${cls(x.foreign10)}">${x.foreign10 > 0 ? "+" : ""}${fmt(x.foreign10)}</td><td>${x.yoy.toFixed(1)}%</td>${chipCell(x.chip)}
         <td class="${cls(r.r20)}">${r.r20 == null ? "—" : pct(r.r20)}</td>
@@ -436,70 +423,6 @@ function renderTrustRevBt() {
   $("trbt").innerHTML = rows.length ? `<tr><th>項目</th><th>期間</th><th>平均報酬(20 日)</th><th>比 0050</th><th>贏大盤比例</th></tr>` + rows.join("")
     : `<tr><td>尚無回測資料</td></tr>`;
   $("trbtmeta").textContent = "回測:2025/10～2026/10 每天選一次、持有 20 個交易日、扣手續費與證交稅 0.585%;依選股日切成訓練 60% / 驗證 20% / 最終測試 20%,三段都贏 0050 才算通過。共比較 7 條事先登記的規則,這條是依規則選出且通過最終測試的一條。價格未還原除權息。另測過收盤 / 盤中停損 7%、10%、15%,都讓報酬變差、沒有通過,所以不設停損;回測中約 2.3% 的交易虧損超過 20%(最差一筆 −47%),建議 10 檔分散持有,不要集中在少數幾檔。";
-}
-
-function bothCodes(doc) {
-  if (!doc.trustRev || !doc.pullback) return new Set();
-  const pb = new Set(doc.pullback.map((x) => x.code));
-  return new Set(doc.trustRev.filter((x) => pb.has(x.code)).map((x) => x.code));
-}
-
-function renderOverlap() {
-  const O = DATA.perf && DATA.perf.overlap, R = DATA.overlap;
-  const rows = [];
-  const line = (label, period, x) => x && x.n ? `<tr><td>${label}</td><td>${period}</td><td>${fmt(x.n)}</td><td class="${cls(x.ret)}">${pct(x.ret)}</td>
-    <td class="${cls(x.excess)}">${pct(x.excess)}</td><td>${x.win}%</td></tr>` : "";
-  for (const h of ["20", "5"]) {
-    if (O) {
-      const L = O.summary[h].live, H = O.summary[h].history;
-      rows.push(L && L.n ? line(`<b>上線後・持有 ${h} 日</b>`, `${L.from} ~ ${L.to}`, L)
-        : `<tr><td><b>上線後・持有 ${h} 日</b></td><td colspan="5">${O.goLive} 起記錄,選股後滿 ${h} 個交易日才會有第一筆</td></tr>`);
-      rows.push(line(`上線前回填・持有 ${h} 日`, H && H.n ? `${H.from} ~ ${H.to}` : "", H));
-    }
-    if (R) {
-      const lb = { train: "訓練", valid: "驗證", test: "測試" };
-      for (const k of ["train", "valid", "test"]) {
-        const a = R.results[h].both[k], b = R.results[h].mainOnly[k];
-        rows.push(`<tr><td>一年資料・${lb[k]}・持有 ${h} 日</td><td>${R.segments[k][0]} ~ ${R.segments[k][1]}</td><td>${fmt(a.n)}</td>
-          <td class="${cls(a.ret)}">${pct(a.ret)}</td><td class="${cls(a.excess)}">${pct(a.excess)}<br><span class="code">只在今日名單 ${pct(b.excess)}</span></td><td>${a.win}%</td></tr>`);
-      }
-    }
-  }
-  $("ovtrack").innerHTML = `<tr><th>項目</th><th>期間</th><th>筆數</th><th>平均報酬</th><th>比 0050</th><th>勝率</th></tr>` + rows.join("");
-}
-
-function renderPullback() {
-  const doc = dayDoc();
-  const list = doc.pullback;
-  const pf = (DATA.perf && DATA.perf.pullback && DATA.perf.pullback.days[doc.date]) || {};
-  if (list == null) $("pbtable").innerHTML = `<tr><td>這一天沒有計算觀察名單(歷史資料不足 61 個交易日)</td></tr>`;
-  else if (!list.length) $("pbtable").innerHTML = `<tr><td>這一天沒有股票符合條件</td></tr>`;
-  else {
-    const held = new Set(holdings.map((h) => h.code)), both = bothCodes(doc);
-    $("pbtable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票</th><th>收盤</th><th>漲跌</th><th>RSI(2)</th><th>距 60 日線</th><th>投信 10 日</th><th>營收年增</th><th>5 日後</th><th></th></tr>` +
-      list.map((x) => { const r = pf[x.code] || {}; return `<tr><td>${x.rank}</td>
-        <td style="text-align:left"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span>${both.has(x.code) ? " " + BOTH_TAG : ""}<div class="reason">${esc(x.reason)}</div></td>
-        <td>${fmt(x.close, 2)}</td><td class="${cls(x.chgPct)}">${pct(x.chgPct)}</td><td>${x.rsi2.toFixed(0)}</td><td>+${x.ma60Gap.toFixed(1)}%</td>
-        <td class="up">+${fmt(x.trust10)}</td><td>${x.yoy.toFixed(1)}%</td><td class="${cls(r.r5)}">${r.r5 == null ? "—" : pct(r.r5)}</td>
-        <td class="ops">${held.has(x.code) ? `<button class="btn held" data-edit="${x.code}">已在持股</button>`
-          : `<button class="btn ghost" data-buy="${x.code}" data-picked="${doc.date}" data-source="pullback">我有買</button>`}</td></tr>`; }).join("");
-  }
-  const P = DATA.perf && DATA.perf.pullback, S = DATA.swing;
-  const rows = [];
-  const row = (label, period, ret, monthly, exc, win) => `<tr><td>${label}</td><td>${period}</td><td class="${cls(ret)}">${pct(ret)}</td>
-    <td class="${cls(monthly)}">${monthly == null ? "—" : (monthly > 0 ? "+" : "") + monthly.toFixed(1) + "%"}</td><td class="${cls(exc)}">${pct(exc)}</td><td>${win}</td></tr>`;
-  if (P) {
-    const L = P.summary.live, H = P.summary.history;
-    rows.push(L && L.days ? row("<b>上線後追蹤</b>", `${L.from} ~ ${L.to}(${L.days} 天)`, L.ret, L.monthly, L.excess, `${L.winDays}%`)
-      : `<tr><td><b>上線後追蹤</b></td><td colspan="5">${P.goLive} 起每天記錄,選股後滿 5 個交易日才會出現第一筆</td></tr>`);
-    if (H && H.days) rows.push(row("上線前回填", `${H.from} ~ ${H.to}(${H.days} 天)`, H.ret, H.monthly, H.excess, `${H.winDays}%`));
-  }
-  if (S && S.f2) {
-    const lb = { train: "回測・訓練", valid: "回測・驗證", test: "回測・最終測試" };
-    for (const k of ["train", "valid", "test"]) rows.push(row(lb[k], `${S.segments[k][0]} ~ ${S.segments[k][1]}`, S.f2[k].ret, S.f2[k].monthly, S.f2[k].excess, "—"));
-  }
-  $("pbtrack").innerHTML = `<tr><th>項目</th><th>期間</th><th>5 日平均報酬</th><th>月化</th><th>比 0050</th><th>賺錢天數</th></tr>` + rows.join("");
-  $("pbmeta").textContent = `報酬為每天選出的名單等權買進、5 日後賣出的平均,已扣來回成本 ${P ? P.cost : 0.585}%;月化 = (1 + 5 日平均)^(21/5) − 1。表格中個股的「5 日後」未扣成本。價格未還原除權息。`;
 }
 
 function renderForeignON() {
@@ -566,13 +489,11 @@ function init() {
     const w = WD[new Date(d.date + "T00:00:00").getDay()];
     return `<option value="${d.date}">${d.date.slice(5).replace("-", "/")} 週${w}</option>`;
   }).join("");
-  $("date").onchange = (e) => { state.date = e.target.value; renderTrustRev(); renderPullback(); renderDayTrade(); renderForeignON(); };
+  $("date").onchange = (e) => { state.date = e.target.value; renderTrustRev(); renderDayTrade(); renderForeignON(); };
   seg($("trsort"), [["trust", "依投信買超"], ["chip", "依籌碼分數"]], "trSort", renderTrustRev);
   seg($("dtside"), [["long", "做多 20 檔"], ["short", "做空 20 檔"]], "dtSide", renderDayTrade);
   if (DATA.levels) seg($("dtlvside"), [["long", "做多"], ["short", "做空"]], "dtLvSide", renderDtLevels);
   renderTrustRev();
-  renderPullback();
-  renderOverlap();
   renderExits();
   renderDayTrade();
   renderForeignON();
