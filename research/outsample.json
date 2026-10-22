@@ -15,13 +15,13 @@
      "daysWithPicks": 213
     },
     "B": {
-     "trades": 363,
-     "ret": -0.87,
-     "excess": -0.66,
+     "trades": 361,
+     "ret": -0.88,
+     "excess": -0.67,
      "win": 39.9,
      "portRet": -0.85,
      "portExcess": -0.87,
-     "daysWithPicks": 153
+     "daysWithPicks": 152
     }
    },
    "mainOnly": {
@@ -35,13 +35,13 @@
      "daysWithPicks": 242
     },
     "B": {
-     "trades": 1907,
-     "ret": -0.7,
-     "excess": -0.76,
-     "win": 42.2,
-     "portRet": -0.73,
-     "portExcess": -0.75,
-     "daysWithPicks": 227
+     "trades": 1899,
+     "ret": -0.72,
+     "excess": -0.78,
+     "win": 42.0,
+     "portRet": -0.75,
+     "portExcess": -0.77,
+     "daysWithPicks": 226
     }
    },
    "main": {
@@ -55,13 +55,13 @@
      "daysWithPicks": 242
     },
     "B": {
-     "trades": 2270,
-     "ret": -0.73,
-     "excess": -0.75,
-     "win": 41.8,
-     "portRet": -0.73,
-     "portExcess": -0.75,
-     "daysWithPicks": 227
+     "trades": 2260,
+     "ret": -0.74,
+     "excess": -0.76,
+     "win": 41.6,
+     "portRet": -0.74,
+     "portExcess": -0.76,
+     "daysWithPicks": 226
     }
    },
    "pullback": {
@@ -75,13 +75,13 @@
      "daysWithPicks": 232
     },
     "B": {
-     "trades": 1051,
-     "ret": -0.77,
-     "excess": -0.68,
-     "win": 42.1,
-     "portRet": -0.78,
-     "portExcess": -0.8,
-     "daysWithPicks": 204
+     "trades": 1045,
+     "ret": -0.78,
+     "excess": -0.69,
+     "win": 42.0,
+     "portRet": -0.79,
+     "portExcess": -0.81,
+     "daysWithPicks": 203
     }
    }
   },
@@ -97,13 +97,13 @@
      "daysWithPicks": 213
     },
     "B": {
-     "trades": 336,
-     "ret": -2.15,
-     "excess": 2.65,
-     "win": 43.8,
-     "portRet": -1.79,
-     "portExcess": 1.51,
-     "daysWithPicks": 145
+     "trades": 319,
+     "ret": -2.7,
+     "excess": -1.57,
+     "win": 41.4,
+     "portRet": -2.12,
+     "portExcess": -1.88,
+     "daysWithPicks": 138
     }
    },
    "mainOnly": {
@@ -117,13 +117,13 @@
      "daysWithPicks": 242
     },
     "B": {
-     "trades": 1824,
-     "ret": -1.16,
-     "excess": 1.87,
-     "win": 45.2,
-     "portRet": -1.35,
-     "portExcess": 1.95,
-     "daysWithPicks": 216
+     "trades": 1751,
+     "ret": -1.45,
+     "excess": -1.37,
+     "win": 43.9,
+     "portRet": -1.66,
+     "portExcess": -1.42,
+     "daysWithPicks": 207
     }
    },
    "main": {
@@ -137,13 +137,13 @@
      "daysWithPicks": 242
     },
     "B": {
-     "trades": 2160,
-     "ret": -1.31,
-     "excess": 1.99,
-     "win": 45.0,
-     "portRet": -1.31,
-     "portExcess": 1.99,
-     "daysWithPicks": 216
+     "trades": 2070,
+     "ret": -1.64,
+     "excess": -1.4,
+     "win": 43.5,
+     "portRet": -1.64,
+     "portExcess": -1.4,
+     "daysWithPicks": 207
     }
    },
    "pullback": {
@@ -157,13 +157,13 @@
      "daysWithPicks": 232
     },
     "B": {
-     "trades": 987,
-     "ret": -1.8,
-     "excess": 3.38,
-     "win": 40.1,
-     "portRet": -2.35,
-     "portExcess": 0.95,
-     "daysWithPicks": 194
+     "trades": 925,
+     "ret": -2.35,
+     "excess": -1.76,
+     "win": 38.4,
+     "portRet": -2.65,
+     "portExcess": -2.4,
+     "daysWithPicks": 186
     }
    }
   }

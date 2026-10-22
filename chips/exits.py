@@ -45,10 +45,15 @@ def _load_dir(path):
 def price_reset(code, cal, prices, a, b):
     """cal[a..b] 之間是否有減資、除權等重新定價:開盤與前一天收盤差超過漲跌停幅度(10%)。
     價格沒有還原權值,跨過這種事件的報酬沒有意義,統計時要排除。"""
+    prev = None
+    for k in range(max(1, a) - 1, -1, -1):   # 停牌時前一天可能沒資料,往前找最近一筆
+        if (prev := prices[cal[k]].get(code)):
+            break
     for k in range(max(1, a), min(b, len(cal) - 1) + 1):
-        prev, cur = prices[cal[k - 1]].get(code), prices[cal[k]].get(code)
+        cur = prices[cal[k]].get(code)
         if prev and cur and prev[1] > 0 and cur[0] > 0 and abs(cur[0] / prev[1] - 1) > 0.11:
             return True
+        prev = cur or prev
     return False
 
 

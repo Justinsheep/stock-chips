@@ -39,10 +39,15 @@ def load():
 
 def jump(panel, code, a, b):
     """a..b 之間有沒有超過漲跌停的跳空(減資、分割等重新定價)。"""
+    p = None
+    for k in range(max(1, a) - 1, -1, -1):   # 停牌時前一天可能沒資料,往前找最近一筆
+        if (p := panel[k].get(code)):
+            break
     for k in range(max(1, a), b + 1):
-        p, c = panel[k - 1].get(code), panel[k].get(code)
+        c = panel[k].get(code)
         if p and c and c[O] > 0 and abs(c[O] / p[C] - 1) > 0.11:
             return True
+        p = c or p
     return False
 
 
@@ -53,7 +58,7 @@ def adjusted_closes(panel, code):
         x = panel[k].get(code)
         if x:
             out[k] = x[C] * factor
-            p = panel[k - 1].get(code) if k else None
+            p = next((q for j in range(k - 1, -1, -1) if (q := panel[j].get(code))), None)
             if p and x[O] > 0 and abs(x[O] / p[C] - 1) > 0.11:
                 factor *= x[O] / p[C]
     return out

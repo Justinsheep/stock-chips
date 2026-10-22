@@ -115,10 +115,15 @@ RULES = {
 
 
 def reset(panel, code, a, b):
+    p = None
+    for k in range(max(1, a) - 1, -1, -1):   # 停牌時前一天可能沒資料,往前找最近一筆
+        if (p := panel[k].get(code)):
+            break
     for k in range(max(1, a), b + 1):
-        p, c = panel[k - 1].get(code), panel[k].get(code)
+        c = panel[k].get(code)
         if p and c and p["close"] > 0 and c["open"] > 0 and abs(c["open"] / p["close"] - 1) > 0.11:
             return True
+        p = c or p
     return False
 
 

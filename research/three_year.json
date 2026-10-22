@@ -3,16 +3,16 @@
   "results": {
    "M0 R2 原版": {
     "train": {
-     "ret": 0.71,
-     "excess": 1.34,
-     "beat": 38.7,
-     "bullDays": 68.5
+     "ret": 0.51,
+     "excess": -1.14,
+     "beat": 36.7,
+     "bullDays": 67.5
     },
     "valid": {
-     "ret": 8.34,
-     "excess": 2.38,
-     "beat": 63.8,
-     "bullDays": 60.5
+     "ret": 8.36,
+     "excess": 2.39,
+     "beat": 63.6,
+     "bullDays": 60.9
     },
     "test": {
      "ret": 10.68,
@@ -23,16 +23,16 @@
    },
    "M1 R2＋大盤弱時空手": {
     "train": {
-     "ret": 0.69,
-     "excess": 1.32,
-     "beat": 40.0,
-     "bullDays": 68.5
+     "ret": 0.49,
+     "excess": -1.16,
+     "beat": 38.1,
+     "bullDays": 67.5
     },
     "valid": {
-     "ret": 5.55,
-     "excess": -0.41,
-     "beat": 45.4,
-     "bullDays": 60.5
+     "ret": 5.59,
+     "excess": -0.38,
+     "beat": 45.7,
+     "bullDays": 60.9
     },
     "test": {
      "ret": 10.05,
@@ -43,16 +43,16 @@
    },
    "M2 R2＋大盤弱時買 0050": {
     "train": {
-     "ret": 0.96,
-     "excess": 1.59,
-     "beat": 27.6,
-     "bullDays": 68.5
+     "ret": 0.76,
+     "excess": -0.88,
+     "beat": 25.4,
+     "bullDays": 67.5
     },
     "valid": {
-     "ret": 7.65,
-     "excess": 1.69,
-     "beat": 44.7,
-     "bullDays": 60.5
+     "ret": 7.67,
+     "excess": 1.7,
+     "beat": 45.0,
+     "bullDays": 60.9
     },
     "test": {
      "ret": 10.62,
@@ -63,16 +63,16 @@
    },
    "M3 R2 大型股(均量>1000張)": {
     "train": {
-     "ret": 0.54,
-     "excess": 1.17,
-     "beat": 38.0,
-     "bullDays": 68.5
+     "ret": 0.33,
+     "excess": -1.32,
+     "beat": 36.1,
+     "bullDays": 67.5
     },
     "valid": {
-     "ret": 8.3,
+     "ret": 8.31,
      "excess": 2.34,
-     "beat": 63.8,
-     "bullDays": 60.5
+     "beat": 63.6,
+     "bullDays": 60.9
     },
     "test": {
      "ret": 10.67,
@@ -83,16 +83,16 @@
    },
    "M4 R2 依買超力道排序": {
     "train": {
-     "ret": 0.9,
-     "excess": 1.53,
-     "beat": 45.8,
-     "bullDays": 68.5
+     "ret": 0.74,
+     "excess": -0.9,
+     "beat": 44.1,
+     "bullDays": 67.5
     },
     "valid": {
      "ret": 5.7,
      "excess": -0.26,
-     "beat": 49.3,
-     "bullDays": 60.5
+     "beat": 49.0,
+     "bullDays": 60.9
     },
     "test": {
      "ret": 9.44,
@@ -103,16 +103,16 @@
    },
    "M5 M2＋M3": {
     "train": {
-     "ret": 0.87,
-     "excess": 1.5,
-     "beat": 27.4,
-     "bullDays": 68.5
+     "ret": 0.67,
+     "excess": -0.98,
+     "beat": 25.2,
+     "bullDays": 67.5
     },
     "valid": {
-     "ret": 7.61,
-     "excess": 1.65,
-     "beat": 44.7,
-     "bullDays": 60.5
+     "ret": 7.63,
+     "excess": 1.67,
+     "beat": 45.0,
+     "bullDays": 60.9
     },
     "test": {
      "ret": 10.61,
@@ -122,22 +122,10 @@
     }
    }
   },
-  "stage1": [
-   "M0 R2 原版",
-   "M1 R2＋大盤弱時空手",
-   "M2 R2＋大盤弱時買 0050",
-   "M3 R2 大型股(均量>1000張)",
-   "M4 R2 依買超力道排序",
-   "M5 M2＋M3"
-  ],
-  "stage2": [
-   "M0 R2 原版",
-   "M2 R2＋大盤弱時買 0050",
-   "M3 R2 大型股(均量>1000張)",
-   "M5 M2＋M3"
-  ],
-  "chosen": "M2 R2＋大盤弱時買 0050",
-  "passed": true,
+  "stage1": [],
+  "stage2": [],
+  "chosen": null,
+  "passed": false,
   "segments": {
    "train": [
     "2023-07-04",
