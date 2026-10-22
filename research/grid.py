@@ -60,10 +60,36 @@ def rule_names():
         yield f"{c}+{v}+{p}|{r}", (c, v, p, r)
 
 
-def collect(start, end, pick_from, pick_to, only=None, keep_picks=False):
+def make_hold(mode, days, panel):
+    """買賣價的時間點:
+    open     隔天開盤買、第 H 日收盤賣(原設定)
+    openopen 隔天開盤買、第 H 日開盤賣
+    odd      隔天 9:10 盤中零股第一盤買、第 H 日 9:10 零股第一盤賣(2020-10-26 起才有資料)"""
+    if mode == "open":
+        return lambda c, t, h: TY.hold(panel, c, t, h)
+    if mode == "openopen":
+        def f(c, t, h):
+            if t + h >= len(panel) or TY.jump(panel, c, t + 1, t + h):
+                return None
+            a, b = panel[t + 1].get(c), panel[t + h].get(c)
+            return (b[TY.O] / a[TY.O] - 1) * 100 if a and b and a[TY.O] > 0 and b[TY.O] > 0 else None
+        return f
+    from research.oddlot import odd_open
+    odd = [odd_open(d) for d in days]
+
+    def g(c, t, h):
+        if t + h >= len(panel) or TY.jump(panel, c, t + 1, t + h):
+            return None
+        a, b = odd[t + 1].get(c), odd[t + h].get(c)
+        return (b / a - 1) * 100 if a and b else None
+    return g
+
+
+def collect(start, end, pick_from, pick_to, only=None, keep_picks=False, exec_mode="open"):
     """回傳 {規則: {H: [(選股日, 超額, 報酬, 檔數)]}},以及(選擇性)每日持股。"""
     TY.START, TY.END = start, end
     days, panel = TY.load()
+    hold = make_hold(exec_mode, days, panel)
     margin = [sources.margins(d)[0] for d in days]
     S = CE.Series(days, panel, margin)
     rf = CE.RevFeats()
@@ -88,12 +114,12 @@ def collect(start, end, pick_from, pick_to, only=None, keep_picks=False):
         for name, f in PRICE.items():
             sets[("p", name)] = pool if f is None else {c for c, x in feats.items() if f(x)}
         order = {name: sorted(feats, key=lambda c, f=f: -f(feats[c])) for name, f in RANK.items()}
-        bench = {h: TY.hold(panel, TY.BENCH, t, h) for h in HORIZONS}
+        bench = {h: hold(TY.BENCH, t, h) for h in HORIZONS}
         cache = {}
 
         def ret(c, h):
             if (c, h) not in cache:
-                cache[(c, h)] = TY.hold(panel, c, t, h)
+                cache[(c, h)] = hold(c, t, h)
             return cache[(c, h)]
 
         for key, (c, v, p, r) in rules.items():
