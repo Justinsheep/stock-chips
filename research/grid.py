@@ -245,3 +245,32 @@ if __name__ == "__main__":
         for r in validate():
             mark = {"pass": "✅", "promising": "⚠️", "fail": "❌"}[r["tier"]]
             print(mark, r)
+
+
+def daily_picks(start, end, pick_from, pick_to, only):
+    """只選股不算報酬:回傳 (days, panel, [(t, {規則: [代號]})]),供不同買賣時點共用。"""
+    TY.START, TY.END = start, end
+    days, panel = TY.load()
+    margin = [sources.margins(d)[0] for d in days]
+    S = CE.Series(days, panel, margin)
+    rf = CE.RevFeats()
+    rules = {k: v for k, v in rule_names() if k in only}
+    rows = []
+    for t in range(CE.WARMUP, len(days) - max(HORIZONS) - 1):
+        d = str(days[t])
+        if not (pick_from <= d <= pick_to):
+            continue
+        rev = rf.get(days[t])
+        feats = {c: fx for c in panel[t] if c != TY.BENCH and sources.is_common_stock(c)
+                 and (fx := CE.features(S, c, t, rev))}
+        pool = set(feats)
+        order = {name: sorted(feats, key=lambda c, f=f: -f(feats[c])) for name, f in RANK.items()}
+        picks = {}
+        for key, (c, v, p, r) in rules.items():
+            fc, fv, fp = CHIP[c], REV[v], PRICE[p]
+            cand = {code for code in pool if (fc is None or fc(feats[code])) and (fv is None or fv(feats[code]["rev"]))
+                    and (fp is None or fp(feats[code]))}
+            picks[key] = [code for code in order[r] if code in cand][:TOP]
+        rows.append((t, picks))
+    del S
+    return days, panel, rows
