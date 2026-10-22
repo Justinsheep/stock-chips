@@ -88,8 +88,27 @@ class Revenue:
             if any(v is None for v in vals[:15]) or vals[12] <= 0:
                 continue
             avg3 = [sum(vals[k:k + 3]) / 3 for k in range(0, 13)]   # 最新、往回 12 個月的 3 月均
-            out[code] = {"yoy": (vals[0] / vals[12] - 1) * 100, "high3": avg3[0] >= max(avg3[:12])}
+            out[code] = {"yoy": (vals[0] / vals[12] - 1) * 100, "high3": avg3[0] >= max(avg3[:12]),
+                         "high1": vals[0] >= max(vals[:12])}   # 單月營收創 12 個月新高
         return out
+
+
+def features(rev, day):
+    """與研究用的營收指標相同:需要 16 個月營收都 > 0。回傳 {代號: {high3, yoy, accel, high1}}。"""
+    y, m = available_month(day)
+    data = [rev._get(*prev_month(y, m, k)) for k in range(0, 16)]
+    out = {}
+    if any(d is None for d in data):
+        return out
+    for code in data[0]:
+        vals = [d.get(code) for d in data]
+        if any(v is None or v <= 0 for v in vals):
+            continue
+        avg3 = [sum(vals[k:k + 3]) / 3 for k in range(0, 13)]
+        yoy = [(vals[k] / vals[k + 12] - 1) * 100 for k in range(0, 4)]
+        out[code] = {"high3": avg3[0] >= max(avg3[:12]), "yoy": yoy[0],
+                     "accel": yoy[0] - sum(yoy[1:4]) / 3, "high1": vals[0] >= max(vals[:12])}
+    return out
 
 
 def fetch_range(start, end):

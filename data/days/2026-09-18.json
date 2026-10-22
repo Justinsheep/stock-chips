@@ -2773,5 +2773,251 @@
    "surge": 3.18,
    "rank": 10
   }
- ]
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "3105",
+    "name": "穩懋",
+    "market": "上櫃",
+    "close": 500.0,
+    "chgPct": 6.16,
+    "trust10": 12741,
+    "foreign10": 7995,
+    "yoy": 30.6,
+    "ret60": 8.0,
+    "rank": 1
+   },
+   {
+    "code": "3264",
+    "name": "欣銓",
+    "market": "上櫃",
+    "close": 268.5,
+    "chgPct": 9.82,
+    "trust10": 2529,
+    "foreign10": 1946,
+    "yoy": 46.6,
+    "ret60": 17.8,
+    "rank": 2
+   },
+   {
+    "code": "2360",
+    "name": "致茂",
+    "market": "上市",
+    "close": 2290.0,
+    "chgPct": 9.83,
+    "trust10": 1455,
+    "foreign10": 285,
+    "yoy": 156.3,
+    "ret60": 4.8,
+    "rank": 3
+   },
+   {
+    "code": "3702",
+    "name": "大聯大",
+    "market": "上市",
+    "close": 114.5,
+    "chgPct": 3.15,
+    "trust10": 972,
+    "foreign10": 14491,
+    "yoy": 80.5,
+    "ret60": 7.0,
+    "rank": 4
+   },
+   {
+    "code": "2454",
+    "name": "聯發科",
+    "market": "上市",
+    "close": 4710.0,
+    "chgPct": 4.67,
+    "trust10": 969,
+    "foreign10": 7319,
+    "yoy": 44.1,
+    "ret60": 9.3,
+    "rank": 5
+   },
+   {
+    "code": "1560",
+    "name": "中砂",
+    "market": "上市",
+    "close": 896.0,
+    "chgPct": 9.94,
+    "trust10": 793,
+    "foreign10": 2087,
+    "yoy": 30.4,
+    "ret60": 22.7,
+    "rank": 6
+   },
+   {
+    "code": "3167",
+    "name": "大量",
+    "market": "上市",
+    "close": 834.0,
+    "chgPct": 2.08,
+    "trust10": 788,
+    "foreign10": 981,
+    "yoy": 153.0,
+    "ret60": 6.2,
+    "rank": 7
+   },
+   {
+    "code": "6510",
+    "name": "精測",
+    "market": "上櫃",
+    "close": 3520.0,
+    "chgPct": 10.0,
+    "trust10": 547,
+    "foreign10": 130,
+    "yoy": 54.3,
+    "ret60": 2.6,
+    "rank": 8
+   },
+   {
+    "code": "3006",
+    "name": "晶豪科",
+    "market": "上市",
+    "close": 291.0,
+    "chgPct": 4.49,
+    "trust10": 493,
+    "foreign10": 3094,
+    "yoy": 605.2,
+    "ret60": 21.2,
+    "rank": 9
+   },
+   {
+    "code": "6472",
+    "name": "保瑞",
+    "market": "上市",
+    "close": 444.5,
+    "chgPct": 4.59,
+    "trust10": 416,
+    "foreign10": 546,
+    "yoy": 59.2,
+    "ret60": 6.0,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "1303",
+    "name": "南亞",
+    "market": "上市",
+    "close": 238.0,
+    "chgPct": 0.85,
+    "trust10": 41602,
+    "foreign10": -55050,
+    "yoy": 46.7,
+    "ret60": 53.5,
+    "rank": 1
+   },
+   {
+    "code": "6505",
+    "name": "台塑化",
+    "market": "上市",
+    "close": 86.5,
+    "chgPct": 0.35,
+    "trust10": 19802,
+    "foreign10": -17394,
+    "yoy": 50.3,
+    "ret60": 54.7,
+    "rank": 2
+   },
+   {
+    "code": "6147",
+    "name": "頎邦",
+    "market": "上櫃",
+    "close": 229.0,
+    "chgPct": 9.31,
+    "trust10": 14143,
+    "foreign10": 15103,
+    "yoy": 43.6,
+    "ret60": -4.8,
+    "rank": 3
+   },
+   {
+    "code": "2382",
+    "name": "廣達",
+    "market": "上市",
+    "close": 343.0,
+    "chgPct": -0.29,
+    "trust10": 13947,
+    "foreign10": -2627,
+    "yoy": 177.5,
+    "ret60": -6.4,
+    "rank": 4
+   },
+   {
+    "code": "2603",
+    "name": "長榮",
+    "market": "上市",
+    "close": 240.5,
+    "chgPct": -0.82,
+    "trust10": 12872,
+    "foreign10": -1894,
+    "yoy": 48.6,
+    "ret60": 30.0,
+    "rank": 5
+   },
+   {
+    "code": "3105",
+    "name": "穩懋",
+    "market": "上櫃",
+    "close": 500.0,
+    "chgPct": 6.16,
+    "trust10": 12741,
+    "foreign10": 7995,
+    "yoy": 30.6,
+    "ret60": 8.0,
+    "rank": 6
+   },
+   {
+    "code": "3406",
+    "name": "玉晶光",
+    "market": "上市",
+    "close": 972.0,
+    "chgPct": 0.73,
+    "trust10": 4368,
+    "foreign10": -5908,
+    "yoy": 0.7,
+    "ret60": 28.1,
+    "rank": 7
+   },
+   {
+    "code": "3374",
+    "name": "精材",
+    "market": "上櫃",
+    "close": 444.5,
+    "chgPct": 3.61,
+    "trust10": 3938,
+    "foreign10": -1944,
+    "yoy": 36.7,
+    "ret60": 47.4,
+    "rank": 8
+   },
+   {
+    "code": "3532",
+    "name": "台勝科",
+    "market": "上市",
+    "close": 447.5,
+    "chgPct": 1.36,
+    "trust10": 3379,
+    "foreign10": -2074,
+    "yoy": 29.3,
+    "ret60": 20.3,
+    "rank": 9
+   },
+   {
+    "code": "3624",
+    "name": "光頡",
+    "market": "上櫃",
+    "close": 126.0,
+    "chgPct": 6.78,
+    "trust10": 2704,
+    "foreign10": -7826,
+    "yoy": 65.8,
+    "ret60": -18.2,
+    "rank": 10
+   }
+  ]
+ }
 }

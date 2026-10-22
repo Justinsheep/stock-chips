@@ -2750,5 +2750,251 @@
    "surge": 2.61,
    "rank": 10
   }
- ]
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "3374",
+    "name": "精材",
+    "market": "上櫃",
+    "close": 429.0,
+    "chgPct": 1.18,
+    "trust10": 3938,
+    "foreign10": 323,
+    "yoy": 36.7,
+    "ret60": 37.5,
+    "rank": 1
+   },
+   {
+    "code": "3264",
+    "name": "欣銓",
+    "market": "上櫃",
+    "close": 244.5,
+    "chgPct": 9.64,
+    "trust10": 2719,
+    "foreign10": 2021,
+    "yoy": 46.6,
+    "ret60": 4.3,
+    "rank": 2
+   },
+   {
+    "code": "2454",
+    "name": "聯發科",
+    "market": "上市",
+    "close": 4500.0,
+    "chgPct": -0.66,
+    "trust10": 1428,
+    "foreign10": 4968,
+    "yoy": 44.1,
+    "ret60": 5.0,
+    "rank": 3
+   },
+   {
+    "code": "3034",
+    "name": "聯詠",
+    "market": "上市",
+    "close": 545.0,
+    "chgPct": -0.55,
+    "trust10": 732,
+    "foreign10": 6179,
+    "yoy": 26.3,
+    "ret60": 0.4,
+    "rank": 4
+   },
+   {
+    "code": "3167",
+    "name": "大量",
+    "market": "上市",
+    "close": 817.0,
+    "chgPct": -0.85,
+    "trust10": 732,
+    "foreign10": 1905,
+    "yoy": 153.0,
+    "ret60": 3.0,
+    "rank": 5
+   },
+   {
+    "code": "2609",
+    "name": "陽明",
+    "market": "上市",
+    "close": 62.0,
+    "chgPct": 2.99,
+    "trust10": 469,
+    "foreign10": 61786,
+    "yoy": 56.2,
+    "ret60": 20.2,
+    "rank": 6
+   },
+   {
+    "code": "2049",
+    "name": "上銀",
+    "market": "上市",
+    "close": 336.0,
+    "chgPct": 1.36,
+    "trust10": 409,
+    "foreign10": 611,
+    "yoy": 42.3,
+    "ret60": 1.2,
+    "rank": 7
+   },
+   {
+    "code": "1560",
+    "name": "中砂",
+    "market": "上市",
+    "close": 815.0,
+    "chgPct": 9.99,
+    "trust10": 286,
+    "foreign10": 1992,
+    "yoy": 30.4,
+    "ret60": 8.8,
+    "rank": 8
+   },
+   {
+    "code": "2351",
+    "name": "順德",
+    "market": "上市",
+    "close": 238.0,
+    "chgPct": 0.85,
+    "trust10": 272,
+    "foreign10": 1934,
+    "yoy": 61.2,
+    "ret60": 9.4,
+    "rank": 9
+   },
+   {
+    "code": "3653",
+    "name": "健策",
+    "market": "上市",
+    "close": 5355.0,
+    "chgPct": 2.19,
+    "trust10": 188,
+    "foreign10": 402,
+    "yoy": 90.9,
+    "ret60": 47.1,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "1303",
+    "name": "南亞",
+    "market": "上市",
+    "close": 236.0,
+    "chgPct": 5.36,
+    "trust10": 41130,
+    "foreign10": -49736,
+    "yoy": 46.7,
+    "ret60": 51.3,
+    "rank": 1
+   },
+   {
+    "code": "6505",
+    "name": "台塑化",
+    "market": "上市",
+    "close": 86.2,
+    "chgPct": 7.08,
+    "trust10": 20232,
+    "foreign10": -16797,
+    "yoy": 50.3,
+    "ret60": 56.2,
+    "rank": 2
+   },
+   {
+    "code": "2603",
+    "name": "長榮",
+    "market": "上市",
+    "close": 242.5,
+    "chgPct": 1.46,
+    "trust10": 14264,
+    "foreign10": -10698,
+    "yoy": 48.6,
+    "ret60": 30.0,
+    "rank": 3
+   },
+   {
+    "code": "3105",
+    "name": "穩懋",
+    "market": "上櫃",
+    "close": 471.0,
+    "chgPct": -0.32,
+    "trust10": 12365,
+    "foreign10": -4344,
+    "yoy": 30.6,
+    "ret60": -1.5,
+    "rank": 4
+   },
+   {
+    "code": "6147",
+    "name": "頎邦",
+    "market": "上櫃",
+    "close": 209.5,
+    "chgPct": 0.96,
+    "trust10": 11597,
+    "foreign10": -7568,
+    "yoy": 43.6,
+    "ret60": -15.9,
+    "rank": 5
+   },
+   {
+    "code": "3406",
+    "name": "玉晶光",
+    "market": "上市",
+    "close": 965.0,
+    "chgPct": -3.98,
+    "trust10": 4169,
+    "foreign10": -4381,
+    "yoy": 0.7,
+    "ret60": 31.7,
+    "rank": 6
+   },
+   {
+    "code": "3374",
+    "name": "精材",
+    "market": "上櫃",
+    "close": 429.0,
+    "chgPct": 1.18,
+    "trust10": 3938,
+    "foreign10": 323,
+    "yoy": 36.7,
+    "ret60": 37.5,
+    "rank": 7
+   },
+   {
+    "code": "3532",
+    "name": "台勝科",
+    "market": "上市",
+    "close": 441.5,
+    "chgPct": 0.34,
+    "trust10": 3393,
+    "foreign10": -997,
+    "yoy": 29.3,
+    "ret60": 21.0,
+    "rank": 8
+   },
+   {
+    "code": "3264",
+    "name": "欣銓",
+    "market": "上櫃",
+    "close": 244.5,
+    "chgPct": 9.64,
+    "trust10": 2719,
+    "foreign10": 2021,
+    "yoy": 46.6,
+    "ret60": 4.3,
+    "rank": 9
+   },
+   {
+    "code": "6271",
+    "name": "同欣電",
+    "market": "上市",
+    "close": 225.0,
+    "chgPct": -1.32,
+    "trust10": 1559,
+    "foreign10": 2044,
+    "yoy": 23.1,
+    "ret60": -10.5,
+    "rank": 10
+   }
+  ]
+ }
 }

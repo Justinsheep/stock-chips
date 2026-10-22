@@ -111,7 +111,7 @@ footer ol { padding-left: 20px; }
     <h1>籌碼選股</h1>
     <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
     <nav>
-      <a href="#trustrev">今日名單</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+      <a href="#trustrev">今日名單</a><a href="#alt">候選名單</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
     </nav>
     <div class="indices" id="indices"></div>
     <div id="weak"></div>
@@ -129,6 +129,17 @@ footer ol { padding-left: 20px; }
     <h3 style="font-size:16px;margin:20px 0 8px">回測與實際追蹤</h3>
     <div class="tablewrap"><table id="trbt"></table></div>
     <p class="meta" id="trbtmeta" style="margin-top:8px"></p>
+  </section>
+
+  <section id="alt">
+    <h2>候選名單 <span class="tag" style="vertical-align:middle;background:var(--warn-bg);color:var(--warn-text)">有潛力・未通過校正</span></h2>
+    <p class="meta">在 8 年資料、20 條規則的驗證中排名第 1、3 的兩條(見下方比較)。驗證期平均贏 0050,但同時測了 20 條,經 Holm 校正後未達顯著;與今日名單在 8 年平均幾乎一樣,差距統計上分不出來。做法同今日名單:隔天開盤買、持有 20 個交易日。日期跟今日名單的日期選單連動。</p>
+    <div class="toolbar"><div class="seg" id="altsel"></div></div>
+    <p class="meta" id="altdesc"></p>
+    <div class="tablewrap"><table id="alttable"></table></div>
+    <h3 style="font-size:16px;margin:20px 0 8px">三條比較(每 20 日扣成本後比 0050 多)</h3>
+    <div class="tablewrap"><table id="altcmp"></table></div>
+    <p class="meta" id="altcmpmeta" style="margin-top:8px"></p>
   </section>
 
   <section id="exits">
@@ -220,7 +231,7 @@ const pct = (n) => n == null ? "—" : `${n > 0 ? "+" : ""}${n.toFixed(2)}%`;
 const cls = (n) => n > 0 ? "up" : n < 0 ? "down" : "";
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const WD = "日一二三四五六";
-const state = { date: null, trSort: "trust", dtSide: "long", dtLvSide: "long" };
+const state = { date: null, trSort: "trust", dtSide: "long", dtLvSide: "long", altSel: "alt1" };
 const HOLD_KEY = "holdings";
 let holdings = [];
 let storageBlocked = false;   // 無痕模式或內嵌頁面可能禁止儲存:持股只在這次瀏覽有效
@@ -256,7 +267,7 @@ function renderHeader(doc) {
 function simHolding(h) {
   const ser = DATA.series[h.code];
   if (!ser) return { status: "nodata" };
-  const R = h.source === "trustRev" ? { max_hold: 20 } : h.source === "pullback" ? { max_hold: 5 } : DATA.exitRules;   // 依各名單的做法出場
+  const R = h.source === "trustRev" || h.source === "alt1" || h.source === "alt3" ? { max_hold: 20 } : h.source === "pullback" ? { max_hold: 5 } : DATA.exitRules;   // 依各名單的做法出場
   const buyDate = h.buyDate || (ser.rows.find((r) => r[0] > h.pickedOn) || [])[0];
   const rows = buyDate ? ser.rows.filter((r) => r[0] >= buyDate) : [];
   if (!rows.length) return { status: "pending" };
@@ -295,7 +306,7 @@ function renderExits() {
   $("exittable").innerHTML = `<tr><th>股票</th><th>買進日</th><th>買進價</th><th>收盤</th><th>報酬</th><th>持有</th><th style="text-align:left">狀態</th><th></th></tr>` +
     sims.map(({ h, s }) => {
       const ops = `<td class="ops"><button class="btn ghost" data-edit="${h.code}">修改</button> <button class="btn ghost" data-sold="${h.code}">已賣出</button></td>`;
-      const stock = `<td>${esc(h.name)} <span class="code">${h.code}</span>${h.source === "trustRev" ? `<br><span class="tag">投信＋營收・持有 20 日</span>` : h.source === "pullback" ? `<br><span class="tag">好股回檔・持有 5 日</span>` : ""}</td>`;
+      const stock = `<td>${esc(h.name)} <span class="code">${h.code}</span>${h.source === "trustRev" ? `<br><span class="tag">投信＋營收・持有 20 日</span>` : h.source === "alt1" ? `<br><span class="tag">候選第 1 名・持有 20 日</span>` : h.source === "alt3" ? `<br><span class="tag">候選第 3 名・持有 20 日</span>` : h.source === "pullback" ? `<br><span class="tag">好股回檔・持有 5 日</span>` : ""}</td>`;
       if (s.status === "pending") return `<tr>${stock}<td colspan="6" style="text-align:left">等下一個交易日開盤後計算</td>${ops}</tr>`;
       if (s.status === "nodata") return `<tr>${stock}<td colspan="6" style="text-align:left">超出追蹤範圍(推薦超過 40 個交易日)</td>${ops}</tr>`;
       const status = s.status === "hold" ? `<span class="meta">續抱</span>`
@@ -327,7 +338,7 @@ function openBuy(code, pickedOn, source) {
       source: old ? old.source : (source || "chips"),
       buyDate: $("buydate").value || null, buyPrice: price > 0 ? price : null };
     holdings = holdings.filter((h) => h.code !== code).concat(rec);
-    saveHoldings(); renderExits(); renderTrustRev();
+    saveHoldings(); renderExits(); renderTrustRev(); renderAlt();
   };
   dlg.returnValue = "";
   dlg.showModal();
@@ -342,7 +353,7 @@ document.addEventListener("click", (e) => {
     // 不用 confirm():有些環境(內嵌頁面、App 內建瀏覽器)會擋掉跳出視窗,改成按兩下確認
     if (b.dataset.armed) {
       holdings = holdings.filter((x) => x.code !== b.dataset.sold);
-      saveHoldings(); renderExits(); renderTrustRev();
+      saveHoldings(); renderExits(); renderTrustRev(); renderAlt();
     } else {
       b.dataset.armed = "1";
       b.textContent = "確定賣出?";
@@ -425,6 +436,46 @@ function renderTrustRevBt() {
   $("trbtmeta").textContent = "回測:2025/10～2026/10 每天選一次、持有 20 個交易日、扣手續費與證交稅 0.585%;依選股日切成訓練 60% / 驗證 20% / 最終測試 20%,三段都贏 0050 才算通過。共比較 7 條事先登記的規則,這條是依規則選出且通過最終測試的一條。價格未還原除權息。另測過收盤 / 盤中停損 7%、10%、15%,都讓報酬變差、沒有通過,所以不設停損;回測中約 2.3% 的交易虧損超過 20%(最差一筆 −47%),建議 10 檔分散持有,不要集中在少數幾檔。";
 }
 
+const ALT_INFO = {
+  alt1: { title: "第 1 名:外資買超＋營收動能＋60 日上漲", h2h: "第1名 外資買超+營收動能+60日漲",
+          desc: "條件:外資近 10 日買超、月營收 3 月均創 12 月新高且年增 > 20%、股價比 60 天前高;依投信 10 日買超取前 10 檔。" },
+  alt3: { title: "第 3 名:單月營收新高＋均線多頭", h2h: "第3名 單月營收新高+均線多頭",
+          desc: "條件:單月營收創 12 個月新高、5 日 > 20 日 > 60 日均線;依投信 10 日買超取前 10 檔。" },
+};
+
+function renderAlt() {
+  const doc = dayDoc(), info = ALT_INFO[state.altSel];
+  $("altdesc").textContent = info.desc;
+  const list = doc.alt ? doc.alt[state.altSel] : null;
+  const pf = (DATA.perf && DATA.perf.alt && DATA.perf.alt.days[doc.date] && DATA.perf.alt.days[doc.date][state.altSel]) || {};
+  if (list == null) $("alttable").innerHTML = `<tr><td>這一天沒有計算(歷史資料不足 121 個交易日)</td></tr>`;
+  else if (!list.length) $("alttable").innerHTML = `<tr><td>這一天沒有股票符合條件</td></tr>`;
+  else {
+    const held = new Set(holdings.map((h) => h.code));
+    const main = new Set((doc.trustRev || []).map((x) => x.code));
+    $("alttable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票</th><th>收盤</th><th>漲跌</th><th>投信 10 日</th><th>外資 10 日</th><th>營收年增</th><th>60 日漲幅</th><th>20 日後</th><th></th></tr>` +
+      list.map((x) => `<tr><td>${x.rank}</td><td style="text-align:left"><b>${esc(x.name)}</b> <span class="code">${x.code}・${x.market}</span>${main.has(x.code) ? ` <span class="tag">也在今日名單</span>` : ""}</td>
+        <td>${fmt(x.close, 2)}</td><td class="${cls(x.chgPct)}">${pct(x.chgPct)}</td><td class="${cls(x.trust10)}">${x.trust10 > 0 ? "+" : ""}${fmt(x.trust10)}</td>
+        <td class="${cls(x.foreign10)}">${x.foreign10 > 0 ? "+" : ""}${fmt(x.foreign10)}</td><td>${x.yoy == null ? "—" : x.yoy.toFixed(1) + "%"}</td><td class="${cls(x.ret60)}">${pct(x.ret60)}</td>
+        <td class="${cls(pf[x.code])}">${pf[x.code] == null ? "—" : pct(pf[x.code])}</td>
+        <td class="ops">${held.has(x.code) ? `<button class="btn held" data-edit="${x.code}">已在持股</button>`
+          : `<button class="btn ghost" data-buy="${x.code}" data-picked="${doc.date}" data-source="${state.altSel}">我有買</button>`}</td></tr>`).join("");
+  }
+  const H = DATA.h2h, P = DATA.perf && DATA.perf.alt;
+  const names = [["今日名單(主名單)", "主名單 投信>15張+營收動能", null], ["第 1 名", "第1名 外資買超+營收動能+60日漲", "alt1"], ["第 3 名", "第3名 單月營收新高+均線多頭", "alt3"]];
+  const sub = (r, k) => r && r.sub[k] != null ? `<span class="${cls(r.sub[k])}">${pct(r.sub[k])}</span>` : "—";
+  $("altcmp").innerHTML = `<tr><th>名單</th><th>2018/7～2023/3</th><th>2018～19</th><th>2020～21</th><th>2022～23</th><th>2023/10～2026/9</th><th>上線後追蹤</th></tr>` +
+    names.map(([label, key, alt]) => {
+      const a = H && H["驗證期"][key], b = H && H["探索期"][key];
+      const live = alt && P ? P.summary[alt].live : (DATA.perf && DATA.perf.trustRev ? null : null);
+      const liveTxt = alt ? (live && live.n ? `${pct(live.excess)}(${live.n} 筆)` : `${P ? P.goLive : ""} 起`) : "見今日名單";
+      return `<tr><td>${label}</td><td class="${cls(a && a.excess)}">${a ? pct(a.excess) + `<br><span class="code">t ${a.t}</span>` : "—"}</td>
+        <td>${sub(a, "2018-19")}</td><td>${sub(a, "2020-21")}</td><td>${sub(a, "2022-23")}</td>
+        <td class="${cls(b && b.excess)}">${b ? pct(b.excess) : "—"}</td><td>${liveTxt}</td></tr>`;
+    }).join("");
+  $("altcmpmeta").textContent = "三條在 2018～2023 年第 1、3 名較好,2023～2026 年主名單較好;8 年平均都約每 20 日多 1.3%～1.5%,差距不顯著。三條都在 2018～19、2023～24 年輸 0050,屬於同一種中小型成長股行情,同時持有分散效果有限。";
+}
+
 function renderForeignON() {
   const doc = dayDoc(), list = doc.foreignON;
   const pf = (DATA.perf && DATA.perf.foreignON && DATA.perf.foreignON.days[doc.date]) || {};
@@ -489,11 +540,13 @@ function init() {
     const w = WD[new Date(d.date + "T00:00:00").getDay()];
     return `<option value="${d.date}">${d.date.slice(5).replace("-", "/")} 週${w}</option>`;
   }).join("");
-  $("date").onchange = (e) => { state.date = e.target.value; renderTrustRev(); renderDayTrade(); renderForeignON(); };
+  $("date").onchange = (e) => { state.date = e.target.value; renderTrustRev(); renderAlt(); renderDayTrade(); renderForeignON(); };
+  seg($("altsel"), [["alt1", "第 1 名:外資＋營收＋60 日漲"], ["alt3", "第 3 名:單月營收新高＋均線多頭"]], "altSel", renderAlt);
   seg($("trsort"), [["trust", "依投信買超"], ["chip", "依籌碼分數"]], "trSort", renderTrustRev);
   seg($("dtside"), [["long", "做多 20 檔"], ["short", "做空 20 檔"]], "dtSide", renderDayTrade);
   if (DATA.levels) seg($("dtlvside"), [["long", "做多"], ["short", "做空"]], "dtLvSide", renderDtLevels);
   renderTrustRev();
+  renderAlt();
   renderExits();
   renderDayTrade();
   renderForeignON();

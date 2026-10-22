@@ -87,3 +87,54 @@ def foreign_overnight(days_data):
     for i, r in enumerate(out, 1):
         r["rank"] = i
     return out
+
+
+# ---------- 候選名單:研究十二的第 1、3 名(有潛力、未通過校正) ----------
+# 研究細節見 research/RESEARCH.md 研究十二;條件與 research/grid.py 相同
+
+ALT_HISTORY = 121
+ALT_LISTS = {
+    "alt1": "外資買超＋營收動能＋60日上漲",
+    "alt3": "單月營收新高＋均線多頭",
+}
+ALT_GO_LIVE = "2026-10-22"
+
+
+def alt_picks(d0, hist, names, revenue=None):
+    """hist:舊到新的價格檔內容(最後一天為 d0),至少 121 天。回傳 {"alt1": [...], "alt3": [...]};資料不足回傳 None。"""
+    from .revenue import features as rev_features
+    if len(hist) < ALT_HISTORY:
+        return None
+    hist = hist[-ALT_HISTORY:]
+    rev = rev_features(revenue or Revenue(), d0)
+    rows = {"alt1": [], "alt3": []}
+    for code, today in hist[-1].items():
+        if not is_common_stock(code) or code not in names or today[1] < MIN_PRICE:
+            continue
+        s = [h.get(code) for h in hist]
+        if any(x is None or x[1] <= 0 or len(x) < 8 for x in s):
+            continue
+        closes = [x[1] for x in s]
+        v20 = sum(x[5] for x in s[-20:]) / 20
+        if v20 <= 300:
+            continue
+        t10, f10 = sum(x[6] for x in s[-10:]), sum(x[7] for x in s[-10:])
+        ma = lambda n: sum(closes[-n:]) / n
+        ret60 = closes[-1] / closes[-61] - 1
+        r = rev.get(code)
+        momentum = bool(r and r["high3"] and r["yoy"] > 20)
+        name, market = names[code]
+        base = {"code": code, "name": name, "market": market, "close": closes[-1],
+                "chgPct": round((closes[-1] / closes[-2] - 1) * 100, 2), "trust10": t10, "foreign10": f10,
+                "yoy": round(r["yoy"], 1) if r else None, "ret60": round(ret60 * 100, 1)}
+        if f10 > 0 and momentum and ret60 > 0:
+            rows["alt1"].append(base)
+        if r and r["high1"] and ma(5) > ma(20) > ma(60):
+            rows["alt3"].append(dict(base))
+    out = {}
+    for k, v in rows.items():
+        v.sort(key=lambda x: -x["trust10"])
+        out[k] = v[:TOP]
+        for i, x in enumerate(out[k], 1):
+            x["rank"] = i
+    return out

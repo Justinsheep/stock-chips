@@ -2727,5 +2727,251 @@
    "surge": 1.21,
    "rank": 10
   }
- ]
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "1402",
+    "name": "遠東新",
+    "market": "上市",
+    "close": 29.0,
+    "chgPct": -1.53,
+    "trust10": 30486,
+    "foreign10": 51004,
+    "yoy": 20.6,
+    "ret60": 13.1,
+    "rank": 1
+   },
+   {
+    "code": "1815",
+    "name": "富喬",
+    "market": "上櫃",
+    "close": 109.0,
+    "chgPct": 1.4,
+    "trust10": 14200,
+    "foreign10": 46330,
+    "yoy": 68.1,
+    "ret60": 2.8,
+    "rank": 2
+   },
+   {
+    "code": "2301",
+    "name": "光寶科",
+    "market": "上市",
+    "close": 296.0,
+    "chgPct": 3.14,
+    "trust10": 10232,
+    "foreign10": 19036,
+    "yoy": 37.6,
+    "ret60": 26.2,
+    "rank": 3
+   },
+   {
+    "code": "3532",
+    "name": "台勝科",
+    "market": "上市",
+    "close": 378.0,
+    "chgPct": 0.4,
+    "trust10": 7918,
+    "foreign10": 2311,
+    "yoy": 28.8,
+    "ret60": 18.5,
+    "rank": 4
+   },
+   {
+    "code": "8422",
+    "name": "可寧衛*",
+    "market": "上市",
+    "close": 27.2,
+    "chgPct": 0.0,
+    "trust10": 3680,
+    "foreign10": 8374,
+    "yoy": 59.9,
+    "ret60": 1.1,
+    "rank": 5
+   },
+   {
+    "code": "3706",
+    "name": "神達",
+    "market": "上市",
+    "close": 91.4,
+    "chgPct": -0.76,
+    "trust10": 3613,
+    "foreign10": 11360,
+    "yoy": 49.7,
+    "ret60": 2.9,
+    "rank": 6
+   },
+   {
+    "code": "6214",
+    "name": "精誠",
+    "market": "上市",
+    "close": 181.5,
+    "chgPct": 1.11,
+    "trust10": 3525,
+    "foreign10": 3309,
+    "yoy": 31.8,
+    "ret60": 38.5,
+    "rank": 7
+   },
+   {
+    "code": "2408",
+    "name": "南亞科",
+    "market": "上市",
+    "close": 510.0,
+    "chgPct": 1.8,
+    "trust10": 3070,
+    "foreign10": 38947,
+    "yoy": 719.6,
+    "ret60": 47.0,
+    "rank": 8
+   },
+   {
+    "code": "2603",
+    "name": "長榮",
+    "market": "上市",
+    "close": 246.0,
+    "chgPct": -1.8,
+    "trust10": 2117,
+    "foreign10": 92875,
+    "yoy": 43.1,
+    "ret60": 15.5,
+    "rank": 9
+   },
+   {
+    "code": "3450",
+    "name": "聯鈞",
+    "market": "上市",
+    "close": 533.0,
+    "chgPct": 5.13,
+    "trust10": 1825,
+    "foreign10": 387,
+    "yoy": 98.0,
+    "ret60": 8.7,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "1303",
+    "name": "南亞",
+    "market": "上市",
+    "close": 188.5,
+    "chgPct": 4.72,
+    "trust10": 10829,
+    "foreign10": -46815,
+    "yoy": 44.5,
+    "ret60": 92.2,
+    "rank": 1
+   },
+   {
+    "code": "2301",
+    "name": "光寶科",
+    "market": "上市",
+    "close": 296.0,
+    "chgPct": 3.14,
+    "trust10": 10232,
+    "foreign10": 19036,
+    "yoy": 37.6,
+    "ret60": 26.2,
+    "rank": 2
+   },
+   {
+    "code": "4979",
+    "name": "華星光",
+    "market": "上櫃",
+    "close": 601.0,
+    "chgPct": 9.87,
+    "trust10": 9755,
+    "foreign10": 256,
+    "yoy": 31.0,
+    "ret60": -3.7,
+    "rank": 3
+   },
+   {
+    "code": "8046",
+    "name": "南電",
+    "market": "上市",
+    "close": 1160.0,
+    "chgPct": 2.2,
+    "trust10": 4807,
+    "foreign10": -7660,
+    "yoy": 50.2,
+    "ret60": 36.8,
+    "rank": 4
+   },
+   {
+    "code": "2455",
+    "name": "全新",
+    "market": "上市",
+    "close": 419.5,
+    "chgPct": 9.96,
+    "trust10": 4467,
+    "foreign10": -1569,
+    "yoy": 45.1,
+    "ret60": -0.6,
+    "rank": 5
+   },
+   {
+    "code": "2408",
+    "name": "南亞科",
+    "market": "上市",
+    "close": 510.0,
+    "chgPct": 1.8,
+    "trust10": 3070,
+    "foreign10": 38947,
+    "yoy": 719.6,
+    "ret60": 47.0,
+    "rank": 6
+   },
+   {
+    "code": "2395",
+    "name": "研華",
+    "market": "上市",
+    "close": 670.0,
+    "chgPct": 1.82,
+    "trust10": 2847,
+    "foreign10": -894,
+    "yoy": 87.6,
+    "ret60": 35.4,
+    "rank": 7
+   },
+   {
+    "code": "2049",
+    "name": "上銀",
+    "market": "上市",
+    "close": 345.5,
+    "chgPct": 0.58,
+    "trust10": 2506,
+    "foreign10": 937,
+    "yoy": 33.9,
+    "ret60": -11.2,
+    "rank": 8
+   },
+   {
+    "code": "2603",
+    "name": "長榮",
+    "market": "上市",
+    "close": 246.0,
+    "chgPct": -1.8,
+    "trust10": 2117,
+    "foreign10": 92875,
+    "yoy": 43.1,
+    "ret60": 15.5,
+    "rank": 9
+   },
+   {
+    "code": "3081",
+    "name": "聯亞",
+    "market": "上櫃",
+    "close": 2960.0,
+    "chgPct": 7.05,
+    "trust10": 1837,
+    "foreign10": -1663,
+    "yoy": 176.5,
+    "ret60": 13.2,
+    "rank": 10
+   }
+  ]
+ }
 }

@@ -133,6 +133,29 @@ def compute():
             "n": len(vals), "from": vals[0][0], "to": vals[-1][0], "net": round(sum(x for _, x in vals) / len(vals), 2),
             "win": round(sum(1 for _, x in vals if x > 0) / len(vals) * 100, 1)}
 
+    # 候選名單(研究十二第 1、3 名):持有 20 日,扣成本 0.585%,比 0050;上線日以後另外統計
+    from .strategy import ALT_GO_LIVE, ALT_LISTS
+    alt_days, alt_vals = {}, {(k, s): [] for k in ALT_LISTS for s in ("live", "history")}
+    for date, doc in sorted(days.items()):
+        if date not in pos or not doc.get("alt"):
+            continue
+        i = pos[date]
+        b = trade_return(prices, cal, i, "0050", 20)
+        res = {}
+        for k in ALT_LISTS:
+            res[k] = {}
+            for p in doc["alt"].get(k, []):
+                r = trade_return(prices, cal, i, p["code"], 20)
+                res[k][p["code"]] = None if r is None else round(r * 100, 2)
+                if r is not None and b is not None:
+                    alt_vals[(k, "live" if date >= ALT_GO_LIVE else "history")].append((date, r * 100 - 0.585, (r - b) * 100 - 0.585))
+        alt_days[date] = res
+    alt_summary = {}
+    for (k, s), v in alt_vals.items():
+        alt_summary.setdefault(k, {})[s] = {"n": len(v)} if not v else {
+            "n": len(v), "from": v[0][0], "to": v[-1][0], "ret": round(sum(x[1] for x in v) / len(v), 2),
+            "excess": round(sum(x[2] for x in v) / len(v), 2), "win": round(sum(1 for x in v if x[1] > 0) / len(v) * 100, 1)}
+
     summary = {}
     for mk in ("全部", "上市", "上櫃"):
         summary[mk] = {}
@@ -157,6 +180,7 @@ def compute():
         "dayTrade": {"summary": dt_summary, "days": dt_per_day},
         "exitCompare": exits.compare_rules(),
         "trustRev": {"horizons": list(tr_hz), "summary": tr_summary, "days": tr_days},
+        "alt": {"goLive": ALT_GO_LIVE, "summary": alt_summary, "days": alt_days},
         "foreignON": {"goLive": FO_GO_LIVE, "cost": fo_cost, "summary": fo_summary, "days": fo_days},
     }
     _write_json(PERF_PATH, doc)

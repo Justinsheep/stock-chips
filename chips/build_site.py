@@ -26,6 +26,8 @@ def build():
             perf = json.load(f)
         keep = {d["date"] for d in days}
         perf["days"] = {k: v for k, v in perf["days"].items() if k in keep}
+        if perf.get("alt"):
+            perf["alt"]["days"] = {k: v for k, v in perf["alt"]["days"].items() if k in keep}
         if perf.get("foreignON"):
             perf["foreignON"]["days"] = {k: v for k, v in perf["foreignON"]["days"].items() if k in keep}
         if perf.get("trustRev"):
@@ -37,10 +39,12 @@ def build():
     series = holding_series(days[0]["date"], lookback=HOLDING_LOOKBACK) if days else {}   # 要涵蓋歷史清單能選到的股票
     research = os.path.join(ROOT, "research", "results.json")
     research = json.load(open(research, encoding="utf-8")) if os.path.exists(research) else None
+    h2h = os.path.join(ROOT, "research", "head2head_open.json")
+    h2h = json.load(open(h2h, encoding="utf-8")) if os.path.exists(h2h) else None
     g7 = os.path.join(ROOT, "research", "g7_exec.json")
     g7 = json.load(open(g7, encoding="utf-8")) if os.path.exists(g7) else None
     payload = json.dumps({"research": research and {"decision": research["decision"], "main": research["results"]["20"]},
-                          "g7": g7,
+                          "g7": g7, "h2h": h2h,
                           "days": days, "perf": perf, "series": series, "exitRules": DEFAULT_RULES, "levels": lv}, ensure_ascii=False, separators=(",", ":"))
     payload = payload.replace("</", "<\\/")   # 避免資料中的字串提前結束 <script>
     with open(TEMPLATE, encoding="utf-8") as f:

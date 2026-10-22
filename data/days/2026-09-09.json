@@ -2698,5 +2698,251 @@
    "surge": 1.66,
    "rank": 10
   }
- ]
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "1303",
+    "name": "南亞",
+    "market": "上市",
+    "close": 236.5,
+    "chgPct": 0.64,
+    "trust10": 31745,
+    "foreign10": 502,
+    "yoy": 44.5,
+    "ret60": 102.1,
+    "rank": 1
+   },
+   {
+    "code": "1815",
+    "name": "富喬",
+    "market": "上櫃",
+    "close": 126.0,
+    "chgPct": -6.67,
+    "trust10": 24350,
+    "foreign10": 35147,
+    "yoy": 68.1,
+    "ret60": 32.5,
+    "rank": 2
+   },
+   {
+    "code": "2618",
+    "name": "長榮航",
+    "market": "上市",
+    "close": 42.55,
+    "chgPct": 0.24,
+    "trust10": 13091,
+    "foreign10": 1881,
+    "yoy": 21.4,
+    "ret60": 6.5,
+    "rank": 3
+   },
+   {
+    "code": "3374",
+    "name": "精材",
+    "market": "上櫃",
+    "close": 478.5,
+    "chgPct": 0.74,
+    "trust10": 11094,
+    "foreign10": 13763,
+    "yoy": 31.0,
+    "ret60": 99.4,
+    "rank": 4
+   },
+   {
+    "code": "2890",
+    "name": "永豐金",
+    "market": "上市",
+    "close": 43.2,
+    "chgPct": -0.58,
+    "trust10": 10230,
+    "foreign10": 51862,
+    "yoy": 51.3,
+    "ret60": 22.7,
+    "rank": 5
+   },
+   {
+    "code": "2357",
+    "name": "華碩",
+    "market": "上市",
+    "close": 979.0,
+    "chgPct": 1.14,
+    "trust10": 5113,
+    "foreign10": 1197,
+    "yoy": 53.3,
+    "ret60": 23.6,
+    "rank": 6
+   },
+   {
+    "code": "2455",
+    "name": "全新",
+    "market": "上市",
+    "close": 533.0,
+    "chgPct": 3.5,
+    "trust10": 3254,
+    "foreign10": 12719,
+    "yoy": 45.1,
+    "ret60": 44.4,
+    "rank": 7
+   },
+   {
+    "code": "3017",
+    "name": "奇鋐",
+    "market": "上市",
+    "close": 3380.0,
+    "chgPct": 2.89,
+    "trust10": 1534,
+    "foreign10": 706,
+    "yoy": 57.4,
+    "ret60": 40.2,
+    "rank": 8
+   },
+   {
+    "code": "3034",
+    "name": "聯詠",
+    "market": "上市",
+    "close": 543.0,
+    "chgPct": 1.69,
+    "trust10": 1271,
+    "foreign10": 4420,
+    "yoy": 26.8,
+    "ret60": 9.7,
+    "rank": 9
+   },
+   {
+    "code": "6505",
+    "name": "台塑化",
+    "market": "上市",
+    "close": 87.5,
+    "chgPct": 9.92,
+    "trust10": 1204,
+    "foreign10": 8738,
+    "yoy": 32.3,
+    "ret60": 64.2,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "1303",
+    "name": "南亞",
+    "market": "上市",
+    "close": 236.5,
+    "chgPct": 0.64,
+    "trust10": 31745,
+    "foreign10": 502,
+    "yoy": 44.5,
+    "ret60": 102.1,
+    "rank": 1
+   },
+   {
+    "code": "1815",
+    "name": "富喬",
+    "market": "上櫃",
+    "close": 126.0,
+    "chgPct": -6.67,
+    "trust10": 24350,
+    "foreign10": 35147,
+    "yoy": 68.1,
+    "ret60": 32.5,
+    "rank": 2
+   },
+   {
+    "code": "3105",
+    "name": "穩懋",
+    "market": "上櫃",
+    "close": 464.0,
+    "chgPct": 5.1,
+    "trust10": 14036,
+    "foreign10": -4904,
+    "yoy": 31.2,
+    "ret60": -9.2,
+    "rank": 3
+   },
+   {
+    "code": "3374",
+    "name": "精材",
+    "market": "上櫃",
+    "close": 478.5,
+    "chgPct": 0.74,
+    "trust10": 11094,
+    "foreign10": 13763,
+    "yoy": 31.0,
+    "ret60": 99.4,
+    "rank": 4
+   },
+   {
+    "code": "2892",
+    "name": "第一金",
+    "market": "上市",
+    "close": 37.8,
+    "chgPct": -0.13,
+    "trust10": 10909,
+    "foreign10": 156484,
+    "yoy": 3.0,
+    "ret60": 20.8,
+    "rank": 5
+   },
+   {
+    "code": "6278",
+    "name": "台表科",
+    "market": "上市",
+    "close": 193.5,
+    "chgPct": 2.65,
+    "trust10": 6264,
+    "foreign10": -3634,
+    "yoy": 12.2,
+    "ret60": -10.4,
+    "rank": 6
+   },
+   {
+    "code": "2301",
+    "name": "光寶科",
+    "market": "上市",
+    "close": 292.5,
+    "chgPct": 0.52,
+    "trust10": 5397,
+    "foreign10": -17107,
+    "yoy": 37.6,
+    "ret60": 41.0,
+    "rank": 7
+   },
+   {
+    "code": "3532",
+    "name": "台勝科",
+    "market": "上市",
+    "close": 424.0,
+    "chgPct": 6.53,
+    "trust10": 4877,
+    "foreign10": -1082,
+    "yoy": 28.8,
+    "ret60": 18.1,
+    "rank": 8
+   },
+   {
+    "code": "2368",
+    "name": "金像電",
+    "market": "上市",
+    "close": 1100.0,
+    "chgPct": 2.33,
+    "trust10": 4100,
+    "foreign10": -8005,
+    "yoy": 77.4,
+    "ret60": -16.7,
+    "rank": 9
+   },
+   {
+    "code": "2455",
+    "name": "全新",
+    "market": "上市",
+    "close": 533.0,
+    "chgPct": 3.5,
+    "trust10": 3254,
+    "foreign10": 12719,
+    "yoy": 45.1,
+    "ret60": 44.4,
+    "rank": 10
+   }
+  ]
+ }
 }

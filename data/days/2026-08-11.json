@@ -2762,5 +2762,251 @@
    "surge": 1.76,
    "rank": 10
   }
- ]
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "3231",
+    "name": "緯創",
+    "market": "上市",
+    "close": 191.0,
+    "chgPct": -1.04,
+    "trust10": 14791,
+    "foreign10": 106666,
+    "yoy": 60.8,
+    "ret60": 41.0,
+    "rank": 1
+   },
+   {
+    "code": "3037",
+    "name": "欣興",
+    "market": "上市",
+    "close": 992.0,
+    "chgPct": 0.0,
+    "trust10": 13580,
+    "foreign10": 4800,
+    "yoy": 43.7,
+    "ret60": 20.8,
+    "rank": 2
+   },
+   {
+    "code": "2885",
+    "name": "元大金",
+    "market": "上市",
+    "close": 68.4,
+    "chgPct": 0.29,
+    "trust10": 11767,
+    "foreign10": 22606,
+    "yoy": 62.3,
+    "ret60": 24.8,
+    "rank": 3
+   },
+   {
+    "code": "2027",
+    "name": "大成鋼",
+    "market": "上市",
+    "close": 46.45,
+    "chgPct": -1.8,
+    "trust10": 8347,
+    "foreign10": 29669,
+    "yoy": 46.1,
+    "ret60": 16.6,
+    "rank": 4
+   },
+   {
+    "code": "2408",
+    "name": "南亞科",
+    "market": "上市",
+    "close": 489.0,
+    "chgPct": -2.59,
+    "trust10": 4844,
+    "foreign10": 94382,
+    "yoy": 719.6,
+    "ret60": 57.0,
+    "rank": 5
+   },
+   {
+    "code": "3017",
+    "name": "奇鋐",
+    "market": "上市",
+    "close": 2760.0,
+    "chgPct": -0.18,
+    "trust10": 3834,
+    "foreign10": 3349,
+    "yoy": 57.4,
+    "ret60": 12.4,
+    "rank": 6
+   },
+   {
+    "code": "2317",
+    "name": "鴻海",
+    "market": "上市",
+    "close": 263.0,
+    "chgPct": -0.57,
+    "trust10": 3364,
+    "foreign10": 87337,
+    "yoy": 54.2,
+    "ret60": 5.8,
+    "rank": 7
+   },
+   {
+    "code": "6548",
+    "name": "長科*",
+    "market": "上櫃",
+    "close": 74.6,
+    "chgPct": -1.45,
+    "trust10": 2954,
+    "foreign10": 781,
+    "yoy": 35.4,
+    "ret60": 52.1,
+    "rank": 8
+   },
+   {
+    "code": "2890",
+    "name": "永豐金",
+    "market": "上市",
+    "close": 39.05,
+    "chgPct": 0.39,
+    "trust10": 2685,
+    "foreign10": 54100,
+    "yoy": 51.3,
+    "ret60": 29.3,
+    "rank": 9
+   },
+   {
+    "code": "6213",
+    "name": "聯茂",
+    "market": "上市",
+    "close": 452.0,
+    "chgPct": 5.73,
+    "trust10": 2653,
+    "foreign10": 14191,
+    "yoy": 96.9,
+    "ret60": 78.7,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "2880",
+    "name": "華南金",
+    "market": "上市",
+    "close": 43.65,
+    "chgPct": -0.8,
+    "trust10": 64327,
+    "foreign10": -66808,
+    "yoy": 4.1,
+    "ret60": 34.7,
+    "rank": 1
+   },
+   {
+    "code": "2892",
+    "name": "第一金",
+    "market": "上市",
+    "close": 32.7,
+    "chgPct": -6.44,
+    "trust10": 18627,
+    "foreign10": -60596,
+    "yoy": 3.0,
+    "ret60": 11.6,
+    "rank": 2
+   },
+   {
+    "code": "2027",
+    "name": "大成鋼",
+    "market": "上市",
+    "close": 46.45,
+    "chgPct": -1.8,
+    "trust10": 8347,
+    "foreign10": 29669,
+    "yoy": 46.1,
+    "ret60": 16.6,
+    "rank": 3
+   },
+   {
+    "code": "2610",
+    "name": "華航",
+    "market": "上市",
+    "close": 20.25,
+    "chgPct": -0.98,
+    "trust10": 7289,
+    "foreign10": -16208,
+    "yoy": 25.3,
+    "ret60": 9.5,
+    "rank": 4
+   },
+   {
+    "code": "3189",
+    "name": "景碩",
+    "market": "上市",
+    "close": 842.0,
+    "chgPct": 0.72,
+    "trust10": 5543,
+    "foreign10": -3369,
+    "yoy": 35.9,
+    "ret60": 73.3,
+    "rank": 5
+   },
+   {
+    "code": "2408",
+    "name": "南亞科",
+    "market": "上市",
+    "close": 489.0,
+    "chgPct": -2.59,
+    "trust10": 4844,
+    "foreign10": 94382,
+    "yoy": 719.6,
+    "ret60": 57.0,
+    "rank": 6
+   },
+   {
+    "code": "6213",
+    "name": "聯茂",
+    "market": "上市",
+    "close": 452.0,
+    "chgPct": 5.73,
+    "trust10": 2653,
+    "foreign10": 14191,
+    "yoy": 96.9,
+    "ret60": 78.7,
+    "rank": 7
+   },
+   {
+    "code": "3653",
+    "name": "健策",
+    "market": "上市",
+    "close": 4065.0,
+    "chgPct": -1.69,
+    "trust10": 2061,
+    "foreign10": -1620,
+    "yoy": 91.0,
+    "ret60": 17.3,
+    "rank": 8
+   },
+   {
+    "code": "2301",
+    "name": "光寶科",
+    "market": "上市",
+    "close": 268.5,
+    "chgPct": -1.1,
+    "trust10": 1326,
+    "foreign10": 62124,
+    "yoy": 37.6,
+    "ret60": 31.3,
+    "rank": 9
+   },
+   {
+    "code": "6669",
+    "name": "緯穎",
+    "market": "上市",
+    "close": 5930.0,
+    "chgPct": -1.33,
+    "trust10": 1184,
+    "foreign10": -578,
+    "yoy": 39.2,
+    "ret60": 15.9,
+    "rank": 10
+   }
+  ]
+ }
 }

@@ -2706,5 +2706,251 @@
    "surge": 1.24,
    "rank": 10
   }
- ]
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "2890",
+    "name": "永豐金",
+    "market": "上市",
+    "close": 40.05,
+    "chgPct": -1.35,
+    "trust10": 34804,
+    "foreign10": 38173,
+    "yoy": 50.9,
+    "ret60": 29.6,
+    "rank": 1
+   },
+   {
+    "code": "2885",
+    "name": "元大金",
+    "market": "上市",
+    "close": 68.0,
+    "chgPct": -0.15,
+    "trust10": 14960,
+    "foreign10": 62229,
+    "yoy": 102.8,
+    "ret60": 21.2,
+    "rank": 2
+   },
+   {
+    "code": "2610",
+    "name": "華航",
+    "market": "上市",
+    "close": 22.45,
+    "chgPct": 0.22,
+    "trust10": 11011,
+    "foreign10": 112704,
+    "yoy": 28.8,
+    "ret60": 20.7,
+    "rank": 3
+   },
+   {
+    "code": "2884",
+    "name": "玉山金",
+    "market": "上市",
+    "close": 38.45,
+    "chgPct": -0.52,
+    "trust10": 7145,
+    "foreign10": 86207,
+    "yoy": 25.3,
+    "ret60": 19.8,
+    "rank": 4
+   },
+   {
+    "code": "3706",
+    "name": "神達",
+    "market": "上市",
+    "close": 89.5,
+    "chgPct": 2.4,
+    "trust10": 5484,
+    "foreign10": 7128,
+    "yoy": 80.9,
+    "ret60": 2.4,
+    "rank": 5
+   },
+   {
+    "code": "2027",
+    "name": "大成鋼",
+    "market": "上市",
+    "close": 44.45,
+    "chgPct": 2.89,
+    "trust10": 4681,
+    "foreign10": 37582,
+    "yoy": 43.7,
+    "ret60": 13.7,
+    "rank": 6
+   },
+   {
+    "code": "2845",
+    "name": "遠東銀",
+    "market": "上市",
+    "close": 13.35,
+    "chgPct": -1.11,
+    "trust10": 2551,
+    "foreign10": 26772,
+    "yoy": 20.2,
+    "ret60": 9.0,
+    "rank": 7
+   },
+   {
+    "code": "2324",
+    "name": "仁寶",
+    "market": "上市",
+    "close": 36.35,
+    "chgPct": 0.97,
+    "trust10": 1993,
+    "foreign10": 58741,
+    "yoy": 58.4,
+    "ret60": 23.4,
+    "rank": 8
+   },
+   {
+    "code": "3450",
+    "name": "聯鈞",
+    "market": "上市",
+    "close": 409.0,
+    "chgPct": 9.95,
+    "trust10": 1023,
+    "foreign10": 662,
+    "yoy": 88.2,
+    "ret60": 8.3,
+    "rank": 9
+   },
+   {
+    "code": "2059",
+    "name": "川湖",
+    "market": "上市",
+    "close": 8635.0,
+    "chgPct": 10.0,
+    "trust10": 560,
+    "foreign10": 8,
+    "yoy": 220.5,
+    "ret60": 78.4,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "2880",
+    "name": "華南金",
+    "market": "上市",
+    "close": 43.05,
+    "chgPct": -1.49,
+    "trust10": 61334,
+    "foreign10": -65271,
+    "yoy": 21.6,
+    "ret60": 29.3,
+    "rank": 1
+   },
+   {
+    "code": "2801",
+    "name": "彰銀",
+    "market": "上市",
+    "close": 25.4,
+    "chgPct": 0.79,
+    "trust10": 38037,
+    "foreign10": -46838,
+    "yoy": 9.5,
+    "ret60": 21.5,
+    "rank": 2
+   },
+   {
+    "code": "2610",
+    "name": "華航",
+    "market": "上市",
+    "close": 22.45,
+    "chgPct": 0.22,
+    "trust10": 11011,
+    "foreign10": 112704,
+    "yoy": 28.8,
+    "ret60": 20.7,
+    "rank": 3
+   },
+   {
+    "code": "2834",
+    "name": "臺企銀",
+    "market": "上市",
+    "close": 18.2,
+    "chgPct": 0.0,
+    "trust10": 5039,
+    "foreign10": 5208,
+    "yoy": -7.7,
+    "ret60": 12.7,
+    "rank": 4
+   },
+   {
+    "code": "2845",
+    "name": "遠東銀",
+    "market": "上市",
+    "close": 13.35,
+    "chgPct": -1.11,
+    "trust10": 2551,
+    "foreign10": 26772,
+    "yoy": 20.2,
+    "ret60": 9.0,
+    "rank": 5
+   },
+   {
+    "code": "6669",
+    "name": "緯穎",
+    "market": "上市",
+    "close": 5925.0,
+    "chgPct": 9.93,
+    "trust10": 2519,
+    "foreign10": -368,
+    "yoy": 29.8,
+    "ret60": 21.4,
+    "rank": 6
+   },
+   {
+    "code": "2395",
+    "name": "研華",
+    "market": "上市",
+    "close": 576.0,
+    "chgPct": 2.31,
+    "trust10": 1328,
+    "foreign10": -3265,
+    "yoy": 73.4,
+    "ret60": 29.7,
+    "rank": 7
+   },
+   {
+    "code": "2006",
+    "name": "東和鋼鐵",
+    "market": "上市",
+    "close": 80.4,
+    "chgPct": 7.77,
+    "trust10": 797,
+    "foreign10": 12751,
+    "yoy": 9.0,
+    "ret60": 18.9,
+    "rank": 8
+   },
+   {
+    "code": "2615",
+    "name": "萬海",
+    "market": "上市",
+    "close": 86.1,
+    "chgPct": 1.65,
+    "trust10": 525,
+    "foreign10": 37872,
+    "yoy": 32.4,
+    "ret60": 10.1,
+    "rank": 9
+   },
+   {
+    "code": "2425",
+    "name": "承啟",
+    "market": "上市",
+    "close": 48.3,
+    "chgPct": 2.88,
+    "trust10": 133,
+    "foreign10": -288,
+    "yoy": 375.6,
+    "ret60": 55.8,
+    "rank": 10
+   }
+  ]
+ }
 }

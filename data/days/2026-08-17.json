@@ -2731,5 +2731,251 @@
    "surge": 2.41,
    "rank": 10
   }
- ]
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "2890",
+    "name": "永豐金",
+    "market": "上市",
+    "close": 39.6,
+    "chgPct": -2.34,
+    "trust10": 28610,
+    "foreign10": 11105,
+    "yoy": 51.3,
+    "ret60": 33.3,
+    "rank": 1
+   },
+   {
+    "code": "2408",
+    "name": "南亞科",
+    "market": "上市",
+    "close": 524.0,
+    "chgPct": 2.34,
+    "trust10": 7654,
+    "foreign10": 119027,
+    "yoy": 719.6,
+    "ret60": 78.8,
+    "rank": 2
+   },
+   {
+    "code": "3037",
+    "name": "欣興",
+    "market": "上市",
+    "close": 1120.0,
+    "chgPct": 9.8,
+    "trust10": 7529,
+    "foreign10": 38552,
+    "yoy": 43.7,
+    "ret60": 23.8,
+    "rank": 3
+   },
+   {
+    "code": "2603",
+    "name": "長榮",
+    "market": "上市",
+    "close": 231.5,
+    "chgPct": 5.71,
+    "trust10": 3889,
+    "foreign10": 48674,
+    "yoy": 43.1,
+    "ret60": 9.2,
+    "rank": 4
+   },
+   {
+    "code": "3017",
+    "name": "奇鋐",
+    "market": "上市",
+    "close": 3150.0,
+    "chgPct": -2.63,
+    "trust10": 3519,
+    "foreign10": 6568,
+    "yoy": 57.4,
+    "ret60": 26.3,
+    "rank": 5
+   },
+   {
+    "code": "2347",
+    "name": "聯強",
+    "market": "上市",
+    "close": 88.8,
+    "chgPct": -2.31,
+    "trust10": 3418,
+    "foreign10": 3158,
+    "yoy": 128.8,
+    "ret60": 5.2,
+    "rank": 6
+   },
+   {
+    "code": "6213",
+    "name": "聯茂",
+    "market": "上市",
+    "close": 481.0,
+    "chgPct": 0.21,
+    "trust10": 3141,
+    "foreign10": 20840,
+    "yoy": 96.9,
+    "ret60": 95.1,
+    "rank": 7
+   },
+   {
+    "code": "3450",
+    "name": "聯鈞",
+    "market": "上市",
+    "close": 550.0,
+    "chgPct": 7.84,
+    "trust10": 2581,
+    "foreign10": 6103,
+    "yoy": 98.0,
+    "ret60": 25.0,
+    "rank": 8
+   },
+   {
+    "code": "6187",
+    "name": "萬潤",
+    "market": "上櫃",
+    "close": 1385.0,
+    "chgPct": 8.63,
+    "trust10": 2201,
+    "foreign10": 2890,
+    "yoy": 73.4,
+    "ret60": 27.1,
+    "rank": 9
+   },
+   {
+    "code": "2301",
+    "name": "光寶科",
+    "market": "上市",
+    "close": 263.5,
+    "chgPct": -1.31,
+    "trust10": 1974,
+    "foreign10": 72099,
+    "yoy": 37.6,
+    "ret60": 28.9,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "2408",
+    "name": "南亞科",
+    "market": "上市",
+    "close": 524.0,
+    "chgPct": 2.34,
+    "trust10": 7654,
+    "foreign10": 119027,
+    "yoy": 719.6,
+    "ret60": 78.8,
+    "rank": 1
+   },
+   {
+    "code": "8046",
+    "name": "南電",
+    "market": "上市",
+    "close": 1295.0,
+    "chgPct": -0.77,
+    "trust10": 4600,
+    "foreign10": -8557,
+    "yoy": 50.2,
+    "ret60": 48.5,
+    "rank": 2
+   },
+   {
+    "code": "2603",
+    "name": "長榮",
+    "market": "上市",
+    "close": 231.5,
+    "chgPct": 5.71,
+    "trust10": 3889,
+    "foreign10": 48674,
+    "yoy": 43.1,
+    "ret60": 9.2,
+    "rank": 3
+   },
+   {
+    "code": "3189",
+    "name": "景碩",
+    "market": "上市",
+    "close": 905.0,
+    "chgPct": 4.99,
+    "trust10": 3725,
+    "foreign10": -1127,
+    "yoy": 35.9,
+    "ret60": 63.4,
+    "rank": 4
+   },
+   {
+    "code": "3017",
+    "name": "奇鋐",
+    "market": "上市",
+    "close": 3150.0,
+    "chgPct": -2.63,
+    "trust10": 3519,
+    "foreign10": 6568,
+    "yoy": 57.4,
+    "ret60": 26.3,
+    "rank": 5
+   },
+   {
+    "code": "6213",
+    "name": "聯茂",
+    "market": "上市",
+    "close": 481.0,
+    "chgPct": 0.21,
+    "trust10": 3141,
+    "foreign10": 20840,
+    "yoy": 96.9,
+    "ret60": 95.1,
+    "rank": 6
+   },
+   {
+    "code": "1303",
+    "name": "南亞",
+    "market": "上市",
+    "close": 200.5,
+    "chgPct": -3.37,
+    "trust10": 2458,
+    "foreign10": -43664,
+    "yoy": 44.5,
+    "ret60": 129.7,
+    "rank": 7
+   },
+   {
+    "code": "2301",
+    "name": "光寶科",
+    "market": "上市",
+    "close": 263.5,
+    "chgPct": -1.31,
+    "trust10": 1974,
+    "foreign10": 72099,
+    "yoy": 37.6,
+    "ret60": 28.9,
+    "rank": 8
+   },
+   {
+    "code": "3653",
+    "name": "健策",
+    "market": "上市",
+    "close": 5340.0,
+    "chgPct": 9.99,
+    "trust10": 998,
+    "foreign10": -798,
+    "yoy": 91.0,
+    "ret60": 60.4,
+    "rank": 9
+   },
+   {
+    "code": "5351",
+    "name": "鈺創",
+    "market": "上櫃",
+    "close": 135.5,
+    "chgPct": 1.88,
+    "trust10": 752,
+    "foreign10": 59239,
+    "yoy": 590.8,
+    "ret60": 80.2,
+    "rank": 10
+   }
+  ]
+ }
 }

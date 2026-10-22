@@ -19,10 +19,11 @@ def _write_json(path, obj, compact=False):
 
 
 def save_prices(d, day_data):
-    """績效、出場、觀察名單用:{代號: [開盤, 收盤, 三大法人買賣超張數, 最高, 最低, 成交張數, 投信買賣超張數]}。"""
+    """績效、出場、各名單用:{代號: [開盤, 收盤, 三大法人張數, 最高, 最低, 成交張數, 投信張數, 外資張數]}。"""
     _write_json(os.path.join(PRICES_DIR, f"{d:%Y-%m-%d}.json"),
                 {c: [v["open"], v["close"], round(v["inst"] / 1000), v["high"], v["low"],
-                     round(v["vol"] / 1000), round(v["trust"] / 1000)] for c, v in day_data.items()},
+                     round(v["vol"] / 1000), round(v["trust"] / 1000), round(v["foreign"] / 1000)]
+                 for c, v in day_data.items()},
                 compact=True)
 
 
@@ -96,6 +97,7 @@ def compute_day(d0, days, holders, strict_weeks=False):
         "dayTrade": day_trade,
         "trustRev": trust_rev,
         "foreignON": safe(strategy.foreign_overnight, days_data),
+        "alt": safe(alt_lists, d0, days_data[0]),
     }
 
 
@@ -118,6 +120,17 @@ def safe(fn, *args):
     except Exception as e:
         print(f"{fn.__name__} 計算失敗:", repr(e))
         return None
+
+
+def alt_lists(d0, today):
+    """研究十二第 1、3 名:從 data/prices 讀 121 個交易日。"""
+    files = sorted(n for n in os.listdir(PRICES_DIR) if n.endswith(".json") and n[:10] <= f"{d0:%Y-%m-%d}")
+    hist = []
+    for n in files[-strategy.ALT_HISTORY:]:
+        with open(os.path.join(PRICES_DIR, n), encoding="utf-8") as f:
+            hist.append(json.load(f))
+    names = {c: (v["name"], v["market"]) for c, v in today.items()}
+    return strategy.alt_picks(d0, hist, names)
 
 
 def strategy_picks(d0, days_data):

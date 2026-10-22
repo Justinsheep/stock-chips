@@ -2801,5 +2801,251 @@
    "surge": 0.35,
    "rank": 5
   }
- ]
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "2603",
+    "name": "長榮",
+    "market": "上市",
+    "close": 262.0,
+    "chgPct": -1.32,
+    "trust10": 12585,
+    "foreign10": 24048,
+    "yoy": 65.0,
+    "ret60": 27.2,
+    "rank": 1
+   },
+   {
+    "code": "2609",
+    "name": "陽明",
+    "market": "上市",
+    "close": 63.5,
+    "chgPct": -1.85,
+    "trust10": 9180,
+    "foreign10": 79611,
+    "yoy": 69.9,
+    "ret60": 23.5,
+    "rank": 2
+   },
+   {
+    "code": "2027",
+    "name": "大成鋼",
+    "market": "上市",
+    "close": 51.0,
+    "chgPct": 0.2,
+    "trust10": 8754,
+    "foreign10": 24798,
+    "yoy": 41.1,
+    "ret60": 16.6,
+    "rank": 3
+   },
+   {
+    "code": "2412",
+    "name": "中華電",
+    "market": "上市",
+    "close": 154.5,
+    "chgPct": 0.98,
+    "trust10": 7070,
+    "foreign10": 38377,
+    "yoy": 20.9,
+    "ret60": 11.6,
+    "rank": 4
+   },
+   {
+    "code": "2492",
+    "name": "華新科",
+    "market": "上市",
+    "close": 364.0,
+    "chgPct": -7.85,
+    "trust10": 4913,
+    "foreign10": 1835,
+    "yoy": 53.9,
+    "ret60": 21.3,
+    "rank": 5
+   },
+   {
+    "code": "1326",
+    "name": "台化",
+    "market": "上市",
+    "close": 75.5,
+    "chgPct": -4.07,
+    "trust10": 3732,
+    "foreign10": 37125,
+    "yoy": 44.8,
+    "ret60": 6.9,
+    "rank": 6
+   },
+   {
+    "code": "3034",
+    "name": "聯詠",
+    "market": "上市",
+    "close": 585.0,
+    "chgPct": 1.39,
+    "trust10": 2565,
+    "foreign10": 5854,
+    "yoy": 25.0,
+    "ret60": 16.8,
+    "rank": 7
+   },
+   {
+    "code": "2379",
+    "name": "瑞昱",
+    "market": "上市",
+    "close": 779.0,
+    "chgPct": 0.13,
+    "trust10": 2340,
+    "foreign10": 2223,
+    "yoy": 23.4,
+    "ret60": 4.8,
+    "rank": 8
+   },
+   {
+    "code": "6213",
+    "name": "聯茂",
+    "market": "上市",
+    "close": 767.0,
+    "chgPct": -0.9,
+    "trust10": 2304,
+    "foreign10": 790,
+    "yoy": 110.7,
+    "ret60": 109.0,
+    "rank": 9
+   },
+   {
+    "code": "1815",
+    "name": "富喬",
+    "market": "上櫃",
+    "close": 154.0,
+    "chgPct": 10.0,
+    "trust10": 1947,
+    "foreign10": 46061,
+    "yoy": 82.1,
+    "ret60": 91.3,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "6505",
+    "name": "台塑化",
+    "market": "上市",
+    "close": 116.0,
+    "chgPct": -5.31,
+    "trust10": 77893,
+    "foreign10": -69999,
+    "yoy": 65.6,
+    "ret60": 36.3,
+    "rank": 1
+   },
+   {
+    "code": "1303",
+    "name": "南亞",
+    "market": "上市",
+    "close": 303.5,
+    "chgPct": -1.14,
+    "trust10": 19666,
+    "foreign10": -40753,
+    "yoy": 55.3,
+    "ret60": 45.9,
+    "rank": 2
+   },
+   {
+    "code": "2603",
+    "name": "長榮",
+    "market": "上市",
+    "close": 262.0,
+    "chgPct": -1.32,
+    "trust10": 12585,
+    "foreign10": 24048,
+    "yoy": 65.0,
+    "ret60": 27.2,
+    "rank": 3
+   },
+   {
+    "code": "2313",
+    "name": "華通",
+    "market": "上市",
+    "close": 248.0,
+    "chgPct": 0.0,
+    "trust10": 11659,
+    "foreign10": 33508,
+    "yoy": 15.0,
+    "ret60": 19.2,
+    "rank": 4
+   },
+   {
+    "code": "6548",
+    "name": "長科*",
+    "market": "上櫃",
+    "close": 80.9,
+    "chgPct": -3.0,
+    "trust10": 10470,
+    "foreign10": -10092,
+    "yoy": 42.9,
+    "ret60": 12.7,
+    "rank": 5
+   },
+   {
+    "code": "1101",
+    "name": "台泥",
+    "market": "上市",
+    "close": 27.15,
+    "chgPct": -0.55,
+    "trust10": 9257,
+    "foreign10": 40621,
+    "yoy": 7.6,
+    "ret60": 13.8,
+    "rank": 6
+   },
+   {
+    "code": "2609",
+    "name": "陽明",
+    "market": "上市",
+    "close": 63.5,
+    "chgPct": -1.85,
+    "trust10": 9180,
+    "foreign10": 79611,
+    "yoy": 69.9,
+    "ret60": 23.5,
+    "rank": 7
+   },
+   {
+    "code": "2412",
+    "name": "中華電",
+    "market": "上市",
+    "close": 154.5,
+    "chgPct": 0.98,
+    "trust10": 7070,
+    "foreign10": 38377,
+    "yoy": 20.9,
+    "ret60": 11.6,
+    "rank": 8
+   },
+   {
+    "code": "6274",
+    "name": "台燿",
+    "market": "上櫃",
+    "close": 1630.0,
+    "chgPct": 0.93,
+    "trust10": 6060,
+    "foreign10": -2250,
+    "yoy": 114.8,
+    "ret60": 20.3,
+    "rank": 9
+   },
+   {
+    "code": "2492",
+    "name": "華新科",
+    "market": "上市",
+    "close": 364.0,
+    "chgPct": -7.85,
+    "trust10": 4913,
+    "foreign10": 1835,
+    "yoy": 53.9,
+    "ret60": 21.3,
+    "rank": 10
+   }
+  ]
+ }
 }
