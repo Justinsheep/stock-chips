@@ -111,7 +111,7 @@ footer ol { padding-left: 20px; }
     <h1>籌碼選股</h1>
     <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
     <nav>
-      <a href="#trustrev">今日名單</a><a href="#alt">候選名單</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+      <a href="#trustrev">今日名單</a><a href="#alt">候選名單</a><a href="#monthly">月報</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
     </nav>
     <div class="indices" id="indices"></div>
     <div id="weak"></div>
@@ -140,6 +140,13 @@ footer ol { padding-left: 20px; }
     <h3 style="font-size:16px;margin:20px 0 8px">三條比較(每 20 日扣成本後比 0050 多)</h3>
     <div class="tablewrap"><table id="altcmp"></table></div>
     <p class="meta" id="altcmpmeta" style="margin-top:8px"></p>
+  </section>
+
+  <section id="monthly">
+    <h2>上線績效月報</h2>
+    <p class="meta">依選股月份統計:每天名單上的每一檔,隔天開盤買、持有 20 個交易日的報酬(已扣成本 0.585%),以及比同期 0050 多或少多少。要滿 20 個交易日才會列入,所以最近一個月還不會出現。標「回補」的是上線前用同一套規則補算的,標「上線」的才是上線後的實際紀錄。</p>
+    <div class="tablewrap"><table id="monthtable"></table></div>
+    <p class="meta" id="monthmeta" style="margin-top:8px"></p>
   </section>
 
   <section id="exits">
@@ -443,6 +450,17 @@ const ALT_INFO = {
           desc: "條件:單月營收創 12 個月新高、5 日 > 20 日 > 60 日均線;依投信 10 日買超取前 10 檔。" },
 };
 
+function renderMonthly() {
+  const M = DATA.perf && DATA.perf.monthly;
+  const names = { trustRev: "今日名單", alt1: "候選第 1 名", alt3: "候選第 3 名" };
+  if (!M || !M.rows.length) { $("monthtable").innerHTML = `<tr><td>還沒有滿 20 個交易日的紀錄</td></tr>`; return; }
+  $("monthtable").innerHTML = `<tr><th>選股月份</th><th style="text-align:left">名單</th><th>狀態</th><th>筆數</th><th>平均報酬</th><th>比 0050</th><th>賺錢比例</th></tr>` +
+    M.rows.slice().reverse().map((r) => `<tr><td>${r.month}</td><td style="text-align:left">${names[r.list] || r.list}</td>
+      <td>${r.live ? `<span class="tag">上線</span>` : `<span class="code">回補</span>`}</td><td>${fmt(r.n)}</td>
+      <td class="${cls(r.ret)}">${pct(r.ret)}</td><td class="${cls(r.excess)}">${pct(r.excess)}</td><td>${r.win}%</td></tr>`).join("");
+  $("monthmeta").textContent = `上線日:今日名單 ${M.goLive.trustRev}、候選名單 ${M.goLive.alt1}。回測參考(每 20 日比 0050,已扣成本):今日名單 2018～2026 平均 +0.86%(含股利),但 9 年中 4 年輸 0050;候選第 1、3 名 2020～2026 約 +1.0%。單月結果起伏很大,要看多個月的累積才有意義。`;
+}
+
 function renderAlt() {
   const doc = dayDoc(), info = ALT_INFO[state.altSel];
   $("altdesc").textContent = info.desc;
@@ -547,6 +565,7 @@ function init() {
   if (DATA.levels) seg($("dtlvside"), [["long", "做多"], ["short", "做空"]], "dtLvSide", renderDtLevels);
   renderTrustRev();
   renderAlt();
+  renderMonthly();
   renderExits();
   renderDayTrade();
   renderForeignON();

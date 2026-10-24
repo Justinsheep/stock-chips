@@ -156,6 +156,20 @@ def compute():
             "n": len(v), "from": v[0][0], "to": v[-1][0], "ret": round(sum(x[1] for x in v) / len(v), 2),
             "excess": round(sum(x[2] for x in v) / len(v), 2), "win": round(sum(1 for x in v if x[1] > 0) / len(v) * 100, 1)}
 
+    # 月報:依選股月份統計已滿 20 日的筆數、扣成本報酬、比 0050;上線前的月份是回補
+    from .strategy import TR_GO_LIVE
+    monthly_vals = {}
+    for date, res in tr_days.items():
+        for e in res.values():
+            if e.get("r20") is not None and e.get("x20") is not None:
+                monthly_vals.setdefault(("trustRev", date[:7], date >= TR_GO_LIVE), []).append((e["r20"] - 0.585, e["x20"] - 0.585))
+    for (k, s), vals in alt_vals.items():
+        for date, r, x in vals:
+            monthly_vals.setdefault((k, date[:7], s == "live"), []).append((r, x))
+    monthly = [{"list": k, "month": m, "live": live, "n": len(v), "ret": round(sum(r for r, _ in v) / len(v), 2),
+                "excess": round(sum(x for _, x in v) / len(v), 2), "win": round(sum(1 for r, _ in v if r > 0) / len(v) * 100, 1)}
+               for (k, m, live), v in sorted(monthly_vals.items(), key=lambda kv: (kv[0][1], kv[0][0]))]
+
     summary = {}
     for mk in ("全部", "上市", "上櫃"):
         summary[mk] = {}
@@ -181,6 +195,7 @@ def compute():
         "exitCompare": exits.compare_rules(),
         "trustRev": {"horizons": list(tr_hz), "summary": tr_summary, "days": tr_days},
         "alt": {"goLive": ALT_GO_LIVE, "summary": alt_summary, "days": alt_days},
+        "monthly": {"goLive": {"trustRev": TR_GO_LIVE, "alt1": ALT_GO_LIVE, "alt3": ALT_GO_LIVE}, "rows": monthly},
         "foreignON": {"goLive": FO_GO_LIVE, "cost": fo_cost, "summary": fo_summary, "days": fo_days},
     }
     _write_json(PERF_PATH, doc)

@@ -98,6 +98,7 @@ ALT_LISTS = {
     "alt3": "單月營收新高＋均線多頭",
 }
 ALT_GO_LIVE = "2026-10-22"
+TR_GO_LIVE = "2026-10-20"   # 今日名單(投信＋營收)上線日,之前的是回補
 
 
 def alt_picks(d0, hist, names, revenue=None):
