@@ -154,5 +154,78 @@ def explore():
         print(" ", s)
 
 
+def _test(xs, step):
+    t = tstat_step(xs, step)
+    return {"excess": round(_mean(xs) or 0, 2), "t": round(t, 2), "p": round(0.5 * math.erfc(t / math.sqrt(2)), 4)}
+
+
+def _holm(res, names, key="excess"):
+    alive = True
+    for i, k in enumerate(sorted(names, key=lambda k: res[k]["p"])):
+        alive = alive and res[k]["p"] <= 0.05 / (len(names) - i)
+        res[k]["pass"] = bool(alive and res[k][key] > 0)
+
+
+def holdout():
+    from . import study16 as S16
+    from . import study17 as S17
+    frozen = json.load(open(FROZEN, encoding="utf-8"))
+    only = {f["rule"] for f in frozen} | {MAIN, ALT1, ALT3}
+    dates, series, _, rows = collect(HOLDOUT, only=only)
+    yearly = lambda xs: {y: round(_mean(x for d, x in zip(dates, xs) if d[:4] == y) or 0, 2) for y in sorted({d[:4] for d in dates})}
+    res = {"from": dates[0], "to": dates[-1], "days": len(dates)}
+
+    # 甲 1:主名單、第 1、3 名(持有 20 日)
+    a1 = {}
+    for name, key in (("主名單", MAIN), ("第1名", ALT1), ("第3名", ALT3)):
+        xs = series[key][20]
+        a1[name] = {**_test(xs, 20), "byYear": yearly(xs)}
+    _holm(a1, list(a1))
+    res["甲1"] = a1
+
+    # 甲 2:B11、K3 與主名單之差
+    base = [None if (p := S16.port(r)) is None or (b := S16.bench(r)) is None else p - b for r in rows]
+    a2 = {}
+    k3 = [None if (p := S17.ret_of(S17.capped(r, 3))) is None or (b := S16.bench(r)) is None else p - b for r in rows]
+    diff = [None if x is None or y is None else x - y for x, y in zip(k3, base)]
+    a2["K3"] = {**_test(diff, 20), "level": round(_mean(k3) or 0, 2)}
+    months = {}
+    for i, r in enumerate(rows):
+        months.setdefault(r["d"][:7], []).append(i)
+    bd, lv = [], []
+    for m, ids in sorted(months.items()):
+        pick = next((i for i in ids if int(rows[i]["d"][8:]) >= 11), None)
+        allm = _mean(base[i] for i in ids)
+        if pick is not None and base[pick] is not None and allm is not None:
+            bd.append(base[pick] - allm)
+            lv.append(base[pick])
+    a2["B11"] = {**_test(bd, 1), "level": round(_mean(lv) or 0, 2), "months": len(bd)}
+    _holm(a2, ["K3", "B11"])
+    res["甲2"] = a2
+
+    # 甲 3:10 萬元每 20 天買一次、一半 0050
+    sim = {}
+    for mode in ("base", "H1"):
+        runs = [S16.simulate(rows, 1, o, mode) for o in range(20)]
+        f = sorted(x for x, _ in runs)
+        m = sorted(y for _, y in runs)
+        sim[mode] = {"median": round(f[10]), "worst": round(f[0]), "best": round(f[-1]), "mddMedian": round(m[10] * 100, 1), "mddWorst": round(m[0] * 100, 1)}
+    bh = sorted(S16.bench_hold(rows, o) for o in range(20))
+    sim["0050"] = {"median": round(bh[10]), "worst": round(bh[0]), "best": round(bh[-1])}
+    res["甲3"] = sim
+
+    # 乙:凍結的 10 條
+    b = {}
+    for f in frozen:
+        name = f"{f['rule']}|H{f['H']}"
+        xs = series[f["rule"]][f["H"]]
+        b[name] = {**_test(xs, f["H"]), "explore": f["excess"], "byYear": yearly(xs)}
+    _holm(b, list(b))
+    res["乙"] = b
+    with open(OUT, "w", encoding="utf-8") as fp:
+        json.dump(res, fp, ensure_ascii=False, indent=1)
+    print(json.dumps(res, ensure_ascii=False, indent=1))
+
+
 if __name__ == "__main__":
-    {"explore": explore}[sys.argv[1]]()
+    {"explore": explore, "holdout": holdout}[sys.argv[1]]()

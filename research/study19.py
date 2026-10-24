@@ -56,7 +56,8 @@ def backtest(px, rule, start):
         d, o, c, dv = px[t]
         if str(d) < start:
             continue
-        want = 1 if rule is None else (1 if signal(closes, t - 1, rule) else 0)
+        sig = None if rule is None else signal(closes, t - 1, rule)
+        want = 0 if sig is False else 1   # 均線天數不足時視同一直持有
         r_night = (o + dv) / closes[t - 1] - 1 if pos else 0.0
         cost = 0.0
         if want != pos:
