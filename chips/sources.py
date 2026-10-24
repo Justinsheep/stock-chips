@@ -109,8 +109,12 @@ def twse_inst(d):
               f"twse_t86_{d:%Y%m%d}.json", d)
     if not j:
         return None
-    return {r[0].strip(): {"name": r[1].strip(), "foreign": num(r[4]) + num(r[7]), "trust": num(r[10]),
-                           "dealer": num(r[11]), "total": num(r[18])} for r in j["data"]}
+    if len(j["fields"]) >= 19:
+        return {r[0].strip(): {"name": r[1].strip(), "foreign": num(r[4]) + num(r[7]), "trust": num(r[10]),
+                               "dealer": num(r[11]), "total": num(r[18])} for r in j["data"]}
+    total = len(j["fields"]) - 1   # 2017-12 以前:12 欄(2014-11 前)或 16 欄,外資不分自營商
+    return {r[0].strip(): {"name": r[1].strip(), "foreign": num(r[4]), "trust": num(r[7]),
+                           "dealer": num(r[8]), "total": num(r[total])} for r in j["data"]}
 
 
 def tpex_inst(d):
