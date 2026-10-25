@@ -111,11 +111,23 @@ footer ol { padding-left: 20px; }
     <h1>籌碼選股</h1>
     <p class="sub" id="subtitle">每個交易日盤後依三大法人、千張大戶與融資變化計分,上市、上櫃各選 20 檔。</p>
     <nav>
-      <a href="#trustrev">今日名單</a><a href="#alt">候選名單</a><a href="#monthly">月報</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
+      <a href="#plan">操作助手</a><a href="#trustrev">今日名單</a><a href="#alt">候選名單</a><a href="#monthly">月報</a><a href="#exits">我的持股</a><a href="#daytrade">當沖</a><a href="#foreignon">隔日沖觀察</a><a href="#summary">研究總結</a><a href="#method">說明</a><a href="#sources">資料來源</a><a href="#disclaimer">免責聲明</a>
     </nav>
     <div class="indices" id="indices"></div>
     <div id="weak"></div>
   </header>
+
+  <section id="plan">
+    <h2>操作助手</h2>
+    <p class="meta">照回測的做法:每 20 個交易日換一次股,換股日早上 9:10 用零股賣掉手上這一輪的股票、買進前一晚「今日名單」的 10 檔,每檔金額相同。輸入總資金和你第一次換股的日期,這裡會算出下一個換股日和每檔建議股數。設定只存在這台裝置的瀏覽器。依規則計算,不是買賣建議。</p>
+    <div class="toolbar">
+      <label class="meta">總資金(元) <input id="capital" type="number" min="0" step="1000" inputmode="numeric" placeholder="例如 100000" style="width:130px"></label>
+      <label class="meta">第一次換股日 <input id="cyclestart" type="date"></label>
+    </div>
+    <div id="plannext"></div>
+    <div class="tablewrap"><table id="plantable"></table></div>
+    <p class="meta" id="planmeta" style="margin-top:8px"></p>
+  </section>
 
   <section id="trustrev">
     <h2>投信買超＋營收動能 <span class="tag" style="vertical-align:middle">近一年通過</span> <span class="tag" style="vertical-align:middle;background:var(--warn-bg);color:var(--warn-text)">長期不穩定</span></h2>
@@ -175,6 +187,27 @@ footer ol { padding-left: 20px; }
     <div class="tablewrap"><table id="fotable"></table></div>
     <h3 style="font-size:16px;margin:20px 0 8px">追蹤成績(每筆已扣成本)</h3>
     <div class="tablewrap"><table id="fotrack"></table></div>
+  </section>
+
+  <section id="summary">
+    <h2>研究總結</h2>
+    <p class="meta">2026/10 完成的回測整理(完整紀錄在 GitHub 的 research/RESEARCH.md)。所有規則都先登記、再分段驗證,結果照實列出。</p>
+    <h3 style="font-size:16px;margin:12px 0 6px">今日名單(投信買超＋營收動能)</h3>
+    <div class="tablewrap"><table>
+      <tr><th style="text-align:left">期間</th><th>每 20 日比 0050 多(扣成本、含股利)</th><th style="text-align:left">說明</th></tr>
+      <tr><td style="text-align:left">2025/10～2026/10</td><td class="up">三段都贏</td><td style="text-align:left">事先登記、三段驗證通過</td></tr>
+      <tr><td style="text-align:left">2018/7～2026/9</td><td class="up">+0.86%</td><td style="text-align:left">9 年中 4 年輸 0050(2018、2019、2022、2024)</td></tr>
+      <tr><td style="text-align:left">2013/7～2017/12</td><td class="up">+0.18%</td><td style="text-align:left">從未用來找規則的資料;方向為正但不顯著</td></tr>
+    </table></div>
+    <ul class="prose">
+      <li><b>10 萬元每 20 天換一次股(2018/7～2026/9)</b>:中位數約 117 萬,0050 買進持有約 60 萬;但依開始日不同,結果在 55 萬～222 萬之間。中途最大虧損約 −41%,最差 −51%。</li>
+      <li><b>買賣時間</b>:9:10 盤中零股和整股開盤價幾乎一樣,不吃虧。每次投入每檔至少幾千元,最低手續費的影響才會小。</li>
+      <li><b>測過但沒有比較好的改法</b>:停損、提早出場(投信轉賣、跌破均線、營收轉弱)、持有 10／30／40／60 日、只買前 5 或 15 檔、排除近期漲多、限制同產業、每月固定日買、加本益比／殖利率條件、只選大型股、多因子打分、大盤轉弱改買 0050。</li>
+      <li><b>降低虧損唯一有效的</b>:一半今日名單、一半 0050,最差回落從 −51% 降到 −42%,但報酬少約四成(未通過登記標準)。</li>
+      <li><b>0050 本身</b>:2013～2026 一直持有年化約 20%,最大回落 −34%;用均線決定進出都讓報酬變差。</li>
+      <li><b>候選名單、新找的規則</b>:「營收動能＋法人買超／股價趨勢」這一類在 2013～2017 新資料上 13 條全部贏 0050,但每條優勢小(每 20 日約 +0.2%～0.8%),都沒通過多重比較校正。</li>
+      <li><b>短線(當沖、隔日沖、5 日)</b>:測過約 75 種,扣成本後都沒有贏過 0050。</li>
+    </ul>
   </section>
 
   <section id="method">
@@ -239,13 +272,69 @@ const cls = (n) => n > 0 ? "up" : n < 0 ? "down" : "";
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const WD = "日一二三四五六";
 const state = { date: null, trSort: "trust", dtSide: "long", dtLvSide: "long", altSel: "alt1" };
-const HOLD_KEY = "holdings";
+const HOLD_KEY = "holdings", CAP_KEY = "capital", CYC_KEY = "cycleStart";
 let holdings = [];
 let storageBlocked = false;   // 無痕模式或內嵌頁面可能禁止儲存:持股只在這次瀏覽有效
 try { holdings = JSON.parse(localStorage.getItem(HOLD_KEY)) || []; } catch (e) { storageBlocked = true; }
 function saveHoldings() {
   try { localStorage.setItem(HOLD_KEY, JSON.stringify(holdings)); }
   catch (e) { storageBlocked = true; }
+}
+
+function getPref(k) { try { return localStorage.getItem(k) || ""; } catch (e) { return ""; } }
+function setPref(k, v) { try { localStorage.setItem(k, v); } catch (e) { storageBlocked = true; } }
+
+// 交易日:網站已有的日期(名單與持股追蹤的行情);之後的日子只知道週末休市,國定假日要順延
+function knownTradingDays() {
+  const s = new Set(DATA.days.map((d) => d.date));
+  for (const ser of Object.values(DATA.series || {})) for (const r of ser.rows) s.add(r[0]);
+  return [...s].sort();
+}
+function nextWeekday(ds) {
+  const d = new Date(ds + "T00:00:00");
+  do { d.setDate(d.getDate() + 1); } while (d.getDay() === 0 || d.getDay() === 6);
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+function nextCycle(start) {
+  // 從第一次換股日一天一天往後數交易日,每 20 個是一個換股日;網站沒有的日期(太早或未來)用週一到週五估算
+  const known = knownTradingDays(), latest = DATA.days[0].date, first = known[0], lastKnown = known[known.length - 1];
+  const tomorrow = known.find((d) => d > latest) || nextWeekday(latest);
+  const step = (d) => (d >= first && d < lastKnown) ? known.find((k) => k > d) : nextWeekday(d);
+  let cur = start, n = 0, approx = start < first, left = null;
+  while (cur < tomorrow || n % 20 !== 0) {
+    if (cur === tomorrow) left = 0;
+    cur = step(cur); n += 1;
+    if (left != null) left += 1;
+    if (cur < first || cur > lastKnown) approx = true;
+    if (n > 5000) break;
+  }
+  if (cur === tomorrow) left = 0;
+  return { date: cur, left, approx: approx || cur > lastKnown };
+}
+
+function renderPlan() {
+  const cap = parseFloat(getPref(CAP_KEY)) || 0, start = getPref(CYC_KEY);
+  $("capital").value = cap || "";
+  $("cyclestart").value = start;
+  const doc = DATA.days[0], list = doc.trustRev || [];
+  const md = (ds) => `${ds.slice(5).replace("-", "/")}(週${WD[new Date(ds + "T00:00:00").getDay()]})`;
+  if (!start) $("plannext").innerHTML = `<p class="meta">設定「第一次換股日」後,會顯示下一個換股日。</p>`;
+  else {
+    const c = nextCycle(start);
+    const soon = c.left === 0;
+    $("plannext").innerHTML = `<div class="${soon ? "weak" : "stat"}" style="margin:8px 0">${soon ? "<b>明天就是換股日</b>:9:10 用零股賣掉這一輪的持股,買進下表 10 檔。"
+      : `下一個換股日:<b>${md(c.date)}</b>${c.left != null ? `,還有 ${c.left} 個交易日` : ""}${c.approx ? "(依週一到週五推算,遇國定假日順延)" : ""}`}</div>`;
+  }
+  if (!list.length) { $("plantable").innerHTML = `<tr><td>今天沒有名單</td></tr>`; $("planmeta").textContent = ""; return; }
+  const per = cap / 10;
+  $("plantable").innerHTML = `<tr><th>#</th><th style="text-align:left">股票(${md(doc.date)} 名單)</th><th>參考價(收盤)</th><th>建議股數</th><th>約需金額</th></tr>` +
+    list.map((x) => {
+      const sh = cap ? Math.floor(per / (x.close * 1.001425)) : null;
+      return `<tr><td>${x.rank}</td><td style="text-align:left"><b>${esc(x.name)}</b> <span class="code">${x.code}</span></td><td>${fmt(x.close, 2)}</td>
+        <td>${sh == null ? "—" : sh > 0 ? fmt(sh) + " 股" : `<span class="meta">買不起 1 股</span>`}</td><td>${sh ? fmt(Math.round(sh * x.close * 1.001425)) : "—"}</td></tr>`;
+    }).join("");
+  $("planmeta").textContent = cap ? `總資金 ${fmt(cap)} 元,每檔約 ${fmt(Math.round(per))} 元。股數用今天收盤價估算,實際以明天 9:10 成交價為準;零股手續費多有最低收費(1～20 元,看券商),每檔金額太小時成本比例會變高。`
+    : "輸入總資金後會算出每檔建議股數。";
 }
 
 function seg(el, opts, key, onChange) {
@@ -563,6 +652,9 @@ function init() {
   seg($("trsort"), [["trust", "依投信買超"], ["chip", "依籌碼分數"]], "trSort", renderTrustRev);
   seg($("dtside"), [["long", "做多 20 檔"], ["short", "做空 20 檔"]], "dtSide", renderDayTrade);
   if (DATA.levels) seg($("dtlvside"), [["long", "做多"], ["short", "做空"]], "dtLvSide", renderDtLevels);
+  $("capital").onchange = (e) => { setPref(CAP_KEY, e.target.value); renderPlan(); };
+  $("cyclestart").onchange = (e) => { setPref(CYC_KEY, e.target.value); renderPlan(); };
+  renderPlan();
   renderTrustRev();
   renderAlt();
   renderMonthly();
