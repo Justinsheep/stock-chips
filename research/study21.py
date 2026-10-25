@@ -63,9 +63,18 @@ def rules():
     return out
 
 
+REAL = False   # 更正版:考慮漲跌停鎖住時無法成交(見 RESEARCH.md 研究二十一更正)
+ONLY = None
+
+
+def limit(d):
+    """漲跌幅限制:2015-06-01 以前 7%,之後 10%;留 0.5% 緩衝判斷是否鎖住。"""
+    return (0.07 if d < "2015-06-01" else 0.10) - 0.005
+
+
 def collect():
     div = DV.load(2013, 2026)
-    R = rules()
+    R = {k: v for k, v in rules().items() if ONLY is None or k in ONLY}
     rows = {}
     for start, end in WINDOWS:
         TY.START, TY.END = start, end
@@ -105,13 +114,16 @@ def collect():
                     return None
                 dv = div.get(code, {}).get(days[t + 1], 0.0)
                 px = y[O] if exit_ == "隔天開盤賣" else y[C]
+                if REAL and exit_ == "隔天開盤賣" and y[O] <= x[C] * (1 - lim):
+                    px = y[C]   # 隔天開在跌停可能賣不掉,改收盤賣
                 return (px + dv) / x[C] - 1
 
             # A 隔日沖:今天收盤買
             sets_on = {"p": {k: set(feats) if f is None else {c for c in feats if f(feats[c])} for k, f in ON_PRICE.items()},
                        "v": {k: set(feats) if f is None else {c for c in feats if f(feats[c])} for k, f in ON_VOL.items()},
                        "c": {k: set(feats) if f is None else {c for c in feats if f(feats[c])} for k, f in CHIPS.items()}}
-            buyable = {c for c in feats if feats[c]["chg"] < 0.095}
+            lim = limit(d) if REAL else 0.095
+            buyable = {c for c in feats if feats[c]["chg"] < lim}
             # B/C 當沖:用前一天特徵＋今天開盤跳空
             dt_pool = {c for c in feats if c in prev and abs(feats[c]["gap"]) <= 0.11}
             sets_dt = {"g": {k: dt_pool if f is None else {c for c in dt_pool if f(feats[c]["gap"])} for k, f in DT_GAP.items()},
@@ -136,9 +148,9 @@ def collect():
                         continue
                     cand = sets_dt["g"][g] & sets_dt["p"][p] & sets_dt["v"][v] & sets_dt["c"][c]
                     if dirn == "做多":
-                        cand = {k for k in cand if feats[k]["gap"] < 0.095}
+                        cand = {k for k in cand if feats[k]["gap"] < lim}
                     else:
-                        cand = {k for k in cand if feats[k]["gap"] > -0.095}
+                        cand = {k for k in cand if feats[k]["gap"] > -lim}
                     rank = (lambda k: (-abs(feats[k]["gap"]), k)) if r == "依跳空幅度" else (lambda k: (-prev[k]["volr"], k))
                     chosen = heapq.nsmallest(TOP, cand, key=rank)
                     rs = []
@@ -147,7 +159,15 @@ def collect():
                         entry = odd.get(k) if fam == "C" else x[O]
                         if not entry or entry <= 0:
                             continue
-                        rs.append(x[C] / entry - 1 if dirn == "做多" else (entry - x[C]) / entry)
+                        out_px = x[C]
+                        if REAL:   # 收盤鎖在對自己不利的停板:當天平不了倉,改隔天開盤出場
+                            pc, nx = yday[k][C], nxt.get(k)
+                            locked = x[C] <= pc * (1 - lim) if dirn == "做多" else x[C] >= pc * (1 + lim)
+                            if locked:
+                                if not nx or nx[O] <= 0:
+                                    continue
+                                out_px = nx[O]
+                        rs.append(out_px / entry - 1 if dirn == "做多" else (entry - out_px) / entry)
                 fam_split = SPLIT[fam]
                 out[key] = None if not rs else [round(sum(rs) / len(rs) * 100, 4), len(rs), ",".join(chosen) if d < fam_split else None]
             rows[d] = out
@@ -256,5 +276,42 @@ def validate():
             print(" ", k, {a: x[a] for a in x if a != "byYear"})
 
 
+def real():
+    """更正版:只重算凍結的規則,探索期與驗證期都列出。"""
+    global REAL, ONLY, ROWS, OUT
+    frozen = json.load(open(FROZEN, encoding="utf-8"))
+    REAL, ONLY = True, {s["rule"] for v in frozen.values() for s in v}
+    ROWS = os.path.join(ROOT, "study21_rows_real.json")
+    collect()
+    data = json.load(open(ROWS, encoding="utf-8"))
+    res = {}
+    for fam, items in frozen.items():
+        out = {}
+        for s in items:
+            key = s["rule"]
+            info = {}
+            for name, a, b in (("explore", START[fam], SPLIT[fam]), ("valid", SPLIT[fam], "9999")):
+                rows = [r for r in data if a <= r["d"] < b]
+                gross = [None if r["x"].get(key) is None else r["x"][key][0] for r in rows]
+                net = [None if g is None else g - COST[fam][0] for g in gross]
+                t, k = _t(net)
+                info[name] = {"net": round(_mean(net) or 0, 3), "netFull": round(_mean(None if g is None else g - COST[fam][1] for g in gross) or 0, 3),
+                              "t": round(t, 2), "p": round(0.5 * math.erfc(t / math.sqrt(2)), 4), "days": k}
+            out[key] = info
+        alive = True
+        for i, key in enumerate(sorted(out, key=lambda k: out[k]["valid"]["p"])):
+            v = out[key]["valid"]
+            alive = alive and v["p"] <= 0.05 / (len(out) - i)
+            v["pass"] = bool(alive and v["net"] > 0)
+            v["passFull"] = bool(v["pass"] and v["netFull"] > 0)
+        res[fam] = out
+    with open(os.path.join(ROOT, "study21_real.json"), "w", encoding="utf-8") as f:
+        json.dump(res, f, ensure_ascii=False, indent=1)
+    for fam, v in res.items():
+        print("==", fam)
+        for k, x in v.items():
+            print(" ", k, x)
+
+
 if __name__ == "__main__":
-    {"collect": collect, "explore": explore, "validate": validate}[sys.argv[1]]()
+    {"collect": collect, "explore": explore, "validate": validate, "real": real}[sys.argv[1]]()
