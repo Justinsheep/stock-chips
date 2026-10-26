@@ -313,5 +313,18 @@ def real():
             print(" ", k, x)
 
 
+def _use_real_all():
+    """研究二十二:全部規則都用更正後成交規則,檔名另存。"""
+    global REAL, ROWS, FROZEN, EXPLORE_OUT, OUT
+    REAL = True
+    ROWS = os.path.join(ROOT, "study22_rows.json")
+    FROZEN = os.path.join(ROOT, "study22_frozen.json")
+    EXPLORE_OUT = os.path.join(ROOT, "study22_explore.json")
+    OUT = os.path.join(ROOT, "study22.json")
+
+
 if __name__ == "__main__":
-    {"collect": collect, "explore": explore, "validate": validate, "real": real}[sys.argv[1]]()
+    cmd = sys.argv[1]
+    if len(sys.argv) > 2 and sys.argv[2] == "s22":
+        _use_real_all()
+    {"collect": collect, "explore": explore, "validate": validate, "real": real}[cmd]()
