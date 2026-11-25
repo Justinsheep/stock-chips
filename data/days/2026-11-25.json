@@ -1,0 +1,2057 @@
+{
+ "date": "2026-11-25",
+ "generatedAt": "2026-11-25T17:09+08:00",
+ "tradingDays": [
+  "2026-11-25",
+  "2026-11-24",
+  "2026-11-23",
+  "2026-11-20",
+  "2026-11-19"
+ ],
+ "tdccWeek": "2026-11-20",
+ "tdccPrevWeek": "2026-11-13",
+ "marginPending": [
+  "上市",
+  "上櫃"
+ ],
+ "universe": {
+  "上市": 412,
+  "上櫃": 136
+ },
+ "indices": {
+  "上市": {
+   "name": "加權指數",
+   "close": 38195.43,
+   "chg": -1926.92,
+   "chgPct": -4.8
+  },
+  "上櫃": {
+   "name": "櫃買指數",
+   "close": 275.97,
+   "chg": -17.26,
+   "chgPct": -5.89
+  }
+ },
+ "weak": {
+  "上市": {
+   "weak": true,
+   "signals": {
+    "indexDrop": true,
+    "fiSell": true,
+    "fewBuyers": false
+   },
+   "indexChgPct": -4.8,
+   "fiAmount": -717.3,
+   "buyRatio": 0.439
+  },
+  "上櫃": {
+   "weak": true,
+   "signals": {
+    "indexDrop": true,
+    "fiSell": true,
+    "fewBuyers": false
+   },
+   "indexChgPct": -5.89,
+   "fiAmount": -17.0,
+   "buyRatio": 0.456
+  }
+ },
+ "weights": {
+  "inst1": 25,
+  "inst5": 25,
+  "streak": 10,
+  "margin": 15,
+  "big": 25
+ },
+ "filters": {
+  "minAvgLots": 1000,
+  "minPrice": 10,
+  "lookback": 5
+ },
+ "picks": [
+  {
+   "code": "2610",
+   "name": "華航",
+   "market": "上市",
+   "close": 22.0,
+   "chgPct": -2.22,
+   "volume": 39477,
+   "avgVol": 51981,
+   "instNet": 12099,
+   "foreignNet": 12063,
+   "trustNet": 238,
+   "dealerNet": -202,
+   "inst5d": 49954,
+   "foreignStreak": 5,
+   "trustStreak": 2,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 28.0,
+    "inst5": 27.8,
+    "streak": 11.6,
+    "margin": 0.0,
+    "big": 25.9
+   },
+   "bigPct": 75.12,
+   "bigChg": 0.76,
+   "score": 93.3,
+   "rank": 1,
+   "tags": [
+    "外資連買5日",
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 12,099 張(外資 +12,063、投信 +238);外資連買 5 日;投信連買 2 日;近 5 日法人累計 +49,954 張;千張大戶持股 75.12%,較前一週增加 0.76 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 22.65
+   }
+  },
+  {
+   "code": "1210",
+   "name": "大成",
+   "market": "上市",
+   "close": 51.9,
+   "chgPct": -0.19,
+   "volume": 1898,
+   "avgVol": 2043,
+   "instNet": 823,
+   "foreignNet": 810,
+   "trustNet": 2,
+   "dealerNet": 11,
+   "inst5d": 2958,
+   "foreignStreak": 2,
+   "trustStreak": 5,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 29.2,
+    "inst5": 29.1,
+    "streak": 11.7,
+    "margin": 0.0,
+    "big": 22.2
+   },
+   "bigPct": 61.32,
+   "bigChg": 0.51,
+   "score": 92.2,
+   "rank": 2,
+   "tags": [
+    "投信連買5日",
+    "大戶增持",
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 823 張(外資 +810、投信 +2);外資連買 2 日;投信連買 5 日;近 5 日法人累計 +2,958 張;千張大戶持股 61.32%,較前一週增加 0.51 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 53.4
+   }
+  },
+  {
+   "code": "1808",
+   "name": "潤隆",
+   "market": "上市",
+   "close": 33.35,
+   "chgPct": -7.49,
+   "volume": 1229,
+   "avgVol": 1460,
+   "instNet": 120,
+   "foreignNet": 114,
+   "trustNet": 0,
+   "dealerNet": 6,
+   "inst5d": 1721,
+   "foreignStreak": 3,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 23.9,
+    "inst5": 28.7,
+    "streak": 9.6,
+    "margin": 0.0,
+    "big": 29.4
+   },
+   "bigPct": 100.0,
+   "bigChg": 20.07,
+   "score": 91.6,
+   "rank": 3,
+   "tags": [
+    "外資連買3日",
+    "大戶增持",
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 120 張(外資 +114、投信 +0);外資連買 3 日;近 5 日法人累計 +1,721 張;千張大戶持股 100.00%,較前一週增加 20.07 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 34.35
+   }
+  },
+  {
+   "code": "8996",
+   "name": "高力",
+   "market": "上市",
+   "close": 870.0,
+   "chgPct": -7.74,
+   "volume": 1140,
+   "avgVol": 1832,
+   "instNet": 324,
+   "foreignNet": 329,
+   "trustNet": 7,
+   "dealerNet": -12,
+   "inst5d": 558,
+   "foreignStreak": 1,
+   "trustStreak": 1,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 27.3,
+    "inst5": 22.3,
+    "streak": 9.0,
+    "margin": 0.0,
+    "big": 29.4
+   },
+   "bigPct": 31.85,
+   "bigChg": 2.66,
+   "score": 88.0,
+   "rank": 4,
+   "tags": [
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 324 張(外資 +329、投信 +7);近 5 日法人累計 +558 張;千張大戶持股 31.85%,較前一週增加 2.66 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 896
+   }
+  },
+  {
+   "code": "2597",
+   "name": "潤弘",
+   "market": "上市",
+   "close": 193.0,
+   "chgPct": 0.52,
+   "volume": 1411,
+   "avgVol": 1189,
+   "instNet": 740,
+   "foreignNet": 758,
+   "trustNet": 1,
+   "dealerNet": -19,
+   "inst5d": 2869,
+   "foreignStreak": 5,
+   "trustStreak": 4,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 29.4,
+    "inst5": 29.4,
+    "streak": 11.8,
+    "margin": 0.0,
+    "big": 16.0
+   },
+   "bigPct": 78.16,
+   "bigChg": 0.09,
+   "score": 86.6,
+   "rank": 5,
+   "tags": [
+    "投信連買4日",
+    "外資連買5日",
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 740 張(外資 +758、投信 +1);外資連買 5 日;投信連買 4 日;近 5 日法人累計 +2,869 張;千張大戶持股 78.16%,較前一週增加 0.09 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 198.5
+   }
+  },
+  {
+   "code": "9933",
+   "name": "中鼎",
+   "market": "上市",
+   "close": 52.5,
+   "chgPct": -2.78,
+   "volume": 21080,
+   "avgVol": 28421,
+   "instNet": 3045,
+   "foreignNet": 3093,
+   "trustNet": 1,
+   "dealerNet": -49,
+   "inst5d": 6110,
+   "foreignStreak": 1,
+   "trustStreak": 4,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 25.0,
+    "inst5": 20.5,
+    "streak": 11.2,
+    "margin": 0.0,
+    "big": 29.4
+   },
+   "bigPct": 62.1,
+   "bigChg": 1.74,
+   "score": 86.1,
+   "rank": 6,
+   "tags": [
+    "投信連買4日",
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 3,045 張(外資 +3,093、投信 +1);投信連買 4 日;近 5 日法人累計 +6,110 張;千張大戶持股 62.10%,較前一週增加 1.74 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 54.0
+   }
+  },
+  {
+   "code": "2442",
+   "name": "新美齊",
+   "market": "上市",
+   "close": 10.95,
+   "chgPct": -2.67,
+   "volume": 728,
+   "avgVol": 1249,
+   "instNet": 125,
+   "foreignNet": 63,
+   "trustNet": 0,
+   "dealerNet": 62,
+   "inst5d": 950,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 24.7,
+    "inst5": 26.8,
+    "streak": 10.7,
+    "margin": 0.0,
+    "big": 23.8
+   },
+   "bigPct": 49.35,
+   "bigChg": 0.62,
+   "score": 86.0,
+   "rank": 7,
+   "tags": [
+    "外資連買5日",
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 125 張(外資 +63、投信 +0);外資連買 5 日;近 5 日法人累計 +950 張;千張大戶持股 49.35%,較前一週增加 0.62 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 11.25
+   }
+  },
+  {
+   "code": "7780",
+   "name": "大研生醫*",
+   "market": "上市",
+   "close": 13.85,
+   "chgPct": -1.77,
+   "volume": 936,
+   "avgVol": 1076,
+   "instNet": 282,
+   "foreignNet": 231,
+   "trustNet": 0,
+   "dealerNet": 51,
+   "inst5d": 1300,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 28.5,
+    "inst5": 28.8,
+    "streak": 10.7,
+    "margin": 0.0,
+    "big": 16.9
+   },
+   "bigPct": 73.84,
+   "bigChg": 0.15,
+   "score": 84.9,
+   "rank": 8,
+   "tags": [
+    "外資連買5日",
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 282 張(外資 +231、投信 +0);外資連買 5 日;近 5 日法人累計 +1,300 張;千張大戶持股 73.84%,較前一週增加 0.15 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 14.25
+   }
+  },
+  {
+   "code": "6108",
+   "name": "競國",
+   "market": "上市",
+   "close": 31.45,
+   "chgPct": -7.91,
+   "volume": 4851,
+   "avgVol": 2612,
+   "instNet": 797,
+   "foreignNet": 797,
+   "trustNet": 0,
+   "dealerNet": 0,
+   "inst5d": 271,
+   "foreignStreak": 2,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 28.8,
+    "inst5": 18.3,
+    "streak": 8.3,
+    "margin": 0.0,
+    "big": 29.4
+   },
+   "bigPct": 56.43,
+   "bigChg": 4.04,
+   "score": 84.8,
+   "rank": 9,
+   "tags": [
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 797 張(外資 +797、投信 +0);外資連買 2 日;近 5 日法人累計 +271 張;千張大戶持股 56.43%,較前一週增加 4.04 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 32.35
+   }
+  },
+  {
+   "code": "9939",
+   "name": "宏全",
+   "market": "上市",
+   "close": 119.5,
+   "chgPct": 0.42,
+   "volume": 1360,
+   "avgVol": 2015,
+   "instNet": 584,
+   "foreignNet": 612,
+   "trustNet": 0,
+   "dealerNet": -28,
+   "inst5d": 2439,
+   "foreignStreak": 3,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 28.7,
+    "inst5": 28.9,
+    "streak": 9.6,
+    "margin": 0.0,
+    "big": 17.1
+   },
+   "bigPct": 51.01,
+   "bigChg": 0.16,
+   "score": 84.3,
+   "rank": 10,
+   "tags": [
+    "外資連買3日",
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 584 張(外資 +612、投信 +0);外資連買 3 日;近 5 日法人累計 +2,439 張;千張大戶持股 51.01%,較前一週增加 0.16 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 123.0
+   }
+  },
+  {
+   "code": "9945",
+   "name": "潤泰新",
+   "market": "上市",
+   "close": 25.8,
+   "chgPct": -3.37,
+   "volume": 7509,
+   "avgVol": 7385,
+   "instNet": 1715,
+   "foreignNet": 2245,
+   "trustNet": 0,
+   "dealerNet": -530,
+   "inst5d": 7098,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 27.9,
+    "inst5": 27.9,
+    "streak": 10.7,
+    "margin": 0.0,
+    "big": 17.2
+   },
+   "bigPct": 62.4,
+   "bigChg": 0.17,
+   "score": 83.7,
+   "rank": 11,
+   "tags": [
+    "外資連買5日"
+   ],
+   "reason": "三大法人買超 1,715 張(外資 +2,245、投信 +0);外資連買 5 日;近 5 日法人累計 +7,098 張;千張大戶持股 62.40%,較前一週增加 0.17 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 26.55
+   }
+  },
+  {
+   "code": "2427",
+   "name": "三商電",
+   "market": "上市",
+   "close": 17.25,
+   "chgPct": -2.27,
+   "volume": 823,
+   "avgVol": 1001,
+   "instNet": 170,
+   "foreignNet": 175,
+   "trustNet": 0,
+   "dealerNet": -5,
+   "inst5d": 723,
+   "foreignStreak": 1,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 27.1,
+    "inst5": 26.5,
+    "streak": 5.0,
+    "margin": 0.0,
+    "big": 24.0
+   },
+   "bigPct": 50.38,
+   "bigChg": 0.63,
+   "score": 82.6,
+   "rank": 12,
+   "tags": [
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 170 張(外資 +175、投信 +0);近 5 日法人累計 +723 張;千張大戶持股 50.38%,較前一週增加 0.63 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 17.75
+   }
+  },
+  {
+   "code": "2851",
+   "name": "中再保",
+   "market": "上市",
+   "close": 40.95,
+   "chgPct": -4.21,
+   "volume": 2187,
+   "avgVol": 2606,
+   "instNet": 466,
+   "foreignNet": 556,
+   "trustNet": -19,
+   "dealerNet": -71,
+   "inst5d": 2345,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 27.3,
+    "inst5": 27.7,
+    "streak": 10.7,
+    "margin": 0.0,
+    "big": 16.9
+   },
+   "bigPct": 66.87,
+   "bigChg": 0.15,
+   "score": 82.6,
+   "rank": 13,
+   "tags": [
+    "外資連買5日"
+   ],
+   "reason": "三大法人買超 466 張(外資 +556、投信 -19);外資連買 5 日;近 5 日法人累計 +2,345 張;千張大戶持股 66.87%,較前一週增加 0.15 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 42.15
+   }
+  },
+  {
+   "code": "1229",
+   "name": "聯華",
+   "market": "上市",
+   "close": 39.85,
+   "chgPct": -2.92,
+   "volume": 2705,
+   "avgVol": 3752,
+   "instNet": 322,
+   "foreignNet": 431,
+   "trustNet": -8,
+   "dealerNet": -100,
+   "inst5d": 8323,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 24.0,
+    "inst5": 29.3,
+    "streak": 10.7,
+    "margin": 0.0,
+    "big": 18.4
+   },
+   "bigPct": 63.27,
+   "bigChg": 0.25,
+   "score": 82.4,
+   "rank": 14,
+   "tags": [
+    "外資連買5日",
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 322 張(外資 +431、投信 -8);外資連買 5 日;近 5 日法人累計 +8,323 張;千張大戶持股 63.27%,較前一週增加 0.25 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 41.0
+   }
+  },
+  {
+   "code": "9921",
+   "name": "巨大",
+   "market": "上市",
+   "close": 78.0,
+   "chgPct": -3.7,
+   "volume": 799,
+   "avgVol": 1327,
+   "instNet": 100,
+   "foreignNet": 112,
+   "trustNet": 0,
+   "dealerNet": -12,
+   "inst5d": 855,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 23.5,
+    "inst5": 25.9,
+    "streak": 10.7,
+    "margin": 0.0,
+    "big": 20.6
+   },
+   "bigPct": 58.33,
+   "bigChg": 0.4,
+   "score": 80.7,
+   "rank": 15,
+   "tags": [
+    "外資連買5日"
+   ],
+   "reason": "三大法人買超 100 張(外資 +112、投信 +0);外資連買 5 日;近 5 日法人累計 +855 張;千張大戶持股 58.33%,較前一週增加 0.40 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 80.3
+   }
+  },
+  {
+   "code": "2412",
+   "name": "中華電",
+   "market": "上市",
+   "close": 163.5,
+   "chgPct": -0.61,
+   "volume": 57385,
+   "avgVol": 45074,
+   "instNet": 4963,
+   "foreignNet": -11621,
+   "trustNet": 16345,
+   "dealerNet": 239,
+   "inst5d": 32549,
+   "foreignStreak": 0,
+   "trustStreak": 5,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 25.3,
+    "inst5": 26.5,
+    "streak": 11.4,
+    "margin": 0.0,
+    "big": 16.9
+   },
+   "bigPct": 78.79,
+   "bigChg": 0.15,
+   "score": 80.1,
+   "rank": 16,
+   "tags": [
+    "投信連買5日"
+   ],
+   "reason": "三大法人買超 4,963 張(外資 -11,621、投信 +16,345);投信連買 5 日;近 5 日法人累計 +32,549 張;千張大戶持股 78.79%,較前一週增加 0.15 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 168.0
+   }
+  },
+  {
+   "code": "2501",
+   "name": "國建",
+   "market": "上市",
+   "close": 20.75,
+   "chgPct": -2.35,
+   "volume": 2081,
+   "avgVol": 2576,
+   "instNet": 166,
+   "foreignNet": 327,
+   "trustNet": 0,
+   "dealerNet": -161,
+   "inst5d": 2504,
+   "foreignStreak": 2,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 22.4,
+    "inst5": 28.1,
+    "streak": 8.3,
+    "margin": 0.0,
+    "big": 20.6
+   },
+   "bigPct": 72.61,
+   "bigChg": 0.4,
+   "score": 79.4,
+   "rank": 17,
+   "tags": [],
+   "reason": "三大法人買超 166 張(外資 +327、投信 +0);外資連買 2 日;近 5 日法人累計 +2,504 張;千張大戶持股 72.61%,較前一週增加 0.40 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 21.35
+   }
+  },
+  {
+   "code": "1216",
+   "name": "統一",
+   "market": "上市",
+   "close": 78.7,
+   "chgPct": 1.68,
+   "volume": 34683,
+   "avgVol": 23391,
+   "instNet": 4781,
+   "foreignNet": -1666,
+   "trustNet": 6487,
+   "dealerNet": -40,
+   "inst5d": 12838,
+   "foreignStreak": 0,
+   "trustStreak": 3,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 27.8,
+    "inst5": 24.9,
+    "streak": 10.3,
+    "margin": 0.0,
+    "big": 15.3
+   },
+   "bigPct": 86.89,
+   "bigChg": 0.04,
+   "score": 78.3,
+   "rank": 18,
+   "tags": [
+    "投信連買3日"
+   ],
+   "reason": "三大法人買超 4,781 張(外資 -1,666、投信 +6,487);投信連買 3 日;近 5 日法人累計 +12,838 張;千張大戶持股 86.89%,較前一週增加 0.04 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 81.0
+   }
+  },
+  {
+   "code": "1721",
+   "name": "國慶科技",
+   "market": "上市",
+   "close": 14.05,
+   "chgPct": -6.95,
+   "volume": 681,
+   "avgVol": 1141,
+   "instNet": 300,
+   "foreignNet": 301,
+   "trustNet": 0,
+   "dealerNet": -1,
+   "inst5d": 878,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 28.6,
+    "inst5": 26.9,
+    "streak": 10.7,
+    "margin": 0.0,
+    "big": 11.6
+   },
+   "bigPct": 32.3,
+   "bigChg": -0.21,
+   "score": 77.8,
+   "rank": 19,
+   "tags": [
+    "外資連買5日"
+   ],
+   "reason": "三大法人買超 300 張(外資 +301、投信 +0);外資連買 5 日;近 5 日法人累計 +878 張;千張大戶持股 32.30%,較前一週減少 0.21 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 14.45
+   }
+  },
+  {
+   "code": "2542",
+   "name": "興富發",
+   "market": "上市",
+   "close": 37.25,
+   "chgPct": -3.99,
+   "volume": 4730,
+   "avgVol": 6754,
+   "instNet": 742,
+   "foreignNet": 1181,
+   "trustNet": -418,
+   "dealerNet": -21,
+   "inst5d": 8097,
+   "foreignStreak": 1,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 25.2,
+    "inst5": 28.8,
+    "streak": 5.0,
+    "margin": 0.0,
+    "big": 18.2
+   },
+   "bigPct": 61.92,
+   "bigChg": 0.24,
+   "score": 77.2,
+   "rank": 20,
+   "tags": [
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 742 張(外資 +1,181、投信 -418);近 5 日法人累計 +8,097 張;千張大戶持股 61.92%,較前一週增加 0.24 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 38.35
+   }
+  },
+  {
+   "code": "4105",
+   "name": "東洋",
+   "market": "上櫃",
+   "close": 80.3,
+   "chgPct": -0.99,
+   "volume": 448,
+   "avgVol": 1093,
+   "instNet": 188,
+   "foreignNet": 161,
+   "trustNet": 0,
+   "dealerNet": 27,
+   "inst5d": 770,
+   "foreignStreak": 3,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 27.0,
+    "inst5": 27.0,
+    "streak": 10.3,
+    "margin": 0.0,
+    "big": 28.4
+   },
+   "bigPct": 40.52,
+   "bigChg": 0.93,
+   "score": 92.7,
+   "rank": 1,
+   "tags": [
+    "外資連買3日",
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 188 張(外資 +161、投信 +0);外資連買 3 日;近 5 日法人累計 +770 張;千張大戶持股 40.52%,較前一週增加 0.93 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 82.7
+   }
+  },
+  {
+   "code": "3227",
+   "name": "原相",
+   "market": "上櫃",
+   "close": 178.0,
+   "chgPct": -5.32,
+   "volume": 1296,
+   "avgVol": 1363,
+   "instNet": 186,
+   "foreignNet": 185,
+   "trustNet": -4,
+   "dealerNet": 4,
+   "inst5d": 1031,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 25.1,
+    "inst5": 27.9,
+    "streak": 11.2,
+    "margin": 0.0,
+    "big": 22.6
+   },
+   "bigPct": 25.55,
+   "bigChg": 0.54,
+   "score": 86.8,
+   "rank": 2,
+   "tags": [
+    "外資連買5日",
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 186 張(外資 +185、投信 -4);外資連買 5 日;近 5 日法人累計 +1,031 張;千張大戶持股 25.55%,較前一週增加 0.54 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 183.0
+   }
+  },
+  {
+   "code": "8932",
+   "name": "智通*",
+   "market": "上櫃",
+   "close": 50.7,
+   "chgPct": -3.06,
+   "volume": 4727,
+   "avgVol": 5223,
+   "instNet": 2015,
+   "foreignNet": 2025,
+   "trustNet": 0,
+   "dealerNet": -10,
+   "inst5d": 6433,
+   "foreignStreak": 1,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 29.4,
+    "inst5": 29.2,
+    "streak": 6.7,
+    "margin": 0.0,
+    "big": 20.1
+   },
+   "bigPct": 75.64,
+   "bigChg": 0.37,
+   "score": 85.4,
+   "rank": 3,
+   "tags": [
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 2,015 張(外資 +2,025、投信 +0);近 5 日法人累計 +6,433 張;千張大戶持股 75.64%,較前一週增加 0.37 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 52.2
+   }
+  },
+  {
+   "code": "8415",
+   "name": "大國鋼",
+   "market": "上櫃",
+   "close": 40.65,
+   "chgPct": -3.44,
+   "volume": 3040,
+   "avgVol": 5366,
+   "instNet": 1085,
+   "foreignNet": 1130,
+   "trustNet": 0,
+   "dealerNet": -45,
+   "inst5d": 1999,
+   "foreignStreak": 1,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 27.9,
+    "inst5": 22.7,
+    "streak": 6.7,
+    "margin": 0.0,
+    "big": 24.4
+   },
+   "bigPct": 90.21,
+   "bigChg": 0.66,
+   "score": 81.7,
+   "rank": 4,
+   "tags": [
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 1,085 張(外資 +1,130、投信 +0);近 5 日法人累計 +1,999 張;千張大戶持股 90.21%,較前一週增加 0.66 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 41.85
+   }
+  },
+  {
+   "code": "4123",
+   "name": "晟德",
+   "market": "上櫃",
+   "close": 24.45,
+   "chgPct": -2.59,
+   "volume": 1137,
+   "avgVol": 1809,
+   "instNet": 237,
+   "foreignNet": 158,
+   "trustNet": 0,
+   "dealerNet": 79,
+   "inst5d": 1428,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 24.8,
+    "inst5": 28.1,
+    "streak": 11.2,
+    "margin": 0.0,
+    "big": 17.4
+   },
+   "bigPct": 53.46,
+   "bigChg": 0.18,
+   "score": 81.5,
+   "rank": 5,
+   "tags": [
+    "外資連買5日"
+   ],
+   "reason": "三大法人買超 237 張(外資 +158、投信 +0);外資連買 5 日;近 5 日法人累計 +1,428 張;千張大戶持股 53.46%,較前一週增加 0.18 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 25.15
+   }
+  },
+  {
+   "code": "8299",
+   "name": "群聯",
+   "market": "上櫃",
+   "close": 1485.0,
+   "chgPct": -6.9,
+   "volume": 8130,
+   "avgVol": 5866,
+   "instNet": 163,
+   "foreignNet": -1959,
+   "trustNet": 2451,
+   "dealerNet": -329,
+   "inst5d": 2724,
+   "foreignStreak": 0,
+   "trustStreak": 1,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 18.1,
+    "inst5": 23.7,
+    "streak": 8.7,
+    "margin": 0.0,
+    "big": 29.4
+   },
+   "bigPct": 28.68,
+   "bigChg": 1.48,
+   "score": 79.9,
+   "rank": 6,
+   "tags": [
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 163 張(外資 -1,959、投信 +2,451);近 5 日法人累計 +2,724 張;千張大戶持股 28.68%,較前一週增加 1.48 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 1525
+   }
+  },
+  {
+   "code": "4707",
+   "name": "磐亞",
+   "market": "上櫃",
+   "close": 21.9,
+   "chgPct": -6.81,
+   "volume": 1688,
+   "avgVol": 1673,
+   "instNet": 300,
+   "foreignNet": 286,
+   "trustNet": 0,
+   "dealerNet": 14,
+   "inst5d": 975,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 27.2,
+    "inst5": 25.7,
+    "streak": 11.2,
+    "margin": 0.0,
+    "big": 15.6
+   },
+   "bigPct": 65.78,
+   "bigChg": 0.06,
+   "score": 79.7,
+   "rank": 7,
+   "tags": [
+    "外資連買5日"
+   ],
+   "reason": "三大法人買超 300 張(外資 +286、投信 +0);外資連買 5 日;近 5 日法人累計 +975 張;千張大戶持股 65.78%,較前一週增加 0.06 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 22.55
+   }
+  },
+  {
+   "code": "6547",
+   "name": "高端疫苗",
+   "market": "上櫃",
+   "close": 40.55,
+   "chgPct": -3.11,
+   "volume": 1455,
+   "avgVol": 2342,
+   "instNet": 611,
+   "foreignNet": 577,
+   "trustNet": 0,
+   "dealerNet": 34,
+   "inst5d": 1761,
+   "foreignStreak": 1,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 29.2,
+    "inst5": 27.7,
+    "streak": 6.7,
+    "margin": 0.0,
+    "big": 14.9
+   },
+   "bigPct": 27.55,
+   "bigChg": 0.01,
+   "score": 78.5,
+   "rank": 8,
+   "tags": [],
+   "reason": "三大法人買超 611 張(外資 +577、投信 +0);近 5 日法人累計 +1,761 張;千張大戶持股 27.55%,較前一週增加 0.01 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 41.75
+   }
+  },
+  {
+   "code": "3293",
+   "name": "鈊象",
+   "market": "上櫃",
+   "close": 775.0,
+   "chgPct": -1.4,
+   "volume": 1052,
+   "avgVol": 2073,
+   "instNet": 184,
+   "foreignNet": 199,
+   "trustNet": 31,
+   "dealerNet": -46,
+   "inst5d": 1100,
+   "foreignStreak": 1,
+   "trustStreak": 5,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 22.7,
+    "inst5": 24.6,
+    "streak": 11.7,
+    "margin": 0.0,
+    "big": 18.4
+   },
+   "bigPct": 49.52,
+   "bigChg": 0.25,
+   "score": 77.4,
+   "rank": 9,
+   "tags": [
+    "投信連買5日"
+   ],
+   "reason": "三大法人買超 184 張(外資 +199、投信 +31);投信連買 5 日;近 5 日法人累計 +1,100 張;千張大戶持股 49.52%,較前一週增加 0.25 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 798
+   }
+  },
+  {
+   "code": "5457",
+   "name": "宣德",
+   "market": "上櫃",
+   "close": 25.85,
+   "chgPct": -9.93,
+   "volume": 5966,
+   "avgVol": 5925,
+   "instNet": 1254,
+   "foreignNet": 483,
+   "trustNet": 800,
+   "dealerNet": -29,
+   "inst5d": 1330,
+   "foreignStreak": 1,
+   "trustStreak": 1,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 28.1,
+    "inst5": 19.4,
+    "streak": 9.8,
+    "margin": 0.0,
+    "big": 19.6
+   },
+   "bigPct": 45.53,
+   "bigChg": 0.33,
+   "score": 76.9,
+   "rank": 10,
+   "tags": [],
+   "reason": "三大法人買超 1,254 張(外資 +483、投信 +800);近 5 日法人累計 +1,330 張;千張大戶持股 45.53%,較前一週增加 0.33 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 26.6
+   }
+  },
+  {
+   "code": "3324",
+   "name": "雙鴻",
+   "market": "上櫃",
+   "close": 798.0,
+   "chgPct": -6.56,
+   "volume": 5623,
+   "avgVol": 3282,
+   "instNet": 157,
+   "foreignNet": 161,
+   "trustNet": 0,
+   "dealerNet": -5,
+   "inst5d": 622,
+   "foreignStreak": 1,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 19.8,
+    "inst5": 18.5,
+    "streak": 6.7,
+    "margin": 0.0,
+    "big": 29.4
+   },
+   "bigPct": 38.25,
+   "bigChg": 1.64,
+   "score": 74.4,
+   "rank": 11,
+   "tags": [
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 157 張(外資 +161、投信 +0);近 5 日法人累計 +622 張;千張大戶持股 38.25%,較前一週增加 1.64 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 821
+   }
+  },
+  {
+   "code": "5328",
+   "name": "華容",
+   "market": "上櫃",
+   "close": 30.9,
+   "chgPct": -8.31,
+   "volume": 1736,
+   "avgVol": 1845,
+   "instNet": 14,
+   "foreignNet": 24,
+   "trustNet": 0,
+   "dealerNet": -10,
+   "inst5d": 1807,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 16.3,
+    "inst5": 29.0,
+    "streak": 11.2,
+    "margin": 0.0,
+    "big": 15.7
+   },
+   "bigPct": 36.71,
+   "bigChg": 0.07,
+   "score": 72.2,
+   "rank": 12,
+   "tags": [
+    "外資連買5日"
+   ],
+   "reason": "三大法人買超 14 張(外資 +24、投信 +0);外資連買 5 日;近 5 日法人累計 +1,807 張;千張大戶持股 36.71%,較前一週增加 0.07 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 31.8
+   }
+  },
+  {
+   "code": "2641",
+   "name": "正德",
+   "market": "上櫃",
+   "close": 14.8,
+   "chgPct": -3.58,
+   "volume": 703,
+   "avgVol": 1513,
+   "instNet": 165,
+   "foreignNet": 164,
+   "trustNet": 0,
+   "dealerNet": 1,
+   "inst5d": 420,
+   "foreignStreak": 3,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 23.7,
+    "inst5": 21.1,
+    "streak": 10.3,
+    "margin": 0.0,
+    "big": 16.8
+   },
+   "bigPct": 22.83,
+   "bigChg": 0.14,
+   "score": 71.9,
+   "rank": 13,
+   "tags": [
+    "外資連買3日"
+   ],
+   "reason": "三大法人買超 165 張(外資 +164、投信 +0);外資連買 3 日;近 5 日法人累計 +420 張;千張大戶持股 22.83%,較前一週增加 0.14 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 15.2
+   }
+  },
+  {
+   "code": "3624",
+   "name": "光頡",
+   "market": "上櫃",
+   "close": 88.2,
+   "chgPct": -5.97,
+   "volume": 6054,
+   "avgVol": 3389,
+   "instNet": 351,
+   "foreignNet": 370,
+   "trustNet": 0,
+   "dealerNet": -19,
+   "inst5d": -193,
+   "foreignStreak": 1,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 23.3,
+    "inst5": 11.5,
+    "streak": 6.7,
+    "margin": 0.0,
+    "big": 29.4
+   },
+   "bigPct": 47.93,
+   "bigChg": 1.97,
+   "score": 70.9,
+   "rank": 14,
+   "tags": [
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 351 張(外資 +370、投信 +0);近 5 日法人累計 -193 張;千張大戶持股 47.93%,較前一週增加 1.97 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 90.8
+   }
+  },
+  {
+   "code": "5904",
+   "name": "寶雅*",
+   "market": "上櫃",
+   "close": 68.7,
+   "chgPct": -3.65,
+   "volume": 2418,
+   "avgVol": 4287,
+   "instNet": 264,
+   "foreignNet": 796,
+   "trustNet": -512,
+   "dealerNet": -20,
+   "inst5d": 2256,
+   "foreignStreak": 1,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 20.7,
+    "inst5": 24.4,
+    "streak": 6.7,
+    "margin": 0.0,
+    "big": 19.1
+   },
+   "bigPct": 77.63,
+   "bigChg": 0.3,
+   "score": 70.9,
+   "rank": 15,
+   "tags": [],
+   "reason": "三大法人買超 264 張(外資 +796、投信 -512);近 5 日法人累計 +2,256 張;千張大戶持股 77.63%,較前一週增加 0.30 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 70.7
+   }
+  },
+  {
+   "code": "5464",
+   "name": "霖宏",
+   "market": "上櫃",
+   "close": 30.6,
+   "chgPct": -5.99,
+   "volume": 1284,
+   "avgVol": 1912,
+   "instNet": 220,
+   "foreignNet": 220,
+   "trustNet": 0,
+   "dealerNet": 0,
+   "inst5d": 3719,
+   "foreignStreak": 5,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 24.2,
+    "inst5": 29.4,
+    "streak": 11.2,
+    "margin": 0.0,
+    "big": 5.6
+   },
+   "bigPct": 56.22,
+   "bigChg": -0.62,
+   "score": 70.4,
+   "rank": 16,
+   "tags": [
+    "外資連買5日",
+    "5日買超>均量"
+   ],
+   "reason": "三大法人買超 220 張(外資 +220、投信 +0);外資連買 5 日;近 5 日法人累計 +3,719 張;千張大戶持股 56.22%,較前一週減少 0.62 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 31.5
+   }
+  },
+  {
+   "code": "4541",
+   "name": "晟田",
+   "market": "上櫃",
+   "close": 40.15,
+   "chgPct": -7.7,
+   "volume": 1293,
+   "avgVol": 1577,
+   "instNet": 42,
+   "foreignNet": 16,
+   "trustNet": 0,
+   "dealerNet": 26,
+   "inst5d": 1400,
+   "foreignStreak": 3,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 17.4,
+    "inst5": 28.5,
+    "streak": 10.3,
+    "margin": 0.0,
+    "big": 14.1
+   },
+   "bigPct": 27.06,
+   "bigChg": -0.04,
+   "score": 70.3,
+   "rank": 17,
+   "tags": [
+    "外資連買3日"
+   ],
+   "reason": "三大法人買超 42 張(外資 +16、投信 +0);外資連買 3 日;近 5 日法人累計 +1,400 張;千張大戶持股 27.06%,較前一週減少 0.04 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 41.35
+   }
+  },
+  {
+   "code": "6127",
+   "name": "九豪",
+   "market": "上櫃",
+   "close": 33.2,
+   "chgPct": -8.29,
+   "volume": 1518,
+   "avgVol": 1536,
+   "instNet": 53,
+   "foreignNet": 50,
+   "trustNet": 0,
+   "dealerNet": 3,
+   "inst5d": 963,
+   "foreignStreak": 3,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 19.0,
+    "inst5": 25.9,
+    "streak": 10.3,
+    "margin": 0.0,
+    "big": 14.7
+   },
+   "bigPct": 15.73,
+   "bigChg": 0.0,
+   "score": 69.9,
+   "rank": 18,
+   "tags": [
+    "外資連買3日"
+   ],
+   "reason": "三大法人買超 53 張(外資 +50、投信 +0);外資連買 3 日;近 5 日法人累計 +963 張;千張大戶持股 15.73%,較前一週增加 0.00 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 34.15
+   }
+  },
+  {
+   "code": "8111",
+   "name": "立碁",
+   "market": "上櫃",
+   "close": 56.0,
+   "chgPct": -9.24,
+   "volume": 3090,
+   "avgVol": 2590,
+   "instNet": 387,
+   "foreignNet": 408,
+   "trustNet": 0,
+   "dealerNet": -21,
+   "inst5d": 111,
+   "foreignStreak": 3,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 26.4,
+    "inst5": 14.2,
+    "streak": 10.3,
+    "margin": 0.0,
+    "big": 19.0
+   },
+   "bigPct": 24.35,
+   "bigChg": 0.29,
+   "score": 69.9,
+   "rank": 19,
+   "tags": [
+    "外資連買3日"
+   ],
+   "reason": "三大法人買超 387 張(外資 +408、投信 +0);外資連買 3 日;近 5 日法人累計 +111 張;千張大戶持股 24.35%,較前一週增加 0.29 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 57.6
+   }
+  },
+  {
+   "code": "8099",
+   "name": "大世科",
+   "market": "上櫃",
+   "close": 142.0,
+   "chgPct": -7.79,
+   "volume": 3767,
+   "avgVol": 3774,
+   "instNet": 119,
+   "foreignNet": 128,
+   "trustNet": 0,
+   "dealerNet": -9,
+   "inst5d": 81,
+   "foreignStreak": 3,
+   "trustStreak": 0,
+   "marginChg": null,
+   "wBig": 29.411764705882355,
+   "parts": {
+    "inst1": 18.5,
+    "inst5": 13.9,
+    "streak": 10.3,
+    "margin": 0.0,
+    "big": 26.9
+   },
+   "bigPct": 77.15,
+   "bigChg": 0.83,
+   "score": 69.6,
+   "rank": 20,
+   "tags": [
+    "外資連買3日",
+    "大戶增持"
+   ],
+   "reason": "三大法人買超 119 張(外資 +128、投信 +0);外資連買 3 日;近 5 日法人累計 +81 張;千張大戶持股 77.15%,較前一週增加 0.83 個百分點。",
+   "entryRef": {
+    "rule": "gap",
+    "maxOpen": 146.0
+   }
+  }
+ ],
+ "dayTrade": {
+  "long": [],
+  "short": [],
+  "universe": 0,
+  "pending": [
+   "上市",
+   "上櫃"
+  ]
+ },
+ "trustRev": [
+  {
+   "code": "2027",
+   "name": "大成鋼",
+   "market": "上市",
+   "close": 43.7,
+   "chgPct": -9.24,
+   "trust10": 101986,
+   "foreign10": -124766,
+   "yoy": 44.8,
+   "vol20": 21451,
+   "rank": 1,
+   "reason": "投信近 10 日買超 101,986 張(外資 -124,766 張);月營收 3 個月平均創 12 個月新高,最新月年增 44.8%。",
+   "chip": {
+    "score": 40.4,
+    "parts": {
+     "inst1": 1.1,
+     "inst5": 20.1,
+     "streak": 11.4,
+     "margin": 0.0,
+     "big": 7.8
+    },
+    "tags": [
+     "投信連買5日"
+    ],
+    "instNet": -9293,
+    "bigPct": 74.82,
+    "bigChg": -0.47,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "1326",
+   "name": "台化",
+   "market": "上市",
+   "close": 59.1,
+   "chgPct": -8.09,
+   "trust10": 18136,
+   "foreign10": -23053,
+   "yoy": 61.8,
+   "vol20": 26463,
+   "rank": 2,
+   "reason": "投信近 10 日買超 18,136 張(外資 -23,053 張);月營收 3 個月平均創 12 個月新高,最新月年增 61.8%。",
+   "chip": {
+    "score": 27.8,
+    "parts": {
+     "inst1": 2.2,
+     "inst5": 4.6,
+     "streak": 7.0,
+     "margin": 0.0,
+     "big": 14.0
+    },
+    "tags": [],
+    "instNet": -4774,
+    "bigPct": 81.17,
+    "bigChg": -0.05,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "1303",
+   "name": "南亞",
+   "market": "上市",
+   "close": 226.5,
+   "chgPct": -9.04,
+   "trust10": 15245,
+   "foreign10": -72294,
+   "yoy": 64.6,
+   "vol20": 97951,
+   "rank": 3,
+   "reason": "投信近 10 日買超 15,245 張(外資 -72,294 張);月營收 3 個月平均創 12 個月新高,最新月年增 64.6%。",
+   "chip": {
+    "score": 33.5,
+    "parts": {
+     "inst1": 11.6,
+     "inst5": 9.8,
+     "streak": 7.0,
+     "margin": 0.0,
+     "big": 5.1
+    },
+    "tags": [],
+    "instNet": -3444,
+    "bigPct": 82.61,
+    "bigChg": -0.65,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "6505",
+   "name": "台塑化",
+   "market": "上市",
+   "close": 80.6,
+   "chgPct": 0.37,
+   "trust10": 12821,
+   "foreign10": -7689,
+   "yoy": 76.0,
+   "vol20": 27290,
+   "rank": 4,
+   "reason": "投信近 10 日買超 12,821 張(外資 -7,689 張);月營收 3 個月平均創 12 個月新高,最新月年增 76.0%。",
+   "chip": {
+    "score": 60.2,
+    "parts": {
+     "inst1": 27.0,
+     "inst5": 11.4,
+     "streak": 5.0,
+     "margin": 0.0,
+     "big": 16.8
+    },
+    "tags": [],
+    "instNet": 5648,
+    "bigPct": 96.03,
+    "bigChg": 0.14,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "2330",
+   "name": "台積電",
+   "market": "上市",
+   "close": 2150.0,
+   "chgPct": -3.59,
+   "trust10": 11089,
+   "foreign10": -107705,
+   "yoy": 59.7,
+   "vol20": 50461,
+   "rank": 5,
+   "reason": "投信近 10 日買超 11,089 張(外資 -107,705 張);月營收 3 個月平均創 12 個月新高,最新月年增 59.7%。",
+   "chip": {
+    "score": 28.0,
+    "parts": {
+     "inst1": 0.6,
+     "inst5": 2.8,
+     "streak": 10.3,
+     "margin": 0.0,
+     "big": 14.3
+    },
+    "tags": [
+     "投信連買3日"
+    ],
+    "instNet": -22686,
+    "bigPct": 84.14,
+    "bigChg": -0.03,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "3711",
+   "name": "日月光投控",
+   "market": "上市",
+   "close": 488.0,
+   "chgPct": -7.92,
+   "trust10": 10606,
+   "foreign10": -38420,
+   "yoy": 47.1,
+   "vol20": 27972,
+   "rank": 6,
+   "reason": "投信近 10 日買超 10,606 張(外資 -38,420 張);月營收 3 個月平均創 12 個月新高,最新月年增 47.1%。",
+   "chip": {
+    "score": 39.5,
+    "parts": {
+     "inst1": 14.0,
+     "inst5": 5.7,
+     "streak": 7.0,
+     "margin": 0.0,
+     "big": 12.8
+    },
+    "tags": [],
+    "instNet": -622,
+    "bigPct": 80.81,
+    "bigChg": -0.13,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "3044",
+   "name": "健鼎",
+   "market": "上市",
+   "close": 452.0,
+   "chgPct": -7.09,
+   "trust10": 5208,
+   "foreign10": -9586,
+   "yoy": 70.3,
+   "vol20": 5181,
+   "rank": 7,
+   "reason": "投信近 10 日買超 5,208 張(外資 -9,586 張);月營收 3 個月平均創 12 個月新高,最新月年增 70.3%。",
+   "chip": {
+    "score": 44.8,
+    "parts": {
+     "inst1": 16.0,
+     "inst5": 9.2,
+     "streak": 7.0,
+     "margin": 0.0,
+     "big": 12.6
+    },
+    "tags": [],
+    "instNet": -21,
+    "bigPct": 68.98,
+    "bigChg": -0.14,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "2345",
+   "name": "智邦",
+   "market": "上市",
+   "close": 1475.0,
+   "chgPct": -0.67,
+   "trust10": 4413,
+   "foreign10": -4034,
+   "yoy": 91.2,
+   "vol20": 5232,
+   "rank": 8,
+   "reason": "投信近 10 日買超 4,413 張(外資 -4,034 張);月營收 3 個月平均創 12 個月新高,最新月年增 91.2%。",
+   "chip": {
+    "score": 63.8,
+    "parts": {
+     "inst1": 17.0,
+     "inst5": 16.0,
+     "streak": 7.0,
+     "margin": 0.0,
+     "big": 23.8
+    },
+    "tags": [
+     "大戶增持"
+    ],
+    "instNet": 23,
+    "bigPct": 58.47,
+    "bigChg": 0.62,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "3105",
+   "name": "穩懋",
+   "market": "上櫃",
+   "close": 404.5,
+   "chgPct": -9.91,
+   "trust10": 4378,
+   "foreign10": -5917,
+   "yoy": 31.9,
+   "vol20": 29310,
+   "rank": 9,
+   "reason": "投信近 10 日買超 4,378 張(外資 -5,917 張);月營收 3 個月平均創 12 個月新高,最新月年增 31.9%。",
+   "chip": {
+    "score": 19.4,
+    "parts": {
+     "inst1": 3.3,
+     "inst5": 7.4,
+     "streak": 8.7,
+     "margin": 0.0,
+     "big": 0.0
+    },
+    "tags": [],
+    "instNet": -2973,
+    "bigPct": 54.38,
+    "bigChg": -3.83,
+    "marginChg": null
+   }
+  },
+  {
+   "code": "8069",
+   "name": "元太",
+   "market": "上櫃",
+   "close": 120.5,
+   "chgPct": -6.59,
+   "trust10": 3648,
+   "foreign10": -3298,
+   "yoy": 74.4,
+   "vol20": 9265,
+   "rank": 10,
+   "reason": "投信近 10 日買超 3,648 張(外資 -3,298 張);月營收 3 個月平均創 12 個月新高,最新月年增 74.4%。",
+   "chip": {
+    "score": 53.7,
+    "parts": {
+     "inst1": 21.8,
+     "inst5": 11.1,
+     "streak": 6.7,
+     "margin": 0.0,
+     "big": 14.1
+    },
+    "tags": [],
+    "instNet": 1176,
+    "bigPct": 66.34,
+    "bigChg": -0.04,
+    "marginChg": null
+   }
+  }
+ ],
+ "foreignON": [
+  {
+   "code": "7767",
+   "name": "仁大資訊",
+   "market": "上櫃",
+   "close": 57.8,
+   "chgPct": 9.89,
+   "foreignLots": 400,
+   "foreignPct": 22.1,
+   "surge": 1.58,
+   "rank": 1
+  }
+ ],
+ "alt": {
+  "alt1": [
+   {
+    "code": "2597",
+    "name": "潤弘",
+    "market": "上市",
+    "close": 193.0,
+    "chgPct": 0.52,
+    "trust10": 570,
+    "foreign10": 3694,
+    "yoy": 30.5,
+    "ret60": 12.5,
+    "rank": 1
+   },
+   {
+    "code": "6526",
+    "name": "達發",
+    "market": "上市",
+    "close": 605.0,
+    "chgPct": -9.3,
+    "trust10": 508,
+    "foreign10": 33,
+    "yoy": 56.0,
+    "ret60": 1.7,
+    "rank": 2
+   },
+   {
+    "code": "6782",
+    "name": "視陽",
+    "market": "上市",
+    "close": 292.0,
+    "chgPct": -0.17,
+    "trust10": 439,
+    "foreign10": 934,
+    "yoy": 60.0,
+    "ret60": 18.7,
+    "rank": 3
+   },
+   {
+    "code": "2480",
+    "name": "敦陽科",
+    "market": "上市",
+    "close": 176.5,
+    "chgPct": -2.49,
+    "trust10": 73,
+    "foreign10": 711,
+    "yoy": 69.8,
+    "ret60": 13.1,
+    "rank": 4
+   },
+   {
+    "code": "3715",
+    "name": "定穎投控",
+    "market": "上市",
+    "close": 132.0,
+    "chgPct": -3.3,
+    "trust10": 4,
+    "foreign10": 2679,
+    "yoy": 121.5,
+    "ret60": 15.8,
+    "rank": 5
+   },
+   {
+    "code": "6416",
+    "name": "瑞祺電通",
+    "market": "上市",
+    "close": 104.0,
+    "chgPct": -3.7,
+    "trust10": 2,
+    "foreign10": 134,
+    "yoy": 126.8,
+    "ret60": 3.5,
+    "rank": 6
+   },
+   {
+    "code": "1416",
+    "name": "廣豐",
+    "market": "上市",
+    "close": 14.55,
+    "chgPct": -1.02,
+    "trust10": 0,
+    "foreign10": 1186,
+    "yoy": 45.5,
+    "ret60": 22.3,
+    "rank": 7
+   },
+   {
+    "code": "1569",
+    "name": "濱川",
+    "market": "上櫃",
+    "close": 72.3,
+    "chgPct": 0.0,
+    "trust10": 0,
+    "foreign10": 2825,
+    "yoy": 133.5,
+    "ret60": 61.9,
+    "rank": 8
+   },
+   {
+    "code": "2465",
+    "name": "麗臺",
+    "market": "上市",
+    "close": 112.5,
+    "chgPct": -9.64,
+    "trust10": 0,
+    "foreign10": 4340,
+    "yoy": 340.6,
+    "ret60": 20.2,
+    "rank": 9
+   },
+   {
+    "code": "2468",
+    "name": "華經",
+    "market": "上市",
+    "close": 62.8,
+    "chgPct": -5.42,
+    "trust10": 0,
+    "foreign10": 2064,
+    "yoy": 20.0,
+    "ret60": 82.8,
+    "rank": 10
+   }
+  ],
+  "alt3": [
+   {
+    "code": "6782",
+    "name": "視陽",
+    "market": "上市",
+    "close": 292.0,
+    "chgPct": -0.17,
+    "trust10": 439,
+    "foreign10": 934,
+    "yoy": 60.0,
+    "ret60": 18.7,
+    "rank": 1
+   },
+   {
+    "code": "6108",
+    "name": "競國",
+    "market": "上市",
+    "close": 31.45,
+    "chgPct": -7.91,
+    "trust10": 0,
+    "foreign10": 5845,
+    "yoy": 86.7,
+    "ret60": 38.2,
+    "rank": 2
+   },
+   {
+    "code": "6140",
+    "name": "訊達",
+    "market": "上櫃",
+    "close": 32.7,
+    "chgPct": 9.92,
+    "trust10": 0,
+    "foreign10": 1876,
+    "yoy": 276.3,
+    "ret60": 89.0,
+    "rank": 3
+   },
+   {
+    "code": "8089",
+    "name": "康全電訊",
+    "market": "上櫃",
+    "close": 28.4,
+    "chgPct": -2.74,
+    "trust10": 0,
+    "foreign10": 495,
+    "yoy": 87.5,
+    "ret60": 58.2,
+    "rank": 4
+   },
+   {
+    "code": "8415",
+    "name": "大國鋼",
+    "market": "上櫃",
+    "close": 40.65,
+    "chgPct": -3.44,
+    "trust10": 0,
+    "foreign10": 1947,
+    "yoy": 43.8,
+    "ret60": 7.8,
+    "rank": 5
+   }
+  ]
+ }
+}
